@@ -150,6 +150,7 @@ def consts(dna, pos):
 def matchreplace(dna, pat, t, i):
     e = []
     c = []
+    oldi = i
     for p in pat:
         if p.startswith('!'):
             n = int(p[1:])
@@ -157,7 +158,7 @@ def matchreplace(dna, pat, t, i):
             if (i > len(dna)):
                 # Match failed.
                 #print 'Matched failed in !'
-                return i
+                return oldi
         elif p.startswith('?'):
             substr = p[1:]
             dnastr = ''.join(dna)
@@ -167,7 +168,7 @@ def matchreplace(dna, pat, t, i):
             else:
                 # Match failed.
                 #print 'Matched failed in ?'
-                return i
+                return oldi
         elif (p == '('):
             c.append(i)
         elif (p == ')'):
@@ -179,7 +180,7 @@ def matchreplace(dna, pat, t, i):
             else:
                 # Match failed.
                 #print 'Matched failed in Base'
-                return i
+                return oldi
     replace(dna, i, t, e)
     return i
     
