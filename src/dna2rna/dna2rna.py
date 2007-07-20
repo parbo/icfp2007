@@ -181,9 +181,7 @@ def matchreplace(dna, pat, t, i):
                 # Match failed.
                 #print 'Matched failed in Base'
                 return oldi
-    replace(dna, i, t, e)
-    return i
-    
+    return replace(dna, i, t, e)
     
 def replace(dna, pos, tpl, e):
     #print 'Replace ', tpl, e
@@ -191,10 +189,10 @@ def replace(dna, pos, tpl, e):
     for t in tpl:
         if isinstance(t, int):
             # |n|
-            if (n >= len(e)):
+            if (t >= len(e)):
                 r.extend(asnat(0))
             else:
-                r.extend(asnat(len(e[n])))
+                r.extend(asnat(len(e[t])))
         elif isinstance(t, tuple):
             # n(l)
             l, n = t
@@ -206,16 +204,16 @@ def replace(dna, pos, tpl, e):
             # Base
             r.append(t)
     try:
-        dna[pos:pos] = r
+        dna[0:pos] = r
     except:
         print pos, dna[pos:pos+100]
         raise
+    return 0
     
 def protect(l, d):
-    if (l > 0):
-        return protect(l - 1, quote(d))
-    else:
-        return d
+    for ix in range(l):
+        d = quote(d)
+    return d
         
 def quote(d):
     nd = []
