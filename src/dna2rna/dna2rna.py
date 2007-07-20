@@ -153,7 +153,7 @@ def matchreplace(dna, pat, t, i):
         elif p.startswith('?'):
             substr = p[1:]
             ix = dnastr.find(substr, i)
-            if ix > 0:
+            if ix >= 0:
                 i = ix + len(substr)
             else:
                 # Match failed.
@@ -191,7 +191,8 @@ def replace(dna, pos, tpl, e):
         else:
             # Base
             r.append(t)
-    dna = r.extend(dna[pos:])
+    r.extend(dna[pos:])
+    dna = r
     return
     
 def protect(l, d):
@@ -233,6 +234,7 @@ def execute(dna):
         try:
             p, pos = pattern(dna, pos, rna)
             t, pos = template(dna, pos, rna)
+            #print p, t
             matchreplace(dna, p, t, pos)
         except NoMoreData:
             break
