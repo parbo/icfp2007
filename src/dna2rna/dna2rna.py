@@ -11,49 +11,48 @@ class NoMoreData(Exception):
 def pattern(dna, pos, rna):
     p = []
     lvl = 0
-    while True:
-        dnastr = ''.join(dna[pos:pos+3])
-        if dnastr.startswith('C'):
+    lendna = len(dna)
+    while pos < lendna:
+        if dna[pos] == 'C':
             pos += 1
             p.append('I')
-        elif dnastr.startswith('F'):
+        elif dna[pos] == 'F':
             pos += 1
             p.append('C')
-        elif dnastr.startswith('P'):
+        elif dna[pos] == 'P':
             pos += 1
             p.append('F')
-        elif dnastr.startswith('IC'):
-            pos += 2
-            p.append('P')
-        elif dnastr.startswith('IP'):
-            pos += 2
-            n, pos = nat(dna, pos)
-            p.append('!' + str(n))
-        elif dnastr.startswith('IF'):
-            pos += 3 # NOTE: Three bases consumed here.
-            s, pos = consts(dna, pos)
-            p.append('?' + ''.join(s))
-        elif dnastr.startswith('IIP'):
-            pos += 3
-            lvl += 1
-            p.append('(')
-        elif dnastr.startswith('IIC') or dnastr.startswith('IIF'):
-            pos += 3
-            if lvl > 0:
-                lvl -= 1
-                p.append(')')
-            else:
-                return (p, pos)
-        elif dnastr.startswith('III'):
-            # Add rna command.
-            rnacmd = dna[pos+3:pos+10]
-            if ''.join(rnacmd) not in rnacommands:
-                print 'Warning: Unknown RNA cmd: ' + ''.join(rnacmd)
-            rna.extend(rnacmd)
-            pos += 10
-        else:
-            # Exit
-            raise NoMoreData
+        elif dna[pos] == 'I':
+            if dna[pos+1] == 'C':
+                pos += 2
+                p.append('P')
+            elif dna[pos+1] == 'P':
+                pos += 2
+                n, pos = nat(dna, pos)
+                p.append('!' + str(n))
+            elif dna[pos+1] == 'F':
+                pos += 3 # NOTE: Three bases consumed here.
+                s, pos = consts(dna, pos)
+                p.append('?' + ''.join(s))
+            elif dna[pos+1] == 'I':
+                if dna[pos+2] == 'P':
+                    pos += 3
+                    lvl += 1
+                    p.append('(')
+                elif dna[pos+2] == 'C' or dna[pos+2] == 'F':
+                    pos += 3
+                    if lvl > 0:
+                        lvl -= 1
+                        p.append(')')
+                    else:
+                        return (p, pos)
+                elif dna[pos+2] == 'I':
+                    # Add rna command.
+                    rnacmd = dna[pos+3:pos+10]
+                    if ''.join(rnacmd) not in rnacommands:
+                        print 'Warning: Unknown RNA cmd: ' + ''.join(rnacmd)
+                    rna.extend(rnacmd)
+                    pos += 10
     return
 
 # Extracts a template from the list 'dna', starting at position 'pos'.
@@ -62,59 +61,62 @@ def pattern(dna, pos, rna):
 # The 'rna' parameter is also modified during the process.
 def template(dna, pos, rna):
     t = []
-    while True:
-        dnastr = ''.join(dna[pos:pos+3])
-        if dnastr.startswith('C'):
+    lendna = len(dna)
+    while pos < lendna:
+        if dna[pos] == 'C':
             pos += 1
             t.append('I')
-        elif dnastr.startswith('F'):
+        elif dna[pos] == 'F':
             pos += 1
             t.append('C')
-        elif dnastr.startswith('P'):
+        elif dna[pos] == 'P':
             pos += 1
             t.append('F')
-        elif dnastr.startswith('IC'):
-            pos += 2
-            t.append('P')
-        elif dnastr.startswith('IF') or dnastr.startswith('IP'):
-            pos += 2
-            l, pos = nat(dna, pos)
-            n, pos = nat(dna, pos)
-            t.append((l, n))
-        elif dnastr.startswith('IIP'):
-            pos += 3
-            n, pos = nat(dna, pos)
-            t.append(n)
-        elif dnastr.startswith('IIC') or dnastr.startswith('IIF'):
-            return (t, pos + 3)
-        elif dnastr.startswith('III'):
-            # Add rna command.
-            rnacmd = dna[pos+3:pos+10]
-            if ''.join(rnacmd) not in rnacommands:
-                print 'Warning: Unknown RNA cmd: ' + ''.join(rnacmd)
-            rna.extend(rnacmd)
-            pos += 10
-        else:
-            # Exit
-            raise NoMoreData
+        if dna[pos] == 'I':
+            if dna[pos+1] == 'C':
+                pos += 2
+                t.append('P')
+            elif dna[pos+1] == 'F' or dna[pos+1] == 'P':
+                pos += 2
+                l, pos = nat(dna, pos)
+                n, pos = nat(dna, pos)
+                t.append((l, n))
+            elif dna[pos+1] == 'I':
+                if dna[pos+2] == 'P':
+                    pos += 3
+                    n, pos = nat(dna, pos)
+                    t.append(n)
+                elif dna[pos+2] == 'C' or dna[pos+2] == 'F':
+                    return (t, pos + 3)
+                elif dna[pos+2] == 'I':
+                    # Add rna command.
+                    rnacmd = dna[pos+3:pos+10]
+                    if ''.join(rnacmd) not in rnacommands:
+                        print 'Warning: Unknown RNA cmd: ' + ''.join(rnacmd)
+                    rna.extend(rnacmd)
+                    pos += 10
     return
 
 # Extracts a natural number from the list 'dna', starting at position 'pos'.
 # Returns a tuple containing the number and a new position after the
 # consumed bases: (number, pos)
 def nat(dna, pos):
-    dnastr = ''.join(dna[pos:pos+1]) # Produces empty string if 'pos' is out of range.
-    if (dnastr == 'P'):
-        return (0, pos + 1)
-    elif (dnastr == 'I') or (dnastr == 'F'):
-        n, pos = nat(dna, pos + 1)
-        return (2 * n, pos)
-    elif (dnastr == 'C'):
-        n, pos = nat(dna, pos + 1)
-        return (2 * n + 1, pos)
-    else:
-        # Empty -> Exit
+    try:
+        if (dna[pos] == 'P'):
+            return (0, pos + 1)
+        elif (dna[pos] == 'I') or (dna[pos] == 'F'):
+            n, pos = nat(dna, pos + 1)
+            return (2 * n, pos)
+        elif (dna[pos] == 'C'):
+            n, pos = nat(dna, pos + 1)
+            return (2 * n + 1, pos)
+        else:
+            # Empty -> Exit
+            raise NoMoreData
+    except IndexError:
         raise NoMoreData
+    
+    
         
 # Extracts a base sequence from the list 'dna', starting at position 'pos'.
 # Returns a tuple containing the sequence and a new position after the
@@ -258,6 +260,8 @@ def execute(dna, rna, progress = False):
         except AssertionError:
             print pos
         except NoMoreData:
+            print pos
+            print 'DNA remaining: ' + str(len(dna))
             break
     return dna
 
