@@ -45,7 +45,7 @@ def pattern(dna, pos, rna):
                 return (p, pos)
         elif dnastr.startswith('III'):
             # Add rna command.
-            rna.append(dna[pos+3:pos+10])
+            rna.extend(dna[pos+3:pos+10])
             pos += 10
         else:
             # Exit
@@ -85,7 +85,7 @@ def template(dna, pos, rna):
             return (t, pos + 3)
         elif dnastr.startswith('III'):
             # Add rna command.
-            rna.append(dna[pos+3:pos+10])
+            rna.extend(dna[pos+3:pos+10])
             pos += 10
             pass
         else:
@@ -152,7 +152,7 @@ def matchreplace(dna, pat, t, i):
             if (i > len(dna)):
                 # Match failed.
                 #print 'Matched failed in !'
-                return
+                return dna
         elif p.startswith('?'):
             substr = p[1:]
             ix = dnastr.find(substr, i)
@@ -161,7 +161,7 @@ def matchreplace(dna, pat, t, i):
             else:
                 # Match failed.
                 #print 'Matched failed in ?'
-                return
+                return dna
         elif (p == '('):
             c.append(i)
         elif (p == ')'):
@@ -173,7 +173,7 @@ def matchreplace(dna, pat, t, i):
             else:
                 # Match failed.
                 #print 'Matched failed in Base'
-                return
+                return dna
     return replace(dna, i, t, e)
     
 def replace(dna, pos, tpl, e):
@@ -182,14 +182,14 @@ def replace(dna, pos, tpl, e):
     for t in tpl:
         if isinstance(t, int):
             # |n|
-            if (n > len(e)):
+            if (n >= len(e)):
                 r.extend(asnat(0))
             else:
                 r.extend(asnat(len(e[n])))
         elif isinstance(t, tuple):
             # n(l)
             l, n = t
-            if (n > len(e)):
+            if (n >= len(e)):
                 r.extend(protect(l, []))
             else:
                 r.extend(protect(l, e[n]))
@@ -231,8 +231,7 @@ def asnat(n):
     d.append('P')
     return d
     
-def execute(dna, progress = False):
-    rna = []
+def execute(dna, rna, progress = False):
     pos = 0
     while True:
         try:
@@ -244,15 +243,22 @@ def execute(dna, progress = False):
                 print 'DNA remaining: ' + str(len(dna))
         except NoMoreData:
             break
-    return (dna, rna)
+    return dna
 
 if __name__ == '__main__':
     if len(sys.argv) > 2:
-        dnafile = file(sys.argv[1])
+        dnafile = file(sys.argv[1], 'r')
         dna = dnafile.read()
         dnafile.close()
-        dna, rna = execute(dna, True)
-        rnafile = file(sys.argv[2])
+        rna = []
+        try:
+            dna = execute(dna, rna, True)
+        except KeyboardInterrupt:
+            rnafile = file(sys.argv[2], 'w')
+            rnafile.write(''.join(rna))
+            rnafile.close()
+            sys.exit(1)
+        rnafile = file(sys.argv[2], 'w')
         rnafile.write(''.join(rna))
         rnafile.close()
         
@@ -272,5 +278,6 @@ if __name__ == '__main__':
         print ''
         for dnastr in ['IIPIPICPIICICIIFICCIFPPIICCFPC', 'IIPIPICPIICICIIFICCIFCCCPPIICCFPC', 'IIPIPIICPIICIICCIICFCFC']:
             dna = list(dnastr)
-            dna, rna = execute(dna)
+            rna = []
+            dna = execute(dna, rna)
             print dnastr + ' -> ' + ''.join(dna)
