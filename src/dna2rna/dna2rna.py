@@ -1,7 +1,8 @@
 # Extracts a pattern from the list 'dna', starting at position 'pos'.
 # Returns a tuple containing the pattern and a new position after the
 # consumed bases: (pattern, pos)
-def pattern(dna, pos):
+# The 'rna' parameter is also modified during the process.
+def pattern(dna, pos, rna):
     p = []
     lvl = 0
     while True:
@@ -39,7 +40,8 @@ def pattern(dna, pos):
                 return (p, pos)
         elif dnastr.startswith('III'):
             # Add rna command.
-            pass
+            rna.append(dna[pos+3:pos+10])
+            pos += 10
         else:
             # Exit
             pass
@@ -48,7 +50,8 @@ def pattern(dna, pos):
 # Extracts a template from the list 'dna', starting at position 'pos'.
 # Returns a tuple containing the template and a new position after the
 # consumed bases: (template, pos)
-def template(dna, pos):
+# The 'rna' parameter is also modified during the process.
+def template(dna, pos, rna):
     t = []
     while True:
         dnastr = ''.join(dna[pos:pos+3])
@@ -77,6 +80,8 @@ def template(dna, pos):
             return (t, pos + 3)
         elif dnastr.startswith('III'):
             # Add rna command.
+            rna.append(dna[pos+3:pos+10])
+            pos += 10
             pass
         else:
             # Exit
@@ -128,10 +133,46 @@ def consts(dna, pos):
     seq, pos = constsrec(dna, pos)
     seq.reverse()
     return (seq, pos)
-        
+    
+# Modifies 'dna' by applying template 't' to matching items in pattern 'pat'.
+# The matching starts at position 'i'.
+# Parameter 'dnastr' is a string version of the 'dna' list.
+def matchreplace(dna, dnastr, pat, t, i):
+    e = []
+    c = []
+    for p in pat:
+        if p.startswith('!'):
+            n = int(p[1:])
+            i += n
+            if (i > len(dna)):
+                # Match failed.
+                return
+        elif p.startswith('?'):
+            substr = p[1:]
+            ix = dnastr.find(substr, i)
+            if ix > 0:
+                i = ix + len(substr)
+            else:
+                # Match failed.
+                return
+        elif (p == '('):
+            c.append(i)
+        elif (p == ')'):
+            e.append(dna[c.pop():i])
+        else:
+            # Base
+            if (dna[i] == p):
+                i += 1
+            else:
+                # Match failed.
+                return
+    replace(t, e)
+    return
 
 if __name__ == '__main__':
+    print 'Test pattern function:'
     for dnastr in ['CIIC', 'IIPIPICPIICICIIF']:
+        rna = []
         dna = list(dnastr)
-        p, pos = pattern(dna, 0)
+        p, pos = pattern(dna, 0, rna)
         print dnastr + ' -> ' + ''.join(p)
