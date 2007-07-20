@@ -150,6 +150,7 @@ def consts(dna, pos):
 def matchreplace(dna, pat, t, i):
     e = []
     c = []
+    orgpos = i # Original position
     dnastr = ''.join(dna)
     for p in pat:
         if p.startswith('!'):
@@ -158,7 +159,7 @@ def matchreplace(dna, pat, t, i):
             if (i > len(dna)):
                 # Match failed.
                 #print 'Matched failed in !'
-                return dna
+                return (dna, orgpos)
         elif p.startswith('?'):
             substr = p[1:]
             ix = dnastr.find(substr, i)
@@ -167,7 +168,7 @@ def matchreplace(dna, pat, t, i):
             else:
                 # Match failed.
                 #print 'Matched failed in ?'
-                return dna
+                return (dna, orgpos)
         elif (p == '('):
             c.append(i)
         elif (p == ')'):
@@ -179,7 +180,7 @@ def matchreplace(dna, pat, t, i):
             else:
                 # Match failed.
                 #print 'Matched failed in Base'
-                return dna
+                return (dna, orgpos)
     return replace(dna, i, t, e)
     
 def replace(dna, pos, tpl, e):
@@ -188,10 +189,10 @@ def replace(dna, pos, tpl, e):
     for t in tpl:
         if isinstance(t, int):
             # |n|
-            if (n >= len(e)):
+            if (t >= len(e)):
                 r.extend(asnat(0))
             else:
-                r.extend(asnat(len(e[n])))
+                r.extend(asnat(len(e[t])))
         elif isinstance(t, tuple):
             # n(l)
             l, n = t
@@ -203,13 +204,12 @@ def replace(dna, pos, tpl, e):
             # Base
             r.append(t)
     r.extend(dna[pos:])
-    return r
+    return (r, 0)
     
 def protect(l, d):
-    if (l > 0):
-        return protect(l - 1, quote(d))
-    else:
-        return d
+    for ix in range(l):
+        d = quote(d)
+    return d
         
 def quote(d):
     nd = []
@@ -220,8 +220,7 @@ def quote(d):
             nd.append('F')
         elif (item == 'F'):
             nd.append('P')
-        else:
-            # P
+        elif (item == 'P'):
             nd.append('I')
             nd.append('C')
     return nd
@@ -244,7 +243,7 @@ def execute(dna, rna, progress = False):
             p, pos = pattern(dna, pos, rna)
             t, pos = template(dna, pos, rna)
             #print p, t
-            dna = matchreplace(dna, p, t, pos)
+            dna, pos = matchreplace(dna, p, t, pos)
             if progress:
                 print 'DNA remaining: ' + str(len(dna))
         except NoMoreData:
