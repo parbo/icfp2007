@@ -23,9 +23,9 @@ def pattern(dna, pos):
             n, pos = nat(dna, pos)
             p.append('!' + str(n))
         elif dnastr.startswith('IF'):
-            pos += 2
+            pos += 3 # NOTE: Three bases consumed here.
             s, pos = consts(dna, pos)
-            p.append('?' + s)
+            p.append('?' + ''.join(s))
         elif dnastr.startswith('IIP'):
             pos += 3
             lvl += 1
@@ -46,24 +46,50 @@ def pattern(dna, pos):
     return
 
 # Extracts a natural number from the list 'dna', starting at position 'pos'.
-# Returns a tuple containing the pattern and a new position after the
-# consumed bases: (pattern, pos)
+# Returns a tuple containing the number and a new position after the
+# consumed bases: (number, pos)
 def nat(dna, pos):
-    dnastr = dna[pos]
+    dnastr = ''.join(dna[pos:pos+1]) # Produces empty string if 'pos' is out of range.
     if (dnastr == 'P'):
-        pos += 1
-        return (0, pos)
+        return (0, pos + 1)
     elif (dnastr == 'I') or (dnastr == 'F'):
-        pos += 1
-        n, pos = nat(dna, pos)
+        n, pos = nat(dna, pos + 1)
         return (2 * n, pos)
     elif (dnastr == 'C'):
-        pos += 1
-        n, pos = nat(dna, pos)
+        n, pos = nat(dna, pos + 1)
         return (2 * n + 1, pos)
     else:
         # Empty -> Exit
         pass
+        
+# Extracts a base sequence from the list 'dna', starting at position 'pos'.
+# Returns a tuple containing the sequence and a new position after the
+# consumed bases: (sequence, pos)
+def consts(dna, pos):
+    def constsrec(dna, pos):
+        dnastr = ''.join(dna[pos:pos+2]) # Produces empty string if 'pos' is out of range.
+        if dnastr.startswith('C'):
+            seq, pos = constsrec(dna, pos + 1)
+            seq.append('I')
+            return (seq, pos)
+        elif dnastr.startswith('F'):
+            seq, pos = constsrec(dna, pos + 1)
+            seq.append('C')
+            return (seq, pos)
+        elif dnastr.startswith('P'):
+            seq, pos = constsrec(dna, pos + 1)
+            seq.append('F')
+            return (seq, pos)
+        elif dnastr.startswith('IC'):
+            seq, pos = constsrec(dna, pos + 2)
+            seq.append('P')
+            return (seq, pos)
+        else:
+            return ([], pos) # Should 'pos' be incremented?
+            
+    seq, pos = constsrec(dna, pos)
+    seq.reverse()
+    return (seq, pos)
         
 
 if __name__ == '__main__':
