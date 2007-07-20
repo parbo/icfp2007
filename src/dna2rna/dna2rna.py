@@ -243,7 +243,9 @@ def asnat(n):
     
 def execute(dna, rna, progress = False):
     pos = 0
+    n = 0
     while True:
+        n += 1
         try:
             p, pos = pattern(dna, pos, rna)
             assert(isinstance(dna, list))
@@ -252,7 +254,7 @@ def execute(dna, rna, progress = False):
             #print p, t
             pos = matchreplace(dna, p, t, pos)
             if progress:
-                print 'DNA remaining: ' + str(len(dna))
+                print 'Iterations: ' + str(n) + '   DNA remaining: ' + str(len(dna)), '   RNA commands: ' + str(len(rna) / 7)
         except AssertionError:
             print pos
         except NoMoreData:
@@ -260,9 +262,14 @@ def execute(dna, rna, progress = False):
     return dna
 
 if __name__ == '__main__':
+    prefix = []
+    if len(sys.argv) > 3:
+        prefixfile = file(sys.argv[3], 'r')
+        prefix = list(prefixfile.read())
+        prefixfile.close()
     if len(sys.argv) > 2:
         dnafile = file(sys.argv[1], 'r')
-        dna = list(dnafile.read())
+        dna = prefix + list(dnafile.read())
         dnafile.close()
         rna = []
         try:
