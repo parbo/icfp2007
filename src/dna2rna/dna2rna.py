@@ -149,6 +149,7 @@ def matchreplace(dna, pat, t, i):
             i += n
             if (i > len(dna)):
                 # Match failed.
+                #print 'Matched failed in !'
                 return
         elif p.startswith('?'):
             substr = p[1:]
@@ -157,6 +158,7 @@ def matchreplace(dna, pat, t, i):
                 i = ix + len(substr)
             else:
                 # Match failed.
+                #print 'Matched failed in ?'
                 return
         elif (p == '('):
             c.append(i)
@@ -168,11 +170,12 @@ def matchreplace(dna, pat, t, i):
                 i += 1
             else:
                 # Match failed.
+                #print 'Matched failed in Base'
                 return
-    replace(dna, i, t, e)
-    return
+    return replace(dna, i, t, e)
     
 def replace(dna, pos, tpl, e):
+    #print 'Replace ', tpl, e
     r = []
     for t in tpl:
         if isinstance(t, int):
@@ -192,8 +195,7 @@ def replace(dna, pos, tpl, e):
             # Base
             r.append(t)
     r.extend(dna[pos:])
-    dna = r
-    return
+    return r
     
 def protect(l, d):
     if (l > 0):
@@ -235,10 +237,10 @@ def execute(dna):
             p, pos = pattern(dna, pos, rna)
             t, pos = template(dna, pos, rna)
             #print p, t
-            matchreplace(dna, p, t, pos)
+            dna = matchreplace(dna, p, t, pos)
         except NoMoreData:
             break
-    return rna
+    return (dna, rna)
 
 if __name__ == '__main__':
     print ''
@@ -255,5 +257,5 @@ if __name__ == '__main__':
     print ''
     for dnastr in ['IIPIPICPIICICIIFICCIFPPIICCFPC', 'IIPIPICPIICICIIFICCIFCCCPPIICCFPC', 'IIPIPIICPIICIICCIICFCFC']:
         dna = list(dnastr)
-        rna = execute(dna)
+        dna, rna = execute(dna)
         print dnastr + ' -> ' + ''.join(dna)
