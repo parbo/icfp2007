@@ -1,5 +1,5 @@
 # Extracts a pattern from the list 'dna', starting at position 'pos'.
-# Returns tuple containing the pattern and a new position after the
+# Returns a tuple containing the pattern and a new position after the
 # consumed bases: (pattern, pos)
 def pattern(dna, pos):
     p = []
@@ -45,8 +45,29 @@ def pattern(dna, pos):
             pass
     return
 
+# Extracts a natural number from the list 'dna', starting at position 'pos'.
+# Returns a tuple containing the pattern and a new position after the
+# consumed bases: (pattern, pos)
+def nat(dna, pos):
+    dnastr = dna[pos]
+    if (dnastr == 'P'):
+        pos += 1
+        return (0, pos)
+    elif (dnastr == 'I') or (dnastr == 'F'):
+        pos += 1
+        n, pos = nat(dna, pos)
+        return (2 * n, pos)
+    elif (dnastr == 'C'):
+        pos += 1
+        n, pos = nat(dna, pos)
+        return (2 * n + 1, pos)
+    else:
+        # Empty -> Exit
+        pass
+        
+
 if __name__ == '__main__':
-    dnastr = 'CIIC'
-    dna = list(dnastr)
-    p, pos = pattern(dna, 0)
-    print dnastr + ' -> ' + ''.join(p)
+    for dnastr in ['CIIC', 'IIPIPICPIICICIIF']:
+        dna = list(dnastr)
+        p, pos = pattern(dna, 0)
+        print dnastr + ' -> ' + ''.join(p)
