@@ -2,6 +2,7 @@
 
 import Image
 import ImageColor
+import functools
 
 mode = 'RGBA'
 size = (600, 600)
@@ -38,6 +39,9 @@ def splitrna(rna):
     
 def addColor(c):
     bucket.insert(c, 0)
+    
+def emptyBucket():
+    bucket = []
     
 def getComponentIter(component):
     for i in bucket:
@@ -82,10 +86,10 @@ def getPixel(p):
     return bitmaps[0].getPixel(p)
 
 def setPixel(p):
-    bitmaps[0].setPixel(p, currentPixel())
+    bitmaps[0].putPixel(p, currentPixel())
 
 def setPixelVal(p, val):
-    bitmaps[0].setPixel(p, val)
+    bitmaps[0].putPixel(p, val)
 
 def line(start, stop):
     x0, y0 = start
@@ -107,57 +111,92 @@ def line(start, stop):
         x = x + deltax
         y = y + deltay
     setPixelVal(x1, y1, cp)
+    
+def fill(pos, initial):
+    if getPixel(pos) == initial:
+        setPixel(pos)
+    x, y = pos
+    if x > 0:
+        fill((x - 1, y ), initial)
+    if x < 599:
+        fill((x + 1, y ), initial)
+    if y > 0:
+        fill((x , y - 1), initial)
+    if y < 599:
+        fill((x , y + 1), initial)
 
+def tryfill():
+    newp = currentPixel()
+    oldp = getPixel(position)
+    if newp != oldp:
+        fill(position, oldp)
+        
+def addBitmap(b):
+    if len(bitmaps) < 10:
+        bitmaps.insert(b, 0)
+        
+def compose():
+    if len(bitmaps) > 2:
+        for y in xrange(600):
+            for x in xrange(600):
+                r0, g0, b0, a0 = bitmaps[0].getPixel((x,y))
+                r1, g1, b1, a1 = bitmaps[1].getPixel((x,y))
+                bitmaps[1].putPixel((r0 + (r1 * (255 - a0) / 255),
+                                     g0 + (g1 * (255 - a0) / 255),
+                                     b0 + (b1 * (255 - a0) / 255),
+                                     a0 + (a1 * (255 - a0) / 255)))
+        bitmaps.pop(0)
+        
+def clip():
+    if len(bitmaps) > 2:
+        for y in xrange(600):
+            for x in xrange(600):
+                r0, g0, b0, a0 = bitmaps[0].getPixel((x,y))
+                r1, g1, b1, a1 = bitmaps[1].getPixel((x,y))
+                bitmaps[1].putPixel((r1 * a0 / 255,
+                                     g1 * a0 / 255,
+                                     b1 * a0 / 255,
+                                     a1 * a0 / 255))
+        
 def build(filename):
     f = open(filename)
     rna = splitrna(f.read())
     f.close()
     
-
+    doMove = lambda: position = move(position, dir)
+    doTurnCCW = lambda: dir = turnCounterClockwise(dir)
+    doTurnCW = lambda: dir = turnClockwise(dir)
+    doMark = lambda: mark = position
+    
+    d = {
+        'PIPIIIC' : functools.partial(addColor, black),
+        'PIPIIIP' : functools.partial(addColor, red),
+        'PIPIICC' : functools.partial(addColor, green),
+        'PIPIICF' : functools.partial(addColor, yellow),
+        'PIPIICP' : functools.partial(addColor, blue),
+        'PIPIIFC' : functools.partial(addColor, magenta),
+        'PIPIIFF' : functools.partial(addColor, cyan),
+        'PIPIIPC' : functools.partial(addColor, white),
+        'PIPIIPF' : functools.partial(addColor, transparent),
+        'PIPIIPP' : functools.partial(addColor, opaque),
+        'PIIPICP' : emptyBucket,
+        'PIIIIIP' : doMove,
+        'PCCCCCP' : doTurnCCW,
+        'PFFFFFP' : doTurnCW,
+        'PCCIFFP' : doMark,
+        'PFFICCP' : functools.partial(line, position, mark),
+        'PIIPIIP' : tryfill,
+        'PCCPFFP' : functools.partial(addBitmap, empty()),
+        'PFFPCCP' : compose,
+        'PFFICCF' : clip}
     
     for r in rna:
-        if r == 
-case r is of the form
-183 ‘PIPIIIC’ ) addColor (black rgb)
-184 ‘PIPIIIP’ ) addColor (red rgb)
-185 ‘PIPIICC’ ) addColor (green rgb)
-186 ‘PIPIICF’ ) addColor (yellow rgb)
-187 ‘PIPIICP’ ) addColor (blue rgb)
-188 ‘PIPIIFC’ ) addColor (magenta rgb)
-189 ‘PIPIIFF’ ) addColor (cyan rgb)
-190 ‘PIPIIPC’ ) addColor (white rgb)
-191 ‘PIPIIPF’ ) addColor (transparent a)
-192 ‘PIPIIPP’ ) addColor (opaque a)
-193 ‘PIIPICP’ ) bucket   #
-194 ‘PIIIIIP’ ) position   move (position, dir)
-195 ‘PCCCCCP’ ) dir   turnCounterClockwise (dir)
-196 ‘PFFFFFP’ ) dir   turnClockwise (dir)
-197 ‘PCCIFFP’ ) mark   position
-198 ‘PFFICCP’ ) line (position, mark)
-199 ‘PIIPIIP’ ) tryfill ()
-200 ‘PCCPFFP’ ) addBitmap (transparentBitmap)
-201 ‘PFFPCCP’ ) compose ()
-202 ‘PFFICCF’ ) clip ()
-203 anything else ) do nothing
-204 end case
-205 end foreach
-206 draw bitmaps[0] all alpha values are set to 255!
-207 exit
-Figure 19: Building a Fuun from RNA
-resulting image is determined by the RGB values of bitmaps[0]. The transparency values of
-bitmaps[0] are ignored and all set to opaque (255) for drawing.
-The known RNA commands can be sorted into four groups: commands that affect the
-bucket, commands that change the focus, commands that draw, and commands that affect
-the sequence of bitmaps. Each of the command groups is discussed in detail below.
-4.3 Bucket commands
-For each of the eight predefined colors and the two predefined transparency values, there
-is an RNA command that prepends the Color to the bucket, using the procedure addColor in
-Figure 20. The instruction ‘PIIPICP’ empties the bucket.
-The bucket encodes information about a pixel, i.e., a current color and transparency
-value. The function currentPixel, also in Figure 20, can be used to determine this value of
-type Pixel.
-14    pass
-
+        try:
+            d[r]()
+        except KeyError:
+            pass
+            
+    Image.save(filename+".png", "PNG")
 
 if __name__=="__main__":
     import sys
