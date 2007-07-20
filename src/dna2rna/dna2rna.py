@@ -1,3 +1,5 @@
+import sys
+
 class NoMoreData(Exception):
     pass
 
@@ -229,7 +231,7 @@ def asnat(n):
     d.append('P')
     return d
     
-def execute(dna):
+def execute(dna, progress = False):
     rna = []
     pos = 0
     while True:
@@ -238,24 +240,37 @@ def execute(dna):
             t, pos = template(dna, pos, rna)
             #print p, t
             dna = matchreplace(dna, p, t, pos)
+            if progress:
+                print 'DNA remaining: ' + str(len(dna))
         except NoMoreData:
             break
     return (dna, rna)
 
 if __name__ == '__main__':
-    print ''
-    print 'Test pattern function:'
-    print ''
-    for dnastr in ['CIIC', 'IIPIPICPIICICIIF']:
-        rna = []
-        dna = list(dnastr)
-        p, pos = pattern(dna, 0, rna)
-        print dnastr + ' -> ' + ''.join(p)
-    print ''
-    print ''
-    print 'Test dna execution function:'
-    print ''
-    for dnastr in ['IIPIPICPIICICIIFICCIFPPIICCFPC', 'IIPIPICPIICICIIFICCIFCCCPPIICCFPC', 'IIPIPIICPIICIICCIICFCFC']:
-        dna = list(dnastr)
-        dna, rna = execute(dna)
-        print dnastr + ' -> ' + ''.join(dna)
+    if len(sys.argv) > 2:
+        dnafile = file(sys.argv[1])
+        dna = dnafile.read()
+        dnafile.close()
+        dna, rna = execute(dna, True)
+        rnafile = file(sys.argv[2])
+        rnafile.write(''.join(rna))
+        rnafile.close()
+        
+    else:
+        # Run tests
+        print ''
+        print 'Test pattern function:'
+        print ''
+        for dnastr in ['CIIC', 'IIPIPICPIICICIIF']:
+            rna = []
+            dna = list(dnastr)
+            p, pos = pattern(dna, 0, rna)
+            print dnastr + ' -> ' + ''.join(p)
+        print ''
+        print ''
+        print 'Test dna execution function:'
+        print ''
+        for dnastr in ['IIPIPICPIICICIIFICCIFPPIICCFPC', 'IIPIPICPIICICIIFICCIFCCCPPIICCFPC', 'IIPIPIICPIICIICCIICFCFC']:
+            dna = list(dnastr)
+            dna, rna = execute(dna)
+            print dnastr + ' -> ' + ''.join(dna)
