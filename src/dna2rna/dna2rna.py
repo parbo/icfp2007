@@ -53,7 +53,7 @@ def pattern(dna, pos, rna):
                         print 'Warning: Unknown RNA cmd: ' + ''.join(rnacmd)
                     rna.extend(rnacmd)
                     pos += 10
-    return
+    raise NoMoreData
 
 # Extracts a template from the list 'dna', starting at position 'pos'.
 # Returns a tuple containing the template and a new position after the
@@ -95,7 +95,7 @@ def template(dna, pos, rna):
                         print 'Warning: Unknown RNA cmd: ' + ''.join(rnacmd)
                     rna.extend(rnacmd)
                     pos += 10
-    return
+    raise NoMoreData
 
 # Extracts a natural number from the list 'dna', starting at position 'pos'.
 # Returns a tuple containing the number and a new position after the
