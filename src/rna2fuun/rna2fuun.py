@@ -59,7 +59,7 @@ def splitrna(rna):
 
 def read(filename):
     f = open(filename)
-    rna = splitrna(f.read())
+    rna = list(splitrna(f.read()))
     f.close()
     return rna
 
