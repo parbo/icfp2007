@@ -45,6 +45,44 @@ def pattern(dna, pos):
             pass
     return
 
+# Extracts a template from the list 'dna', starting at position 'pos'.
+# Returns a tuple containing the template and a new position after the
+# consumed bases: (template, pos)
+def template(dna, pos):
+    t = []
+    while True:
+        dnastr = ''.join(dna[pos:pos+3])
+        if dnastr.startswith('C'):
+            pos += 1
+            t.append('I')
+        elif dnastr.startswith('F'):
+            pos += 1
+            t.append('C')
+        elif dnastr.startswith('P'):
+            pos += 1
+            t.append('F')
+        elif dnastr.startswith('IC'):
+            pos += 2
+            t.append('P')
+        elif dnastr.startswith('IF') or dnastr.startswith('IP'):
+            pos += 2
+            l, pos = nat(dna, pos)
+            n, pos = nat(dna, pos)
+            t.append((l, n))
+        elif dnastr.startswith('IIP'):
+            pos += 3
+            n, pos = nat(dna, pos)
+            t.append(n)
+        elif dnastr.startswith('IIC') or dnastr.startswith('IIF'):
+            return (t, pos + 3)
+        elif dnastr.startswith('III'):
+            # Add rna command.
+            pass
+        else:
+            # Exit
+            pass
+    return
+
 # Extracts a natural number from the list 'dna', starting at position 'pos'.
 # Returns a tuple containing the number and a new position after the
 # consumed bases: (number, pos)
