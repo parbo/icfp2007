@@ -186,7 +186,7 @@ def replace(dna, pos, tpl, e):
                 r.extend(asnat(len(e[n])))
         elif isinstance(t, tuple):
             # n(l)
-            n, l = t
+            l, n = t
             if (n > len(e)):
                 r.extend(protect(l, []))
             else:
