@@ -1,4 +1,5 @@
 import sys
+from rna2fuun.rna2fuun import commands as rnacommands
 
 class NoMoreData(Exception):
     pass
@@ -45,7 +46,10 @@ def pattern(dna, pos, rna):
                 return (p, pos)
         elif dnastr.startswith('III'):
             # Add rna command.
-            rna.extend(dna[pos+3:pos+10])
+            rnacmd = dna[pos+3:pos+10]
+            if ''.join(rnacmd) not in rnacommands:
+                print 'Warning: Unknown RNA cmd: ' + ''.join(rnacmd)
+            rna.extend(rnacmd)
             pos += 10
         else:
             # Exit
@@ -85,9 +89,11 @@ def template(dna, pos, rna):
             return (t, pos + 3)
         elif dnastr.startswith('III'):
             # Add rna command.
-            rna.extend(dna[pos+3:pos+10])
+            rnacmd = dna[pos+3:pos+10]
+            if ''.join(rnacmd) not in rnacommands:
+                print 'Warning: Unknown RNA cmd: ' + ''.join(rnacmd)
+            rna.extend(rnacmd)
             pos += 10
-            pass
         else:
             # Exit
             raise NoMoreData
