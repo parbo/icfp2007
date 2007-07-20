@@ -26,7 +26,8 @@ mark = (0, 0)
 dir = E
 
 def c2p(c, alpha):
-    return c + tuple(alpha)
+    a = (alpha,)
+    return c + a
 
 def empty():
     return Image.new(mode, size, c2p(black, transparent))
@@ -157,17 +158,24 @@ def clip():
                                      g1 * a0 / 255,
                                      b1 * a0 / 255,
                                      a1 * a0 / 255))
+
+def doMove():
+    position = move(position, dir)
+    
+def doTurnCCW():
+    dir = turnCounterClockwise(dir)
+    
+def doTurnCW():
+    dir = turnClockwise(dir)
+    
+def doMark():
+    mark = position
         
 def build(filename):
     f = open(filename)
     rna = splitrna(f.read())
     f.close()
-    
-    doMove = lambda: position = move(position, dir)
-    doTurnCCW = lambda: dir = turnCounterClockwise(dir)
-    doTurnCW = lambda: dir = turnClockwise(dir)
-    doMark = lambda: mark = position
-    
+   
     d = {
         'PIPIIIC' : functools.partial(addColor, black),
         'PIPIIIP' : functools.partial(addColor, red),
@@ -196,7 +204,7 @@ def build(filename):
         except KeyError:
             pass
             
-    Image.save(filename+".png", "PNG")
+    bitmaps[0].save(filename+".png", "PNG")
 
 if __name__=="__main__":
     import sys
