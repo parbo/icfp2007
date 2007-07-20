@@ -1,3 +1,6 @@
+class NoMoreData(Exception):
+    pass
+
 # Extracts a pattern from the list 'dna', starting at position 'pos'.
 # Returns a tuple containing the pattern and a new position after the
 # consumed bases: (pattern, pos)
@@ -44,7 +47,7 @@ def pattern(dna, pos, rna):
             pos += 10
         else:
             # Exit
-            pass
+            raise NoMoreData
     return
 
 # Extracts a template from the list 'dna', starting at position 'pos'.
@@ -85,7 +88,7 @@ def template(dna, pos, rna):
             pass
         else:
             # Exit
-            pass
+            raise NoMoreData
     return
 
 # Extracts a natural number from the list 'dna', starting at position 'pos'.
@@ -103,7 +106,7 @@ def nat(dna, pos):
         return (2 * n + 1, pos)
     else:
         # Empty -> Exit
-        pass
+        raise NoMoreData
         
 # Extracts a base sequence from the list 'dna', starting at position 'pos'.
 # Returns a tuple containing the sequence and a new position after the
@@ -136,10 +139,10 @@ def consts(dna, pos):
     
 # Modifies 'dna' by applying template 't' to matching items in pattern 'pat'.
 # The matching starts at position 'i'.
-# Parameter 'dnastr' is a string version of the 'dna' list.
-def matchreplace(dna, dnastr, pat, t, i):
+def matchreplace(dna, pat, t, i):
     e = []
     c = []
+    dnastr = ''.join(dna)
     for p in pat:
         if p.startswith('!'):
             n = int(p[1:])
@@ -166,13 +169,89 @@ def matchreplace(dna, dnastr, pat, t, i):
             else:
                 # Match failed.
                 return
-    replace(t, e)
+    replace(dna, i, t, e)
     return
+    
+def replace(dna, pos, tpl, e):
+    r = []
+    for t in tpl:
+        if isinstance(t, int):
+            # |n|
+            if (n > len(e)):
+                r.extend(asnat(0))
+            else:
+                r.extend(asnat(len(e[n])))
+        elif isinstance(t, tuple):
+            # n(l)
+            n, l = t
+            if (n > len(e)):
+                r.extend(protect(l, []))
+            else:
+                r.extend(protect(l, e[n]))
+        else:
+            # Base
+            r.append(t)
+    dna = r.extend(dna[pos:])
+    return
+    
+def protect(l, d):
+    if (l > 0):
+        return protect(l - 1, quote(d))
+    else:
+        return d
+        
+def quote(d):
+    nd = []
+    for item in d:
+        if (item == 'I'):
+            nd.append('C')
+        elif (item == 'C'):
+            nd.append('F')
+        elif (item == 'F'):
+            nd.append('P')
+        else:
+            # P
+            nd.append('I')
+            nd.append('C')
+    return nd
+    
+def asnat(n):
+    d = []
+    while n > 0:
+        if (n % 2) == 0:
+            d.append('I')
+        else:
+            d.append('C')
+        n /= 2
+    d.append('P')
+    return d
+    
+def execute(dna):
+    rna = []
+    pos = 0
+    while True:
+        try:
+            p, pos = pattern(dna, pos, rna)
+            t, pos = template(dna, pos, rna)
+            matchreplace(dna, p, t, pos)
+        except NoMoreData:
+            break
+    return rna
 
 if __name__ == '__main__':
+    print ''
     print 'Test pattern function:'
+    print ''
     for dnastr in ['CIIC', 'IIPIPICPIICICIIF']:
         rna = []
         dna = list(dnastr)
         p, pos = pattern(dna, 0, rna)
         print dnastr + ' -> ' + ''.join(p)
+    print ''
+    print ''
+    print 'Test dna execution function:'
+    print ''
+    for dnastr in ['IIPIPICPIICICIIFICCIFPPIICCFPC', 'IIPIPICPIICICIIFICCIFCCCPPIICCFPC', 'IIPIPIICPIICIICCIICFCFC']:
+        dna = list(dnastr)
+        rna = execute(dna)
+        print dnastr + ' -> ' + ''.join(dna)
