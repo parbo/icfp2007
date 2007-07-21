@@ -10,28 +10,20 @@ class DNAList(object):
         return len(self.list) - self.offset
     
     def popfront(self, num=1):
-##        print "popfront", len(self.list), self.offset, num
         if num == 1:
-            r = self.list[self.offset]
             self.offset += 1
-            return r
         elif num == 0:
             pass
         else:
-            r = self.list[self.offset: self.offset+num]
             self.offset += num
-            return r
-        
-    def reference(self, start, stop):
-        return (start, stop)
-    
-    def getref(self, ref):
-        return self.list[self.offset+ref[0]:self.offset+ref[1]]
+                
+    def __getitem__(self, item):
+        if isinstance(item, int):
+            return self.list[self.offset+item]
+        elif isinstance(item, slice):            
+            return self.list[self.offset+item.start:self.offset+item.stop]
 
-    def get(self, i):
-        return self.list[self.offset+i]
-    
-    def prepend(self, iterable):
+    def insertfront(self, iterable):
         self.list[0:self.offset] = iterable
         self.offset = 0
         
@@ -57,7 +49,7 @@ def pattern(dna, rna):
     p = []
     lvl = 0
     while True:
-        dnastr = ''.join(dna.getref((0,3)))
+        dnastr = ''.join(dna[0:3])
         if dnastr.startswith('C'):
             dna.popfront()
             p.append('I')
@@ -91,7 +83,7 @@ def pattern(dna, rna):
                 return p
         elif dnastr.startswith('III'):
             # Add rna command.
-            rnacmd = dna.getref((3, 10))
+            rnacmd = dna[3:10]
             dna.popfront(10)
             if ''.join(rnacmd) not in rnacommands:
                 print 'Warning: Unknown RNA cmd: ' + ''.join(rnacmd)
@@ -109,7 +101,7 @@ def pattern(dna, rna):
 def template(dna, rna):
     t = []
     while True:
-        dnastr = ''.join(dna.getref((0,3)))
+        dnastr = ''.join(dna[0:3])
         if dnastr.startswith('C'):
             dna.popfront()
             t.append('I')
@@ -137,7 +129,7 @@ def template(dna, rna):
         elif dnastr.startswith('III'):
             # Add rna command.
             # Add rna command.
-            rnacmd = dna.getref((3,10))
+            rnacmd = dna[3:10]
             dna.popfront(10)
             if ''.join(rnacmd) not in rnacommands:
                 print 'Warning: Unknown RNA cmd: ' + ''.join(rnacmd)
@@ -152,7 +144,7 @@ def template(dna, rna):
 # Returns a tuple containing the number and a new position after the
 # consumed bases: (number, pos)
 def nat(dna):
-    dnastr = ''.join(dna.getref((0,1)))
+    dnastr = ''.join(dna[0:1])
     dna.popfront()
     if (dnastr == 'P'):
         return 0
@@ -173,7 +165,7 @@ def nat(dna):
 # consumed bases: (sequence, pos)
 def consts(dna):
     def constsrec(dna):
-        dnastr = ''.join(dna.getref((0,2)))
+        dnastr = ''.join(dna[0:2])
         if dnastr.startswith('C'):
             dna.popfront()
             seq = constsrec(dna)
@@ -227,12 +219,10 @@ def matchreplace(dna, pat, t):
         elif (p == '('):
             c.append(i)
         elif (p == ')'):
-            s = (c.pop(), i)
-            r = dna.getref(s)
-            e.append(r)
+            e.append(dna[c.pop():i])
         else:
             # Base
-            if (dna.get(i) == p):
+            if (dna[i] == p):
                 i += 1
             else:
                 # Match failed.
@@ -261,7 +251,7 @@ def replace(dna, tpl, e):
         else:
             # Base
             r.append(t)
-    dna.prepend(r)
+    dna.insertfront(r)
     
 def protect(l, d):
     while l:
@@ -302,11 +292,7 @@ def execute(dna, rna, progress = False):
         n += 1
         try:
             p = pattern(dna, rna)
-            if n == 4:
-                print len(dna)
             t = template(dna, rna)
-            if n == 4:
-                print p, t, len(dna)
             matchreplace(dna, p, t)
             if progress:
                 print 'Iterations: ' + str(n) + '   DNA remaining: ' + str(len(dna)), '   RNA commands: ' + str(len(rna) / 7)
