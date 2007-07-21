@@ -11,35 +11,42 @@ class dna:
         
     def __getitem__(self, key):
         if isinstance(key, int):
-            ref, ix = self._blockAt(key)
+            ref, ix, pos = self._blockAt(key)
             return ref[key - ix]
         elif isinstance(key, slice):
             # Find start and end blocks.
-            startblock, startix = self._blockAt(key.start)
-            endblock, endix = self._blockAt(key.stop)
-            if startblock is endblock:
-                if startblock.data:
-                    return dnaref(startblock.data, (key.start - startix, key.stop - endix))
-                else:
-                    #return dnaref(refs = startblock.refs)
-                    pass
+            startblock, startix, startpos = self._blockAt(key.start)
+            endblock, endix, endpos = self._blockAt(key.stop)
+            #print key.start, key.stop
+            #print startblock, startix, startpos
+            #print endblock, endix, endpos
+            if (startpos == endpos):
+                return startblock[key.start - startix : key.stop - startix]
             else:
-                pass
+                # Merge all dnarefs within the given range.
+                newref = endblock[0 : key.stop - endix]
+                for ref in self.refs[endpos + 1 : startpos]:
+                    newref.merge(ref)
+                newref.merge(startblock[key.start - startix : len(startblock)])
+                return newref
         raise TypeError
         
     def __str__(self):
         return ''.join([str(ref) for ref in reversed(self.refs)])
         
-    # Returns a tuple consisting of the block containing index 'key' and this block's start index: (block, start)
+    # Returns a tuple consisting of the block containing index 'key',
+    # this block's start index, and the blocks position in the list: (block, startix, position)
     def _blockAt(self, key):
         # NOTE: The reference list is reversed.
         ix = 0
+        position = len(self.refs)
         for ref in reversed(self.refs):
+            position -= 1
             if (ix + len(ref)) > key:
                 break
             else:
                 ix += len(ref)
-        return (ref, ix)
+        return (ref, ix, position)
         
     def popfront(self, n):
         return
@@ -63,41 +70,79 @@ class dna:
 
 class dnaref:
     def __init__(self, data = None, rng = None, refs = None):
-        self.data = data
-        self.refs = refs
-        self.start = None
-        self.end = None
         if data:
-            # Reference to single data block.
-            if not rng:
-                self.start = 0
-                self.end = len(data)
+            if rng:
+                self.refs = [blockref(data, rng[0], rng[1])]
             else:
-                self.start, self.end = rng
+                self.refs = [blockref(data, 0, len(data))]
         else:
-            # Reference to list of references.
-            pass
+            self.refs = refs
         return
         
     def __len__(self):
-        if self.data:
-            return self.end - self.start
-        else:
-            return sum([len(ref) for ref in self.refs])
+        return sum([len(ref) for ref in self.refs])
         
     def __getitem__(self, key):
         if isinstance(key, int):
-            if self.data:
-                return self.data[self.start + key]
-            else:
-                pass
+            ref, ix, pos = self._blockAt(key)
+            return ref[key - ix]
+        elif isinstance(key, slice):
+            return self._newref(key.start, key.stop)
         raise TypeError
         
     def __str__(self):
-        if self.data:
-            return ''.join(self.data[self.start:self.end])
+        return ''.join([str(ref) for ref in reversed(self.refs)])
+        
+    def _newref(self, start, end):
+        blocks = []
+        startblock, startix, startpos = self._blockAt(start)
+        endblock, endix, endpos = self._blockAt(end)
+        if (startpos == endpos):
+            blocks.append(blockref(startblock.block, startblock.start + start - startix, startblock.start - startix + end))
         else:
-            return ''.join([str(ref) for ref in reversed(self.refs)])
+            blocks.append(blockref(endblock.block, endblock.start, endblock.end + end - endix))
+            blocks.extend(self.refs[endpos+1:startpos])
+            blocks.append(blockref(startblock.block, startblock.start + start - startixt, startblock.end))
+        return dnaref(refs = blocks)
+        
+    def merge(self, ref):
+        self.refs.extend(ref.refs)
+        return
+        
+    # Returns a tuple consisting of the block containing index 'key',
+    # this block's start index, and the blocks position in the list: (block, startix, position)
+    def _blockAt(self, key):
+        # NOTE: The reference list is reversed.
+        ix = 0
+        position = len(self.refs)
+        for ref in reversed(self.refs):
+            position -= 1
+            if (ix + len(ref)) > key:
+                break
+            else:
+                ix += len(ref)
+        return (ref, ix, position)
+            
+            
+class blockref:
+    def __init__(self, block, start, end):
+        self.block = block
+        self.start = start
+        self.end = end
+        return
+        
+    def __len__(self):
+        return self.end - self.start
+        
+    def __getitem__(self, key):
+        if isinstance(key, int):
+            return self.block[self.start + key]
+        elif isinstance(key, slice):
+            pass
+        raise TypeError
+        
+    def __str__(self):
+        return ''.join(self.block[self.start:self.end])
         
         
 if __name__ == '__main__':
@@ -154,6 +199,22 @@ if __name__ == '__main__':
     r = d[1:4]
     d.insertfront(r)
     d.simplify()
+    print str(r) + s1 + s2
+    print d
+    for ix in range(len(d)):
+        print ix, d[ix]
+    print ''
+    
+     # Test 5.
+    print ''
+    print 'Test 5'
+    print ''
+    s1 = 'ICCFF'
+    s2 = 'FPPPP'
+    d = dna(s2)
+    d.insertfront(s1)
+    r = d[3:7]
+    d.insertfront(r)
     print str(r) + s1 + s2
     print d
     for ix in range(len(d)):
