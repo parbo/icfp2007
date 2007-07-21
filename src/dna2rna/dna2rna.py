@@ -1,26 +1,24 @@
 import sys
 from rna2fuun.rna2fuun import commands as rnacommands
 
-class DNAList(list):
+class DNAList(object):
     def __init__(self, iterable):
         self.offset = 0
-        list.__init__(self, iterable)
+        self.list = list(iterable)
         
     def __len__(self):
-        return list.__len__(self) - self.offset
-    
-    def __getslice__(self, start, stop):
-        return list.__getslice__(self, start+self.offset, stop+self.offset)
+        return len(self.list) - self.offset
     
     def popfront(self, num=1):
+##        print "popfront", len(self.list), self.offset, num
         if num == 1:
-            r = self[self.offset]
+            r = self.list[self.offset]
             self.offset += 1
             return r
         elif num == 0:
             pass
         else:
-            r = list.__getslice__(self, self.offset, self.offset+num)
+            r = self.list[self.offset: self.offset+num]
             self.offset += num
             return r
         
@@ -28,13 +26,13 @@ class DNAList(list):
         return (start, stop)
     
     def getref(self, ref):
-        return self[ref[0]:ref[1]]
+        return self.list[self.offset+ref[0]:self.offset+ref[1]]
 
     def get(self, i):
-        return self[self.offset+i]
+        return self.list[self.offset+i]
     
     def prepend(self, iterable):
-        self[0:self.offset] = iterable
+        self.list[0:self.offset] = iterable
         self.offset = 0
         
     def find(self, substr, i):
@@ -43,8 +41,8 @@ class DNAList(list):
         ix = 0
         ls = len(substr)
         substrlist = list(substr)
-        for ii in xrange(self.offset+i, list.__len__(self)):
-            if self[ii:ii+ls] == substrlist:
+        for ii in xrange(self.offset+i, len(self.list)):
+            if self.list[ii:ii+ls] == substrlist:
                 return ii - self.offset
         return -1
 
@@ -59,7 +57,7 @@ def pattern(dna, rna):
     p = []
     lvl = 0
     while True:
-        dnastr = ''.join(dna[0:3])
+        dnastr = ''.join(dna.getref((0,3)))
         if dnastr.startswith('C'):
             dna.popfront()
             p.append('I')
@@ -93,7 +91,7 @@ def pattern(dna, rna):
                 return p
         elif dnastr.startswith('III'):
             # Add rna command.
-            rnacmd = dna[3:10]
+            rnacmd = dna.getref((3, 10))
             dna.popfront(10)
             if ''.join(rnacmd) not in rnacommands:
                 print 'Warning: Unknown RNA cmd: ' + ''.join(rnacmd)
@@ -111,7 +109,7 @@ def pattern(dna, rna):
 def template(dna, rna):
     t = []
     while True:
-        dnastr = ''.join(dna[0:3])
+        dnastr = ''.join(dna.getref((0,3)))
         if dnastr.startswith('C'):
             dna.popfront()
             t.append('I')
@@ -139,7 +137,7 @@ def template(dna, rna):
         elif dnastr.startswith('III'):
             # Add rna command.
             # Add rna command.
-            rnacmd = dna[3:10]
+            rnacmd = dna.getref((3,10))
             dna.popfront(10)
             if ''.join(rnacmd) not in rnacommands:
                 print 'Warning: Unknown RNA cmd: ' + ''.join(rnacmd)
@@ -154,20 +152,18 @@ def template(dna, rna):
 # Returns a tuple containing the number and a new position after the
 # consumed bases: (number, pos)
 def nat(dna):
-    try:
-        d = dna.popfront()
-        if (d == 'P'):
-            return 0
-        elif (d == 'I') or (d == 'F'):
-            n = nat(dna)
-            return 2 * n
-        elif (d == 'C'):
-            n = nat(dna)
-            return 2 * n + 1
-        else:
-            # Empty -> Exit
-            raise NoMoreData
-    except IndexError:
+    dnastr = ''.join(dna.getref((0,1)))
+    dna.popfront()
+    if (dnastr == 'P'):
+        return 0
+    elif (dnastr == 'I') or (dnastr == 'F'):
+        n = nat(dna)
+        return 2 * n
+    elif (dnastr == 'C'):
+        n = nat(dna)
+        return 2 * n + 1
+    else:
+        # Empty -> Exit
         raise NoMoreData
     
     
@@ -177,7 +173,7 @@ def nat(dna):
 # consumed bases: (sequence, pos)
 def consts(dna):
     def constsrec(dna):
-        dnastr = ''.join(dna[0:2]) # Produces empty string if 'pos' is out of range.
+        dnastr = ''.join(dna.getref((0,2)))
         if dnastr.startswith('C'):
             dna.popfront()
             seq = constsrec(dna)
@@ -222,7 +218,6 @@ def matchreplace(dna, pat, t):
         elif p.startswith('?'):
             substr = p[1:]
             n = dna.find(substr, i)
-            print "find", n
             if n >= 0:
                 i = n + len(substr)
             else:
