@@ -15,6 +15,7 @@ def pattern(dna, rna):
     lvl = 0
     while True:
         dnastr = ''.join(dna[0:3])
+##        print dnastr
 ##        print "(",dnastr,")", len(dna)
         if dnastr.startswith('C'):
             dna.popfront()            
@@ -50,7 +51,9 @@ def pattern(dna, rna):
         elif dnastr.startswith('III'):
             # Add rna command.
             rnacmd = dna[3:10]
+##            print len(dna)
             dna.popfront(10)
+##            print len(dna)
             if ''.join(rnacmd) not in rnacommands:
                 print 'Warning: Unknown RNA cmd: ' + ''.join(rnacmd)
             rna.extend(rnacmd)
@@ -207,10 +210,10 @@ def replace(dna, tpl, e, i):
             # |n|
             if (t >= len(e)):
                 a = asnat(0)
-                r.append(DNARef(0, len(a), a))
+                r.append(dnareflist.DNARef(0, len(a), a))
             else:
                 a = asnat(e[t].stop-e[t].start)
-                r.append(DNARef(0, len(a), a))
+                r.append(dnareflist.DNARef(0, len(a), a))
         elif isinstance(t, tuple):
             # n(l)
             l, n = t
@@ -221,19 +224,17 @@ def replace(dna, tpl, e, i):
             else:
                 if l == 0:
                     a = e[n]
-                    r.append(DNARef(a.start, a.stop))
+                    r.append(dnareflist.DNARef(a.start, a.stop))
                 else:
                     a = protect(l, dna[e[n]])
-                    r.append(DNARef(0, len(a), a))
+                    r.append(dnareflist.DNARef(0, len(a), a))
         else:
             # Base
-            r.append(DNARef(0, 1, [t]))
+            r.append(dnareflist.DNARef(0, 1, [t]))
 
     for rr in r:        
         dna.insertfront(rr)
-    print "GGGGG", i, len(dna)
     dna.popfront(i)
-    print len(dna)
     
         
     
@@ -293,8 +294,8 @@ if __name__ == '__main__':
     if len(sys.argv) > 2:
         dnafile = file(sys.argv[1], 'r')
         dnastr = prefix + dnafile.read()
-        dna = DNAList()
-        dna.insertfront(DNARef(0, len(dnastr), dnastr))
+        dna = dnareflist.DNAList()
+        dna.insertfront(dnareflist.DNARef(0, len(dnastr), dnastr))
         dnafile.close()
         rna = []
         try:
@@ -315,8 +316,8 @@ if __name__ == '__main__':
         print ''
         for dnastr in ['CIIC', 'IIPIPICPIICICIIF']:
             rna = []
-            dna = DNAList()
-            dna.insertfront(DNARef(0, len(dnastr), dnastr))
+            dna = dnareflist.DNAList()
+            dna.insertfront(dnareflist.DNARef(0, len(dnastr), dnastr))
             p = []
             try:
                 p = pattern(dna, rna)
@@ -329,8 +330,8 @@ if __name__ == '__main__':
         print 'Test dna execution function:'
         print ''
         for dnastr in ['IIPIPICPIICICIIFICCIFPPIICCFPC', 'IIPIPICPIICICIIFICCIFCCCPPIICCFPC', 'IIPIPIICPIICIICCIICFCFC']:
-            dna = DNAList()
-            dna.insertfront(DNARef(0, len(dnastr), dnastr))
+            dna = dnareflist.DNAList()
+            dna.insertfront(dnareflist.DNARef(0, len(dnastr), dnastr))
             rna = []
             execute(dna, rna)
             print dnastr + ' -> ' + ''.join(dna)

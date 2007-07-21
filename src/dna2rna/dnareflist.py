@@ -17,7 +17,7 @@ class DNARef(object):
         try:
             assert(self.start + num <= self.stop)
             self.start += num
-##            print self.start, self.stop, num
+##            print self.start, num
         except:
             print self.start, self.stop, num
             raise
@@ -64,8 +64,10 @@ class DNAList(object):
                 num -= length
             else:
                 break
-        del self.list[:-n]
+##        print n, num
+        del self.list[len(self.list)-n:]
         if num and self.list:
+##            print "pop needed:", self, num
             self.list[-1].popfront(num)
 
         while True:
@@ -98,7 +100,7 @@ class DNAList(object):
             for r in reversed(self.list):
                 # skip
                 if ix + len(r) < ref.start:
-                    print "skipping"
+##                    print "skipping"
                     pass
                 else:
                     start = 0
@@ -112,6 +114,9 @@ class DNAList(object):
                     else:
                         stop = r.stop
                     tmp.extend(r.data[start:stop])
+                if ix + len(r) >= ref.stop:
+                    return tmp
+                ix += len(r)
             return tmp
 
     def insertfront(self, ref):
@@ -123,7 +128,7 @@ class DNAList(object):
             for r in reversed(self.list):
                 # skip
                 if ix + len(r) < ref.start:
-                    print "skipping"
+##                    print "skipping"
                     pass
                 else:
                     start = 0
@@ -138,15 +143,31 @@ class DNAList(object):
                         stop = r.stop
                     tmp = DNARef(start, stop, r.data)  
                     tmpreflist.append(tmp)
-                ix += len(r)
                 if ix + len(r) >= ref.stop:
-                    print "OOOOGA", len(tmpreflist), ix, len(r), ref.start, ref.stop
-                    print "1:",len(self)
+##                    print "OOOOGA", len(tmpreflist), ix, len(r), ref.start, ref.stop
+##                    print "1:",len(self)
                     self.list.extend(reversed(tmpreflist))
-                    print "2:",len(self)
+##                    print "2:",len(self)
                     return
+                ix += len(r)
             print "Noooo"
         
     def find(self, substr, i):
         raise
         return -1
+    
+
+if __name__=="__main__":
+    a = [1,2,3,4,5,6,7,8,9]
+    r = DNARef(0, len(a),a)
+    dna = DNAList()
+    dna.insertfront(r)    
+    print dna, dna[3:7], dna[5]
+    dna.insertfront(DNARef(2,4,a))
+    print dna, dna[3:7], dna[5]
+    dna.insertfront(DNARef(0,4,None))
+    print dna, dna[3:7], dna[5]
+    dna.popfront(5)
+    print dna, dna[3:7], dna[5]
+    dna.popfront(len(dna))
+    print dna, dna[3:7], dna[5]
