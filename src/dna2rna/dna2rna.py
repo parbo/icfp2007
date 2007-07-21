@@ -8,7 +8,10 @@ class DNAList(list):
         
     def __len__(self):
         return list.__len__(self) - self.offset
-        
+    
+    def __getslice__(self, start, stop):
+        return list.__getslice__(self, start+self.offset, stop+self.offset)
+    
     def popfront(self, num=1):
 ##        print "popfront", num, len(self)
         if num == 1:
@@ -18,7 +21,7 @@ class DNAList(list):
         elif num == 0:
             pass
         else:
-            r = self[self.offset:self.offset+num]
+            r = list.__getslice__(self, self.offset, self.offset+num)
             self.offset += num
             return r
 ##        print "popfront2", num, len(self)
@@ -27,7 +30,7 @@ class DNAList(list):
         return (start, stop)
     
     def getref(self, ref):
-        return self[self.offset+ref[0]:self.offset+ref[1]]
+        return self[ref[0]:ref[1]]
 
     def get(self, i):
         return self[self.offset+i]
@@ -40,18 +43,13 @@ class DNAList(list):
         if not substr:
             return -1
         ix = 0
-        for ii in xrange(i, len(self)-self.offset):
-##            if ii % 1000 == 0:
-##                print ii           
-            if self[self.offset+ii] == substr[ix]:
-##                print "match", ix,len(substr)
-                ix += 1
-                if ix == len(substr):
-##                    print "found!", ii
-                    return ii
-            else:
-##                print "no match"
-                ix = 0
+        ls = len(substr)
+        substrlist = list(substr)
+        for ii in xrange(self.offset+i, list.__len__(self)):
+##            if ii > 7512000:
+##                print ''.join(self[ii:ii+ls]), ''.join(substrlist)
+            if self[ii:ii+ls] == substrlist:
+                return ii - self.offset
         return -1
 
 class NoMoreData(Exception):
@@ -61,91 +59,181 @@ class NoMoreData(Exception):
 # Returns a tuple containing the pattern and a new position after the
 # consumed bases: (pattern, pos)
 # The 'rna' parameter is also modified during the process.
+##def pattern(dna, rna):
+####    print "Pattern:", dna
+##    p = []
+##    lvl = 0
+##    try:
+##        while dna:
+####            print dna.get(0), dna.get(1), dna.get(2)
+##            d = dna.popfront()
+##            if d == 'C':
+##                p.append('I')
+##            elif d == 'F':
+##                p.append('C')
+##            elif d == 'P':
+##                p.append('F')
+##            elif d == 'I':
+##                d = dna.popfront()
+##                if d == 'C':
+##                    p.append('P')
+##                elif d == 'P':
+##                    n = nat(dna)
+####                    print n
+##                    p.append('!' + str(n))
+##                elif d == 'F':
+##                    dna.popfront() # NOTE: Three bases consumed here.
+##                    s = consts(dna)
+##                    p.append('?' + ''.join(s))
+##                elif d == 'I':
+##                    d = dna.popfront()
+##                    if d == 'P':
+##                        lvl += 1
+##                        p.append('(')
+##                    elif d == 'C' or d == 'F':
+##                        if lvl > 0:
+##                            lvl -= 1
+##                            p.append(')')
+##                        else:
+##                            return p
+##                    elif d == 'I':
+##                        # Add rna command.                                                
+##                        rnacmd = dna.popfront(7)
+####                        print rnacmd
+##                        if ''.join(rnacmd) not in rnacommands:
+##                            print 'PTN: Warning: Unknown RNA cmd: ' + ''.join(rnacmd)
+##                        rna.extend(rnacmd)
+##    except IndexError:
+##        pass
+##    raise NoMoreData
+
 def pattern(dna, rna):
-##    print "Pattern:", dna
     p = []
     lvl = 0
-    try:
-        while dna:
-##            print dna.get(0), dna.get(1), dna.get(2)
-            d = dna.popfront()
-            if d == 'C':
-                p.append('I')
-            elif d == 'F':
-                p.append('C')
-            elif d == 'P':
-                p.append('F')
-            elif d == 'I':
-                d = dna.popfront()
-                if d == 'C':
-                    p.append('P')
-                elif d == 'P':
-                    n = nat(dna)
-##                    print n
-                    p.append('!' + str(n))
-                elif d == 'F':
-                    dna.popfront() # NOTE: Three bases consumed here.
-                    s = consts(dna)
-                    p.append('?' + ''.join(s))
-                elif d == 'I':
-                    d = dna.popfront()
-                    if d == 'P':
-                        lvl += 1
-                        p.append('(')
-                    elif d == 'C' or d == 'F':
-                        if lvl > 0:
-                            lvl -= 1
-                            p.append(')')
-                        else:
-                            return p
-                    elif d == 'I':
-                        # Add rna command.                                                
-                        rnacmd = dna.popfront(7)
-##                        print rnacmd
-                        if ''.join(rnacmd) not in rnacommands:
-                            print 'PTN: Warning: Unknown RNA cmd: ' + ''.join(rnacmd)
-                        rna.extend(rnacmd)
-    except IndexError:
-        pass
-    raise NoMoreData
+    while True:
+        dnastr = ''.join(dna[0:3])
+        if dnastr.startswith('C'):
+            dna.popfront()
+            p.append('I')
+        elif dnastr.startswith('F'):
+            dna.popfront()
+            p.append('C')
+        elif dnastr.startswith('P'):
+            dna.popfront()
+            p.append('F')
+        elif dnastr.startswith('IC'):
+            dna.popfront(2)
+            p.append('P')
+        elif dnastr.startswith('IP'):
+            dna.popfront(2)
+            n = nat(dna)
+            p.append('!' + str(n))
+        elif dnastr.startswith('IF'):
+            dna.popfront(3) # NOTE: Three bases consumed here.
+            s = consts(dna)
+            p.append('?' + ''.join(s))
+        elif dnastr.startswith('IIP'):
+            dna.popfront(3)
+            lvl += 1
+            p.append('(')
+        elif dnastr.startswith('IIC') or dnastr.startswith('IIF'):
+            dna.popfront(3)
+            if lvl > 0:
+                lvl -= 1
+                p.append(')')
+            else:
+                return p
+        elif dnastr.startswith('III'):
+            # Add rna command.
+            rnacmd = dna[3:10]
+            dna.popfront(10)
+            if ''.join(rnacmd) not in rnacommands:
+                print 'Warning: Unknown RNA cmd: ' + ''.join(rnacmd)
+            rna.extend(rnacmd)
+        else:
+            # Exit
+            raise NoMoreData
+    return
+
 
 # Extracts a template from the list 'dna', starting at position 'pos'.
 # Returns a tuple containing the template and a new position after the
 # consumed bases: (template, pos)
 # The 'rna' parameter is also modified during the process.
+##def template(dna, rna):
+##    t = []
+##    while dna:
+##        d = dna.popfront()
+##        if d == 'C':
+##            t.append('I')
+##        elif d == 'F':
+##            t.append('C')
+##        elif d == 'P':
+##            t.append('F')
+##        if d == 'I':
+##            d = dna.popfront()
+##            if d == 'C':
+##                t.append('P')
+##            elif d == 'F' or d == 'P':
+##                l = nat(dna)
+##                n = nat(dna)
+##                t.append((l, n))
+##            elif d == 'I':
+##                d = dna.popfront()
+##                if d == 'P':
+##                    n = nat(dna)
+##                    t.append(n)
+##                elif d == 'C' or d == 'F':
+##                    return t
+##                elif d == 'I':
+##                    # Add rna command.
+##                    rnacmd = dna.popfront(7)
+####                    print rnacmd
+##                    if ''.join(rnacmd) not in rnacommands:
+##                        print 'Warning: Unknown RNA cmd: ' + ''.join(rnacmd)
+##                    rna.extend(rnacmd)
+##    raise NoMoreData
+
 def template(dna, rna):
     t = []
-    while dna:
-        d = dna.popfront()
-        if d == 'C':
+    while True:
+        dnastr = ''.join(dna[0:3])
+        if dnastr.startswith('C'):
+            dna.popfront()
             t.append('I')
-        elif d == 'F':
+        elif dnastr.startswith('F'):
+            dna.popfront()
             t.append('C')
-        elif d == 'P':
+        elif dnastr.startswith('P'):
+            dna.popfront()
             t.append('F')
-        if d == 'I':
-            d = dna.popfront()
-            if d == 'C':
-                t.append('P')
-            elif d == 'F' or d == 'P':
-                l = nat(dna)
-                n = nat(dna)
-                t.append((l, n))
-            elif d == 'I':
-                d = dna.popfront()
-                if d == 'P':
-                    n = nat(dna)
-                    t.append(n)
-                elif d == 'C' or d == 'F':
-                    return t
-                elif d == 'I':
-                    # Add rna command.
-                    rnacmd = dna.popfront(7)
-##                    print rnacmd
-                    if ''.join(rnacmd) not in rnacommands:
-                        print 'Warning: Unknown RNA cmd: ' + ''.join(rnacmd)
-                    rna.extend(rnacmd)
-    raise NoMoreData
+        elif dnastr.startswith('IC'):
+            dna.popfront(2)
+            t.append('P')
+        elif dnastr.startswith('IF') or dnastr.startswith('IP'):
+            dna.popfront(2)
+            l = nat(dna)
+            n = nat(dna)
+            t.append((l, n))
+        elif dnastr.startswith('IIP'):
+            dna.popfront(3)
+            n = nat(dna)
+            t.append(n)
+        elif dnastr.startswith('IIC') or dnastr.startswith('IIF'):
+            return t
+        elif dnastr.startswith('III'):
+            # Add rna command.
+            # Add rna command.
+            rnacmd = dna[3:10]
+            dna.popfront(10)
+            if ''.join(rnacmd) not in rnacommands:
+                print 'Warning: Unknown RNA cmd: ' + ''.join(rnacmd)
+            rna.extend(rnacmd)
+        else:
+            # Exit
+            raise NoMoreData
+    return
+
 
 # Extracts a natural number from the list 'dna', starting at position 'pos'.
 # Returns a tuple containing the number and a new position after the
@@ -223,6 +311,7 @@ def matchreplace(dna, pat, t):
         elif p.startswith('?'):
             substr = p[1:]
             n = dna.find(substr, i)
+            print "find", n
             if n >= 0:
                 i = n + len(substr)
             else:
@@ -309,7 +398,11 @@ def execute(dna, rna, progress = False):
         n += 1
         try:
             p = pattern(dna, rna)
+            if n == 4:
+                print len(dna)
             t = template(dna, rna)
+            if n == 4:
+                print p, t, len(dna)
             matchreplace(dna, p, t)
             if progress:
                 print 'Iterations: ' + str(n) + '   DNA remaining: ' + str(len(dna)), '   RNA commands: ' + str(len(rna) / 7)
