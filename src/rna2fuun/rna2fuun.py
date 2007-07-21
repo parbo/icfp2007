@@ -172,51 +172,21 @@ class rna2fuun(object):
             y = y + deltay
         self.setPixelVal((x1, y1), cp)
     
-    def fillScanline(self, pos, oldp, newp):
-        if self.getPixel(pos) != oldp:
-            return   
-        
-    ##    if self.debug: 
-    ##        print "Fill scanline: ", pos, oldp, newp
-            
-        x, y = pos
-        w, h = size
-        
-        # draw current scanline from start position to the top
-        y1 = y
-        while y1 < h and self.getPixel((x, y1)) == oldp:
-            self.setPixelVal((x, y1), newp)
-            y1 += 1
-           
-        # draw current scanline from start position to the bottom
-        y1 = y - 1
-        while y1 >= 0 and self.getPixel((x, y1)) == oldp:
-            self.setPixelVal((x, y1), newp)
-            y1 -= 1
-        
-        # test for new scanlines to the left
-        y1 = y
-        while y1 < h and self.getPixel((x, y1)) == newp:
-            if x > 0 and self.getPixel((x - 1, y1)) == oldp:
-                self.fillScanline((x - 1, y1), oldp, newp)
-            y1 += 1
-        y1 = y - 1
-        while y1 >= 0 and self.getPixel((x, y1)) == newp:
-            if x > 0 and self.getPixel((x - 1, y1)) == oldp:
-                self.fillScanline((x - 1, y1), oldp, newp)
-            y1 -= 1
-        
-        # test for new scanlines to the right 
-        y1 = y
-        while y1 < h and self.getPixel((x, y1)) == newp:
-            if x < w - 1 and self.getPixel((x + 1, y1)) == oldp:
-                self.fillScanline((x + 1, y1), oldp, newp)
-            y1 += 1
-        y1 = y - 1
-        while y1 >= 0 and self.getPixel((x, y1)) == newp:
-            if x < w - 1 and self.getPixel((x + 1, y1)) == oldp:
-                self.fillScanline((x + 1, y1), oldp, newp)
-            y1 -= 1
+    def fill(self, pos, oldp, newp):
+        stack = []
+        stack.append(pos)
+        bm = self.bitmaps[0][1]
+        while stack:
+            x, y = stack.pop()
+            try:
+                if bm[x,y] == oldp: 
+                    bm[x,y] = newp
+                    stack.append((x, y + 1))
+                    stack.append((x, y - 1))
+                    stack.append((x + 1, y))
+                    stack.append((x - 1, y))
+            except IndexError:
+                pass
     
     def tryfill(self):
         newp = self.currentPixel()
@@ -224,7 +194,7 @@ class rna2fuun(object):
         if self.debug: 
             print "Fill: ", self.position, oldp, newp
         if newp != oldp:
-            self.fillScanline(self.position, oldp, newp)
+            self.fill(self.position, oldp, newp)
         
     def addBitmap(self):
         if self.debug: 
@@ -247,9 +217,9 @@ class rna2fuun(object):
                                 g0 + (g1 * (255 - a0) / 255),
                                 b0 + (b1 * (255 - a0) / 255),
                                 a0 + (a1 * (255 - a0) / 255))
-            print "saving...."
-            self.bitmaps[0][0].save("compose0.png")
-            self.bitmaps[1][0].save("compose1.png")
+#            print "saving...."
+#            self.bitmaps[0][0].save("compose0.png")
+#            self.bitmaps[1][0].save("compose1.png")
             self.bitmaps.pop(0)
         
     def clip():
@@ -301,10 +271,11 @@ class rna2fuun(object):
         for r in rna:
             try:
                 d[r]()
-                yield commands[r]
+                yield #commands[r]
             except KeyError:
                 if self.debug:
                     print "Unkown instruction:", r
+                yield
                 pass
                 
     def save(self, filename):
@@ -319,5 +290,5 @@ class rna2fuun(object):
 
 if __name__=="__main__":
     r2f = rna2fuun()
-    r2f.debug = True
+##    r2f.debug = True
     r2f.build(sys.argv[1])

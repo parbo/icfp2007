@@ -29,6 +29,8 @@ class RNAListCtrl(wx.ListCtrl):
         
     def OnGetItemText(self, item, column):
         if column == 0:
+            return str(item)
+        elif column == 1:
             return self.main.m_rna[item]
         else:
             return self.main.m_commands[item]
@@ -55,8 +57,9 @@ class RNA2FuunGui(wx.Frame):
         self.m_hsplitter = wx.SplitterWindow(self.m_vsplitter, -1)    
         self.m_rightpanel = scrolled.ScrolledPanel(self.m_vsplitter, -1, size=(140, 300), style = wx.TAB_TRAVERSAL|wx.SUNKEN_BORDER)            
         self.m_rnalist = RNAListCtrl(self.m_hsplitter, self)
-        self.m_rnalist.InsertColumn(0, "RNA")
-        self.m_rnalist.InsertColumn(1, "Translation")
+        self.m_rnalist.InsertColumn(0, "Row")
+        self.m_rnalist.InsertColumn(1, "RNA")
+        self.m_rnalist.InsertColumn(2, "Translation")
         self.m_image = wx.StaticBitmap(self.m_rightpanel, -1, size=(600,600))            
         self.m_data = wx.TextCtrl(self.m_hsplitter, -1, style=wx.TE_MULTILINE|wx.TE_DONTWRAP)            
         self.m_vsplitter.SplitVertically(self.m_hsplitter, self.m_rightpanel, 100)
@@ -74,7 +77,8 @@ class RNA2FuunGui(wx.Frame):
 
         file = wx.Menu()
 
-        openitem = file.Append(-1, '&Open\tCtrl+O', 'Open RNA File')
+        openitem = file.Append(-1, '&Open RNA\tCtrl+O', 'Open RNA File')
+        saveitem = file.Append(-1, '&Save Image\tCtrl+S', 'Save Image')
         
         menubar.Append(file, '&File')
         self.SetMenuBar(menubar)
@@ -90,6 +94,7 @@ class RNA2FuunGui(wx.Frame):
 
         # Bind events            
         self.Bind(wx.EVT_MENU, self.OnOpenFile, openitem)
+        self.Bind(wx.EVT_MENU, self.OnSaveImage, saveitem)
         self.Bind(wx.EVT_TOOL, self.OnStep, stepitem)
         self.Bind(wx.EVT_CONTEXT_MENU, self.OnRClick, self.m_rnalist)
              
@@ -101,6 +106,7 @@ class RNA2FuunGui(wx.Frame):
             self.m_filename = dlg.GetPath()
             self.SetTitle(TITLE_HEADER + self.m_filename)
             # TODO
+            self.m_r2f = rna2fuun.rna2fuun()
             self.m_rna = rna2fuun.read(self.m_filename)
             self.m_commands = []
             for r in self.m_rna:
@@ -117,6 +123,12 @@ class RNA2FuunGui(wx.Frame):
         dlg.Destroy()
         return
     
+    def OnSaveImage(self, event):
+        dlg = wx.FileDialog(self, 'Save image as', defaultFile = self.m_filename, wildcard = 'PNG images (*.png)|*.png', style = wx.SAVE | wx.OVERWRITE_PROMPT | wx.CHANGE_DIR)
+        if dlg.ShowModal() == wx.ID_OK:
+            self.m_r2f.save(dlg.GetPath())
+        dlg.Destroy()
+    
     def OnStep(self, event):
         self.m_buildgen.next()
         self.m_row += 1
@@ -131,7 +143,6 @@ class RNA2FuunGui(wx.Frame):
         self.Bind(wx.EVT_MENU, self.OnRunToHere, item)
         # Popup the menu.  If an item is selected then its handler
         # will be called before PopupMenu returns.
-        print "vzxvcvczxc"
         self.PopupMenu(menu)
         menu.Destroy()
 
@@ -143,8 +154,12 @@ class RNA2FuunGui(wx.Frame):
             return
         
         while self.m_row < item:
-            self.m_buildgen.next()
-            self.m_row += 1
+            try:
+                self.m_buildgen.next()
+                self.m_row += 1
+            except StopIteration:
+                break
+        print self.m_row, item
         self.Update()
         
     def OnNext(self, event):
@@ -155,6 +170,7 @@ class RNA2FuunGui(wx.Frame):
     def Update(self):
         self.m_rnalist.EnsureVisible(self.m_row)
         self.m_rnalist.SetItemState(self.m_row, wx.LIST_STATE_FOCUSED, wx.LIST_STATE_FOCUSED)
+        self.m_rnalist.SetItemState(self.m_row, wx.LIST_STATE_SELECTED, wx.LIST_STATE_SELECTED)
         self.m_data.SetValue("position: %(position)s\ndir: %(dir)s\nbucket: %(bucket)s"%self.m_r2f.__dict__)
         try:
             self.m_image.SetBitmap(PILToBitmap(self.m_r2f.bitmaps[0][0]))
