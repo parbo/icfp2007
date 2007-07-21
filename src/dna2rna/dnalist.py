@@ -52,12 +52,13 @@ class dnalist:
     def popfront(self, n = 1):
         if (n == 0):
             return
-        while (n >= len(self.refs[-1])):
+        while self.refs and (n >= len(self.refs[-1])):
             n -= len(self.refs[-1])
             self.refs.pop()
             if not self.refs:
                 return
-        self.refs[-1] = self.refs[-1][n:len(self.refs[-1])]
+        if self.refs:
+            self.refs[-1] = self.refs[-1][n:len(self.refs[-1])]
         return
         
     def insertfront(self, data):
@@ -128,7 +129,8 @@ class dnaref:
             blocks.append(blockref(startblock.block, startblock.start + start - startix, startblock.start - startix + end))
         else:
             blocks.append(blockref(endblock.block, endblock.start, endblock.end + end - endix))
-            blocks.extend(self.refs[endpos+1:startpos])
+            for block in self.refs[endpos+1:startpos]:
+                blocks.append(blockref(block.block, block.start, block.end))
             blocks.append(blockref(startblock.block, startblock.start + start - startix, startblock.end))
         return dnaref(refs = blocks)
         

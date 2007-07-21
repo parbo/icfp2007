@@ -260,6 +260,10 @@ def replace(dna, tpl, e):
         else:
             # Base
             s.append(t)
+            
+        if s:
+            r.append(''.join(s))
+            
     for item in reversed(r):
         dna.insertfront(item)
     
@@ -307,6 +311,8 @@ def execute(dna, rna, progress = False):
             t = template(dna, rna)
             print t
             matchreplace(dna, p, t)
+            print dna
+            #dna.simplify()
             if progress:
                 print 'Iterations: ' + str(n) + '   DNA remaining: ' + str(len(dna)), '   RNA commands: ' + str(len(rna) / 7)
         except NoMoreData:
