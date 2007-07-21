@@ -3,52 +3,51 @@ from rna2fuun.rna2fuun import commands as rnacommands
 
 class DNAList(list):
     def __init__(self, iterable):
+        self.offset = 0
         list.__init__(self, iterable)
-        self.reverse()
         
-    def __str__(self):
-        return list.__str__(list(reversed(self)))
-
+    def __len__(self):
+        return list.__len__(self) - self.offset
+        
     def popfront(self, num=1):
 ##        print "popfront", num, len(self)
         if num == 1:
-            return self.pop()
+            r = self[self.offset]
+            self.offset += 1
+            return r
         elif num == 0:
             pass
         else:
-            r = self[-num:]
-            del self[-num:]
-            r.reverse()
+            r = self[self.offset:self.offset+num]
+            self.offset += num
             return r
+##        print "popfront2", num, len(self)
         
-    def reflen(self, ref):
-        return abs(ref.stop-ref.start)
-    
     def reference(self, start, stop):
         return (start, stop)
     
     def getref(self, ref):
-        ls = len(self)
-        lr = list(reversed(self[ls - ref[1]: ls - ref[0]]))
-        return lr
+        return self[self.offset+ref[0]:self.offset+ref[1]]
+
     def get(self, i):
-        return self[-i-1]
+        return self[self.offset+i]
     
     def prepend(self, iterable):
-        self.extend(reversed(iterable))  
+        self[0:self.offset] = iterable
+        self.offset = 0
         
     def find(self, substr, i):
         if not substr:
             return -1
         ix = 0
-        for ii in xrange(i, len(self)):
+        for ii in xrange(i, len(self)-self.offset):
 ##            if ii % 1000 == 0:
 ##                print ii           
-            if self[-ii-1] == substr[ix]:
+            if self[self.offset+ii] == substr[ix]:
 ##                print "match", ix,len(substr)
                 ix += 1
                 if ix == len(substr):
-                    print "found!", ii
+##                    print "found!", ii
                     return ii
             else:
 ##                print "no match"
@@ -82,6 +81,7 @@ def pattern(dna, rna):
                     p.append('P')
                 elif d == 'P':
                     n = nat(dna)
+##                    print n
                     p.append('!' + str(n))
                 elif d == 'F':
                     dna.popfront() # NOTE: Three bases consumed here.
@@ -212,8 +212,10 @@ def matchreplace(dna, pat, t):
 ##    print "matchreplace", dna, pat, t
     for p in pat:
         if p.startswith('!'):
+##            print p
             n = int(p[1:])
             i += n
+##            print n, i
             if (i > len(dna)):
                 # Match failed.
 ##                print 'Matched failed in !'
@@ -264,7 +266,7 @@ def replace(dna, tpl, e):
         else:
             # Base
             r.append(t)
-##    print "r:", r
+##    print "r:", len(r)
     dna.prepend(r)
 ##    print "dna:", dna
     
@@ -306,13 +308,8 @@ def execute(dna, rna, progress = False):
     while True:
         n += 1
         try:
-            if n == 75: print "hej"
             p = pattern(dna, rna)
-            if n == 75: print "hej"
             t = template(dna, rna)
-            if n == 75: 
-                print "hej"
-                print len(p), p, t
             matchreplace(dna, p, t)
             if progress:
                 print 'Iterations: ' + str(n) + '   DNA remaining: ' + str(len(dna)), '   RNA commands: ' + str(len(rna) / 7)
