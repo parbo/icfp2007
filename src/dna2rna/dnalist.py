@@ -1,6 +1,6 @@
 from array import array
 
-class dna:
+class dnalist:
     def __init__(self, data):
         self.datablocks = [array('c', data)]
         self.refs = [dnaref(self.datablocks[0])]
@@ -11,15 +11,16 @@ class dna:
         
     def __getitem__(self, key):
         if isinstance(key, int):
+            if not self.refs:
+                return ''
             ref, ix, pos = self._blockAt(key)
             return ref[key - ix]
         elif isinstance(key, slice):
+            if not self.refs:
+                return ''
             # Find start and end blocks.
             startblock, startix, startpos = self._blockAt(key.start)
             endblock, endix, endpos = self._blockAt(key.stop)
-            #print key.start, key.stop
-            #print startblock, startix, startpos
-            #print endblock, endix, endpos
             if (startpos == endpos):
                 return startblock[key.start - startix : key.stop - startix]
             else:
@@ -48,7 +49,15 @@ class dna:
                 ix += len(ref)
         return (ref, ix, position)
         
-    def popfront(self, n):
+    def popfront(self, n = 1):
+        if (n == 0):
+            return
+        while (n >= len(self.refs[-1])):
+            n -= len(self.refs[-1])
+            self.refs.pop()
+            if not self.refs:
+                return
+        self.refs[-1] = self.refs[-1][n:len(self.refs[-1])]
         return
         
     def insertfront(self, data):
@@ -61,6 +70,24 @@ class dna:
             self.refs.append(dnaref(block))
         return
         
+    def find(self, substr, startpos = 0):
+        length = self.__len__()
+        subpos = 0
+        findpos = 0
+        i = startpos
+        while i < length:
+            if (self.__getitem__(i) == substr[subpos]):
+                if (subpos == 0):
+                    findpos = i 
+                subpos += 1
+                if (subpos == len(substr)):
+                    return findpos
+            elif (subpos > 0):
+                i = findpos
+                subpos = 0
+            i += 1
+        return -1
+                    
     def simplify(self):
         datablock = array('c', self.__str__())
         self.datablocks = [datablock]
@@ -102,7 +129,7 @@ class dnaref:
         else:
             blocks.append(blockref(endblock.block, endblock.start, endblock.end + end - endix))
             blocks.extend(self.refs[endpos+1:startpos])
-            blocks.append(blockref(startblock.block, startblock.start + start - startixt, startblock.end))
+            blocks.append(blockref(startblock.block, startblock.start + start - startix, startblock.end))
         return dnaref(refs = blocks)
         
     def merge(self, ref):
@@ -151,7 +178,7 @@ if __name__ == '__main__':
     print 'Test 1'
     print ''
     s = 'ICCFFFPPPP'
-    d = dna(s)
+    d = dnalist(s)
     print s
     print d
     for ix in range(len(d)):
@@ -164,7 +191,7 @@ if __name__ == '__main__':
     print ''
     s1 = 'ICCFF'
     s2 = 'FPPPP'
-    d = dna(s2)
+    d = dnalist(s2)
     d.insertfront(s1)
     print s1 + s2
     print d
@@ -178,7 +205,7 @@ if __name__ == '__main__':
     print ''
     s1 = 'ICCFF'
     s2 = 'FPPPP'
-    d = dna(s2)
+    d = dnalist(s2)
     d.insertfront(s1)
     r = d[1:4]
     d.insertfront(r)
@@ -194,7 +221,7 @@ if __name__ == '__main__':
     print ''
     s1 = 'ICCFF'
     s2 = 'FPPPP'
-    d = dna(s2)
+    d = dnalist(s2)
     d.insertfront(s1)
     r = d[1:4]
     d.insertfront(r)
@@ -205,13 +232,13 @@ if __name__ == '__main__':
         print ix, d[ix]
     print ''
     
-     # Test 5.
+    # Test 5.
     print ''
     print 'Test 5'
     print ''
     s1 = 'ICCFF'
     s2 = 'FPPPP'
-    d = dna(s2)
+    d = dnalist(s2)
     d.insertfront(s1)
     r = d[3:7]
     d.insertfront(r)
@@ -219,4 +246,88 @@ if __name__ == '__main__':
     print d
     for ix in range(len(d)):
         print ix, d[ix]
+    print ''
+    
+    # Test 6.
+    print ''
+    print 'Test 6'
+    print ''
+    s1 = 'ICCFF'
+    s2 = 'FPPPP'
+    d = dnalist(s2)
+    d.insertfront(s1)
+    r = d[3:7]
+    d.insertfront(r)
+    d.popfront(6)
+    print d
+    for ix in range(len(d)):
+        print ix, d[ix]
+    print ''
+    
+    # Test 7.
+    print ''
+    print 'Test 7'
+    print ''
+    s1 = 'ICCFF'
+    s2 = 'FPPPP'
+    d = dnalist(s2)
+    d.insertfront(s1)
+    r = d[3:7]
+    d.popfront(2)
+    d.insertfront(r)
+    d.popfront(4)
+    print d
+    for ix in range(len(d)):
+        print ix, d[ix]
+    print ''
+
+    # Test 8.
+    print ''
+    print 'Test 8'
+    print ''
+    s1 = 'ICCFF'
+    s2 = 'FPPPP'
+    d = dnalist(s1 + s2)
+    print d
+    for ix in range(len(d)):
+        print ix, d[0]
+        d.popfront()
+    print ''
+    
+    # Test 9.
+    print ''
+    print 'Test 9'
+    print ''
+    s1 = 'ICCFF'
+    s2 = 'FPPPP'
+    d = dnalist(s1 + s2)
+    print d
+    print 'd[1:4]:', d[1:4]
+    print 'd[3:7]:', d[3:7]
+    print ''
+    
+    # Test 10.
+    print ''
+    print 'Test 10'
+    print ''
+    s1 = 'ICCFF'
+    s2 = 'FPPPP'
+    d = dnalist(s1 + s2)
+    print d
+    print d.find('FFFP', 1)
+    print d.find('FFFFP', 1)
+    print ''
+    
+    # Test 11.
+    print ''
+    print 'Test 11'
+    print ''
+    s1 = 'ICCFF'
+    s2 = 'FPPPP'
+    s3 = 'IICCC'
+    d = dnalist(s3)
+    d.insertfront(s2)
+    d.insertfront(s3)
+    print d
+    print d[3:12]
     print ''

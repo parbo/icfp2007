@@ -1,5 +1,6 @@
 import sys
 from rna2fuun.rna2fuun import commands as rnacommands
+from dnalist import dnalist
 
 class DNAList(object):
     def __init__(self, iterable):
@@ -49,7 +50,7 @@ def pattern(dna, rna):
     p = []
     lvl = 0
     while True:
-        dnastr = ''.join(dna[0:3])
+        dnastr = str(dna[0:3])
         if dnastr.startswith('C'):
             dna.popfront()
             p.append('I')
@@ -83,10 +84,10 @@ def pattern(dna, rna):
                 return p
         elif dnastr.startswith('III'):
             # Add rna command.
-            rnacmd = dna[3:10]
+            rnacmd = str(dna[3:10])
             dna.popfront(10)
-            if ''.join(rnacmd) not in rnacommands:
-                print 'Warning: Unknown RNA cmd: ' + ''.join(rnacmd)
+            if rnacmd not in rnacommands:
+                print 'Warning: Unknown RNA cmd: ' + rnacmd
             rna.extend(rnacmd)
         else:
             # Exit
@@ -101,7 +102,7 @@ def pattern(dna, rna):
 def template(dna, rna):
     t = []
     while True:
-        dnastr = ''.join(dna[0:3])
+        dnastr = str(dna[0:3])
         if dnastr.startswith('C'):
             dna.popfront()
             t.append('I')
@@ -129,10 +130,10 @@ def template(dna, rna):
         elif dnastr.startswith('III'):
             # Add rna command.
             # Add rna command.
-            rnacmd = dna[3:10]
+            rnacmd = str(dna[3:10])
             dna.popfront(10)
-            if ''.join(rnacmd) not in rnacommands:
-                print 'Warning: Unknown RNA cmd: ' + ''.join(rnacmd)
+            if rnacmd not in rnacommands:
+                print 'Warning: Unknown RNA cmd: ' + rnacmd
             rna.extend(rnacmd)
         else:
             # Exit
@@ -144,7 +145,7 @@ def template(dna, rna):
 # Returns a tuple containing the number and a new position after the
 # consumed bases: (number, pos)
 def nat(dna):
-    dnastr = ''.join(dna[0:1])
+    dnastr = str(dna[0:1])
     dna.popfront()
     if (dnastr == 'P'):
         return 0
@@ -165,7 +166,7 @@ def nat(dna):
 # consumed bases: (sequence, pos)
 def consts(dna):
     def constsrec(dna):
-        dnastr = ''.join(dna[0:2])
+        dnastr = str(dna[0:2])
         if dnastr.startswith('C'):
             dna.popfront()
             seq = constsrec(dna)
@@ -234,24 +235,33 @@ def matchreplace(dna, pat, t):
 def replace(dna, tpl, e):
 ##    print 'Replace ', dna, tpl, e 
     r = []
+    s = []
     for t in tpl:
+        #print 'replace:', t
         if isinstance(t, int):
             # |n|
             if (t >= len(e)):
-                r.extend(asnat(0))
+                s.extend(asnat(0))
             else:
-                r.extend(asnat(len(e[t])))
+                s.extend(asnat(len(e[t])))
         elif isinstance(t, tuple):
             # n(l)
             l, n = t
             if (n >= len(e)):
-                r.extend(protect(l, []))
+                s.extend(protect(l, []))
             else:
-                r.extend(protect(l, e[n]))
+                if (l > 0):
+                    s.extend(protect(l, e[n]))
+                else:
+                    if s:
+                        r.append(''.join(s))
+                        s = []
+                    r.append(e[n])
         else:
             # Base
-            r.append(t)
-    dna.insertfront(r)
+            s.append(t)
+    for item in reversed(r):
+        dna.insertfront(item)
     
 def protect(l, d):
     while l:
@@ -260,8 +270,9 @@ def protect(l, d):
     return d
         
 def quote(d):
-    nd = []    
-    for item in d:
+    nd = []
+    for ix in range(len(d)):
+        item = d[ix]
         if (item == 'I'):
             nd.append('C')
         elif (item == 'C'):
@@ -292,7 +303,9 @@ def execute(dna, rna, progress = False):
         n += 1
         try:
             p = pattern(dna, rna)
+            print p
             t = template(dna, rna)
+            print t
             matchreplace(dna, p, t)
             if progress:
                 print 'Iterations: ' + str(n) + '   DNA remaining: ' + str(len(dna)), '   RNA commands: ' + str(len(rna) / 7)
@@ -308,11 +321,11 @@ if __name__ == '__main__':
         prefixfile.close()
     if len(sys.argv) > 2:
         dnafile = file(sys.argv[1], 'r')
-        dna = DNAList(prefix + dnafile.read())
+        dna = dnalist(prefix + dnafile.read())
         dnafile.close()
         rna = []
         try:
-            dna = execute(dna, rna, True)
+            execute(dna, rna, True)
         except KeyboardInterrupt:
             rnafile = file(sys.argv[2], 'w')
             rnafile.write(''.join(rna))
@@ -324,20 +337,20 @@ if __name__ == '__main__':
         
     else:
         # Run tests
-        print ''
-        print 'Test pattern function:'
-        print ''
-        for dnastr in ['CIIC', 'IIPIPICPIICICIIF']:
-            rna = []
-            dna = DNAList(dnastr)
-            p = pattern(dna, rna)
-            print dnastr + ' -> ' + ''.join(p)
-        print ''
+#         print ''
+#         print 'Test pattern function:'
+#         print ''
+#         for dnastr in ['CIIC', 'IIPIPICPIICICIIF']:
+#             rna = []
+#             dna = dnalist(dnastr)
+#             p = pattern(dna, rna)
+#             print dnastr + ' -> ' + ''.join(p)
+#         print ''
         print ''
         print 'Test dna execution function:'
         print ''
         for dnastr in ['IIPIPICPIICICIIFICCIFPPIICCFPC', 'IIPIPICPIICICIIFICCIFCCCPPIICCFPC', 'IIPIPIICPIICIICCIICFCFC']:
-            dna = DNAList(dnastr)
+            dna = dnalist(dnastr)
             rna = []
             execute(dna, rna)
-            print dnastr + ' -> ' + ''.join(dna)
+            print dnastr + ' -> ' + str(dna)
