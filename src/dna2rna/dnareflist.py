@@ -76,32 +76,34 @@ class DNAList(object):
             self.list[-1].popfront(num)
                 
     def popfromitem(self, num, item):
+        if num == 0:
+            return
         n = 0
         ln = len(self)
-        print range(len(self.list)-item-1, -1, -1)
-        for i in xrange(len(self.list)-item-1, -1, -1):
-            print i
+        print "Len", len(self.list), "item", item, "num", num, "Range", range(len(self.list)-item-1, -1, -1)
+        start = len(self.list)-item-1
+        for i in xrange(start, -1, -1):
             r =  self.list[i]
-            print len(r), r[0:10]
             lr = len(r)
             if num == lr:
                 # exact match, pop this too
                 n += 1
-                num = 0
+                print "exact match, pop this too", i, i+n
+##                for fg in self.list[item-1:item-1+n]:
+##                    print fg
+                del self.list[i:i+n]
                 break
             elif num < lr:
                 # popfront on item is needed
+                if n:
+                    print "pop", i+1, i+n
+                    del self.list[i+1:i+1+n]
+                print "popfront on item is needed", num
+                r.popfront(num)
                 break
             else:
                 n+= 1
                 num -= lr
-        if n != 0:
-            del self.list[item:item+n]
-        if num:
-            print "POP", len(self.list), item, num, len(self.list[i])
-            print self.list[i].start, self.list[i].stop, len(self.list[i])
-            self.list[i].popfront(num)
-            print self.list[i].start, self.list[i].stop, len(self.list[i])
 
     def __getitem__(self, ref):
         if isinstance(ref, int):
@@ -150,6 +152,7 @@ class DNAList(object):
             offs += len(r)	
 #            print offs			
             self.insertfront(r)
+##        print "KKK",len(reflist)
         self.popfromitem(pop, len(reflist))
 #        print "LIST lengt", len(self.list)
 
@@ -198,7 +201,7 @@ class DNAList(object):
         findpos = 0
         i = startpos
         ix = 0
-        print startpos
+##        print startpos
         for r in reversed(self.list):
             if ix + len(r) < i:                
                 pass
@@ -209,23 +212,29 @@ class DNAList(object):
                             findpos = i 
                         subpos += 1
                         if (subpos == len(substr)):
+                            print "FOUND!", findpos, self[findpos:findpos+len(substr)], substr
                             return findpos
                     elif (subpos > 0):
                         i = findpos
                         subpos = 0
                     i += 1
             ix += len(r)
+        print "NOT FOUND!!!!!!!!"
         return -1
     
 
 if __name__=="__main__":
-    a = [1,2,3,4,5,6,7,8,9]
+    a = [1,2,3,4,4,5,6,7,8,9]
     r = DNARef(0, len(a),a)
     dna = DNAList()
     dna.insertfront(r)    
     print "dna 1:", dna
-    dna.insertfrontreflist([DNARef(2,5), DNARef(4,7), DNARef(0,1,['a']), DNARef(0,8), DNARef(4,7)])    
+    print dna.find([4,5,6], 0)
+    dna.insertfrontreflistandpopold([DNARef(2,5), DNARef(4,7), DNARef(0,1,['a']), DNARef(0,8), DNARef(4,7)], 0)    
     print "dna 2:", dna
+    print dna.find([7,'a',4], 0)
+    dna.popfromitem(9, 2)
+    print "dna 2.5:", dna
     dna.popfront(7)
     print "dna 3:", dna
     dna.popfront(11)

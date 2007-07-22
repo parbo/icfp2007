@@ -56,9 +56,9 @@ def pattern(dna, rna):
 ##            print len(dna)
             dna.popfront(10)
 ##            print len(dna)
-            if ''.join(rnacmd) not in rnacommands:
+##            if ''.join(rnacmd) not in rnacommands:
 ##                print len(rna)
-                print 'Warning: Unknown RNA cmd: ' + ''.join(rnacmd)
+##                print 'Warning: Unknown RNA cmd: ' + ''.join(rnacmd)
             rna.append(rnacmd)
         else:
             # Exit
@@ -104,8 +104,8 @@ def template(dna, rna):
             # Add rna command.
             rnacmd = dna[3:10]
             dna.popfront(10)
-            if ''.join(rnacmd) not in rnacommands:
-                print 'Warning: Unknown RNA cmd: ' + ''.join(rnacmd)
+##            if ''.join(rnacmd) not in rnacommands:
+##                print 'Warning: Unknown RNA cmd: ' + ''.join(rnacmd)
             rna.append(rnacmd)
         else:
             # Exit
@@ -172,8 +172,8 @@ def matchreplace(dna, pat, t):
     e = []
     c = []
     i = 0
- #   print ''.join(pat)
- #   print t
+    print ''.join(pat)
+    print t[0:min(10, len(t))]
     for p in pat:
         if p.startswith('!'):
             n = int(p[1:])
@@ -202,6 +202,7 @@ def matchreplace(dna, pat, t):
                 i += 1
             else:
                 # Match failed.
+                print i, dna[i], p
                 print 'Matched failed in Base', p
                 return
     replace(dna, t, e, i)
@@ -236,8 +237,18 @@ def replace(dna, tpl, e, i):
             ref = dnareflist.DNARef(0, 1, [t])
             r.append(ref)
 
-    dna.insertfrontreflistandpopold(r, i)
+    r.reverse()
+    addlen = 0
+    for rr in r:
+        addlen += len(rr)  
+        if not rr.data:
+            print dna[rr.start: min(rr.start+10, rr.stop)], len(rr)    
+    b = len(dna)
+    print "len before", b, "pop", i, "add", addlen
+    dna.insertfrontreflistandpopold(r, i)    
+    print "len after", len(dna)
     print dna[0:20]
+    print
     
         
     
@@ -282,7 +293,7 @@ def execute(dna, rna, progress = False):
             p = pattern(dna, rna)
             t = template(dna, rna)
             matchreplace(dna, p, t)
-            if progress:
+            if progress:# and (n % 100) == 0:
                 print 'Iterations: ' + str(n) + '   DNA remaining: ' + str(len(dna)), '   RNA commands: ' + str(len(rna))
         except NoMoreData:
             print 'DNA remaining: ' + str(len(dna))
