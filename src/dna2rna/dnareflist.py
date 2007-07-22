@@ -237,7 +237,7 @@ class DNAList(object):
             print "Noooo"
         
     def find(self, substr, startpos):
-        print "find"
+##        print "find"
         ls = len(substr)
         if ls == 0:
             return
@@ -259,7 +259,7 @@ class DNAList(object):
                             findpos = i 
                         subpos += 1
                         if (subpos == ls):
-                            print "FOUND!", findpos, self[findpos:findpos+len(substr)], substr
+##                            print "FOUND!", findpos, self[findpos:findpos+len(substr)], substr
                             return findpos
                         else:
                             c = substr[subpos]
