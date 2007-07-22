@@ -328,15 +328,15 @@ class rna2fuun(object):
         i = 0
         for r in rna:
             try:
-                if r in ['PFFPCCP', 'PFFICCF', 'PCCPFFP']:
-                    self.save("%s_%04d.png"%(filename, i))
-                    print ix
-                    i += 1
+##                if r in ['PFFPCCP', 'PFFICCF', 'PCCPFFP']:
+##                    self.save("%s_%04d.png"%(filename, i))
+##                    print ix
+##                    i += 1
                 d[r]()
-                if r in ['PFFPCCP', 'PFFICCF']:
-                    self.save("%s_%04d.png"%(filename, i))
-                    print ix
-                    i += 1
+##                if r in ['PFFPCCP', 'PFFICCF']:
+##                    self.save("%s_%04d.png"%(filename, i))
+##                    print ix
+##                    i += 1
             except KeyError:
                 pass
             ix += 1
