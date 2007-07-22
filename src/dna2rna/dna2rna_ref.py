@@ -172,8 +172,8 @@ def matchreplace(dna, pat, t):
     e = []
     c = []
     i = 0
-    print ''.join(pat)
-    print t
+ #   print ''.join(pat)
+ #   print t
     for p in pat:
         if p.startswith('!'):
             n = int(p[1:])
@@ -194,7 +194,7 @@ def matchreplace(dna, pat, t):
         elif (p == '('):
             c.append(i)
         elif (p == ')'):
-            print c[-1], i
+  #          print c[-1], i
             e.append(slice(c.pop(),i))
         else:
             # Base
@@ -204,9 +204,11 @@ def matchreplace(dna, pat, t):
                 # Match failed.
                 print 'Matched failed in Base', p
                 return
-    replace(dna, t, e, i)
+    olddna = dna.clone()
+    dna.popfront(i)
+    replace(dna, olddna, t, e, i)
     
-def replace(dna, tpl, e, i):
+def replace(dna, olddna, tpl, e, i):
 ##    print 'Replace ', dna, tpl, e 
     r = []
     for t in tpl:
@@ -236,8 +238,10 @@ def replace(dna, tpl, e, i):
             ref = dnareflist.DNARef(0, 1, [t])
             r.append(ref)
 
-    dna.insertfrontreflist(r)
+    newdna = DNAList.insertfrontreflist(r)
+    apa = len(dna)
     dna.popfront(i)
+    print "new len", len(dna), "popped", apa-len(dna), "i", i
     print dna[0:20]
     
         
