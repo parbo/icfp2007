@@ -186,7 +186,7 @@ class DNAList(object):
         self.lencache = None
         if len(self.list) > 1000:
             self.flatten()
-        print "LIST length", len(self.list), oldlen, pop
+##        print "LIST length", len(self.list), oldlen, pop
 
     def insertfront(self, ref):
         if ref.data:
