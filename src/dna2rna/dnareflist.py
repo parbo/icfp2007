@@ -61,12 +61,15 @@ class DNAList(object):
             if num >= length:
                 n+= 1
                 num -= length
+                print "list length", len(self.list)
             else:
                 break
-##        print n, num
-        del self.list[len(self.list)-n:]
+        if n != 0:
+            print "n:", n, "num:", num
+            del self.list[len(self.list)-n:]
         if num and self.list:
-##            print "pop needed:", self, num
+            if num > 100 : print "pop needed:", num, len(self.list[-1]), len(self.list)
+            r = self.list[-1]
             self.list[-1].popfront(num)
                 
     def __getitem__(self, ref):
@@ -103,18 +106,32 @@ class DNAList(object):
                 ix += len(r)
             return tmp
 
+    def insertfrontreflist(self, reflist):
+        print "INSERTFRONTREFLIST"
+        for r in reflist: print len(r)
+        print len(self)
+        offs = 0
+        for r in reflist:   
+            if not r.data:
+                r.start+=offs				
+                r.stop+=offs
+            offs += len(r)	
+#            print offs			
+            self.insertfront(r)
+        print "LIST lengt", len(self.list)
+
     def insertfront(self, ref):
         if ref.data:
+            print "APPEN"
             self.list.append(ref)
         else:
             tmpreflist = []
             ix = 0
-            print "goo", len(ref), ref.start, ref.stop
+            print "insertfront", len(ref), ref.start, ref.stop
             for r in reversed(self.list):
-                print ix, len(r)
                 # skip
                 if ix + len(r) < ref.start:
-                    print "skippin"
+#                    print "skippin"
                     pass
                 else:
                     start = 0
@@ -128,9 +145,10 @@ class DNAList(object):
                     else:
                         stop = r.stop
                     tmp = DNARef(start, stop, r.data)  
-                    print "Adding:", len(tmp), tmp.start, tmp.stop
+                    print "Adding:", r.data[start:start+10], len(tmp), tmp.start, tmp.stop
                     tmpreflist.append(tmp)
                 if ix + len(r) >= ref.stop:
+                    print "TMPLIST", len(tmpreflist)
                     self.list.extend(reversed(tmpreflist))
                     return
                 ix += len(r)
@@ -169,6 +187,10 @@ if __name__=="__main__":
     dna = DNAList()
     dna.insertfront(r)    
     print dna, dna[3:7], dna[5]
+    dna.insertfrontreflist([DNARef(2,5), DNARef(4,7), DNARef(0,1,['a']), DNARef(4,7)])    
+    print dna
+    dna.popfront(11)
+    print dna
     print dna.find([4,5,6], 0)
     dna.insertfront(DNARef(2,4,a))
     print dna, dna[3:7], dna[5]

@@ -172,7 +172,7 @@ def matchreplace(dna, pat, t):
     e = []
     c = []
     i = 0
-    print pat
+    print ''.join(pat)
     print t
     for p in pat:
         if p.startswith('!'):
@@ -180,7 +180,7 @@ def matchreplace(dna, pat, t):
             i += n
             if (i > len(dna)):
                 # Match failed.
-##                print 'Matched failed in !'
+                print 'Matched failed in !'
                 return
         elif p.startswith('?'):
             substr = p[1:]
@@ -189,11 +189,12 @@ def matchreplace(dna, pat, t):
                 i = n + len(substr)
             else:
                 # Match failed.
-##                print 'Matched failed in ?'
+                print 'Matched failed in ?'
                 return
         elif (p == '('):
             c.append(i)
         elif (p == ')'):
+            print c[-1], i
             e.append(slice(c.pop(),i))
         else:
             # Base
@@ -201,7 +202,7 @@ def matchreplace(dna, pat, t):
                 i += 1
             else:
                 # Match failed.
-##                print 'Matched failed in Base', p
+                print 'Matched failed in Base', p
                 return
     replace(dna, t, e, i)
     
@@ -235,10 +236,9 @@ def replace(dna, tpl, e, i):
             ref = dnareflist.DNARef(0, 1, [t])
             r.append(ref)
 
-    print dna[0:20]
-    for rr in r:   
-        dna.insertfront(rr)
+    dna.insertfrontreflist(r)
     dna.popfront(i)
+    print dna[0:20]
     
         
     
