@@ -14,6 +14,7 @@ def pattern(dna, rna):
     p = []
     lvl = 0
     while True:
+##        print len(dna)
         dnastr = ''.join(dna[0:3])
 ##        print dnastr
 ##        print "(",dnastr,")", len(dna)
@@ -51,12 +52,14 @@ def pattern(dna, rna):
         elif dnastr.startswith('III'):
             # Add rna command.
             rnacmd = dna[3:10]
+##            print rnacmd
 ##            print len(dna)
             dna.popfront(10)
 ##            print len(dna)
             if ''.join(rnacmd) not in rnacommands:
+##                print len(rna)
                 print 'Warning: Unknown RNA cmd: ' + ''.join(rnacmd)
-            rna.extend(rnacmd)
+            rna.append(rnacmd)
         else:
             # Exit
             print "N more data!" #, len(dna), dna[0:3]
@@ -103,7 +106,7 @@ def template(dna, rna):
             dna.popfront(10)
             if ''.join(rnacmd) not in rnacommands:
                 print 'Warning: Unknown RNA cmd: ' + ''.join(rnacmd)
-            rna.extend(rnacmd)
+            rna.append(rnacmd)
         else:
             # Exit
             raise NoMoreData
@@ -169,8 +172,8 @@ def matchreplace(dna, pat, t):
     e = []
     c = []
     i = 0
-##    print pat
-##    print t
+    print pat
+    print t
     for p in pat:
         if p.startswith('!'):
             n = int(p[1:])
@@ -234,7 +237,11 @@ def replace(dna, tpl, e, i):
 
     for rr in r:        
         dna.insertfront(rr)
+    print len(dna)
+    print dna[i:i+10]
     dna.popfront(i)
+    print len(dna)
+    print dna[0:20]
     
         
     
@@ -280,7 +287,7 @@ def execute(dna, rna, progress = False):
             t = template(dna, rna)
             matchreplace(dna, p, t)
             if progress:
-                print 'Iterations: ' + str(n) + '   DNA remaining: ' + str(len(dna)), '   RNA commands: ' + str(len(rna) / 7)
+                print 'Iterations: ' + str(n) + '   DNA remaining: ' + str(len(dna)), '   RNA commands: ' + str(len(rna))
         except NoMoreData:
             print 'DNA remaining: ' + str(len(dna))
             break

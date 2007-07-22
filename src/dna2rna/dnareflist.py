@@ -17,7 +17,6 @@ class DNARef(object):
         try:
             assert(self.start + num <= self.stop)
             self.start += num
-##            print self.start, num
         except:
             print self.start, self.stop, num
             raise
@@ -69,21 +68,6 @@ class DNAList(object):
         if num and self.list:
 ##            print "pop needed:", self, num
             self.list[-1].popfront(num)
-
-        while True:
-            if not self.list:
-                return 
-            r = self.list[-1]
-            if len(r) < num:
-                self.list.pop()
-            elif len(r) == num:
-                self.list.pop()
-                return
-            else:
-                r.popfront(num)
-                if len(r) == 0:
-                    self.list.pop()
-                return
                 
     def __getitem__(self, ref):
         if isinstance(ref, int):
@@ -152,8 +136,30 @@ class DNAList(object):
                 ix += len(r)
             print "Noooo"
         
-    def find(self, substr, i):
-        raise
+    def find(self, substr, startpos):
+        print "find"
+        length = len(self)
+        subpos = 0
+        findpos = 0
+        i = startpos
+        ix = 0
+        print startpos
+        for r in reversed(self.list):
+            if ix + len(r) < i:                
+                pass
+            else:
+                while i - ix < len(r):
+                    if (r[i-ix] == substr[subpos]):
+                        if (subpos == 0):
+                            findpos = i 
+                        subpos += 1
+                        if (subpos == len(substr)):
+                            return findpos
+                    elif (subpos > 0):
+                        i = findpos
+                        subpos = 0
+                    i += 1
+            ix += len(r)
         return -1
     
 
@@ -163,11 +169,12 @@ if __name__=="__main__":
     dna = DNAList()
     dna.insertfront(r)    
     print dna, dna[3:7], dna[5]
+    print dna.find([4,5,6], 0)
     dna.insertfront(DNARef(2,4,a))
     print dna, dna[3:7], dna[5]
     dna.insertfront(DNARef(0,4,None))
     print dna, dna[3:7], dna[5]
-    dna.popfront(5)
-    print dna, dna[3:7], dna[5]
+    dna.popfront(len(dna)-2)
+    print dna #, dna[3:7], dna[5]
     dna.popfront(len(dna))
     print dna, dna[3:7], dna[5]
