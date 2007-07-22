@@ -285,7 +285,7 @@ def execute(dna, rna, progress = False):
             matchreplace(dna, p, t)
             #print dna
             if progress:
-                print 'Iterations: ' + str(n) + '   DNA remaining: ' + str(len(dna)), '   RNA commands: ' + str(len(rna) / 7)
+                print 'Iterations: ' + str(n) + '   DNA remaining: ' + str(len(dna)) + '   RNA commands: ' + str(len(rna) / 7) + '   Buffer margins: ' + str(dna.buffermargins())
         except NoMoreData:
             #print 'DNA remaining: ' + str(len(dna))
             break

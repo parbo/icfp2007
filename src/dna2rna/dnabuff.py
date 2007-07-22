@@ -1,5 +1,7 @@
-BUFF_SIZE = 50000000
-INIT_OFS  = 10000000
+import time
+
+BUFF_SIZE = 30000000
+INIT_OFS  = 5000000
 
 class NoMoreData(Exception):
     pass
@@ -142,11 +144,13 @@ class dnalist:
         self.insert = []
         return
         
-    def altfind(self, substr, startpos = 0):
+    def _stepfind(self, substr, startpos, maxtime):
         subpos = 0
         findpos = 0
         i = startpos
-        while i < len(self):
+        starttime = time.time()
+        length = len(self)
+        while (i < length):
             if (self[i] == substr[subpos]):
                 if (subpos == 0):
                     findpos = i 
@@ -157,15 +161,27 @@ class dnalist:
                 i = findpos
                 subpos = 0
             i += 1
+            if (i % 10000) and (time.time() - starttime > maxtime):
+                return None
         return -1
         
-    def find(self, substr, startpos = 0):
+    def _strfind(self, substr, startpos):
         s = ''.join(self[startpos:len(self)])
         f = s.find(substr)
         if f >= 0:
             return f + startpos
         else:
             return f
+            
+    def find(self, substr, startpos = 0):
+        f = self._stepfind(substr, startpos, 5.0)
+        if f is None:
+            return self._strfind(substr, startpos)
+        else:
+            return f
+            
+    def buffermargins(self):
+        return (self.start, BUFF_SIZE - self.end)
         
 if __name__ == '__main__':
     # Test 1.
