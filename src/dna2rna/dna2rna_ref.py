@@ -221,9 +221,8 @@ def replace(dna, tpl, e, i):
             # n(l)
             l, n = t
             if (n >= len(e)):
-                pass
-##                a = protect(l, [])
-##                r.append(a)
+                a = protect(l, [])
+                r.append(dnareflist.DNARef(0, len(a), a))
             else:
                 if l == 0:
                     a = e[n]
@@ -235,13 +234,10 @@ def replace(dna, tpl, e, i):
             # Base
             r.append(dnareflist.DNARef(0, 1, [t]))
 
-    for rr in r:        
-        dna.insertfront(rr)
-    print len(dna)
-    print dna[i:i+10]
-    dna.popfront(i)
-    print len(dna)
     print dna[0:20]
+    for rr in r:   
+        dna.insertfront(rr)
+    dna.popfront(i)
     
         
     
