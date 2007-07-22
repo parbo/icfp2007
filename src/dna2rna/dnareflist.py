@@ -160,7 +160,7 @@ class DNAList(object):
                 if ix + len(r) >= ref.stop:
                     return tmp
                 ix += len(r)
-            raise
+##            raise
             return tmp
 
     def insertfrontreflistandpopold(self, reflist, pop):
