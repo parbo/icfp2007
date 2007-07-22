@@ -14,27 +14,27 @@ class DNARef(object):
             return "(%d, %d)"%(self.start, self.stop)
     
     def popfront(self, num):
-        try:
-            assert(self.start + num <= self.stop)
+##        try:
+##            assert(self.start + num <= self.stop)
             self.start += num
-        except:
-            print self.start, self.stop, num
-            raise
+##        except:
+##            print self.start, self.stop, num
+##            raise
         
     def __getitem__(self, item):
-        try:
+##        try:
             if isinstance(item, int):
-                assert(self.start+item < self.stop)
+##                assert(self.start+item < self.stop)
                 return self.data[self.start + item]
             elif isinstance(item, slice):    
                 if not item.stop :
                     item.stop = len(self)
-                assert(self.start+item.start < self.stop)
-                assert(self.start+item.stop < self.stop)
+##                assert(self.start+item.start < self.stop)
+##                assert(self.start+item.stop < self.stop)
                 return self.data[self.start+item.start:self.start+item.stop]
-        except:
+##        except:
 ##            print self.start, self.stop, item
-            raise
+##            raise
         
 
 class DNAList(object):
@@ -57,7 +57,7 @@ class DNAList(object):
         return self.lencache
     
     def flatten(self):
-        print "Flatten!"
+##        print "Flatten!"
         ls = len(self)
         d = self[0:ls]
         r = DNARef(0, ls, d)
@@ -111,18 +111,18 @@ class DNAList(object):
 ##                print "exact match, pop this too", i, item, n, num, cumlen
 ##                for fg in self.list[item-1:item-1+n]:
 ##                    print fg
-                print "popping", range(i, start+1)#, [str(x) for x in self.list[i: start+1]]
-                print len(self.list)
+##                print "popping", range(i, start+1)#, [str(x) for x in self.list[i: start+1]]
+##                print len(self.list)
                 del self.list[i:start+1]
-                print len(self.list)
+##                print len(self.list)
                 break
             elif num < lr:
                 # popfront on item is needed
                 if n:
-                    print "pop", i+1, start+1
-                    print len(self.list)
+##                    print "pop", i+1, start+1
+##                    print len(self.list)
                     del self.list[i+1:start+1]
-                    print len(self.list)
+##                    print len(self.list)
 ##                print "popfront on item is needed", num
                 r.popfront(num)
                 break
@@ -219,12 +219,12 @@ class DNAList(object):
 ##                        print "case4"
                         stop = r.stop
                     tmp = DNARef(start, stop, r.data)  
-                    try:
-                        assert(start != stop)
-                        assert(0 <= start < len(r.data))
-                        assert(0 < stop <= len(r.data))
-                    except AssertionError:
-                        print "Error", start, stop, len(r.data)
+##                    try:
+##                        assert(start != stop)
+##                        assert(0 <= start < len(r.data))
+##                        assert(0 < stop <= len(r.data))
+##                    except AssertionError:
+##                        print "Error", start, stop, len(r.data)
 ##                        raise
 ##                    print "Adding:", r.data[start:min(start+10, stop)], len(tmp), tmp.start, tmp.stop, ref.start, ref.stop, ix, len(r)
                     tmpreflist.append(tmp)

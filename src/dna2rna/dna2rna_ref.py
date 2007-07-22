@@ -304,7 +304,7 @@ def execute(dna, rna, progress = False):
 ##                f.close()
 ##            else:
 ##                exit()
-            if progress:# and (n % 100) == 0:
+            if progress and (n % 100) == 0:
                 print 'Iterations: ' + str(n) + '   DNA remaining: ' + str(len(dna)), '   RNA commands: ' + str(len(rna)), "List size:", len(dna.list)
         except NoMoreData:
             print 'DNA remaining: ' + str(len(dna))
