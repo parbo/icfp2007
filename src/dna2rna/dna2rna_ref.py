@@ -204,11 +204,9 @@ def matchreplace(dna, pat, t):
                 # Match failed.
                 print 'Matched failed in Base', p
                 return
-    olddna = dna.clone()
-    dna.popfront(i)
-    replace(dna, olddna, t, e, i)
+    replace(dna, t, e, i)
     
-def replace(dna, olddna, tpl, e, i):
+def replace(dna, tpl, e, i):
 ##    print 'Replace ', dna, tpl, e 
     r = []
     for t in tpl:
@@ -238,10 +236,7 @@ def replace(dna, olddna, tpl, e, i):
             ref = dnareflist.DNARef(0, 1, [t])
             r.append(ref)
 
-    newdna = DNAList.insertfrontreflist(r)
-    apa = len(dna)
-    dna.popfront(i)
-    print "new len", len(dna), "popped", apa-len(dna), "i", i
+    dna.insertfrontreflistandpopold(r, i)
     print dna[0:20]
     
         
