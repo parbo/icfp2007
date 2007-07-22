@@ -50,6 +50,7 @@ class DNAList(object):
         return tmp        
     
     def flatten(self):
+        print "flatten"
         d = self.getall()
         r = DNARef(0, len(d), d)
         self.list = []
@@ -103,36 +104,43 @@ class DNAList(object):
         if isinstance(ref, int):
             ix = 0
             for r in reversed(self.list):
-                if ix + len(r) > ref:
+                lr = len(r)
+                if ix + lr > ref:
                     return r[ref-ix]
                 else:
-                    ix += len(r)
+                    ix += lr
             raise IndexError
         elif isinstance(ref, slice):     
             tmp = []
             ix = 0
+            rstrt = ref.start
+            rstp = ref.stop
             for r in reversed(self.list):
                 lr = len(r)
                 # skip
-                if ix + lr < ref.start:
-##                    print "skipping"
+                if ix + lr < rstrt:
+                    if ix + lr >= rstp:
+                        return tmp
                     pass
                 else:
                     start = 0
                     stop = 0
-                    if ix <= ref.start:
-                        start = r.start+ref.start-ix
+                    if ix <= rstrt:
+                        start = r.start+rstrt-ix
                     else:
                         start = r.start
-                    if ix + lr >= ref.stop:
-                        stop = r.start+ref.stop-ix
+                    if ix + lr >= rstp:
+                        stop = r.start+rstp-ix
                     else:
                         stop = r.stop
+                    if ix + lr >= rstp:
+                        if tmp:                            
+                            tmp.extend(r.data[start:stop])
+                            return tmp
+                        else:
+                            return r.data[start:stop]
                     tmp.extend(r.data[start:stop])
-                if ix + lr >= ref.stop:
-                    return tmp
                 ix += lr
-##            raise
             return tmp
 
     def insertfrontreflistandpopold(self, reflist, pop):
@@ -183,7 +191,6 @@ class DNAList(object):
             print "Noooo"
         
     def find(self, substr, startpos):
-##        print "find"
         ls = len(substr)
         if ls == 0:
             return
@@ -192,7 +199,6 @@ class DNAList(object):
         findpos = 0
         i = startpos
         ix = 0
-##        print startpos
         for r in reversed(self.list):
             lr = len(r)
             if ix + lr < i:                
