@@ -325,9 +325,11 @@ class rna2fuun(object):
             'PFFICCF' : self.clip}
         
         lr = len(rna)
+        oldpct = 0
         for ix, r in enumerate(rna):
             pct = ix * 100 / lr
-            if pct % 10 == 0:
+            if pct % 10 == 0 and pct != oldpct:
+                oldpct = pct
                 print "%02d%%"%pct
             try:
                 d[r]()
