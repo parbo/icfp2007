@@ -107,7 +107,7 @@ def template(dna, rna):
 # Returns a tuple containing the number and a new position after the
 # consumed bases: (number, pos)
 def nat(dna):
-    dnastr = ''.join(dna[0:1])[0]
+    dnastr = ''.join(dna[0:1])
     dna.popfront()
     if (dnastr == 'P'):
         return 0
@@ -229,9 +229,20 @@ def protect(l, d):
         d = quote(d)
     return d
         
-qdict = {'I' : 'C', 'C' : 'F', 'F' : 'P', 'P' : 'IC'}
 def quote(d):
-    return [qdict[item] for item in d]
+    nd = []    
+    for item in d:
+        if (item == 'I'):
+            nd.append('C')
+        elif (item == 'C'):
+            nd.append('F')
+        elif (item == 'F'):
+            nd.append('P')
+        else:
+            # P
+            nd.append('I')
+            nd.append('C')
+    return nd
     
 def asnat(n):
     d = []
