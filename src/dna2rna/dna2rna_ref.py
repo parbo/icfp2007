@@ -234,7 +234,7 @@ def replace(dna, tpl, e, i):
                     a = e[n]
                     r.append(dnareflist.DNARef(a.start, a.stop))
                 else:
-                    tmp.extend(protect(l, dna[e[n].start+i:e[n].stop+i]))
+                    tmp.extend(protect(l, dna[e[n].start:e[n].stop]))
         else:
             # Base
             tmp.append(t)

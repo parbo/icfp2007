@@ -49,10 +49,12 @@ class DNAList(object):
             
         
     def __len__(self):
-        length = 0
-        for r in reversed(self.list):
-            length += len(r)
-        return length
+        if not self.lencache:
+            length = 0
+            for r in reversed(self.list):
+                length += len(r)
+            self.lencache = length
+        return self.lencache
     
     def flatten(self):
         print "Flatten!"
@@ -82,6 +84,7 @@ class DNAList(object):
             del self.list[len(self.list)-n:]
         if num:
             self.list[-1].popfront(num)
+        self.lencache = None
                 
     def popfromitem(self, num, item):
         if num == 0:
@@ -127,6 +130,7 @@ class DNAList(object):
 ##                print "pop this!", i
                 n+= 1
                 num -= lr
+        self.lencache = None
 
     def __getitem__(self, ref):
         if isinstance(ref, int):
@@ -179,6 +183,7 @@ class DNAList(object):
             self.insertfront(r)
 ##            print self
         self.popfromitem(pop, len(self.list)-oldlen)
+        self.lencache = None
         if len(self.list) > 1000:
             self.flatten()
         print "LIST length", len(self.list), oldlen, pop
@@ -187,6 +192,7 @@ class DNAList(object):
         if ref.data:
         #    print "APPEND", len(ref)
             self.list.append(ref)
+            self.lencache = None
         else:
             tmpreflist = []
             ix = 0
@@ -225,6 +231,7 @@ class DNAList(object):
                 if ix + len(r) >= ref.stop:
  #                   print "TMPLIST", len(tmpreflist)
                     self.list.extend(reversed(tmpreflist))
+                    self.lencache = None
                     return
                 ix += len(r)
             print "Noooo"
