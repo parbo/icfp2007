@@ -172,44 +172,49 @@ def matchreplace(dna, pat, t):
     e = []
     c = []
     i = 0
-    print ''.join(pat)
-    print t[0:min(10, len(t))]
+##    print ''.join(pat)
+##    print t[0:min(10, len(t))]
     for p in pat:
         if p.startswith('!'):
             n = int(p[1:])
             i += n
             if (i > len(dna)):
                 # Match failed.
-                print 'Matched failed in !'
+##                print 'Matched failed in !'
                 return
         elif p.startswith('?'):
             substr = p[1:]
             n = dna.find(substr, i)
+##            print "find", n, len(dna), i
             if n >= 0:
                 i = n + len(substr)
             else:
                 # Match failed.
-                print 'Matched failed in ?'
+##                print 'Matched failed in ?'
                 return
         elif (p == '('):
             c.append(i)
         elif (p == ')'):
-  #          print c[-1], i
-            e.append(slice(c.pop(),i))
+            s = slice(c.pop(),i)
+##            print "Append E", s.start, s.stop 
+            e.append(s)
         else:
             # Base
             if (dna[i] == p):
                 i += 1
             else:
                 # Match failed.
-                print i, dna[i], p
-                print 'Matched failed in Base', p
+##                print i, dna[i], p
+##                print 'Matched failed in Base', p
                 return
+##    for ee in e:
+##        print "e =", dna[ee.start: min(ee.start+10, ee.stop)], ee.start, ee.stop, len(dna)
     replace(dna, t, e, i)
     
 def replace(dna, tpl, e, i):
 ##    print 'Replace ', dna, tpl, e 
     r = []
+    tmp = []
     for t in tpl:
         if isinstance(t, int):
             # |n|
@@ -230,7 +235,7 @@ def replace(dna, tpl, e, i):
                     a = e[n]
                     r.append(dnareflist.DNARef(a.start, a.stop))
                 else:
-                    a = protect(l, dna[e[n]])
+                    a = protect(l, dna[e[n].start+i:e[n].stop+i])
                     r.append(dnareflist.DNARef(0, len(a), a))
         else:
             # Base
@@ -239,23 +244,23 @@ def replace(dna, tpl, e, i):
 
     r.reverse()
     addlen = 0
-    for rr in r:
-        addlen += len(rr)  
-        if not rr.data:
-            print dna[rr.start: min(rr.start+10, rr.stop)], len(rr)    
-    b = len(dna)
-    print "len before", b, "pop", i, "add", addlen
+##    for rr in r:
+##        print len(rr)
+##        addlen += len(rr)  
+##        if not rr.data:
+##            print dna[rr.start: min(rr.start+10, rr.stop)], len(rr)    
+##    b = len(dna)
+##    print "len before", b, "pop", i, "add", addlen
     dna.insertfrontreflistandpopold(r, i)    
-    print "len after", len(dna)
-    print dna[0:20]
-    print
+##    print "len after", len(dna)
+##    print dna[0:20]
+##    print
     
         
     
 def protect(l, d):
-    while l:
+    for ix in range(l):
         d = quote(d)
-        l -= 1
     return d
         
 def quote(d):
@@ -293,8 +298,14 @@ def execute(dna, rna, progress = False):
             p = pattern(dna, rna)
             t = template(dna, rna)
             matchreplace(dna, p, t)
+##            if n < 10:
+##                f = open("iteration%dwrong.txt"%n, "w")
+##                f.write(''.join(dna[0:len(dna)]))
+##                f.close()
+##            else:
+##                exit()
             if progress:# and (n % 100) == 0:
-                print 'Iterations: ' + str(n) + '   DNA remaining: ' + str(len(dna)), '   RNA commands: ' + str(len(rna))
+                print 'Iterations: ' + str(n) + '   DNA remaining: ' + str(len(dna)), '   RNA commands: ' + str(len(rna)), "List size:", len(dna.list)
         except NoMoreData:
             print 'DNA remaining: ' + str(len(dna))
             break

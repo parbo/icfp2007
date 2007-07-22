@@ -80,28 +80,39 @@ class DNAList(object):
             return
         n = 0
         ln = len(self)
-        print "Len", len(self.list), "item", item, "num", num, "Range", range(len(self.list)-item-1, -1, -1)
+        
+        length = 0
+##        print "POPFROMITEM", len(self.list), num, item
         start = len(self.list)-item-1
+##        for i, r in enumerate(self.list[0:start+1]):
+##            print "lennnnn", i,  len(r)
+##            length += len(r)
+##        print "LENGTH AFTER ITEM",  length
+        
+##        print "Len", len(self.list), "item", item, "num", num, "Range", range(start, -1, -1)
+        cumlen = 0
         for i in xrange(start, -1, -1):
             r =  self.list[i]
             lr = len(r)
+            cumlen += lr
             if num == lr:
                 # exact match, pop this too
-                n += 1
-                print "exact match, pop this too", i, i+n
+##                print "exact match, pop this too", i, item, n, num, cumlen
 ##                for fg in self.list[item-1:item-1+n]:
 ##                    print fg
-                del self.list[i:i+n]
+##                print "popping", range(i, start+1), [str(x) for x in self.list[i: start+1]]
+                del self.list[i:start+1]
                 break
             elif num < lr:
                 # popfront on item is needed
                 if n:
-                    print "pop", i+1, i+n
-                    del self.list[i+1:i+1+n]
-                print "popfront on item is needed", num
+##                    print "pop", i+1, i+n
+                    del self.list[i+1:start+1]
+##                print "popfront on item is needed", num
                 r.popfront(num)
                 break
             else:
+##                print "pop this!", i
                 n+= 1
                 num -= lr
 
@@ -137,6 +148,7 @@ class DNAList(object):
                 if ix + len(r) >= ref.stop:
                     return tmp
                 ix += len(r)
+            raise
             return tmp
 
     def insertfrontreflistandpopold(self, reflist, pop):
@@ -145,6 +157,7 @@ class DNAList(object):
      #       print len(r)
     #    print len(self.list), len(reflist)
         offs = 0
+        oldlen = len(self.list)
         for r in reflist:   
             if not r.data:
                 r.start+=offs				
@@ -152,9 +165,9 @@ class DNAList(object):
             offs += len(r)	
 #            print offs			
             self.insertfront(r)
-##        print "KKK",len(reflist)
-        self.popfromitem(pop, len(reflist))
-#        print "LIST lengt", len(self.list)
+##            print self
+        self.popfromitem(pop, len(self.list)-oldlen)
+##        print "LIST lengt", len(self.list)
 
     def insertfront(self, ref):
         if ref.data:
@@ -163,29 +176,37 @@ class DNAList(object):
         else:
             tmpreflist = []
             ix = 0
-#            print "insertfront", len(ref), ref.start, ref.stop
+##            print "insertfront", len(ref), ref.start, ref.stop
             for r in reversed(self.list):
                 # skip
+##                print "look", ix, len(r), len(r.data), r.start, r.stop, r
                 if ix + len(r) <= ref.start:
-#                    print "skippin"
+##                    print "skippin", len(r), ix
                     pass
                 else:
                     start = 0
                     stop = 0
                     if ix <= ref.start:
- #                       print "case1"
+##                        print "case1"
                         start = r.start+ref.start-ix
                     else:
-  #                      print "case2"
+##                        print "case2"
                         start = r.start
                     if ix + len(r) >= ref.stop:
-    #                    print "case3"
+##                        print "case3"
                         stop = r.start+ref.stop-ix
                     else:
-      #                  print "case4"
+##                        print "case4"
                         stop = r.stop
                     tmp = DNARef(start, stop, r.data)  
-  #                  print "Adding:", tmp[0:10], len(tmp), tmp.start, tmp.stop, ref.start, ref.stop, ix, len(r)
+                    try:
+                        assert(start != stop)
+                        assert(0 <= start < len(r.data))
+                        assert(0 < stop <= len(r.data))
+                    except AssertionError:
+                        print "Error", start, stop, len(r.data)
+##                        raise
+##                    print "Adding:", r.data[start:min(start+10, stop)], len(tmp), tmp.start, tmp.stop, ref.start, ref.stop, ix, len(r)
                     tmpreflist.append(tmp)
                 if ix + len(r) >= ref.stop:
  #                   print "TMPLIST", len(tmpreflist)
@@ -195,6 +216,9 @@ class DNAList(object):
             print "Noooo"
         
     def find(self, substr, startpos):
+##        res =  ''.join(self[0:len(self)]).find(''.join(substr), startpos)
+##        print "FIND result:", res
+##        return res
         print "find"
         length = len(self)
         subpos = 0
@@ -224,27 +248,16 @@ class DNAList(object):
     
 
 if __name__=="__main__":
-    a = [1,2,3,4,4,5,6,7,8,9]
+    a = range(10)
     r = DNARef(0, len(a),a)
     dna = DNAList()
     dna.insertfront(r)    
     print "dna 1:", dna
-    print dna.find([4,5,6], 0)
-    dna.insertfrontreflistandpopold([DNARef(2,5), DNARef(4,7), DNARef(0,1,['a']), DNARef(0,8), DNARef(4,7)], 0)    
+    print
+    for i in "qwertyuiopasdfghjkl":
+        r = DNARef(0, 1,[i])
+        dna.insertfront(r)
     print "dna 2:", dna
-    print dna.find([7,'a',4], 0)
-    dna.popfromitem(9, 2)
-    print "dna 2.5:", dna
-    dna.popfront(7)
+    print
+    dna.insertfrontreflistandpopold([DNARef(2,5), DNARef(4,7), DNARef(0,1,['a']), DNARef(0,8), DNARef(4,7)], 18)    
     print "dna 3:", dna
-    dna.popfront(11)
-    print "dna 4:", dna
-    print dna.find([4,5,6], 0)
-    dna.insertfront(DNARef(2,4,a))
-    print dna, dna[3:7], dna[5]
-    dna.insertfront(DNARef(0,4,None))
-    print dna, dna[3:7], dna[5]
-    dna.popfront(len(dna)-2)
-    print dna #, dna[3:7], dna[5]
-    dna.popfront(len(dna))
-    print dna, dna[3:7], dna[5]
