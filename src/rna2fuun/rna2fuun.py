@@ -237,9 +237,6 @@ class rna2fuun(object):
                                 g0 + (g1 * (255 - a0) / 255),
                                 b0 + (b1 * (255 - a0) / 255),
                                 a0 + (a1 * (255 - a0) / 255))
-#            print "saving...."
-#            self.bitmaps[0][0].save("compose0.png")
-#            self.bitmaps[1][0].save("compose1.png")
             self.bitmaps.pop(0)
         
     def clip(self):
@@ -256,6 +253,7 @@ class rna2fuun(object):
                                 g1 * a0 / 255,
                                 b1 * a0 / 255,
                                 a1 * a0 / 255)
+            self.bitmaps.pop(0)
 
     def doMark(self):
         if self.debug: 
@@ -345,6 +343,8 @@ class rna2fuun(object):
         self.save(filename+".png")
 
 if __name__=="__main__":
+    import psyco
+    psyco.full()
     r2f = rna2fuun()
 ##    r2f.debug = True
     r2f.build(sys.argv[1])
