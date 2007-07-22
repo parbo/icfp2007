@@ -146,7 +146,6 @@ class rna2fuun(object):
             self.position = ((x - 1) % 600, y )
         else:
             raise "Unknown direction"
-        self.currpix = None
 
     def turnCounterClockwise(self):
         if self.debug: 
@@ -265,7 +264,7 @@ class rna2fuun(object):
             
     def doLine(self):
         self.line(self.position, self.mark)
-        #self.linePil(self.position, self.mark)
+##        self.linePil(self.position+self.mark, self.currentPixel())
 
     def buildgenerator(self, rna):
         d = {

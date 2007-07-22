@@ -15,10 +15,7 @@ def pattern(dna, rna):
     p = []
     lvl = 0
     while True:
-##        print len(dna)
         dnastr = ''.join(dna[0:3])
-##        print dnastr
-##        print "(",dnastr,")", len(dna)
         if dnastr.startswith('C'):
             dna.popfront()            
             p.append('I')
@@ -53,13 +50,7 @@ def pattern(dna, rna):
         elif dnastr.startswith('III'):
             # Add rna command.
             rnacmd = dna[3:10]
-##            print rnacmd
-##            print len(dna)
             dna.popfront(10)
-##            print len(dna)
-##            if ''.join(rnacmd) not in rnacommands:
-##                print len(rna)
-##                print 'Warning: Unknown RNA cmd: ' + ''.join(rnacmd)
             rna.append(rnacmd)
         else:
             # Exit
@@ -105,8 +96,6 @@ def template(dna, rna):
             # Add rna command.
             rnacmd = dna[3:10]
             dna.popfront(10)
-##            if ''.join(rnacmd) not in rnacommands:
-##                print 'Warning: Unknown RNA cmd: ' + ''.join(rnacmd)
             rna.append(rnacmd)
         else:
             # Exit
@@ -118,7 +107,7 @@ def template(dna, rna):
 # Returns a tuple containing the number and a new position after the
 # consumed bases: (number, pos)
 def nat(dna):
-    dnastr = ''.join(dna[0:1])
+    dnastr = ''.join(dna[0:1])[0]
     dna.popfront()
     if (dnastr == 'P'):
         return 0
@@ -173,47 +162,36 @@ def matchreplace(dna, pat, t):
     e = []
     c = []
     i = 0
-##    print ''.join(pat)
-##    print t[0:min(10, len(t))]
     for p in pat:
-        if p.startswith('!'):
+        pp = p[0]
+        if pp == '!':
             n = int(p[1:])
             i += n
             if (i > len(dna)):
                 # Match failed.
-##                print 'Matched failed in !'
                 return
-        elif p.startswith('?'):
+        elif pp == '?':
             substr = p[1:]
             n = dna.find(substr, i)
-##            print "find", n, len(dna), i
             if n >= 0:
                 i = n + len(substr)
             else:
                 # Match failed.
-##                print 'Matched failed in ?'
                 return
-        elif (p == '('):
+        elif pp == '(':
             c.append(i)
-        elif (p == ')'):
-            s = slice(c.pop(),i)
-##            print "Append E", s.start, s.stop 
-            e.append(s)
+        elif pp == ')':
+            e.append(slice(c.pop(),i))
         else:
             # Base
-            if (dna[i] == p):
+            if (dna[i] == pp):
                 i += 1
             else:
                 # Match failed.
-##                print i, dna[i], p
-##                print 'Matched failed in Base', p
                 return
-##    for ee in e:
-##        print "e =", dna[ee.start: min(ee.start+10, ee.stop)], ee.start, ee.stop, len(dna)
     replace(dna, t, e, i)
     
 def replace(dna, tpl, e, i):
-##    print 'Replace ', dna, tpl, e 
     r = []
     tmp = []
     for t in tpl:
@@ -244,40 +222,16 @@ def replace(dna, tpl, e, i):
         r.append(dnareflist.DNARef(0, len(tmp), tmp))
         
     r.reverse()
-    addlen = 0
-##    for rr in r:
-##        print len(rr)
-##        addlen += len(rr)  
-##        if not rr.data:
-##            print dna[rr.start: min(rr.start+10, rr.stop)], len(rr)    
-##    b = len(dna)
-##    print "len before", b, "pop", i, "add", addlen
     dna.insertfrontreflistandpopold(r, i)    
-##    print "len after", len(dna)
-##    print dna[0:20]
-##    print
-    
-        
     
 def protect(l, d):
     for ix in range(l):
         d = quote(d)
     return d
         
+qdict = {'I' : 'C', 'C' : 'F', 'F' : 'P', 'P' : 'IC'}
 def quote(d):
-    nd = []    
-    for item in d:
-        if (item == 'I'):
-            nd.append('C')
-        elif (item == 'C'):
-            nd.append('F')
-        elif (item == 'F'):
-            nd.append('P')
-        else:
-            # P
-            nd.append('I')
-            nd.append('C')
-    return nd
+    return [qdict[item] for item in d]
     
 def asnat(n):
     d = []
