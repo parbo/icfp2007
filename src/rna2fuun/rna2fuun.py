@@ -3,6 +3,7 @@
 import sys
 import Image
 import ImageColor
+import ImageDraw
 import functools
 
     
@@ -76,44 +77,60 @@ class rna2fuun(object):
         self.dir = E
         self.bitmaps = []
         self.addBitmap()
+        # Cache
+        self.avgcol = None
+        self.avgalpha = None
+        self.currpix = None
     
     def addColor(self, c):
         if self.debug: 
             print "Adding colour:", c
         self.bucket.insert(0, c)
+        self.avgcol = None
+        self.avgalpha = None
+        self.currpix = None
     
     def emptyBucket(self):
         if self.debug: 
             print "Emptying bucket"
         self.bucket = []
+        self.avgcol = None
+        self.avgalpha = None
+        self.currpix = None
     
     def averageColor(self, default):
-        rc = 0
-        gc = 0
-        bc = 0
-        colbucket = [c for c in self.bucket if isinstance(c, tuple)]
-        if colbucket:
-            for c in colbucket:
-                r, g, b = c
-                rc += r 
-                gc += g 
-                bc += b
-            lencb = len(colbucket)
-            return (rc/lencb, gc/lencb, bc/lencb)
-        else:
-            return (default, default, default)
+        if not self.avgcol:
+            rc = 0
+            gc = 0
+            bc = 0
+            colbucket = [c for c in self.bucket if isinstance(c, tuple)]
+            if colbucket:
+                for c in colbucket:
+                    r, g, b = c
+                    rc += r 
+                    gc += g 
+                    bc += b
+                lencb = len(colbucket)
+                self.avgcol = (rc/lencb, gc/lencb, bc/lencb)
+            else:
+                self.avgcol = (default, default, default)
+        return self.avgcol
 
     def averageAlpha(self, default):
-        abucket = [c for c in self.bucket if isinstance(c, int)]
-        if abucket:
-            return sum(abucket)/len(abucket)
-        else:
-            return default
+        if not self.avgalpha:
+            abucket = [c for c in self.bucket if isinstance(c, int)]
+            if abucket:
+                self.avgalpha = sum(abucket)/len(abucket)
+            else:
+                self.avgalpha = default
+        return self.avgalpha
     
     def currentPixel(self):
-        rc, gc, bc = self.averageColor(0)
-        ac = self.averageAlpha(255)
-        return (rc*ac/255, gc*ac/255, bc*ac/255, ac)
+        if not self.currpix:
+            rc, gc, bc = self.averageColor(0)
+            ac = self.averageAlpha(255)
+            self.currpix = (rc*ac/255, gc*ac/255, bc*ac/255, ac)
+        return self.currpix
 
     def move(self):
         if self.debug: 
@@ -129,6 +146,7 @@ class rna2fuun(object):
             self.position = ((x - 1) % 600, y )
         else:
             raise "Unknown direction"
+        self.currpix = None
 
     def turnCounterClockwise(self):
         if self.debug: 
@@ -148,6 +166,9 @@ class rna2fuun(object):
 
     def setPixelVal(self, p, val):
         self.bitmaps[0][1][p] = val
+
+    def linePil(self, start, stop):
+        ld = self.bitmaps[0][2].line(start+stop)
 
     def line(self, start, stop):
         if self.debug: 
@@ -201,7 +222,7 @@ class rna2fuun(object):
             print "Add bitmap"
         if len(self.bitmaps) < 10:
             b = Image.new(mode, size, c2p(black, transparent))
-            self.bitmaps.insert(0, (b, b.load()))
+            self.bitmaps.insert(0, (b, b.load(), ImageDraw.Draw(b)))
         
     def compose(self):
         if self.debug: 
@@ -222,7 +243,7 @@ class rna2fuun(object):
 #            self.bitmaps[1][0].save("compose1.png")
             self.bitmaps.pop(0)
         
-    def clip():
+    def clip(self):
         if self.debug: 
             print "Clip"
         if len(self.bitmaps) > 2:
@@ -244,6 +265,7 @@ class rna2fuun(object):
             
     def doLine(self):
         self.line(self.position, self.mark)
+        #self.linePil(self.position, self.mark)
 
     def buildgenerator(self, rna):
         d = {
@@ -271,7 +293,7 @@ class rna2fuun(object):
         for r in rna:
             try:
                 d[r]()
-                yield #commands[r]
+                yield r
             except KeyError:
                 if self.debug:
                     print "Unkown instruction:", r
@@ -283,9 +305,44 @@ class rna2fuun(object):
     
     def build(self, filename):   
         rna = read(filename) 
-        g = self.buildgenerator(rna)
-        for x in g:
-            pass   
+        d = {
+            'PIPIIIC' : functools.partial(self.addColor, black),
+            'PIPIIIP' : functools.partial(self.addColor, red),
+            'PIPIICC' : functools.partial(self.addColor, green),
+            'PIPIICF' : functools.partial(self.addColor, yellow),
+            'PIPIICP' : functools.partial(self.addColor, blue),
+            'PIPIIFC' : functools.partial(self.addColor, magenta),
+            'PIPIIFF' : functools.partial(self.addColor, cyan),
+            'PIPIIPC' : functools.partial(self.addColor, white),
+            'PIPIIPF' : functools.partial(self.addColor, transparent),
+            'PIPIIPP' : functools.partial(self.addColor, opaque),
+            'PIIPICP' : self.emptyBucket,
+            'PIIIIIP' : self.move,
+            'PCCCCCP' : self.turnCounterClockwise,
+            'PFFFFFP' : self.turnClockwise,
+            'PCCIFFP' : self.doMark,
+            'PFFICCP' : self.doLine,
+            'PIIPIIP' : self.tryfill,
+            'PCCPFFP' : self.addBitmap,
+            'PFFPCCP' : self.compose,
+            'PFFICCF' : self.clip}
+        
+        ix = 0
+        i = 0
+        for r in rna:
+            try:
+                if r in ['PFFPCCP', 'PFFICCF', 'PCCPFFP']:
+                    self.save("%s_%04d.png"%(filename, i))
+                    print ix
+                    i += 1
+                d[r]()
+                if r in ['PFFPCCP', 'PFFICCF']:
+                    self.save("%s_%04d.png"%(filename, i))
+                    print ix
+                    i += 1
+            except KeyError:
+                pass
+            ix += 1
         self.save(filename+".png")
 
 if __name__=="__main__":
