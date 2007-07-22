@@ -219,29 +219,29 @@ def replace(dna, tpl, e, i):
         if isinstance(t, int):
             # |n|
             if (t >= len(e)):
-                a = asnat(0)
-                r.append(dnareflist.DNARef(0, len(a), a))
+                tmp.extend(asnat(0))
             else:
-                a = asnat(e[t].stop-e[t].start)
-                r.append(dnareflist.DNARef(0, len(a), a))
+                tmp.extend(asnat(e[t].stop-e[t].start))
         elif isinstance(t, tuple):
             # n(l)
             l, n = t
             if (n >= len(e)):
-                a = protect(l, [])
-                r.append(dnareflist.DNARef(0, len(a), a))
+                pass
             else:
                 if l == 0:
+                    r.append(dnareflist.DNARef(0, len(tmp), tmp))
+                    tmp = []
                     a = e[n]
                     r.append(dnareflist.DNARef(a.start, a.stop))
                 else:
-                    a = protect(l, dna[e[n].start+i:e[n].stop+i])
-                    r.append(dnareflist.DNARef(0, len(a), a))
+                    tmp.extend(protect(l, dna[e[n].start+i:e[n].stop+i]))
         else:
             # Base
-            ref = dnareflist.DNARef(0, 1, [t])
-            r.append(ref)
+            tmp.append(t)
 
+    if tmp:
+        r.append(dnareflist.DNARef(0, len(tmp), tmp))
+        
     r.reverse()
     addlen = 0
 ##    for rr in r:

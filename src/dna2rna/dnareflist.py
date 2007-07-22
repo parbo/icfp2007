@@ -54,6 +54,14 @@ class DNAList(object):
             length += len(r)
         return length
     
+    def flatten(self):
+        print "Flatten!"
+        ls = len(self)
+        d = self[0:ls]
+        r = DNARef(0, ls, d)
+        self.list = []
+        self.insertfront(r)
+    
     def popfront(self, num=1):
         n = 0
         ln = len(self)
@@ -100,14 +108,18 @@ class DNAList(object):
 ##                print "exact match, pop this too", i, item, n, num, cumlen
 ##                for fg in self.list[item-1:item-1+n]:
 ##                    print fg
-##                print "popping", range(i, start+1), [str(x) for x in self.list[i: start+1]]
+                print "popping", range(i, start+1)#, [str(x) for x in self.list[i: start+1]]
+                print len(self.list)
                 del self.list[i:start+1]
+                print len(self.list)
                 break
             elif num < lr:
                 # popfront on item is needed
                 if n:
-##                    print "pop", i+1, i+n
+                    print "pop", i+1, start+1
+                    print len(self.list)
                     del self.list[i+1:start+1]
+                    print len(self.list)
 ##                print "popfront on item is needed", num
                 r.popfront(num)
                 break
@@ -167,7 +179,9 @@ class DNAList(object):
             self.insertfront(r)
 ##            print self
         self.popfromitem(pop, len(self.list)-oldlen)
-##        print "LIST lengt", len(self.list)
+        if len(self.list) > 1000:
+            self.flatten()
+        print "LIST length", len(self.list), oldlen, pop
 
     def insertfront(self, ref):
         if ref.data:
@@ -179,7 +193,7 @@ class DNAList(object):
 ##            print "insertfront", len(ref), ref.start, ref.stop
             for r in reversed(self.list):
                 # skip
-##                print "look", ix, len(r), len(r.data), r.start, r.stop, r
+##                print "look", ix, len(r), len(r.data), r.start, r.stop#, r
                 if ix + len(r) <= ref.start:
 ##                    print "skippin", len(r), ix
                     pass
@@ -216,33 +230,38 @@ class DNAList(object):
             print "Noooo"
         
     def find(self, substr, startpos):
-##        res =  ''.join(self[0:len(self)]).find(''.join(substr), startpos)
-##        print "FIND result:", res
-##        return res
         print "find"
+        ls = len(substr)
+        if ls == 0:
+            return
         length = len(self)
         subpos = 0
+        c = substr[subpos]
         findpos = 0
         i = startpos
         ix = 0
 ##        print startpos
         for r in reversed(self.list):
-            if ix + len(r) < i:                
+            lr = len(r)
+            if ix + lr < i:                
                 pass
             else:
-                while i - ix < len(r):
-                    if (r[i-ix] == substr[subpos]):
+                while i - ix < lr:
+                    if (r.data[r.start+i-ix] == c):
                         if (subpos == 0):
                             findpos = i 
                         subpos += 1
-                        if (subpos == len(substr)):
+                        if (subpos == ls):
                             print "FOUND!", findpos, self[findpos:findpos+len(substr)], substr
                             return findpos
+                        else:
+                            c = substr[subpos]
                     elif (subpos > 0):
                         i = findpos
                         subpos = 0
+                        c = substr[subpos]
                     i += 1
-            ix += len(r)
+            ix += lr
         print "NOT FOUND!!!!!!!!"
         return -1
     
