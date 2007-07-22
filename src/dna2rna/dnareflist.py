@@ -3,9 +3,10 @@ class DNARef(object):
         self.data = data
         self.start = start
         self.stop = stop
+        self.len = self.stop-self.start
         
     def __len__(self):
-        return self.stop-self.start
+        return self.len
     
     def __str__(self):
         if self.data:
@@ -14,27 +15,16 @@ class DNARef(object):
             return "(%d, %d)"%(self.start, self.stop)
     
     def popfront(self, num):
-##        try:
-##            assert(self.start + num <= self.stop)
-            self.start += num
-##        except:
-##            print self.start, self.stop, num
-##            raise
+        self.start += num
+        self.len = self.stop-self.start
         
     def __getitem__(self, item):
-##        try:
-            if isinstance(item, int):
-##                assert(self.start+item < self.stop)
-                return self.data[self.start + item]
-            elif isinstance(item, slice):    
-                if not item.stop :
-                    item.stop = len(self)
-##                assert(self.start+item.start < self.stop)
-##                assert(self.start+item.stop < self.stop)
-                return self.data[self.start+item.start:self.start+item.stop]
-##        except:
-##            print self.start, self.stop, item
-##            raise
+        if isinstance(item, int):
+            return self.data[self.start + item]
+        elif isinstance(item, slice):    
+            if not item.stop :
+                item.stop = len(self)
+            return self.data[self.start+item.start:self.start+item.stop]
         
 
 class DNAList(object):
@@ -50,23 +40,23 @@ class DNAList(object):
         
     def __len__(self):
         if not self.lencache:
-            length = 0
-            for r in reversed(self.list):
-                length += len(r)
-            self.lencache = length
+            self.lencache = sum(map(len, self.list))
         return self.lencache
+
+    def getall(self):
+        tmp = []
+        for r in reversed(self.list):
+            tmp.extend(r.data[r.start:r.stop])
+        return tmp        
     
     def flatten(self):
-##        print "Flatten!"
-        ls = len(self)
-        d = self[0:ls]
-        r = DNARef(0, ls, d)
+        d = self.getall()
+        r = DNARef(0, len(d), d)
         self.list = []
         self.insertfront(r)
     
     def popfront(self, num=1):
         n = 0
-        ln = len(self)
         for r in reversed(self.list):
             lr = len(r)
             if num == lr:
@@ -90,44 +80,21 @@ class DNAList(object):
         if num == 0:
             return
         n = 0
-        ln = len(self)
-        
-        length = 0
-##        print "POPFROMITEM", len(self.list), num, item
         start = len(self.list)-item-1
-##        for i, r in enumerate(self.list[0:start+1]):
-##            print "lennnnn", i,  len(r)
-##            length += len(r)
-##        print "LENGTH AFTER ITEM",  length
-        
-##        print "Len", len(self.list), "item", item, "num", num, "Range", range(start, -1, -1)
-        cumlen = 0
         for i in xrange(start, -1, -1):
             r =  self.list[i]
             lr = len(r)
-            cumlen += lr
             if num == lr:
                 # exact match, pop this too
-##                print "exact match, pop this too", i, item, n, num, cumlen
-##                for fg in self.list[item-1:item-1+n]:
-##                    print fg
-##                print "popping", range(i, start+1)#, [str(x) for x in self.list[i: start+1]]
-##                print len(self.list)
                 del self.list[i:start+1]
-##                print len(self.list)
                 break
             elif num < lr:
                 # popfront on item is needed
                 if n:
-##                    print "pop", i+1, start+1
-##                    print len(self.list)
                     del self.list[i+1:start+1]
-##                    print len(self.list)
-##                print "popfront on item is needed", num
                 r.popfront(num)
                 break
             else:
-##                print "pop this!", i
                 n+= 1
                 num -= lr
         self.lencache = None
@@ -145,8 +112,9 @@ class DNAList(object):
             tmp = []
             ix = 0
             for r in reversed(self.list):
+                lr = len(r)
                 # skip
-                if ix + len(r) < ref.start:
+                if ix + lr < ref.start:
 ##                    print "skipping"
                     pass
                 else:
@@ -156,22 +124,18 @@ class DNAList(object):
                         start = r.start+ref.start-ix
                     else:
                         start = r.start
-                    if ix + len(r) >= ref.stop:
+                    if ix + lr >= ref.stop:
                         stop = r.start+ref.stop-ix
                     else:
                         stop = r.stop
                     tmp.extend(r.data[start:stop])
-                if ix + len(r) >= ref.stop:
+                if ix + lr >= ref.stop:
                     return tmp
-                ix += len(r)
+                ix += lr
 ##            raise
             return tmp
 
     def insertfrontreflistandpopold(self, reflist, pop):
-#         "INSERTFRONTREFLIST"
-   #     for r in reflist:  
-     #       print len(r)
-    #    print len(self.list), len(reflist)
         offs = 0
         oldlen = len(self.list)
         for r in reflist:   
@@ -179,61 +143,43 @@ class DNAList(object):
                 r.start+=offs				
                 r.stop+=offs
             offs += len(r)	
-#            print offs			
             self.insertfront(r)
-##            print self
-        self.popfromitem(pop, len(self.list)-oldlen)
+        ls = len(self.list)
+        self.popfromitem(pop, ls-oldlen)
         self.lencache = None
-        if len(self.list) > 1000:
+        if ls > 1000:
             self.flatten()
-##        print "LIST length", len(self.list), oldlen, pop
 
     def insertfront(self, ref):
         if ref.data:
-        #    print "APPEND", len(ref)
             self.list.append(ref)
             self.lencache = None
         else:
             tmpreflist = []
             ix = 0
-##            print "insertfront", len(ref), ref.start, ref.stop
             for r in reversed(self.list):
+                lr = len(r)
                 # skip
-##                print "look", ix, len(r), len(r.data), r.start, r.stop#, r
-                if ix + len(r) <= ref.start:
-##                    print "skippin", len(r), ix
+                if ix + lr <= ref.start:
                     pass
                 else:
                     start = 0
                     stop = 0
                     if ix <= ref.start:
-##                        print "case1"
                         start = r.start+ref.start-ix
                     else:
-##                        print "case2"
                         start = r.start
-                    if ix + len(r) >= ref.stop:
-##                        print "case3"
+                    if ix + lr >= ref.stop:
                         stop = r.start+ref.stop-ix
                     else:
-##                        print "case4"
                         stop = r.stop
                     tmp = DNARef(start, stop, r.data)  
-##                    try:
-##                        assert(start != stop)
-##                        assert(0 <= start < len(r.data))
-##                        assert(0 < stop <= len(r.data))
-##                    except AssertionError:
-##                        print "Error", start, stop, len(r.data)
-##                        raise
-##                    print "Adding:", r.data[start:min(start+10, stop)], len(tmp), tmp.start, tmp.stop, ref.start, ref.stop, ix, len(r)
                     tmpreflist.append(tmp)
-                if ix + len(r) >= ref.stop:
- #                   print "TMPLIST", len(tmpreflist)
+                if ix + lr >= ref.stop:
                     self.list.extend(reversed(tmpreflist))
                     self.lencache = None
                     return
-                ix += len(r)
+                ix += lr
             print "Noooo"
         
     def find(self, substr, startpos):
@@ -241,7 +187,6 @@ class DNAList(object):
         ls = len(substr)
         if ls == 0:
             return
-        length = len(self)
         subpos = 0
         c = substr[subpos]
         findpos = 0
@@ -259,7 +204,6 @@ class DNAList(object):
                             findpos = i 
                         subpos += 1
                         if (subpos == ls):
-##                            print "FOUND!", findpos, self[findpos:findpos+len(substr)], substr
                             return findpos
                         else:
                             c = substr[subpos]

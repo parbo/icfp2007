@@ -2,6 +2,7 @@ import sys
 from rna2fuun.rna2fuun import commands as rnacommands
 import array
 import dnareflist
+import os
 
 class NoMoreData(Exception):
     pass
@@ -292,25 +293,34 @@ def asnat(n):
 def execute(dna, rna, progress = False):
     pos = 0
     n = 0
+    
+    rnadir = os.getcwd()+os.path.sep+"rna"
+    if not os.path.exists(rnadir):
+        os.mkdir(rnadir)
+    
     while True:
         n += 1
         try:
             p = pattern(dna, rna)
             t = template(dna, rna)
             matchreplace(dna, p, t)
-##            if n < 10:
-##                f = open("iteration%dwrong.txt"%n, "w")
-##                f.write(''.join(dna[0:len(dna)]))
-##                f.close()
-##            else:
-##                exit()
             if progress and (n % 100) == 0:
                 print 'Iterations: ' + str(n) + '   DNA remaining: ' + str(len(dna)), '   RNA commands: ' + str(len(rna)), "List size:", len(dna.list)
+            if (n % 1000) == 0:
+                print "Saving RNA..."
+                rnafile = file(rnadir+os.path.sep+"tmp_%08d.rna"%n, 'w')
+                for r in rna:
+                    rnafile.write(''.join(r))
+                rnafile.close()
+
         except NoMoreData:
             print 'DNA remaining: ' + str(len(dna))
             break
 
 if __name__ == '__main__':
+    import psyco
+    psyco.full()
+    
     prefix = ""
     if len(sys.argv) > 3:
         prefixfile = file(sys.argv[3], 'r')
