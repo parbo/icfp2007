@@ -1,6 +1,6 @@
 import sys
-from rna2fuun.rna2fuun import commands as rnacommands
-import array
+#from rna2fuun.rna2fuun import commands as rnacommands
+#import array
 import dnareflist
 import os
 
