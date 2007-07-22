@@ -331,7 +331,8 @@ if __name__ == '__main__':
             rnafile.close()
             sys.exit(1)
         rnafile = file(sys.argv[2], 'w')
-        rnafile.write(''.join(rna))
+        for r in rna:
+            rnafile.write(''.join(r))
         rnafile.close()
         
     else:
