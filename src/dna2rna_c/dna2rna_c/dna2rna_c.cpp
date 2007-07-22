@@ -9,6 +9,259 @@
 #include <sstream>
 #include <string>
 
+class DNARef
+{
+public:
+	char* m_data;
+	size_t m_start;
+	size_t m_stop;
+
+	DNARef(size_t start, size_t stop, char* data = 0) : m_start(start), m_stop(stop), m_data(data) {}
+
+	size_t size() const
+	{
+		return m_stop - m_start;
+	}
+    
+    void popfront(size_t num)
+	{
+        m_start += num;
+	}
+        
+	char operator[](size_t ix) const
+	{
+		return m_data[m_start + ix];
+	}
+
+	char& operator[](size_t ix)
+	{
+		return m_data[m_start + ix];
+	}        
+};
+
+typedef std::vector<DNARef> reflist;
+
+class DNAList
+{
+public:
+	reflist m_list; 
+
+	DNAList() {}
+
+	size_t size() const
+	{
+		size_t len = 0;
+		for (reflist::const_iterator it = m_list.begin(); it != m_list.end(); ++it)
+		{
+			len += (*it).size();
+		}
+		return len;
+	}
+
+    void flatten()
+	{
+		size_t tsz = size();
+		char* data = new char[tsz];
+		size_t i = 0;
+		for (reflist::reverse_iterator it = m_list.rbegin(); it != m_list.rend(); ++it)
+		{
+			size_t sz = (*it).size();
+			for (size_t ix = 0; ix < sz; ++ix)
+			{
+				data[i++] = (*it)[ix];
+			}
+		}
+		DNARef r(0, tsz, data);
+		m_list.clear();
+		insertfront(r);
+	}
+
+
+    void popfront(size_t num=1)
+	{
+		size_t n = 0;
+		for (reflist::reverse_iterator it = m_list.rbegin(); it != m_list.rend(); ++it)
+		{
+			size_t sz = (*it).size();
+			if (num == sz)
+			{
+				++n;
+				num = 0;
+				break;
+			}
+			else if (num < sz)
+			{
+				break;
+			}
+			else
+			{
+				++n;
+				num -= sz;
+			}
+		}
+		if (n > 0)
+		{
+            m_list.erase(m_list.end()-n, m_list.end());
+		}
+		if (num > 0)
+		{
+			m_list.back().popfront(num);
+		}
+	}    
+
+    void popfromitem(size_t num, size_t item)
+	{
+        if (num == 0)
+		{
+            return;
+		}
+
+        size_t n = 0;
+        start = size()-item-1;
+
+		size_t n = 0;
+		for (int i = start; i >= 0; --i)
+		{
+			DNARef& r = m_list[i];
+            lr = r.size();
+            if (num == lr)
+			{
+                // exact match, pop this too
+                m_list.erase(m_list.begin()+i, m_begin()+start+1);
+                break;
+			}
+            else if (num < lr)
+			{
+                // popfront on item is needed
+                if (n > 0)
+				{
+	                m_list.erase(m_list.begin()+i+1, m_begin()+start+1);
+				}
+                r.popfront(num);
+                break;
+			}
+            else
+			{
+                ++n;
+                num -= lr;
+			}
+		}
+	}
+
+	char&operator[](size_t ref) const
+	{
+		size_t ix = 0;
+		for (reflist::reverse_iterator it = m_list.rbegin(); it != m_list.rend(); ++it)
+		{
+			size_t lr = (*it).size();
+            if (ix + lr > ref)
+			{
+                return (*it)[ref-ix];
+			}
+			else
+			{
+				ix += lr;
+			}
+		}
+	}
+
+    def insertfrontreflistandpopold(self, reflist, pop):
+        offs = 0
+        oldlen = len(self.list)
+        for r in reflist:   
+            if not r.data:
+                r.start+=offs				
+                r.stop+=offs
+            offs += len(r)	
+            self.insertfront(r)
+        ls = len(self.list)
+        self.popfromitem(pop, ls-oldlen)
+        self.lencache = None
+        if ls > 1000:
+            self.flatten()
+
+    def insertfront(self, ref):
+        if ref.data:
+            self.list.append(ref)
+            self.lencache = None
+        else:
+            tmpreflist = []
+            ix = 0
+            for r in reversed(self.list):
+                lr = len(r)
+                # skip
+                if ix + lr <= ref.start:
+                    pass
+                else:
+                    start = 0
+                    stop = 0
+                    if ix <= ref.start:
+                        start = r.start+ref.start-ix
+                    else:
+                        start = r.start
+                    if ix + lr >= ref.stop:
+                        stop = r.start+ref.stop-ix
+                    else:
+                        stop = r.stop
+                    tmp = DNARef(start, stop, r.data)  
+                    tmpreflist.append(tmp)
+                if ix + lr >= ref.stop:
+                    self.list.extend(reversed(tmpreflist))
+                    self.lencache = None
+                    return
+                ix += lr
+            print "Noooo"
+        
+    def find(self, substr, startpos):
+        ls = len(substr)
+        if ls == 0:
+            return
+        subpos = 0
+        c = substr[subpos]
+        findpos = 0
+        i = startpos
+        ix = 0
+        for r in reversed(self.list):
+            lr = len(r)
+            if ix + lr < i:                
+                pass
+            else:
+                while i - ix < lr:
+                    if (r.data[r.start+i-ix] == c):
+                        if (subpos == 0):
+                            findpos = i 
+                        subpos += 1
+                        if (subpos == ls):
+##                            print "Found", substr, "at:", findpos
+                            return findpos
+                        else:
+                            c = substr[subpos]
+                    elif (subpos > 0):
+                        i = findpos
+                        subpos = 0
+                        c = substr[subpos]
+                    i += 1
+            ix += lr
+        print "NOT FOUND!!!!!!!!"
+        return -1
+    
+
+if __name__=="__main__":
+    a = range(10)
+    r = DNARef(0, len(a),a)
+    dna = DNAList()
+    dna.insertfront(r)    
+    print "dna 1:", dna
+    print
+    for i in "qwertyuiopasdfghjkl":
+        r = DNARef(0, 1,[i])
+        dna.insertfront(r)
+    print "dna 2:", dna
+    print
+    dna.insertfrontreflistandpopold([DNARef(2,5), DNARef(4,7), DNARef(0,1,['a']), DNARef(0,8), DNARef(4,7)], 18)    
+    print "dna 3:", dna
+
+
 
 class tmpl
 {
