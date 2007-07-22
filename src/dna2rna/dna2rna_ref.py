@@ -232,7 +232,8 @@ def replace(dna, tpl, e, i):
                     r.append(dnareflist.DNARef(0, len(a), a))
         else:
             # Base
-            r.append(dnareflist.DNARef(0, 1, [t]))
+            ref = dnareflist.DNARef(0, 1, [t])
+            r.append(ref)
 
     print dna[0:20]
     for rr in r:   

@@ -109,10 +109,12 @@ class DNAList(object):
         else:
             tmpreflist = []
             ix = 0
+            print "goo", len(ref), ref.start, ref.stop
             for r in reversed(self.list):
+                print ix, len(r)
                 # skip
                 if ix + len(r) < ref.start:
-##                    print "skipping"
+                    print "skippin"
                     pass
                 else:
                     start = 0
@@ -126,12 +128,10 @@ class DNAList(object):
                     else:
                         stop = r.stop
                     tmp = DNARef(start, stop, r.data)  
+                    print "Adding:", len(tmp), tmp.start, tmp.stop
                     tmpreflist.append(tmp)
                 if ix + len(r) >= ref.stop:
-##                    print "OOOOGA", len(tmpreflist), ix, len(r), ref.start, ref.stop
-##                    print "1:",len(self)
                     self.list.extend(reversed(tmpreflist))
-##                    print "2:",len(self)
                     return
                 ix += len(r)
             print "Noooo"
