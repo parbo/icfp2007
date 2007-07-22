@@ -306,7 +306,7 @@ def execute(dna, rna, progress = False):
             matchreplace(dna, p, t)
             if progress and (n % 100) == 0:
                 print 'Iterations: ' + str(n) + '   DNA remaining: ' + str(len(dna)), '   RNA commands: ' + str(len(rna)), "List size:", len(dna.list)
-            if (n % 1000) == 0:
+            if (n % 50000) == 0:
                 print "Saving RNA..."
                 rnafile = file(rnadir+os.path.sep+"tmp_%08d.rna"%n, 'w')
                 for r in rna:
