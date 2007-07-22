@@ -324,22 +324,15 @@ class rna2fuun(object):
             'PFFPCCP' : self.compose,
             'PFFICCF' : self.clip}
         
-        ix = 0
-        i = 0
-        for r in rna:
+        lr = len(rna)
+        for ix, r in enumerate(rna):
+            pct = ix * 100 / lr
+            if pct % 10 == 0:
+                print "%02d%%"%pct
             try:
-##                if r in ['PFFPCCP', 'PFFICCF', 'PCCPFFP']:
-##                    self.save("%s_%04d.png"%(filename, i))
-##                    print ix
-##                    i += 1
                 d[r]()
-##                if r in ['PFFPCCP', 'PFFICCF']:
-##                    self.save("%s_%04d.png"%(filename, i))
-##                    print ix
-##                    i += 1
             except KeyError:
                 pass
-            ix += 1
         self.save(filename+".png")
 
 if __name__=="__main__":
