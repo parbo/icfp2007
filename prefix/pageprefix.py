@@ -14,4 +14,8 @@ def pageprefix(page):
 if __name__ == '__main__':
     if len(sys.argv) > 1:
         page = int(sys.argv[1])
-        print pageprefix(page)
+        outfile = file('repairguide_' + str(page) + '.dna', 'w')
+        p = pageprefix(page)
+        print p
+        outfile.write(p)
+        outfile.close()
