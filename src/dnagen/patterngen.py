@@ -16,7 +16,14 @@ def getnumber(p, ix):
         n = 10 * n + int(pc)
         ix += 1
         pc = p[ix]
-    return ix, n
+    return (ix, n)
+    
+def getnumberpair(p, ix):
+    ix, n1 = getnumber(p, ix)
+    while (not p[ix].isdigit()):
+        ix += 1
+    ix, n2 = getnumber(p, ix)
+    return (ix, n1, n2)
     
 def getconsts(p, ix):
     pc = p[ix]
@@ -25,7 +32,7 @@ def getconsts(p, ix):
         seq.append(primitive[pc])
         ix += 1
         pc = p[ix]
-    return ix, ''.join(seq)
+    return (ix, ''.join(seq))
     
 def numberseq(n):
     seq = []
@@ -48,22 +55,41 @@ def pattern(p):
             ix += 1
         elif (pc == '!'):
             ix, n = getnumber(p, ix + 1)
+            ps.append('IP')
             ps.append(numberseq(n))
         elif (pc == '?'):
             ix, s = getconsts(p, ix + 1)
             ps.append(s)
-            print s
         else:
             ix += 1
     ps.append('IIC')
     return ''.join(ps)
     
 def template(t):
-    return ''
+    ts = []
+    ix = 0
+    while (ix < len(t)):
+        tc = t[ix]
+        if (tc in 'ICFP'):
+            ts.append(primitive[tc])
+            ix += 1
+        elif tc.isdigit():
+            ix, n = getnumber(t, ix)
+            ts.append('IIP')
+            ts.append(numberseq(n))
+        elif (tc == '('):
+            ix, n1, n2 = getnumberpair(t, ix + 1)
+            ts.append('IP')
+            ts.append(numberseq(n1))
+            ts.append(numberseq(n2))
+        else:
+            ix += 1
+    ts.append('IIC')
+    return ''.join(ts)
 
 if __name__ == '__main__':
     if len(sys.argv) > 1:
-        infilename = int(sys.argv[1])
+        infilename = sys.argv[1]
         infile = file(infilename, 'r')
         p = pattern(infile.readline())
         t = template(infile.readline())
@@ -76,3 +102,4 @@ if __name__ == '__main__':
         print pattern('I')
         print pattern('(!2)P')
         print pattern('(?IFPCFFP)IIIII')
+        print template('(0,0)CCCIC')
