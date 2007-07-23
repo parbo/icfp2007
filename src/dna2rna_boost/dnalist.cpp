@@ -1,6 +1,24 @@
 #include "dnalist.hpp"
 #include <algorithm>
 
+void str2dnaseq(std::string s, dnaseq& v)
+{
+	for (size_t i = 0; i < s.size(); ++i)
+	{
+		v.push_back(s[i]);
+	}
+}
+
+std::string dnaseq2str(const dnaseq& v)
+{
+	std::string s;
+	for (dnaseq::const_iterator it = v.begin(); it != v.end(); ++it)
+	{
+		s.push_back(*it);
+	}
+	return s;
+}
+
 size_t DNAList::size() const
 {
 	size_t len = 0;
@@ -112,6 +130,56 @@ char DNAList::operator[](size_t ref) const
 	throw;
 }
 
+std::string DNAList::getstr(size_t rstrt, size_t rstp) const
+{
+	std::string tmp;
+	size_t ix = 0;
+	for (dnareflist::const_reverse_iterator it = m_list.rbegin(); it != m_list.rend(); ++it)
+	{
+		const DNARef& r = *it;
+        size_t lr = r.size();
+        if (ix + lr < rstrt)
+        {
+            if (ix + lr >= rstp)
+            {
+                return tmp;
+            }
+        }
+        else
+        {
+            size_t start = 0;
+            size_t stop = 0;
+            if (ix <= rstrt)
+            {
+                start = r.getstart()+rstrt-ix;
+            }
+            else
+            {
+                start = r.getstart();
+            }
+            
+            if (ix + lr >= rstp)
+            {
+                stop = r.getstart()+rstp-ix;
+            }
+            else
+            {
+                stop = r.getstop();
+            }
+            
+            if (ix + lr >= rstp)
+            {
+            	dnaseqrange rng = r.getrange(start, stop);
+            	std::copy(rng.first, rng.second, std::back_inserter(tmp));
+                return tmp;
+            }
+        	dnaseqrange rng = r.getrange(start, stop);
+        	std::copy(rng.first, rng.second, std::back_inserter(tmp));
+        }        	
+        ix += lr;
+	}
+}
+
 void DNAList::insertfrontreflistandpopold(dnainsertlist reflist, size_t pop)
 {
     size_t offs = 0;
@@ -188,6 +256,11 @@ void DNAList::insertfront(DNARefEmpty* ref)
     delete ref;
 }
         
+int DNAList::find(std::string substr, size_t startpos) const
+{
+	return -1;
+}
+
 //    def find(self, substr, startpos):
 //        ls = len(substr)
 //        if ls == 0:

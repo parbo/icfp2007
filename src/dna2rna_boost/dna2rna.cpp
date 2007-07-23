@@ -1,27 +1,8 @@
-// dna2rna_c.cpp : Defines the entry point for the console application.
-//
-
-#include "stdafx.h"
-
-
-    
-
-if __name__=="__main__":
-    a = range(10)
-    r = DNARef(0, len(a),a)
-    dna = DNAList()
-    dna.insertfront(r)    
-    print "dna 1:", dna
-    print
-    for i in "qwertyuiopasdfghjkl":
-        r = DNARef(0, 1,[i])
-        dna.insertfront(r)
-    print "dna 2:", dna
-    print
-    dna.insertfrontreflistandpopold([DNARef(2,5), DNARef(4,7), DNARef(0,1,['a']), DNARef(0,8), DNARef(4,7)], 18)    
-    print "dna 3:", dna
-
-
+#include "dnalist.hpp"
+#include <vector>
+#include <string>
+#include <sstream>
+#include <iostream>
 
 class tmpl
 {
@@ -32,101 +13,12 @@ public:
 	int n;
 };
 
-typedef std::vector<char> vec;
-typedef std::vector<size_t> ivec;
-typedef std::vector<std::vector<char> > evec;
-typedef std::vector<std::string> svec;
-typedef std::vector<std::string>::const_iterator csveciter;
 typedef std::vector<tmpl> tvec;
-typedef std::vector<tmpl>::const_iterator ctveciter;
-typedef std::vector<char>::iterator veciter;
-typedef std::vector<char>::const_iterator cveciter;
-
-void str2vec(std::string s, vec& v)
-{
-	for (size_t i = 0; i < s.size(); ++i)
-	{
-		v.push_back(s[i]);
-	}
-}
-
-
-class DNAList
-{
-public:
-	size_t m_offset;
-	vec m_vec;
-
-
-
-	DNAList(vec& v) : m_offset(0)
-	{
-		m_vec = v;
-	}
-        
-	size_t size() const
-	{
-		return m_vec.size()+m_offset;
-	}
-    
-    void popfront(size_t num=1)
-	{
-		m_offset += num;
-	}
-
-	char get(size_t ix) const
-	{
-		return m_vec.at(ix+m_offset);
-	}
-
-	std::string getstr(size_t start, size_t stop) const
-	{
-		std::string s;
-		for (cveciter it = m_vec.begin()+start; it != m_vec.begin()+stop; ++it)
-		{
-			s.push_back(*it);
-		}
-		return s;
-	}
-
-	void getvec(vec& v, size_t start, size_t stop) const
-	{
-		v.assign(m_vec.begin()+start, m_vec.begin()+stop);
-	}
-
-    void insertfront(const vec& iterable)
-	{
-		m_vec.insert(m_vec.begin(), iterable.begin(), iterable.end());
-	}
-
-	size_t find(std::string substr, size_t i) const
-	{
-		size_t ls = substr.size();
-        if (ls == 0)
-		{
-            return -1;
-		}
-
-        size_t ix = 0;
-
-        for (size_t ii = m_offset + 1; ii < m_vec.size(); ++ii)
-		{
-            if (memcmp(&m_vec[ii], &substr[0], ls) == 0)
-			{
-				return ii - m_offset;
-			}
-		}
-        return -1;
-	}
-private:
-	DNAList();
-};
-
 
 int nat(DNAList& dna)
 {
-	char d = dna.get(0);
-    dna.popfront();
+	char d = dna[0];
+    dna.popfront(0);
     if (d == 'P')
 	{
         return 0;
@@ -143,28 +35,29 @@ int nat(DNAList& dna)
     
 std::string constsrec(DNAList& dna)
 {
-	if (dna.get(0) == 'C')
+	char d = dna[0];
+	if (d == 'C')
 	{
-		dna.popfront();
+		dna.popfront(0);
 		std::string seq = constsrec(dna);
 		seq.push_back('I');
 		return seq;
 	}
-	else if (dna.get(0) == 'F')
+	else if (d == 'F')
 	{
-		dna.popfront();
+		dna.popfront(0);
 		std::string seq = constsrec(dna);
 		seq.push_back('C');
 		return seq;
 	}
-	else if (dna.get(0) == 'P')
+	else if (d == 'P')
 	{
-		dna.popfront();
+		dna.popfront(0);
 		std::string seq = constsrec(dna);
 		seq.push_back('F');
 		return seq;
 	}
-	else if (dna.get(0) == 'I' && dna.get(1) == 'C')
+	else if (d == 'I' && dna[1] == 'C')
 	{
 		dna.popfront(2);
 		std::string seq = constsrec(dna);
@@ -190,67 +83,76 @@ void patternfcn(DNAList& dna, svec& rna, svec& p)
 	unsigned int lvl = 0;
     for (;;)
 	{
-        if (dna.get(0) == 'C')
+		char d = dna[0];
+        if (d == 'C')
 		{
-            dna.popfront();
+            dna.popfront(0);
             p.push_back("I");
 		}
-        else if (dna.get(0) == 'F')
+        else if (d == 'F')
 		{
-            dna.popfront();
+            dna.popfront(0);
             p.push_back("C");
 		}
-        else if (dna.get(0) == 'P')
+        else if (d == 'P')
 		{
-            dna.popfront();
+            dna.popfront(0);
             p.push_back("F");
 		}
-        else if (dna.get(0) == 'I' && dna.get(1) == 'C')
-		{
-            dna.popfront(2);
-            p.push_back("P");
-		}
-        else if (dna.get(0) == 'I' && dna.get(1) == 'P')
-		{
-            dna.popfront(2);
-            int n = nat(dna);
-			std::stringstream str;
-			str << "!" << n;
-			std::string s = str.str();
-            p.push_back(s);
-		}
-        else if (dna.get(0) == 'I' && dna.get(1) == 'F')
-		{
-            dna.popfront(3); // NOTE: Three bases consumed here.
-			std::string s("?");
-			s.append(consts(dna));
-			p.push_back(s);
-		}
-        else if (dna.get(0) == 'I' && dna.get(1) == 'I' && dna.get(2) == 'P')
-		{
-            dna.popfront(3);
-            ++lvl;
-            p.push_back("(");
-		}
-		else if (dna.get(0) == 'I' && dna.get(1) == 'I' && (dna.get(2) == 'C' || dna.get(2) == 'F'))
-		{
-            dna.popfront(3);
-            if (lvl > 0)
+        else if (d == 'I')
+        {
+        	d = dna[1];
+        	if (d == 'C')
 			{
-                --lvl;
-                p.push_back(")");
+	            dna.popfront(2);
+	            p.push_back("P");
 			}
-            else
+	        else if (d == 'P')
 			{
-                return;
+	            dna.popfront(2);
+	            int n = nat(dna);
+				std::stringstream str;
+				str << "!" << n;
+				std::string s = str.str();
+	            p.push_back(s);
 			}
-		}
-        else if (dna.get(0) == 'I' && dna.get(1) == 'I' && dna.get(2) == 'P')
-		{
-			std::string rnacmd = dna.getstr(3, 10);
-            dna.popfront(10);
-			rna.push_back(rnacmd);
-		}
+	        else if (d == 'F')
+			{
+	            dna.popfront(3); // NOTE: Three bases consumed here.
+				std::string s("?");
+				s.append(consts(dna));
+				p.push_back(s);
+			}
+        }
+        else if (d == 'I')
+        {
+        	d = dna[2];
+        	if  (d == 'P')
+			{
+	            dna.popfront(3);
+	            ++lvl;
+	            p.push_back("(");
+			}
+			else if (d == 'C' || d == 'F')
+			{
+	            dna.popfront(3);
+	            if (lvl > 0)
+				{
+	                --lvl;
+	                p.push_back(")");
+				}
+	            else
+				{
+	                return;
+				}
+			}
+	        else if (d == 'P')
+			{
+				std::string rnacmd = dna.getstr(3, 10);
+	            dna.popfront(10);
+				rna.push_back(rnacmd);
+			}
+        }
 	}
 }
 
@@ -259,56 +161,65 @@ void templatefcn(DNAList& dna, svec& rna, tvec& t)
 {
     for (;;)
 	{
-        if (dna.get(0) == 'C')
+		char d = dna[0];
+        if (d == 'C')
 		{
-            dna.popfront();
+            dna.popfront(0);
             t.push_back(tmpl("I"));
 		}
-        else if (dna.get(0) == 'F')
+        else if (d == 'F')
 		{
-            dna.popfront();
+            dna.popfront(0);
             t.push_back(tmpl("C"));
 		}
-        else if (dna.get(0) == 'P')
+        else if (d == 'P')
 		{
-            dna.popfront();
+            dna.popfront(0);
             t.push_back(tmpl("F"));
 		}
-        else if (dna.get(0) == 'I' && dna.get(1) == 'C')
-		{
-            dna.popfront(2);
-            t.push_back(tmpl("P"));
-		}
-        else if (dna.get(0) == 'I' && (dna.get(1) == 'P' || dna.get(1) == 'F'))
-		{
-            dna.popfront(2);
-            int l = nat(dna);
-            int n = nat(dna);
-            t.push_back(tmpl("", l, n));
-		}
-        else if (dna.get(0) == 'I' && dna.get(1) == 'I' && dna.get(2) == 'P')
-		{
-            dna.popfront(3);
-            int n = nat(dna);
-			t.push_back(tmpl("", -1, n));
-		}
-		else if (dna.get(0) == 'I' && dna.get(1) == 'I' && (dna.get(2) == 'C' || dna.get(2) == 'F'))
-		{
-            dna.popfront(3);
-			return;
-		}
-        else if (dna.get(0) == 'I' && dna.get(1) == 'I' && dna.get(2) == 'P')
-		{
-			std::string rnacmd = dna.getstr(3, 10);
-            dna.popfront(10);
-			rna.push_back(rnacmd);
-		}
+        else if (d == 'I')
+        {
+        	d = dna[1];
+        	if (d == 'C')
+			{
+	            dna.popfront(2);
+	            t.push_back(tmpl("P"));
+			}
+	        else if (d == 'P' || d == 'F')
+			{
+	            dna.popfront(2);
+	            int l = nat(dna);
+	            int n = nat(dna);
+	            t.push_back(tmpl("", l, n));
+			}
+	        else if (d == 'I')
+	        {
+	        	d = dna[2];
+	        	if (d == 'P')
+				{
+		            dna.popfront(3);
+		            int n = nat(dna);
+					t.push_back(tmpl("", -1, n));
+				}
+				else if (d == 'C' || d == 'F')
+				{
+		            dna.popfront(3);
+					return;
+				}
+		        else if (d == 'P')
+				{
+					std::string rnacmd = dna.getstr(3, 10);
+		            dna.popfront(10);
+					rna.push_back(rnacmd);
+				}
+	        }
+        }
 	}
 }
 
-vec asnat(int n)
+dnaseq asnat(int n)
 {
-    vec d;
+    dnaseq d;
     while (n > 0)
 	{
         if ((n % 2) == 0)
@@ -326,103 +237,118 @@ vec asnat(int n)
 }
 
 
-void quote(vec& d, vec& nd)
+void quote(dnaseq& d)
 {
-    for (cveciter it = d.begin(); it != d.end(); ++it)
+	dnaseq nd;
+	dnaseq::iterator it = d.begin();
+    while (it != d.end())
 	{
-		char item = *it;
-        if (item == 'I')
+        if (*it == 'I')
 		{
-            nd.push_back('C');
+            *it++ = 'C';
 		}
-        else if (item == 'C')
+        else if (*it == 'C')
 		{
-			nd.push_back('F');
+			*it++ = 'F';
 		}
-        else if (item == 'F')
+        else if (*it == 'F')
 		{
-            nd.push_back('P');
+            *it++ = 'P';
 		}
         else
 		{
             // P
-            nd.push_back('I');
-            nd.push_back('C');
+            *it++ = 'I';
+            it = d.insert(it, 'C');
 		}
 	}
 }
 
 
-vec protect(int l, vec& d)
+void protect(int l, dnaseq& d)
 {
 	if (l > 0)
 	{
-		vec t;
 		while (l > 0)
 		{
-			quote(d, t);
+			quote(d);
 			l -= 1;
 		}
 	}
-	else
-	{
-		return d;
-	}
 }
         
-void replacefcn(DNAList& dna, tvec& tpl, evec& e)
+void replacefcn(DNAList& dna, const tvec& tpl, evec& e, size_t i)
 {
-	vec r;
-	for (ctveciter it = tpl.begin(); it != tpl.end(); ++it)
-	{
-		tmpl t = *it;
-		if (t.s.size() == 0)
-		{
-			if (t.l == -1)
-			{
-				// |n|
-				int a = 0;
-				if (t.n < e.size())
-				{	
-					a = e[t.n].size();
-				}
-				vec an = asnat(a);
-				for (cveciter ii = an.begin(); ii != an.end(); ++ii)
-				{
-					r.push_back(*ii);
-				}
-			}
-			else
-			{
-				// n(l)
-				if (t.n < e.size())
-				{
-					vec an = protect(t.l, e[t.n]);
-					for (cveciter ii = an.begin(); ii != an.end(); ++ii)
-					{
-						r.push_back(*ii);
-					}
-				}
-			}
-		}
+    dnainsertlist r;
+    for (tvec::const_iterator it = tpl.begin(); it != tpl.end(); ++it)
+    {
+    	const tmpl& t =*it; 
+    	if (!t.s.empty())
+    	{
+            // Base
+          	dnaseqptr d(new dnaseq);
+        	for (size_t ix = 0; ix < t.s.size(); ++ix)
+        	{
+        		d->push_back(t.s[ix]);
+        	}
+            r.insert(r.begin(), new DNARef(0, d->size(), d));
+    	}
+    	else if (t.l == -1)
+        {
+            // |n|
+            if (t.n >= e.size())
+            {
+            	dnaseqptr d(new dnaseq);
+            	*d = asnat(0);
+                r.insert(r.begin(), new DNARef(0, d->size(), d));
+            }
+            else
+            {
+            	dnaseqptr d(new dnaseq);
+            	*d = asnat(0);
+                r.insert(r.begin(), new DNARef(0, d->size(), d));
+            }
+        }
         else
 		{
-            // Base
-            r.push_back(t.s[0]);
+            // n(l)
+            if (t.n >= e.size())
+            {
+            	;
+            }
+            else
+            {
+                if (t.l == 0)
+                {
+                	std::pair<size_t, size_t>& a = e[t.n];
+                	r.insert(r.begin(), new DNARefEmpty(a.first, a.second));
+                }
+                else
+                {
+	            	dnaseqptr d(new dnaseq);
+                	std::pair<size_t, size_t>& a = e[t.n];
+	            	for (size_t ix = a.first; ix < a.second; ++ix)
+	            	{
+	            		d->push_back(dna[ix]);
+	            	}
+	                r.insert(r.begin(), new DNARef(0, d->size(), d));
+                }
+            }
 		}
-	}
-    dna.insertfront(r);
+    }
+        
+    dna.insertfrontreflistandpopold(r, i);
 }
 
     
 
 
-void matchreplace(DNAList& dna, svec& pat, tvec& t)
+void matchreplace(DNAList& dna, const svec& pat, tvec& t)
 {
     evec e;
     ivec c;
     size_t i = 0;
-    for (csveciter it = pat.begin(); it != pat.end(); ++it)
+    for (svec::const_iterator it = pat.begin(); it != pat.end(); ++it)
 	{
 		std::string p = *it;
         if (p[0] == '!')
@@ -455,15 +381,13 @@ void matchreplace(DNAList& dna, svec& pat, tvec& t)
 		}
         else if (p[0] == ')')
 		{
-			vec tmp;
-			dna.getvec(tmp, c.back(), i); 
+            e.push_back(std::make_pair(c.back(), i));
 			c.pop_back();
-            e.push_back(tmp);
 		}
         else
 		{
             // Base
-            if (dna.get(i) == p[0])
+            if (dna[i] == p[0])
 			{
                 i += 1;
 			}
@@ -474,8 +398,7 @@ void matchreplace(DNAList& dna, svec& pat, tvec& t)
 			}
 		}
 	}
-    dna.popfront(i);
-    replacefcn(dna, t, e);
+    replacefcn(dna, t, e, i);
 }
     
   
@@ -505,79 +428,5 @@ void execute(DNAList& dna, svec& rna, bool progress = false)
 			break;
 		}
 	}
-}
-
-int _tmain(int argc, _TCHAR* argv[])
-{
-    //prefix = ""
-    //if len(sys.argv) > 3:
-    //    prefixfile = file(sys.argv[3], 'r')
-    //    prefix = prefixfile.read()
-    //    prefixfile.close()
-    //if len(sys.argv) > 2:
-    //    dnafile = file(sys.argv[1], 'r')
-    //    dna = DNAList(prefix + dnafile.read())
-    //    dnafile.close()
-    //    rna = []
-    //    try:
-    //        dna = execute(dna, rna, True)
-    //    except KeyboardInterrupt:
-    //        rnafile = file(sys.argv[2], 'w')
-    //        rnafile.write(''.join(rna))
-    //        rnafile.close()
-    //        sys.exit(1)
-    //    rnafile = file(sys.argv[2], 'w')
-    //    rnafile.write(''.join(rna))
-    //    rnafile.close()
-    //    
-    //else:
-        // Run tests
-	{
-		std::cout << "Test pattern function:" << std::endl;
-		svec sv;
-		sv.push_back("CIIC");
-		sv.push_back("IIPIPICPIICICIIF");
-		for (size_t i = 0; i < sv.size(); ++i)
-		{
-            svec rna;
-			vec dnavec;
-			str2vec(sv[i], dnavec);
-            DNAList dna(dnavec);
-			svec p;
-            patternfcn(dna, rna, p);
-			std::string s = sv[i];
-			std::cout << s << " -> ";
-			for (size_t ii = 0; ii < p.size(); ++ii)
-			{
-				std::cout << p[ii];
-			}
-			std::cout << std::endl;
-			std::cout.flush();
-		}
-	}
-
-	{
-
-		std::cout << "Test dna execution function:" << std::endl;
-		svec sv;
-		sv.push_back("IIPIPICPIICICIIFICCIFPPIICCFPC");
-		sv.push_back("IIPIPICPIICICIIFICCIFCCCPPIICCFPC");
-		sv.push_back("IIPIPIICPIICIICCIICFCFC");
-		for (size_t i = 0; i < sv.size(); ++i)
-		{
-            svec rna;
-			vec dnavec;
-			str2vec(sv[i], dnavec);
-            DNAList dna(dnavec);
-            execute(dna, rna, true);
-			std::cout << sv[i] << " -> ";
-			//for (size_t ii = 0; ii < dna.size(); ++ii)
-			//{
-			//	std::cout << dna.get(ii);
-			//}
-			std::cout << std::endl;
-		}
-	}
-	return 0;
 }
 

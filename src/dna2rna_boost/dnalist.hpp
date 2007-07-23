@@ -2,11 +2,20 @@
 #define DNALIST_HPP_
 
 #include <vector>
+#include <string>
 #include <boost/shared_ptr.hpp>
 
 typedef std::vector<char> dnaseq;
 typedef boost::shared_ptr<std::vector<char> > dnaseqptr;
 typedef std::pair<dnaseq::const_iterator, dnaseq::const_iterator> dnaseqrange; 
+
+typedef std::vector<std::string> svec;
+typedef std::vector<size_t> ivec;
+typedef std::vector<std::pair<size_t, size_t> > evec;
+
+
+void str2dnaseq(std::string s, dnaseq& v);
+std::string dnaseq2str(const dnaseq& v);
 
 class DNARefEmpty
 {
@@ -86,7 +95,8 @@ public:
 	char operator[](size_t ref) const;
     void insertfrontreflistandpopold(dnainsertlist reflist, size_t pop);
     void insertfront(DNARefEmpty* ref);
-    int find(const dnaseq&, size_t startpos) const;
+    int find(std::string substr, size_t startpos) const;
+    std::string getstr(size_t start, size_t stop) const;
 protected:
 	dnareflist m_list;        
 };
