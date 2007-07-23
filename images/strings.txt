@@ -1,1435 +1,1435 @@
 Quoted strings:
-1998_
-1999_
-2000_
-2001_
-2002_
-2003_
-2004_
-2005_
-2006_
-2007_
-law__
-friends_
-Robo_Cruiser___
-prize_
-choice_
-__
-__
-KiebererAndXiaoTou_
-Haskell_
-2007_
-genes_
-any___
-zone__
-size__
-environments__
-selector_
-extra_
-1_
-1_
-2_
-2_
-____
-zone__
-____
-payload_
-payload_
-rest_
-zone_
-1998_
-1999_
-2000_
-2001_
-2002_
-2003_
-2004_
-2005_
-2006_
-2007_
-law__
-MIT_
-program__
-prize_
-choice_
-__
-__
-Team_
-Cilk_
-ImpDoc_
-int24_
-addInts_
-x_
-y_
-__
-integers__
-void_
-beginRelativeMode_
-___
-hack__
-bool_
-checkIntegrity_
-ptr_
-__
-gene__
-int24_
-checksum_
-offset_
-size_
-__
-Zone__
-void_
-colorBlack_
-___
-bucket___
-void_
-colorBlue_
-___
-bucket___
-void_
-colorByIndex_
-___
-then__
-void_
-colorCyan_
-___
-bucket___
-void_
-colorGreen_
-___
-bucket___
-1_10_
-1998_
-1999_
-2000_
-2001_
-2002_
-2003_
-2004_
-2005_
-2006_
-2007_
-law__
-University_
-hours__
-prize_
-choice_
-__
-__
-you__
-____
-Contents_
-Index_
-FuunDoc_
-compose_adaptation_
-c_
-composition__
-false_
-Bool_
-False__
-goldenFish_adaptation_
-PictureDescr_
-description__
-i_adaptation_
-a_
-intBox_
-Int_
-branch__
-k_
-a_
-one__
-mkBeforeAbove_adaptation_
-PictureDescr_
-image__
-mkEmp_adaptation_
-PictureDescr_
-height__
-mkGoldfishL_adaptation_
-PictureDescr_
-left__
-mkGoldfishR_adaptation_
-PictureDescr_
-right__
-mkSucc_adaptation_
-Nat_
-argument__
-FuunDoc_
-0_13_
-code__
-1998_
-1999_
-2000_
-2001_
-2002_
-2003_
-2004_
-2005_
-2006_
-2007_
-law__
-Chalmers_
-winners__
-prize_
-choice_
-__
-__
-Hudson_
-C___
-1998_
-1999_
-2000_
-2001_
-2002_
-2003_
-2004_
-2005_
-2006_
-2007_
-law__
-OGI_
-contest__
-later___
-prize_
-choice_
-__
-__
-TAPLAS_
-OCaml_
-222_
-_Hmm__
-And__
-informed___
-__
-them___
-pours___
-then__
-replied__
-easy__
-terraces___
-ImpDoc_
-void_
-resetOrigin_
-___
-setOrigin__
-void_
-rotateColor_
-___
-void_
-setGlobalPolarRotation_
-a_
-__
-operations__
-void_
-setOrigin_
-x_
-y_
-__
-origin__
-void_
-spirograph_
-extra_
-cycles_
-__
-magnify_
-radiusSum_
-radiusMoving_
-radiusSumDiv_
-figure__
-void_
-startup_
-___
-point__
-int24_
-stringLength_
-s_
-__
-string__
-int24_
-subInts_
-x_
-y_
-__
-integers__
-void_
-terminate_
-___
-suffering__
-9_10_
-125_
-up__
-with__
-AAA_geneTablePageNr_
-M_class_planet_
-__array_index_
-__array_value_
-__bool_
-__bool_2_
-__funptr_
-__int1_
-__int12_
-__int12_2_
-__int24_
-__int24_2_
-__int3_
-__int48_
-__int9_
-acc1_
-acc2_
-acc3_
-activateAdaptationTree_
-activateGene_
-adapter_
-addFunctionsCBF_
-addInts_
-alien_lifeforms_
-anticompressant_
-apple_
-appletree_
-apply1_adaptation_
-apply2_adaptation_
-babel_survey_
-balloon_
-beginRelativeMode_
-bioAdd_adaptation_
-bioMorphPerturb_
-bioMul_adaptation_
-bioSucc_adaptation_
-bioZero_adaptation_
-biomorph_adaptation_
-blueZoneStart_
-bmu_
-bresenhamArray_
-bresenhamIndex_
-bresenhamRadius_
-bridge_
-bridge_close_
-bridge_far_
-cachedFastCircle_
-cachedFastCorner_
-cachedFastEllipse_
-caravan_
-caravan_axis_
-caravan_door_
-caravan_frame_
-caravan_wheel_
-caravan_window1_
-caravan_window2_
-cargobox_
-caseNat_adaptation_
-casePair_adaptation_
-casePictureDescr_adaptation_
-caseVar1_adaptation_
-caseVar2_adaptation_
-cbfArray_
-charColorCallback_
-charColorCallbackFade_
-charCounter_
-charIndexArray_
-charIndexOffset_
-charInfo_Tempus_Bold_Huge_L_
-charInfo_Tempus_Bold_Huge_M_
-checkIntegrity_
-checksum_
-chick_
-cloak_night_
-cloak_rain_
-closureArguments_
-closureIndex_
-cloud_
-clouds_
-cloudy_
-colorBlack_
-colorBlue_
-colorByIndex_
-colorCyan_
-colorDuckBrown_
-colorDuckOrange_
-colorDuckYellow_
-colorGermanyYellow_
-colorGreen_
-colorLila_
-colorMagenta_
-colorRed_
-colorReset_
-colorSoftYellow_
-colorTable_
-colorWhite_
-compose_adaptation_
-contest_1998_
-contest_1999_
-contest_2000_
-contest_2001_
-contest_2002_
-contest_2003_
-contest_2004_
-contest_2005_
-contest_2006_
-contest_2007_
-correctErrors_
-cosineArray_
-cow_body_
-cow_head_
-cow_holy_
-cow_left_eye_
-cow_left_foot_
-cow_left_horn_
-cow_middle_foot_
-cow_mouth_
-cow_right_ear_
-cow_right_eye_
-cow_right_foot_
-cow_right_horn_
-cow_spot_butt_
-cow_spot_left_
-cow_spot_middle_
-cow_spot_middle_ecc_
-cow_spot_right_
-cow_tail_
-crackChars_
-crackKey_
-crackKeyAndPrint_
-crackTestValue_
-crater_
-crypt_
-curX_
-curY_
-div2_
-doSelfCheck_
-drawChar_
-drawCircleFast_
-drawCornerFast_
-drawEllipse_
-drawEllipseFast_
-drawFunctionBase_
-drawGoldFishL_adaptation_
-drawGoldFishR_adaptation_
-drawGoldenFish_adaptation_
-drawGradientCornerNW_
-drawGradientCornerSE_
-drawGradientH_
-drawGradientV_
-drawGrassPatch_
-drawHexDigit_
-drawIntHex_
-drawPolyline_
-drawPolylinePolar_
-drawRect_
-drawRoundedRect_
-drawString_
-drawStringHere_
-ducksShown_
-duolc_
-ellipseAngleIncr_
-emptyBox_adaptation_
-enableBioMorph_
-enableBioMorph_adaptation_
-endRelativeMode_
-endo_
-endo_bottom_
-endo_left_arm_
-endo_left_eye_
-endo_right_arm_
-endo_right_eye_
-endo_top_
-endocow_
-fadingColors_
-false_
-fastForward_
-fastRandom_
-fatalError_
-flower_
-flowerbed_
-fontCombinator_
-fontTable_Bird_Ring_
-fontTable_Cyperus_
-fontTable_Cyperus_Big_
-fontTable_Cyperus_Italic_
-fontTable_Dots_
-fontTable_Messenger_
-fontTable_Tempus_Bold_Huge_
-fontTable_Tempus_Small_
-fontTable_Tempus_Small_Italic_
-fpForward_
-fpForwardPenUp_
-fpMoveAbsolute_
-fpPop_
-fpPush_
-fpTurnLeft_
-fpTurnRight_
-fri_
-frj_
-fromNat_adaptation_
-frs_
-fstP_adaptation_
-functionAdd_
-functionParabola_
-functionSine_
-fuundoc1_
-fuundoc2_
-fuundoc3_
-ge_
-germanColors_
-giveMeAPresent_
-goldenFish_adaptation_
-goldfishLeft_
-goldfishRight_
-goodVibrations_
-grass_
-grass1_
-grass2_
-grass3_
-grass4_
-greenZoneStart_
-height_adaptation_
-help_activating_genes_
-help_adaptive_genes_
-help_background_
-help_background__
-help_beautiful_numbers_
-help_beautiful_numbers_purchase_code_
-help_catalog_page_
-help_compression_rna_
-help_encodings_
-help_error_correcting_codes_
-help_error_correcting_codes_purchase_code_
-help_fuun_security_
-help_fuun_structure_
-help_initial_cond_
-help_integer_encoding_
-_help_intro_
-help_lsystems_
-help_palindromes_
-help_patching_dna_
-help_steganography_
-help_undocumented_rna_
-help_virus_
-help_vmu_
-helpScreen_
-hillsEnabled_
-hitWithTheClueStick_
-i_adaptation_
-impdoc_background_
-impdoc1_
-impdoc10_
-impdoc2_
-impdoc3_
-impdoc4_
-impdoc5_
-impdoc6_
-impdoc7_
-impdoc8_
-impdoc9_
-init_
-initDone_
-initFastRandom_
-intBox_
-k_
-lambda_id_
-lightningBolt_
-lindenmayerAngle_
-lindenmayerDistance_
-lsystem_kochisland_
-lsystem_kochisland_F_
-lsystem_kochisland_f_
-lsystem_sierpinski_
-lsystem_sierpinski_l_
-lsystem_sierpinski_r_
-lsystem_weed_
-lsystem_weed_F_
-lt_
-main_
-majorimp_background_
-majorimp_episode1_
-majorimp_episode125_
-majorimp_episode126_
-majorimp_episode2_
-majorimp_episode222_
-majorimp_episode285_
-majorimp_episode496_
-makeDarkness_
-max_
-mkAbove_adaptation_
-mkBeforeAbove_adaptation_
-mkEmp_adaptation_
-mkGoldfishL_adaptation_
-mkGoldfishR_adaptation_
-mkPair_adaptation_
-mkSucc_adaptation_
-mkZero_adaptation_
-mlephant_
-modInts_
-moon_
-most_wanted_
-motherDuck_
-motherDuckWithChicks_
-moveTo_
-moveToPolar_
-mulInts_
-mulModInts_
-negateInt_
-night_or_day_
-ocaml_
-ocamlrules_
-originStackIndex_
-originStackX_
-originStackY_
-parabolaCBF_
-payloadBioMorph_
-payloadBioMorph_adaptation_
-pear_
-peartree_
-pictureDescrRenderer_adaptation_
-polarAngleIncr_
-printCharSet_
-printGeneTable_
-randomInt_
-resetOrigin_
-resetOrigin_adaptation_
-river_
-rotateColorVar_
-s_adaptation_
-scenario_
-seed_
-_selfCheck_
-setFastCircleArray_
-setGlobalPolarRotation_
-setOrigin_
-setOrigin_adaptation_
-shoutOut_
-sineArray_
-sineCBF_
-sky_
-sky_day_
-sky_day_bodies_
-sky_night_
-sky_night_bodies_
-sky_waves_
-smoke_
-sndP_adaptation_
-spirograph_
-star_
-sticky_
-stringLength_
-subInts_
-sun_
-sunflower_
-superDuck_
-surfaceTransform_
-terminate_
-threeFish_adaptation_
-tmpCurX_
-tmpCurY_
-transmission_buffer_
-true_
-tulip_
-tulips_
-turtleFPX_
-turtleFPY_
-turtleHeading_
-turtleStackFPX_
-turtleStackFPY_
-turtleStackHeading_
-turtleStackIndex_
-ufo_
-ufo_bottom_
-ufo_cup_
-ufo_frame_
-ufo_left_foot_
-ufo_middle_foot_
-ufo_right_foot_
-ufo_with_smoke_
-useColorTable_
-var1_adaptation_
-var2_adaptation_
-vmu_
-vmu_code_
-vmu_code_purchase_code_
-vmuMode_
-vmuRegCode_
-void_
-water_
-weather_
-weeds_
-whale_
-width_adaptation_
-windmill_
-wrapAdd_adaptation_
-wrapImp_
-wrapMax_adaptation_
-wrapSub_adaptation_
-IFPICFPPCFFPP_
-14_
-____
-PASS_
-FAIL_
-encryption__
-disabled_
-__
-1998_
-1999_
-2000_
-2001_
-2002_
-2003_
-2004_
-2005_
-2006_
-2007_
-law__
-Penn_
-purpose__
-prize_
-choice_
-__
-__
-Dunkosmiloolump_
-Haskell_
-RNA_
-____
-observed__
-code_
-morphing__
-CFPICFP_
-though__
-done__
-ImpDoc_
-int24_
-max_
-x_
-y_
-__
-integers__
-int24_
-modInts_
-x_
-y_
-__
-integers__
-void_
-moveTo_
-x_
-y_
-__
-origin__
-void_
-moveToPolar_
-angle_
-dist_
-__
-origin__
-int24_
-mulInts_
-x_
-y_
-__
-integers__
-int24_
-negateInt_
-x_
-__
-integer__
-void_
-printGeneTable_
-integrityCheck_
-__
-finish__
-int24_
-randomInt_
-x_
-__
-generator__
-8_10_
-1998_
-1999_
-2000_
-2001_
-2002_
-2003_
-2004_
-2005_
-2006_
-2007_
-law__
-Virginia_
-with__
-profits__
-prize_
-choice_
-__
-__
-R_Us_
-OCaml_
-126_
-know___
-commute___
-Contents_
-Index_
-FuunDoc_
-activateAdaptationTree_
-zone__
-activateGene_
-zone__
-apply1_adaptation_
-BioNat_
-value__
-apply2_adaptation_
-BioNat_
-value__
-bioAdd_adaptation_
-BioNat_
-variable2__
-bioMul_adaptation_
-BioNat_
-variable2__
-bioSucc_adaptation_
-BioNat_
-incremented__
-bioZero_adaptation_
-BioNat_
-zero__
-caseVar1_adaptation_
-BioNat_
-alternative__
-caseVar2_adaptation_
-BioNat_
-variable2__
-FuunDoc_
-0_13_
-____
-____
-____
-10_
-elements_
-formulas_
-____
-Genome_
-____
-also__
-size__
-next__
-parts__
-engineering____
-RED_
-GREEN_
-BLUE_
-Contents_
-Index_
-FuunDoc_
-mkZero_adaptation_
-Nat_
-Zero__
-pictureDescrRenderer_adaptation_
-RNAAction_
-coordinate__
-s_adaptation_
-c_
-true_
-Bool_
-True__
-var1_adaptation_
-BioNat_
-variable1__
-var2_adaptation_
-BioNat_
-variable2__
-FuunDoc_
-0_13_
-ImpDoc_
-bool_
-ge_
-x_
-y_
-__
-y__
-int24_
-incInt_
-x_
-__
-one__
-void_
-init_
-___
-length__
-void_
-initFastRandom_
-key_
-__
-generator__
-void_
-lsystem_kochisland_
-depth_
-__
-lakes__
-void_
-lsystem_sierpinski_
-depth_
-__
-gasket__
-void_
-lsystem_weed_
-depth_
-__
-structures__
-bool_
-lt_
-x_
-y_
-__
-y__
-void_
-makeDarkness_
-___
-darkness__
-7_10_
-1998_
-1999_
-2000_
-2001_
-2002_
-2003_
-2004_
-2005_
-2006_
-2007_
-law__
-University_
-BC__
-computer__
-prize_
-choice_
-__
-__
-Smartass_
-2D_
-navigation_
-page__
-integers_
-b_n_
-set_
-otherwise_
-index_
-1337_
-navigating__
-_blink_WARNING__blink__
-occur__
-1_
-volunteer_____
-_call_cc__
-wouldn_t__
-_ENTER__
-496_
-monad__
-circumstances__
-bricks__
-disguise___
-Steganography_
-pictures_
-right__
-conditions_
-Inc__
-License_
-planets__
-programmer_
-Flatulent_
-False_
-Nat_
-Nat_
-variables__
-Nat_
-__
-variable1_
-variable2_
-Nat_
-__
-adaptations_
-BioNat_
-where_
-Zero_
-fixed___
-y__
-y_
-recitations__
-___
-conditions_
-ImpDoc_
-void_
-drawGradientH_
-w_
-h_
-color_
-__
-lines__
-void_
-drawGradientV_
-w_
-h_
-color_
-__
-lines__
-void_
-drawHexDigit_
-fontTable_
-d_
-__
-digit__
-void_
-drawInt_
-fontTable_
-x_
-__
-Earthdwellers__
-void_
-drawIntHex_
-fontTable_
-maxWidth_
-x_
-y_
-n_
-__
-designers__
-void_
-drawPolyline_
-close_
-points_
-__
-automatically__
-void_
-drawPolylinePolar_
-close_
-points_
-__
-origin__
-void_
-drawRect_
-x_
-y_
-sizeX_
-sizeY_
-fill_
-__
-rectangle__
-void_
-drawRoundedRect_
-x_
-y_
-sizeX_
-sizeY_
-r_
-fill_
-__
-corners__
-4_10_
-cerca__
-gemorpht_
-Endo__
-ImpDoc_
-void_
-useColorTable_
-___
-10_10_
-ImpDoc_
-void_
-fpMoveAbsolute_
-x_
-y_
-__
-coordinates__
-void_
-fpPop_
-___
-it__
-void_
-fpPush_
-___
-stack__
-void_
-fpTurnLeft_
-angle_
-__
-degrees__
-void_
-fpTurnRight_
-angle_
-__
-degrees__
-int24__
-functionAdd_
-g_
-__
-f_
-results__
-int24__
-functionParabola_
-a_
-b_
-__
-a_x_b__
-int24__
-functionSine_
-a_
-b_
-c_
-__
-sin_a_x_b__c__
-6_10_
-ImpDoc_
-void_
-colorMagenta_
-___
-bucket___
-void_
-colorRed_
-___
-bucket___
-void_
-colorWhite_
-___
-bucket___
-void_
-colorYellow_
-___
-bucket___
-void_
-correctErrors_
-data_
-ecc_
-size_
-__
-region__
-int9_128__
-crackKey_
-testValue_
-__
-key__
-void_
-crypt_
-key_
-offset_
-size_
-__
-key__
-int24_
-decInt_
-x_
-__
-one__
-int24_
-div2_
-x_
-__
-2__
-2_10_
-Survey_
-Earth_
-_____
-bandwidth____
-voordeliger__
-ImpDoc_
-void_
-drawString_
-fontTable_
-x_
-y_
-s_
-__
-Set__
-void_
-drawStringHere_
-fontTable_
-s_
-__
-position__
-void_
-endRelativeMode_
-___
-hack__
-void_
-fadingColors_
-___
-void_
-fastForward_
-x_
-__
-degrees__
-int9_
-fastRandom_
-___
-generator__
-void_
-fpForward_
-dist_
-__
-number__
-void_
-fpForwardPenUp_
-dist_
-__
-number__
-5_10_
-elsewhere__
-Catalog_
-page_
-Genome_
-Genomics_
-_encrypted__
-list_
-for_
-Set_
-Fuun_
-_encrypted__
-RNA_
-structures_
-features_
-compression_
-Answer_
-an___taa____v______
-1337_
-1729_
-8_
-23_
-42_
-112_
-10646_
-85_
-84_
-2181889_
-5_
-4405829_
-123456_
-999999999_
-999999999_
-damaged_
-Set_
-1998_
-1999_
-2000_
-2001_
-2002_
-2003_
-2004_
-2005_
-2006_
-2007_
-law__
-Rocquencourt_
-boxes__
-size__
-prize_
-choice_
-__
-__
-Carrots_
-Haskell_
-2_
-__
-toilet__
-them___
-__
-_Imp__
-Operators___
-Sir__
-1998_
-1999_
-2000_
-2001_
-2002_
-2003_
-2004_
-2005_
-2006_
-2007_
-law__
-Labs_
-features__
-prize_
-choice_
-__
-__
-PLClub_
-OCaml_
-Compression_
-moment__
-RNA_Comprez_
-ones__
-Fuuns_
-IFPICFPPCFIPP_
-__
-IFPICFPPCCC_
-DNA__
-Adapter_
-prefix_
-Example_
-Zone__
-IIPIFFCPICCFPICICFPCICICIICIICIPPPCFCFCFCCCCCCCCCCCCCCCCCICIIC_
-boolean__
-IIPIFFCPICCFPICICFPCICICIICIICIPPPPIIC_
-1234__
-IIPIFFCPICCFPICICFFFIIPIFFCPICCFPICICFFFIICIICIICIPPPCFCCFCFFCCFI_
-CCCFCFFFFFICIPPCPIIC_
-__
-IFPICFPPCFIPP_
-___
-Unit_
-IV__
-risk__
-natives__
-OCaml_
-Encodings_
-____
-forgotten____
-messages_
-Set_
-degrees_
-circle__
-quoted__
-bits_
-numbers__
-Polygons_
-Encoding_
-numbers_
-complement__
-otherwise____
-information__
-MLephant_
-FOUND_
-L_indenmayer__Systems_
-natural_
-Graftals__
-List_
-E_T__
-systems__
-Vader_
-Palpatine__
-Heeren_
-unsafePerformIO__
-Alert_
-Fuuns__
-trip__
-ImpDoc_
-int24_
-divInts_
-x_
-y_
-__
-another__
-void_
-drawChar_
-fontTable_
-c_
-__
-font__
-void_
-drawCircleFast_
-x_
-y_
-r_
-fill_
-__
-void_
-drawEllipse_
-centerX_
-centerY_
-rX_
-rY_
-fill_
-__
-ellipse__
-void_
-drawEllipseFast_
-x_
-y_
-rx_
-ry_
-fill_
-__
-void_
-drawFunction_
-pair_
-endx_
-__
-functionParabola__
-void_
-drawFunctionBase_
-pair_
-endx_
-base_
-__
-_x_0___
-void_
-drawGradientCornerNW_
-w_
-h_
-color_
-__
-corner__
-void_
-drawGradientCornerSE_
-w_
-h_
-color_
-__
-corner__
-3_10_
-_2__
-yourself__
-Compressor_
-loads_
-acids__
-searches_
-restores_
-Inc__
-eval_
-table_
-backup_
-data_
-bitmaps__
-compressor__
-exist__
-NCC_1701_J_
-Palindromes_
-____
-task__
-soap__
-place__
-III__
-wait____
-__
-__
-285_
-one__
-in_
-skirt___
-look___
-north___right___
-Features_
-shegure__
-ubhef__
-qrngu__
-pbqrf__
-____
-sbb_
-one_
-yvfg__
-sbb_
-one_
-one_
-one_
-3___
-npvqf__
-ryrzragf__
-sbb_
-one_
-sbb_
-sbb_
-one_
-qrpelcg__
-sbb_
-one_
-mreb__
-sbb_
-mreb__
-255__
-L_
+    852625   1998_
+    853439   1999_
+    854253   2000_
+    855067   2001_
+    855881   2002_
+    856695   2003_
+    857509   2004_
+    858323   2005_
+    859137   2006_
+    859951   2007_
+    861184   law__
+    868954   friends_
+    885568   Robo_Cruiser___
+    889515   prize_
+    890478   choice_
+    891332   __
+    892136   __
+    892939   KiebererAndXiaoTou_
+    893913   Haskell_
+    994058   2007_
+   1684183   genes_
+   1687654   any___
+   1692061   zone__
+   1698968   size__
+   1701623   environments__
+   1707473   selector_
+   1709859   extra_
+   1712265   1_
+   1714740   1_
+   1717106   2_
+   1719542   2_
+   1721858   ____
+   1723291   zone__
+   1727419   ____
+   1729805   payload_
+   1732260   payload_
+   1734686   rest_
+   1737122   zone_
+   1743846   1998_
+   1744660   1999_
+   1745474   2000_
+   1746288   2001_
+   1747102   2002_
+   1747916   2003_
+   1748730   2004_
+   1749544   2005_
+   1750358   2006_
+   1751172   2007_
+   1752405   law__
+   1758697   MIT_
+   1764280   program__
+   1768167   prize_
+   1769130   choice_
+   1769984   __
+   1770788   __
+   1771791   Team_
+   1772625   Cilk_
+   2086317   ImpDoc_
+   2093749   int24_
+   2094593   addInts_
+   2096321   x_
+   2097999   y_
+   2098803   __
+   2099686   integers__
+   2100570   void_
+   2101403   beginRelativeMode_
+   2102367   ___
+   2103520   hack__
+   2104364   bool_
+   2105197   checkIntegrity_
+   2106995   ptr_
+   2107819   __
+   2108942   gene__
+   2109786   int24_
+   2110630   checksum_
+   2112368   offset_
+   2114096   size_
+   2114930   __
+   2115794   Zone__
+   2118380   void_
+   2119214   colorBlack_
+   2120108   ___
+   2121541   bucket___
+   2122415   void_
+   2123249   colorBlue_
+   2124133   ___
+   2125556   bucket___
+   2126430   void_
+   2127264   colorByIndex_
+   2128178   ___
+   2129321   then__
+   2130165   void_
+   2130999   colorCyan_
+   2131883   ___
+   2133306   bucket___
+   2134180   void_
+   2135014   colorGreen_
+   2135908   ___
+   2137341   bucket___
+   2138215   1_10_
+   2147692   1998_
+   2148506   1999_
+   2149320   2000_
+   2150134   2001_
+   2150948   2002_
+   2151762   2003_
+   2152576   2004_
+   2153390   2005_
+   2154204   2006_
+   2155018   2007_
+   2156251   law__
+   2161609   University_
+   2181343   hours__
+   2185210   prize_
+   2186173   choice_
+   2187027   __
+   2187831   __
+   2188635   you__
+   2189469   ____
+   2285863   Contents_
+   2286737   Index_
+   2288363   FuunDoc_
+   2290108   compose_adaptation_
+   2292520   c_
+   2293413   composition__
+   2295209   false_
+   2297202   Bool_
+   2298036   False__
+   2299771   goldenFish_adaptation_
+   2301924   PictureDescr_
+   2302957   description__
+   2304753   i_adaptation_
+   2306866   a_
+   2308552   intBox_
+   2310645   Int_
+   2311948   branch__
+   2313694   k_
+   2315747   a_
+   2316970   one__
+   2318685   mkBeforeAbove_adaptation_
+   2321187   PictureDescr_
+   2322740   image__
+   2324475   mkEmp_adaptation_
+   2326717   PictureDescr_
+   2328020   height__
+   2329765   mkGoldfishL_adaptation_
+   2331928   PictureDescr_
+   2333031   left__
+   2334756   mkGoldfishR_adaptation_
+   2336919   PictureDescr_
+   2338022   right__
+   2339757   mkSucc_adaptation_
+   2341940   Nat_
+   2342963   argument__
+   2345443   FuunDoc_
+   2346397   0_13_
+   2356957   code__
+   2370497   1998_
+   2371311   1999_
+   2372125   2000_
+   2372939   2001_
+   2373753   2002_
+   2374567   2003_
+   2375381   2004_
+   2376195   2005_
+   2377009   2006_
+   2377823   2007_
+   2379056   law__
+   2384334   Chalmers_
+   2394009   winners__
+   2397896   prize_
+   2398859   choice_
+   2399713   __
+   2400517   __
+   2401391   Hudson_
+   2402245   C___
+   2405630   1998_
+   2406444   1999_
+   2407258   2000_
+   2408072   2001_
+   2408886   2002_
+   2409700   2003_
+   2410514   2004_
+   2411328   2005_
+   2412142   2006_
+   2412956   2007_
+   2414189   law__
+   2419607   OGI_
+   2426071   contest__
+   2433972   later___
+   2437849   prize_
+   2438812   choice_
+   2439666   __
+   2440470   __
+   2441274   TAPLAS_
+   2442128   OCaml_
+   2454455   222_
+   2458004   _Hmm__
+   2461524   And__
+   2463480   informed___
+   2464374   __
+   2469417   them___
+   2473422   pours___
+   2475279   then__
+   2476202   replied__
+   2480815   easy__
+   2483321   terraces___
+   2539766   ImpDoc_
+   2547198   void_
+   2548032   resetOrigin_
+   2548936   ___
+   2550368   setOrigin__
+   2551262   void_
+   2552096   rotateColor_
+   2553000   ___
+   2553814   void_
+   2554647   setGlobalPolarRotation_
+   2556525   a_
+   2557329   __
+   2558522   operations__
+   2559426   void_
+   2560260   setOrigin_
+   2562008   x_
+   2563686   y_
+   2564490   __
+   2565593   origin__
+   2566457   void_
+   2567291   spirograph_
+   2568185   extra_
+   2569903   cycles_
+   2570757   __
+   2572425   magnify_
+   2574163   radiusSum_
+   2575921   radiusMoving_
+   2577709   radiusSumDiv_
+   2579956   figure__
+   2580820   void_
+   2581654   startup_
+   2582518   ___
+   2583431   point__
+   2584285   int24_
+   2585129   stringLength_
+   2586947   s_
+   2587751   __
+   2588784   string__
+   2589648   int24_
+   2590492   subInts_
+   2592220   x_
+   2593898   y_
+   2594702   __
+   2595645   integers__
+   2596529   void_
+   2597363   terminate_
+   2598247   ___
+   2599210   suffering__
+   2600104   9_10_
+   2607941   125_
+   2610386   up__
+   2618924   with__
+   2662485   AAA_geneTablePageNr_
+   2662741   M_class_planet_
+   2662949   __array_index_
+   2663147   __array_value_
+   2663345   __bool_
+   2663474   __bool_2_
+   2663623   __funptr_
+   2663772   __int1_
+   2663901   __int12_
+   2664041   __int12_2_
+   2664201   __int24_
+   2664341   __int24_2_
+   2664501   __int3_
+   2664631   __int48_
+   2664771   __int9_
+   2664901   acc1_
+   2665011   acc2_
+   2665122   acc3_
+   2665233   activateAdaptationTree_
+   2665524   activateGene_
+   2665715   adapter_
+   2665857   addFunctionsCBF_
+   2666079   addInts_
+   2666221   alien_lifeforms_
+   2666444   anticompressant_
+   2666666   apple_
+   2666788   appletree_
+   2666950   apply1_adaptation_
+   2667191   apply2_adaptation_
+   2667432   babel_survey_
+   2667625   balloon_
+   2667767   beginRelativeMode_
+   2668009   bioAdd_adaptation_
+   2668251   bioMorphPerturb_
+   2668473   bioMul_adaptation_
+   2668715   bioSucc_adaptation_
+   2668967   bioZero_adaptation_
+   2669219   biomorph_adaptation_
+   2669481   blueZoneStart_
+   2669683   bmu_
+   2669786   bresenhamArray_
+   2669998   bresenhamIndex_
+   2670210   bresenhamRadius_
+   2670432   bridge_
+   2670565   bridge_close_
+   2670758   bridge_far_
+   2670931   cachedFastCircle_
+   2671164   cachedFastCorner_
+   2671397   cachedFastEllipse_
+   2671640   caravan_
+   2671783   caravan_axis_
+   2671976   caravan_door_
+   2672169   caravan_frame_
+   2672372   caravan_wheel_
+   2672575   caravan_window1_
+   2672798   caravan_window2_
+   2673021   cargobox_
+   2673174   caseNat_adaptation_
+   2673426   casePair_adaptation_
+   2673688   casePictureDescr_adaptation_
+   2674030   caseVar1_adaptation_
+   2674292   caseVar2_adaptation_
+   2674554   cbfArray_
+   2674706   charColorCallback_
+   2674948   charColorCallbackFade_
+   2675231   charCounter_
+   2675414   charIndexArray_
+   2675627   charIndexOffset_
+   2676193   charInfo_Tempus_Bold_Huge_L_
+   2676536   charInfo_Tempus_Bold_Huge_M_
+   2676879   checkIntegrity_
+   2677093   checksum_
+   2677247   chick_
+   2677371   cloak_night_
+   2677555   cloak_rain_
+   2677729   closureArguments_
+   2677962   closureIndex_
+   2678155   cloud_
+   2678279   clouds_
+   2678413   cloudy_
+   2678547   colorBlack_
+   2678721   colorBlue_
+   2678885   colorByIndex_
+   2679079   colorCyan_
+   2679243   colorDuckBrown_
+   2679457   colorDuckOrange_
+   2679681   colorDuckYellow_
+   2679905   colorGermanyYellow_
+   2680159   colorGreen_
+   2680333   colorLila_
+   2680497   colorMagenta_
+   2680691   colorRed_
+   2680845   colorReset_
+   2681018   colorSoftYellow_
+   2681242   colorTable_
+   2681415   colorWhite_
+   2681589   compose_adaptation_
+   2681842   contest_1998_
+   2682036   contest_1999_
+   2682230   contest_2000_
+   2682424   contest_2001_
+   2682618   contest_2002_
+   2682812   contest_2003_
+   2683006   contest_2004_
+   2683200   contest_2005_
+   2683394   contest_2006_
+   2683588   contest_2007_
+   2683782   correctErrors_
+   2683986   cosineArray_
+   2684169   cow_body_
+   2684323   cow_head_
+   2684477   cow_holy_
+   2684631   cow_left_eye_
+   2684825   cow_left_foot_
+   2685029   cow_left_horn_
+   2685233   cow_middle_foot_
+   2685457   cow_mouth_
+   2685621   cow_right_ear_
+   2685825   cow_right_eye_
+   2686029   cow_right_foot_
+   2686243   cow_right_horn_
+   2686457   cow_spot_butt_
+   2686661   cow_spot_left_
+   2686865   cow_spot_middle_
+   2687089   cow_spot_middle_ecc_
+   2687352   cow_spot_right_
+   2687566   cow_tail_
+   2687720   crackChars_
+   2687894   crackKey_
+   2688049   crackKeyAndPrint_
+   2688284   crackTestValue_
+   2688498   crater_
+   2688633   crypt_
+   2688758   curX_
+   2688872   curY_
+   2688986   div2_
+   2689101   doSelfCheck_
+   2689285   drawChar_
+   2689440   drawCircleFast_
+   2689655   drawCornerFast_
+   2689870   drawEllipse_
+   2690055   drawEllipseFast_
+   2690280   drawFunctionBase_
+   2690515   drawGoldFishL_adaptation_
+   2690829   drawGoldFishR_adaptation_
+   2691143   drawGoldenFish_adaptation_
+   2691467   drawGradientCornerNW_
+   2691742   drawGradientCornerSE_
+   2692017   drawGradientH_
+   2692222   drawGradientV_
+   2692427   drawGrassPatch_
+   2692642   drawHexDigit_
+   2692837   drawIntHex_
+   2693012   drawPolyline_
+   2693207   drawPolylinePolar_
+   2693452   drawRect_
+   2693607   drawRoundedRect_
+   2693832   drawString_
+   2694007   drawStringHere_
+   2694222   ducksShown_
+   2694397   duolc_
+   2694521   ellipseAngleIncr_
+   2694755   emptyBox_adaptation_
+   2695019   enableBioMorph_
+   2695233   enableBioMorph_adaptation_
+   2695557   endRelativeMode_
+   2695782   endo_
+   2695897   endo_bottom_
+   2696082   endo_left_arm_
+   2696287   endo_left_eye_
+   2696492   endo_right_arm_
+   2696707   endo_right_eye_
+   2696922   endo_top_
+   2697077   endocow_
+   2697222   fadingColors_
+   2697417   false_
+   2697541   fastForward_
+   2697726   fastRandom_
+   2697901   fatalError_
+   2698076   flower_
+   2698211   flowerbed_
+   2698376   fontCombinator_
+   2698590   fontTable_Bird_Ring_
+   2698854   fontTable_Cyperus_
+   2699098   fontTable_Cyperus_Big_
+   2699382   fontTable_Cyperus_Italic_
+   2699696   fontTable_Dots_
+   2699910   fontTable_Messenger_
+   2700174   fontTable_Tempus_Bold_Huge_
+   2700508   fontTable_Tempus_Small_
+   2700802   fontTable_Tempus_Small_Italic_
+   2701166   fpForward_
+   2701331   fpForwardPenUp_
+   2701546   fpMoveAbsolute_
+   2701761   fpPop_
+   2701886   fpPush_
+   2702021   fpTurnLeft_
+   2702196   fpTurnRight_
+   2702381   fri_
+   2702485   frj_
+   2702589   fromNat_adaptation_
+   2702843   frs_
+   2702947   fstP_adaptation_
+   2703171   functionAdd_
+   2703356   functionParabola_
+   2703591   functionSine_
+   2703786   fuundoc1_
+   2703941   fuundoc2_
+   2704096   fuundoc3_
+   2704251   ge_
+   2704346   germanColors_
+   2704541   giveMeAPresent_
+   2704755   goldenFish_adaptation_
+   2705039   goldfishLeft_
+   2705234   goldfishRight_
+   2705439   goodVibrations_
+   2705653   grass_
+   2705778   grass1_
+   2705913   grass2_
+   2706048   grass3_
+   2706183   grass4_
+   2706318   greenZoneStart_
+   2706532   height_adaptation_
+   2706776   help_activating_genes_
+   2707061   help_adaptive_genes_
+   2707326   help_background_
+   2707551   help_background__
+   2707786   help_beautiful_numbers_
+   2708081   help_beautiful_numbers_purchase_code_
+   2708515   help_catalog_page_
+   2708760   help_compression_rna_
+   2709035   help_encodings_
+   2709250   help_error_correcting_codes_
+   2709595   help_error_correcting_codes_purchase_code_
+   2710079   help_fuun_security_
+   2710334   help_fuun_structure_
+   2710599   help_initial_cond_
+   2710844   help_integer_encoding_
+   2711119   _help_intro_
+   2711304   help_lsystems_
+   2711509   help_palindromes_
+   2711745   help_patching_dna_
+   2711990   help_steganography_
+   2712246   help_undocumented_rna_
+   2712531   help_virus_
+   2712706   help_vmu_
+   2712861   helpScreen_
+   2713035   hillsEnabled_
+   2713230   hitWithTheClueStick_
+   2713494   i_adaptation_
+   2713688   impdoc_background_
+   2713933   impdoc1_
+   2714078   impdoc10_
+   2714233   impdoc2_
+   2714378   impdoc3_
+   2714523   impdoc4_
+   2714669   impdoc5_
+   2714815   impdoc6_
+   2714961   impdoc7_
+   2715107   impdoc8_
+   2715253   impdoc9_
+   2715399   init_
+   2715515   initDone_
+   2715670   initFastRandom_
+   2715886   intBox_
+   2716021   k_
+   2716106   lambda_id_
+   2716272   lightningBolt_
+   2716478   lindenmayerAngle_
+   2716713   lindenmayerDistance_
+   2716978   lsystem_kochisland_
+   2717234   lsystem_kochisland_F_
+   2717510   lsystem_kochisland_f_
+   2717786   lsystem_sierpinski_
+   2718042   lsystem_sierpinski_l_
+   2718318   lsystem_sierpinski_r_
+   2718594   lsystem_weed_
+   2718790   lsystem_weed_F_
+   2719006   lt_
+   2719102   main_
+   2719218   majorimp_background_
+   2719485   majorimp_episode1_
+   2719732   majorimp_episode125_
+   2719999   majorimp_episode126_
+   2720266   majorimp_episode2_
+   2720513   majorimp_episode222_
+   2720780   majorimp_episode285_
+   2721047   majorimp_episode496_
+   2721314   makeDarkness_
+   2721510   max_
+   2721616   mkAbove_adaptation_
+   2721871   mkBeforeAbove_adaptation_
+   2722186   mkEmp_adaptation_
+   2722421   mkGoldfishL_adaptation_
+   2722716   mkGoldfishR_adaptation_
+   2723011   mkPair_adaptation_
+   2723256   mkSucc_adaptation_
+   2723501   mkZero_adaptation_
+   2723746   mlephant_
+   2723902   modInts_
+   2724048   moon_
+   2724164   most_wanted_
+   2724350   motherDuck_
+   2724526   motherDuckWithChicks_
+   2724802   moveTo_
+   2724938   moveToPolar_
+   2725124   mulInts_
+   2725270   mulModInts_
+   2725446   negateInt_
+   2725612   night_or_day_
+   2725807   ocaml_
+   2725933   ocamlrules_
+   2726108   originStackIndex_
+   2726343   originStackX_
+   2726538   originStackY_
+   2726733   parabolaCBF_
+   2726919   payloadBioMorph_
+   2727145   payloadBioMorph_adaptation_
+   2727480   pear_
+   2727596   peartree_
+   2727752   pictureDescrRenderer_adaptation_
+   2728137   polarAngleIncr_
+   2728352   printCharSet_
+   2728548   printGeneTable_
+   2728764   randomInt_
+   2728930   resetOrigin_
+   2729116   resetOrigin_adaptation_
+   2729411   river_
+   2729537   rotateColorVar_
+   2729752   s_adaptation_
+   2729947   scenario_
+   2730103   seed_
+   2730208   _selfCheck_
+   2730385   setFastCircleArray_
+   2730641   setGlobalPolarRotation_
+   2730937   setOrigin_
+   2731103   setOrigin_adaptation_
+   2731378   shoutOut_
+   2731534   sineArray_
+   2731699   sineCBF_
+   2731845   sky_
+   2731951   sky_day_
+   2732097   sky_day_bodies_
+   2732313   sky_night_
+   2732479   sky_night_bodies_
+   2732715   sky_waves_
+   2732881   smoke_
+   2733007   sndP_adaptation_
+   2733232   spirograph_
+   2733408   star_
+   2733524   sticky_
+   2733661   stringLength_
+   2733857   subInts_
+   2734003   sun_
+   2734109   sunflower_
+   2734274   superDuck_
+   2734440   surfaceTransform_
+   2734676   terminate_
+   2734842   threeFish_adaptation_
+   2735117   tmpCurX_
+   2735262   tmpCurY_
+   2735407   transmission_buffer_
+   2735674   true_
+   2735789   tulip_
+   2735915   tulips_
+   2736051   turtleFPX_
+   2736216   turtleFPY_
+   2736381   turtleHeading_
+   2736586   turtleStackFPX_
+   2736801   turtleStackFPY_
+   2737016   turtleStackHeading_
+   2737271   turtleStackIndex_
+   2737506   ufo_
+   2737612   ufo_bottom_
+   2737788   ufo_cup_
+   2737934   ufo_frame_
+   2738100   ufo_left_foot_
+   2738306   ufo_middle_foot_
+   2738532   ufo_right_foot_
+   2738748   ufo_with_smoke_
+   2738964   useColorTable_
+   2739170   var1_adaptation_
+   2739395   var2_adaptation_
+   2739620   vmu_
+   2739726   vmu_code_
+   2739882   vmu_code_purchase_code_
+   2740177   vmuMode_
+   2740322   vmuRegCode_
+   2740497   void_
+   2740612   water_
+   2740738   weather_
+   2740883   weeds_
+   2741009   whale_
+   2741135   width_adaptation_
+   2741370   windmill_
+   2741526   wrapAdd_adaptation_
+   2741781   wrapImp_
+   2741926   wrapMax_adaptation_
+   2742181   wrapSub_adaptation_
+   2744598   IFPICFPPCFFPP_
+   2746891   14_
+   2804135   ____
+   2808856   PASS_
+   2809772   FAIL_
+   2811896   encryption__
+   2813671   disabled_
+   2814373   __
+   2823453   1998_
+   2824267   1999_
+   2825081   2000_
+   2825895   2001_
+   2826709   2002_
+   2827523   2003_
+   2828337   2004_
+   2829151   2005_
+   2829965   2006_
+   2830779   2007_
+   2832012   law__
+   2837380   Penn_
+   2849520   purpose__
+   2853407   prize_
+   2854370   choice_
+   2855224   __
+   2856028   __
+   2856831   Dunkosmiloolump_
+   2857775   Haskell_
+   2860122   RNA_
+   2863742   ____
+   2866158   observed__
+   2868773   code_
+   2871279   morphing__
+   2873556   CFPICFP_
+   2874599   though__
+   2878567   done__
+   3413354   ImpDoc_
+   3420144   int24_
+   3420988   max_
+   3422676   x_
+   3424354   y_
+   3425158   __
+   3426211   integers__
+   3427095   int24_
+   3427939   modInts_
+   3429667   x_
+   3431345   y_
+   3432149   __
+   3433402   integers__
+   3434286   void_
+   3435120   moveTo_
+   3436838   x_
+   3438516   y_
+   3439320   __
+   3440613   origin__
+   3441477   void_
+   3442311   moveToPolar_
+   3444079   angle_
+   3445797   dist_
+   3446631   __
+   3448054   origin__
+   3448918   int24_
+   3449762   mulInts_
+   3451490   x_
+   3453168   y_
+   3453972   __
+   3454905   integers__
+   3455789   int24_
+   3456633   negateInt_
+   3458381   x_
+   3459185   __
+   3460248   integer__
+   3461122   void_
+   3461955   printGeneTable_
+   3463742   integrityCheck_
+   3464676   __
+   3467331   finish__
+   3469957   int24_
+   3470801   randomInt_
+   3472549   x_
+   3473353   __
+   3474226   generator__
+   3476802   8_10_
+   3480197   1998_
+   3481011   1999_
+   3481825   2000_
+   3482639   2001_
+   3483453   2002_
+   3484267   2003_
+   3485081   2004_
+   3485895   2005_
+   3486709   2006_
+   3487523   2007_
+   3488756   law__
+   3495118   Virginia_
+   3507400   with__
+   3522325   profits__
+   3526212   prize_
+   3527175   choice_
+   3528029   __
+   3528833   __
+   3529697   R_Us_
+   3530531   OCaml_
+   3996926   126_
+   4004574   know___
+   4006580   commute___
+   4050659   Contents_
+   4051533   Index_
+   4053159   FuunDoc_
+   4054904   activateAdaptationTree_
+   4055918   zone__
+   4059396   activateGene_
+   4061168   zone__
+   4062893   apply1_adaptation_
+   4065205   BioNat_
+   4066358   value__
+   4069805   apply2_adaptation_
+   4072217   BioNat_
+   4073779   value__
+   4077216   bioAdd_adaptation_
+   4079329   BioNat_
+   4080522   variable2__
+   4082297   bioMul_adaptation_
+   4084410   BioNat_
+   4085643   variable2__
+   4087418   bioSucc_adaptation_
+   4089541   BioNat_
+   4090924   incremented__
+   4092719   bioZero_adaptation_
+   4094842   BioNat_
+   4095895   zero__
+   4097620   caseVar1_adaptation_
+   4099952   BioNat_
+   4101265   alternative__
+   4106543   caseVar2_adaptation_
+   4108875   BioNat_
+   4110138   variable2__
+   4112628   FuunDoc_
+   4113582   0_13_
+   4121156   ____
+   4122329   ____
+   4123312   ____
+   4178238   10_
+   4179291   elements_
+   4180394   formulas_
+   4181597   ____
+   4217779   Genome_
+   4221419   ____
+   4222303   also__
+   4226412   size__
+   4229218   next__
+   4231934   parts__
+   4236083   engineering____
+   4239902   RED_
+   4242238   GREEN_
+   4244594   BLUE_
+   4281662   Contents_
+   4282536   Index_
+   4284162   FuunDoc_
+   4285907   mkZero_adaptation_
+   4288020   Nat_
+   4288844   Zero__
+   4290569   pictureDescrRenderer_adaptation_
+   4293121   RNAAction_
+   4294414   coordinate__
+   4296200   s_adaptation_
+   4298602   c_
+   4300288   true_
+   4302271   Bool_
+   4303105   True__
+   4304830   var1_adaptation_
+   4306923   BioNat_
+   4308156   variable1__
+   4309931   var2_adaptation_
+   4312024   BioNat_
+   4313257   variable2__
+   4315747   FuunDoc_
+   4316701   0_13_
+   4333018   ImpDoc_
+   4340450   bool_
+   4341284   ge_
+   4342962   x_
+   4344640   y_
+   4345444   __
+   4346707   y__
+   4347521   int24_
+   4348365   incInt_
+   4350083   x_
+   4350887   __
+   4351930   one__
+   4352764   void_
+   4353598   init_
+   4354432   ___
+   4355246   length__
+   4357842   void_
+   4358675   initFastRandom_
+   4360513   key_
+   4361337   __
+   4362550   generator__
+   4363444   void_
+   4364277   lsystem_kochisland_
+   4366115   depth_
+   4366959   __
+   4368292   lakes__
+   4369146   void_
+   4369979   lsystem_sierpinski_
+   4371817   depth_
+   4372661   __
+   4373854   gasket__
+   4374718   void_
+   4375552   lsystem_weed_
+   4377330   depth_
+   4378174   __
+   4379427   structures__
+   4380331   bool_
+   4381165   lt_
+   4382843   x_
+   4384521   y_
+   4385325   __
+   4386438   y__
+   4387252   void_
+   4388086   makeDarkness_
+   4389000   ___
+   4390063   darkness__
+   4390947   7_10_
+   4429943   1998_
+   4430757   1999_
+   4431571   2000_
+   4432385   2001_
+   4433199   2002_
+   4434013   2003_
+   4434827   2004_
+   4435641   2005_
+   4436455   2006_
+   4437269   2007_
+   4438502   law__
+   4443990   University_
+   4452545   BC__
+   4456735   computer__
+   4460632   prize_
+   4461595   choice_
+   4462449   __
+   4463253   __
+   4464107   Smartass_
+   4464981   2D_
+   4472595   navigation_
+   4473768   page__
+   4477827   integers_
+   4478781   b_n_
+   4480044   set_
+   4480947   otherwise_
+   4481960   index_
+   4482804   1337_
+   4483697   navigating__
+   4484600   _blink_WARNING__blink__
+   4485743   occur__
+   4489653   1_
+   4496327   volunteer_____
+   4497261   _call_cc__
+   4505079   wouldn_t__
+   4512778   _ENTER__
+   4553120   496_
+   4555925   monad__
+   4558671   circumstances__
+   4564767   bricks__
+   4565850   disguise___
+   4641825   Steganography_
+   4645495   pictures_
+   4650628   right__
+   4913258   conditions_
+   4917218   Inc__
+   4918331   License_
+   4919694   planets__
+   4921157   programmer_
+   4922270   Flatulent_
+   4923323   False_
+   4924396   Nat_
+   4925489   Nat_
+   4926852   variables__
+   4928959   Nat_
+   4929783   __
+   4931411   variable1_
+   4933139   variable2_
+   4934996   Nat_
+   4935820   __
+   4937746   adaptations_
+   4939534   BioNat_
+   4940398   where_
+   4941441   Zero_
+   4942584   fixed___
+   4943797   y__
+   4944810   y_
+   4946093   recitations__
+   4948480   ___
+   4949743   conditions_
+   4950896   ImpDoc_
+   4958328   void_
+   4959162   drawGradientH_
+   4960950   w_
+   4962628   h_
+   4964346   color_
+   4965190   __
+   4966433   lines__
+   4967287   void_
+   4968121   drawGradientV_
+   4969909   w_
+   4971587   h_
+   4973305   color_
+   4974149   __
+   4975372   lines__
+   4976226   void_
+   4977060   drawHexDigit_
+   4979037   fontTable_
+   4980795   d_
+   4981599   __
+   4982592   digit__
+   4983446   void_
+   4984280   drawInt_
+   4986207   fontTable_
+   4987965   x_
+   4988769   __
+   4989962   Earthdwellers__
+   4990896   void_
+   4991730   drawIntHex_
+   4993687   fontTable_
+   4995445   maxWidth_
+   4997193   x_
+   4998871   y_
+   5000549   n_
+   5001353   __
+   5002586   designers__
+   5003480   void_
+   5004314   drawPolyline_
+   5006082   close_
+   5007859   points_
+   5008713   __
+   5009966   automatically__
+   5010900   void_
+   5011733   drawPolylinePolar_
+   5013551   close_
+   5015328   points_
+   5016182   __
+   5017485   origin__
+   5020091   void_
+   5020925   drawRect_
+   5022663   x_
+   5024341   y_
+   5026019   sizeX_
+   5027737   sizeY_
+   5029445   fill_
+   5030279   __
+   5031332   rectangle__
+   5032226   void_
+   5033059   drawRoundedRect_
+   5034867   x_
+   5036545   y_
+   5038223   sizeX_
+   5039941   sizeY_
+   5041659   r_
+   5043327   fill_
+   5044161   __
+   5045444   corners__
+   5046318   4_10_
+   5050062   cerca__
+   5085273   gemorpht_
+   5086535   Endo__
+   5121213   ImpDoc_
+   5123509   void_
+   5124343   useColorTable_
+   5125267   ___
+   5126081   10_10_
+   5139409   ImpDoc_
+   5146199   void_
+   5147032   fpMoveAbsolute_
+   5148830   x_
+   5150508   y_
+   5151312   __
+   5152575   coordinates__
+   5153489   void_
+   5154323   fpPop_
+   5155167   ___
+   5156919   it__
+   5157743   void_
+   5158577   fpPush_
+   5159431   ___
+   5160864   stack__
+   5161718   void_
+   5162552   fpTurnLeft_
+   5164310   angle_
+   5165154   __
+   5166586   degrees__
+   5167460   void_
+   5168294   fpTurnRight_
+   5170062   angle_
+   5170906   __
+   5172338   degrees__
+   5173461   int24__
+   5174315   functionAdd_
+   5176172   g_
+   5176976   __
+   5178903   f_
+   5181358   results__
+   5182481   int24__
+   5183334   functionParabola_
+   5185152   a_
+   5186830   b_
+   5187634   __
+   5188607   a_x_b__
+   5191422   int24__
+   5192276   functionSine_
+   5194054   a_
+   5195732   b_
+   5197410   c_
+   5198214   __
+   5199187   sin_a_x_b__c__
+   5201823   6_10_
+   5202916   ImpDoc_
+   5210348   void_
+   5211182   colorMagenta_
+   5212096   ___
+   5213548   bucket___
+   5214422   void_
+   5215256   colorRed_
+   5216130   ___
+   5217543   bucket___
+   5218417   void_
+   5219251   colorWhite_
+   5220145   ___
+   5221578   bucket___
+   5222452   void_
+   5223286   colorYellow_
+   5224190   ___
+   5225632   bucket___
+   5226506   void_
+   5227340   correctErrors_
+   5229128   data_
+   5230836   ecc_
+   5232534   size_
+   5233368   __
+   5234860   region__
+   5235724   int9_128__
+   5236608   crackKey_
+   5238346   testValue_
+   5239230   __
+   5240223   key__
+   5242729   void_
+   5243563   crypt_
+   5245311   key_
+   5247009   offset_
+   5248737   size_
+   5249571   __
+   5250814   key__
+   5251648   int24_
+   5252492   decInt_
+   5254210   x_
+   5255014   __
+   5256057   one__
+   5256891   int24_
+   5257735   div2_
+   5259433   x_
+   5260237   __
+   5261250   2__
+   5262064   2_10_
+   5281171   Survey_
+   5284781   Earth_
+   5291706   _____
+   5298341   bandwidth____
+   5299374   voordeliger__
+   5304320   ImpDoc_
+   5311110   void_
+   5311944   drawString_
+   5313901   fontTable_
+   5315659   x_
+   5317337   y_
+   5319055   s_
+   5319859   __
+   5321192   Set__
+   5322026   void_
+   5322859   drawStringHere_
+   5324856   fontTable_
+   5326654   s_
+   5327458   __
+   5328551   position__
+   5329435   void_
+   5330268   endRelativeMode_
+   5331212   ___
+   5332485   hack__
+   5333329   void_
+   5334163   fadingColors_
+   5335077   ___
+   5335891   void_
+   5336725   fastForward_
+   5338493   x_
+   5339297   __
+   5340210   degrees__
+   5342816   int9_
+   5343650   fastRandom_
+   5344544   ___
+   5345767   generator__
+   5348353   void_
+   5349187   fpForward_
+   5350935   dist_
+   5351769   __
+   5352573   number__
+   5355189   void_
+   5356022   fpForwardPenUp_
+   5357820   dist_
+   5358654   __
+   5359577   number__
+   5362143   5_10_
+   5472573   elsewhere__
+   5475049   Catalog_
+   5476042   page_
+   5477095   Genome_
+   5478138   Genomics_
+   5479181   _encrypted__
+   5480135   list_
+   5481208   for_
+   5482271   Set_
+   5483304   Fuun_
+   5484387   _encrypted__
+   5485440   RNA_
+   5486473   structures_
+   5487506   features_
+   5488629   compression_
+   5489822   Answer_
+   5490745   an___taa____v______
+   5491719   1337_
+   5492553   1729_
+   5493387   8_
+   5494191   23_
+   5495005   42_
+   5495819   112_
+   5496643   10646_
+   5497487   85_
+   5498301   84_
+   5499115   2181889_
+   5499979   5_
+   5500783   4405829_
+   5501647   123456_
+   5502501   999999999_
+   5503385   999999999_
+   5504468   damaged_
+   5566150   Set_
+   5582189   1998_
+   5583003   1999_
+   5583817   2000_
+   5584631   2001_
+   5585445   2002_
+   5586259   2003_
+   5587073   2004_
+   5587887   2005_
+   5588701   2006_
+   5589515   2007_
+   5590748   law__
+   5596136   Rocquencourt_
+   5605642   boxes__
+   5608373   size__
+   5612230   prize_
+   5613193   choice_
+   5614047   __
+   5614851   __
+   5615734   Carrots_
+   5616598   Haskell_
+   5630273   2_
+   5641296   __
+   5644546   toilet__
+   5649288   them___
+   5650142   __
+   5650946   _Imp__
+   5657041   Operators___
+   5658799   Sir__
+   5674570   1998_
+   5675384   1999_
+   5676198   2000_
+   5677012   2001_
+   5677826   2002_
+   5678640   2003_
+   5679454   2004_
+   5680268   2005_
+   5681082   2006_
+   5681896   2007_
+   5683129   law__
+   5688567   Labs_
+   5703609   features__
+   5707506   prize_
+   5708469   choice_
+   5709323   __
+   5710127   __
+   5710931   PLClub_
+   5711785   OCaml_
+   5726483   Compression_
+   5733399   moment__
+   5744173   RNA_Comprez_
+   5749595   ones__
+   5757832   Fuuns_
+   5762436   IFPICFPPCFIPP_
+   5763360   __
+   5767727   IFPICFPPCCC_
+   5773766   DNA__
+   5781039   Adapter_
+   5783850   prefix_
+   5797961   Example_
+   5799274   Zone__
+   5803581   IIPIFFCPICCFPICICFPCICICIICIICIPPPCFCFCFCCCCCCCCCCCCCCCCCICIIC_
+   5805114   boolean__
+   5805987   IIPIFFCPICCFPICICFPCICICIICIICIPPPPIIC_
+   5807919   1234__
+   5808762   IIPIFFCPICCFPICICFFFIIPIFFCPICCFPICICFFFIICIICIICIPPPCFCCFCFFCCFI_
+   5810205   CCCFCFFFFFICIPPCPIIC_
+   5811888   __
+   5812692   IFPICFPPCFIPP_
+   5813616   ___
+   5866971   Unit_
+   5873527   IV__
+   5879059   risk__
+   5889119   natives__
+   5930808   OCaml_
+   5952404   Encodings_
+   5956074   ____
+   5962682   forgotten____
+   5965397   messages_
+   5967833   Set_
+   5970404   degrees_
+   5971328   circle__
+   5972192   quoted__
+   5974138   bits_
+   5980458   numbers__
+   5983054   Polygons_
+   5986633   Encoding_
+   5988430   numbers_
+   5989603   complement__
+   5990906   otherwise____
+   5992089   information__
+   6004142   MLephant_
+   6079233   FOUND_
+   6087641   L_indenmayer__Systems_
+   6091521   natural_
+   6098826   Graftals__
+   6116594   List_
+   6360873   E_T__
+   6361806   systems__
+   6364023   Vader_
+   6364946   Palpatine__
+   6367272   Heeren_
+   6368425   unsafePerformIO__
+   6386178   Alert_
+   6393561   Fuuns__
+   6406081   trip__
+   6418913   ImpDoc_
+   6426345   int24_
+   6427189   divInts_
+   6428917   x_
+   6430595   y_
+   6431399   __
+   6432412   another__
+   6433286   void_
+   6434120   drawChar_
+   6436057   fontTable_
+   6437805   c_
+   6438609   __
+   6440042   font__
+   6442578   void_
+   6443411   drawCircleFast_
+   6445209   x_
+   6446887   y_
+   6448565   r_
+   6450233   fill_
+   6451067   __
+   6451871   void_
+   6452705   drawEllipse_
+   6454473   centerX_
+   6456211   centerY_
+   6457949   rX_
+   6459637   rY_
+   6461315   fill_
+   6462149   __
+   6463092   ellipse__
+   6463966   void_
+   6464799   drawEllipseFast_
+   6466607   x_
+   6468285   y_
+   6469963   rx_
+   6471651   ry_
+   6473329   fill_
+   6474163   __
+   6474967   void_
+   6475801   drawFunction_
+   6477838   pair_
+   6479546   endx_
+   6480380   __
+   6481453   functionParabola__
+   6485841   void_
+   6486674   drawFunctionBase_
+   6488751   pair_
+   6490459   endx_
+   6492167   base_
+   6493001   __
+   6494214   _x_0___
+   6496810   void_
+   6497643   drawGradientCornerNW_
+   6499501   w_
+   6501179   h_
+   6502897   color_
+   6503741   __
+   6504545   corner__
+   6507121   void_
+   6507954   drawGradientCornerSE_
+   6509812   w_
+   6511490   h_
+   6513208   color_
+   6514052   __
+   6515773   corner__
+   6516637   3_10_
+   6557199   _2__
+   6562352   yourself__
+   6587913   Compressor_
+   6592617   loads_
+   6597430   acids__
+   6599257   searches_
+   6601284   restores_
+   6604684   Inc__
+   6607886   eval_
+   6609592   table_
+   6611588   backup_
+   6613314   data_
+   6614637   bitmaps__
+   6615710   compressor__
+   6621245   exist__
+   6655326   NCC_1701_J_
+   6657574   Palindromes_
+   6661324   ____
+   6669028   task__
+   6675153   soap__
+   6681478   place__
+   7130785   III__
+   7131808   wait____
+   7133332   __
+   7134453   __
+   7137210   285_
+   7144816   one__
+   7149070   in_
+   7150738   skirt___
+   7153464   look___
+   7157458   north___right___
+   7204647   Features_
+   7210668   shegure__
+   7218689   ubhef__
+   7228930   qrngu__
+   7237131   pbqrf__
+   7240226   ____
+   7241884   sbb_
+   7243582   one_
+   7244605   yvfg__
+   7247071   sbb_
+   7249663   one_
+   7251720   one_
+   7253657   one_
+   7254740   3___
+   7257795   npvqf__
+   7258649   ryrzragf__
+   7260496   sbb_
+   7262204   one_
+   7263872   sbb_
+   7265879   sbb_
+   7267577   one_
+   7269664   qrpelcg__
+   7271422   sbb_
+   7273090   one_
+   7273954   mreb__
+   7275781   sbb_
+   7276645   mreb__
+   7277808   255__
+   7307167   L_
 
 Unquoted strings:
-Holdermans_
+    817677   Holdermans_
