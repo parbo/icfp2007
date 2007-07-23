@@ -45,9 +45,16 @@ def activatename(name):
 
 if __name__=="__main__":
     print activate(1234, 500)
+    print
     print push(42)
+    print
     print push(True)
+    print
     print push(False)
+    print
     print activatename("M-class-planet")
+    print
+    print activatename("AAA_geneTablePageNr")
+    print
     
     
