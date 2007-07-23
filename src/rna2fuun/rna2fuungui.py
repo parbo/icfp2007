@@ -85,7 +85,8 @@ class RNA2FuunGui(wx.Frame):
         
         self.m_toolBar = self.CreateToolBar(0, -1)
         self.m_toolBar.SetToolSeparation(50)
-        stepitem = self.m_toolBar.AddLabelTool(-1, '', self.m_art.GetBitmap(wx.ART_GO_FORWARD, wx.ART_TOOLBAR), shortHelp = 'New file', longHelp = 'Step')
+        stepitem = self.m_toolBar.AddLabelTool(-1, '', self.m_art.GetBitmap(wx.ART_GO_FORWARD, wx.ART_TOOLBAR), shortHelp = 'Single step', longHelp = 'Step')
+        downitem = self.m_toolBar.AddLabelTool(-1, '', self.m_art.GetBitmap(wx.ART_GO_DOWN, wx.ART_TOOLBAR), shortHelp = 'Next bitmap event', longHelp = 'Next bitmap event')
         self.m_toolBar.Realize()
         
         self.CreateStatusBar()
@@ -96,6 +97,7 @@ class RNA2FuunGui(wx.Frame):
         self.Bind(wx.EVT_MENU, self.OnOpenFile, openitem)
         self.Bind(wx.EVT_MENU, self.OnSaveImage, saveitem)
         self.Bind(wx.EVT_TOOL, self.OnStep, stepitem)
+        self.Bind(wx.EVT_TOOL, self.OnNextBitmap, downitem)
         self.Bind(wx.EVT_CONTEXT_MENU, self.OnRClick, self.m_rnalist)
              
         self.Show()
@@ -133,6 +135,21 @@ class RNA2FuunGui(wx.Frame):
         self.m_buildgen.next()
         self.m_row += 1
         self.Update()
+        
+    def OnNextBitmap(self, event):
+        if (self.m_row < len(self.m_commands)):
+            if (self.m_commands[self.m_row] != 'addBitmap') and (self.m_commands[self.m_row] != 'compose'):
+                while (self.m_commands[self.m_row] != 'addBitmap') and (self.m_commands[self.m_row] != 'compose'):
+                    try:
+                        self.m_buildgen.next()
+                        self.m_row += 1
+                    except StopIteration:
+                        break
+            else:
+                self.m_buildgen.next()
+                self.m_row += 1
+            print self.m_row
+            self.Update()
         
     def OnRClick(self, event):
         # make a menu
