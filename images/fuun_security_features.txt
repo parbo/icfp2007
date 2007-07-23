@@ -7,5 +7,24 @@ al sequence of characters, called a "key", into his Fuun's DNA at a specific loc
 
 If you have lost a key, recovery of the key is not generally possible due to the complexity of the cryptographic technology. (It is a good idea to write down keys somewhere, maybe even on a yellow piece of paper attached to your computing device.) However, if your key is sufficiently short, you may be able to recover it using the Fuun's key cracker. To be able to use the cracker, you must still have your purchase code (a 24-acid sequence). Please activate the cracker gene, passing it the purchase code, and after some period of time it may print out your key. Be prepared to wait a long time. In the Slow Zone, cracking a 2-character key may take minutes, while a 3-character key may take hours.
 
+*** Detailed description of Method B (subject to NDA) ***
 
+1. Make a list of numbers, 0, to 255.
 
+2. Set the counter foo to zero.
+
+3. Let bar count from 0 to 255 and each time, add the bar'th element of the list and the bar'th 
+character of the key (wrapping around to the start of the key if necesgary) to foo, and swap
+the foo'th and bar'th elements of the list.
+
+4. Reset foo and bar to zero.
+
+5. For all the data you want to encrypt or decrypt:
+
+   A. Increase foo, add to bar the foo'th element of the list, then swap the foo'th and bar'th
+      elements.
+      
+   B. Add those two elements, split the result into four groups, and XOR them with the acids
+      (I = 0, C = 1, F = 2, P = 3).
+      
+All arithmetic should be done with 8 significant acids.
