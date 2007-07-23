@@ -334,6 +334,8 @@ class rna2fuun(object):
             try:
                 d[r]()
             except KeyError:
+                if r == 'CFPICFP':
+                    self.save("%s_%04d.png"%(filename, ix))                    
                 pass
         self.save(filename+".png")
 
