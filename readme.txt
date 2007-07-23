@@ -1,14 +1,6 @@
-dflkg
+ICFP Contest 2007
 
-testar lite
+Nudge Nudge
 
-
-apanssson
-
-ooga
-
-sldkdslkfd
-
-fgafg
-
-bla
+Dan Gerhardsson
+Pär Bohrarper
