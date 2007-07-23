@@ -167,7 +167,14 @@ if __name__ == '__main__':
         m = r.search(dna)
         
         while m:
-            print str(m.start()).rjust(10) + '   ' + ascii(consts(m.group()))
+            offset = 0
+            length = 0
+            try:
+                length = nat(list(consts(dna[m.start()-25:m.start()])))
+                offset = nat(list(consts(dna[m.start()-50:m.start()-25])))
+            except:
+                pass
+            print str(m.start()).rjust(10) + ' "' + ascii(consts(m.group())) + '" : (' + hex(offset).rjust(8) + ', ' + hex(length).rjust(8) + '),'
             m = r.search(dna, m.end())
         
         print ''
