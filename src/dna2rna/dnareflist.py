@@ -155,7 +155,7 @@ class DNAList(object):
         ls = len(self.list)
         self.popfromitem(pop, ls-oldlen)
         self.lencache = None
-        if ls > 1000:
+        if ls > 200:
             self.flatten()
 
     def insertfront(self, ref):
