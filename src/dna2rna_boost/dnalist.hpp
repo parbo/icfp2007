@@ -31,6 +31,11 @@ public:
 		return m_stop-m_start;
 	}
 	
+	void offset(size_t offs)
+	{
+		m_start += offs;
+		m_stop += offs;
+	}
 protected:
 	size_t m_start;
 	size_t m_stop;
@@ -69,13 +74,7 @@ public:
 	{
 		return m_data;
 	}
-	
-	void offset(size_t offs)
-	{
-		m_start += offs;
-		m_stop += offs;
-	}
-	
+		
 protected:
 	dnaseqptr m_data;
 };

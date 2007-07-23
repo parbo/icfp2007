@@ -269,7 +269,7 @@ def execute(dna, rna, progress = False):
             p = pattern(dna, rna)
             t = template(dna, rna)
             matchreplace(dna, p, t)
-            if progress and (n % 100) == 0:
+            if progress: #and (n % 100) == 0:
                 print 'Iterations: ' + str(n) + '   DNA remaining: ' + str(len(dna)), '   RNA commands: ' + str(len(rna)), "List size:", len(dna.list)
             if (n % 50000) == 0:
                 print "Saving RNA..."
