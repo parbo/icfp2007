@@ -19,40 +19,52 @@ def pattern(dna, rna):
     dp = dna.popfront
     dpr = dna.popfrontret
     ra = rna.append
+    btmp = []
     while True:
         dnastr = dna[0:3]
         try:
             d = dnastr[0]
             if d == 'C':    # C
                 dp()
-                pa('I')
+                btmp.append('I')
             elif d == 'F':  # F
                 dp()
-                pa('C')
+                btmp.append('C')
             elif d == 'P':  # P
                 dp()
-                pa('F')
+                btmp.append('F')
             elif d == 'I':
                 d = dnastr[1]
                 if d == 'C':    # IC
                     dp(2)
-                    pa('P')
+                    btmp.append('P')
                 elif d == 'P':  # IP
                     dp(2)
                     n = nat(dna)
-                    pa('!' + str(n))
+                    if btmp:
+                        pa(btmp)
+                        btmp = []
+                    pa('!%d'%n)
                 elif d == 'F':  # IF
                     dp(3) # NOTE: Three bases consumed here.
-                    s = consts(dna)
-                    pa('?' + ''.join(s))
+                    if btmp:
+                        pa(btmp)
+                        btmp = []
+                    pa('?%s'%(''.join(consts(dna)),))
                 elif d == 'I':
                     d = dnastr[2]
                     if d == 'P':    # IIP
                         dp(3)
                         lvl += 1
+                        if btmp:
+                            pa(btmp)
+                            btmp = []
                         pa('(')
                     elif d == 'C' or d == 'F': # IIC, IIF
                         dp(3)      
+                        if btmp:
+                            pa(btmp)
+                            btmp = []
                         if lvl == 0:
                             return p
                         else:
@@ -78,37 +90,47 @@ def template(dna, rna):
     dp = dna.popfront
     dpr = dna.popfrontret
     ra = rna.append
+    btmp = []
     while True:
         dnastr = dna[0:3]
         try:
             d = dnastr[0]
             if d == 'C':
                 dp()
-                ta('I')
+                btmp.append('I')
             elif d == 'F':
                 dp()
-                ta('C')
+                btmp.append('C')
             elif d == 'P':
                 dp()
-                ta('F')
+                btmp.append('F')
             elif d == 'I':
                 d = dnastr[1]
                 if d == 'C':
                     dp(2)
-                    ta('P')
+                    btmp.append('P')
                 elif d == 'F' or d == 'P':
                     dp(2)
                     l = nat(dna)
                     n = nat(dna)
+                    if btmp:
+                        ta(btmp)
+                        btmp = []
                     ta((l, n))
                 elif d == 'I':
                     d = dnastr[2]
                     if d == 'P':
                         dp(3)
                         n = nat(dna)
+                        if btmp:
+                            ta(btmp)
+                            btmp = []
                         ta(n)
                     elif d == 'C' or d == 'F':
                         dp(3)      
+                        if btmp:
+                            ta(btmp)
+                            btmp = []
                         return t
                     elif d == 'I':
                         # Add rna command.
@@ -146,34 +168,27 @@ def nat(dna):
 # Returns a tuple containing the sequence and a new position after the
 # consumed bases: (sequence, pos)
 def consts(dna):
-    def constsrec(dna):
-        dnastr = ''.join(dna[0:2])
-        if dnastr.startswith('C'):
-            dna.popfront()
-            seq = constsrec(dna)
+    seq = []
+    dp = dna.popfront
+    while True:
+        dnastr = dna[0:2]
+        d = dnastr[0]
+        if d == 'C':
+            dp()
             seq.append('I')
-            return seq
-        elif dnastr.startswith('F'):
-            dna.popfront()
-            seq = constsrec(dna)
+        elif d == 'F':
+            dp()
             seq.append('C')
-            return seq
-        elif dnastr.startswith('P'):
-            dna.popfront()
-            seq = constsrec(dna)
+        elif d == 'P':
+            dp()
             seq.append('F')
-            return seq
-        elif dnastr.startswith('IC'):
-            dna.popfront(2)
-            seq = constsrec(dna)
-            seq.append('P')
-            return seq
-        else:
-            return []
-            
-    seq = constsrec(dna)
-    seq.reverse()
-    return seq
+        elif d == 'I':
+            d = dnastr[1]
+            if d == 'C':
+                dp(2)
+                seq.append('P')
+            else:
+                return seq
     
 # Modifies 'dna' by applying template 't' to matching items in pattern 'pat'.
 # The matching starts at position 'i'.
@@ -211,8 +226,9 @@ def matchreplace(dna, pat, t):
 #            print "e[%d]:"%(len(e)-1,), dna[e[-1].start: min(e[-1].start+10, e[-1].stop)]
         else:
             # Base
-            if (dna[i] == pp):
-                i += 1
+            lp = len(p)
+            if (dna[i:i+lp] == p):
+                i += lp
             else:
                 # Match failed.
                 return
@@ -251,7 +267,7 @@ def replace(dna, tpl, e, i):
                     tmp.extend(protect(l, dna[a.start:a.stop]))
         else:
             # Base
-            tmp.append(t)
+            tmp.extend(t)
 
     if tmp:
         ra(dr(0, len(tmp), tmp))
@@ -313,7 +329,7 @@ def execute(dna, rna, progress = False):
             matchreplace(dna, p, t)
 #            if n == 5000:
 #                break
-            if progress and ((n % 100) == 0 or n == 1):
+            if progress and ((n % 1000) == 0 or n == 1):
                 print 'Iterations: ' + str(n) + '   DNA remaining: ' + str(len(dna)), '   RNA commands: ' + str(len(rna)), "List size:", len(dna.list)
 #            if (n % 50000) == 0:
 #                print "Saving RNA..."
