@@ -62,9 +62,11 @@ class DNAList(object):
     def flatten(self):
         print "flatten"
         d = self.getall()
-        r = DNARef(0, len(d), d)
-        self.list = deque([r])
-        self.lencache = None
+        ld = len(d)
+        r = DNARef(0, ld, d)
+        self.list.clear()
+        self.list.append(r)
+        self.lencache = ld
     
     def popfront(self, num=1):
         n = 0
