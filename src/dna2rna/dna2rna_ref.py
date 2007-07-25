@@ -182,8 +182,10 @@ def matchreplace(dna, pat, t):
     c = []
     i = 0
     ld = len(dna)
-#    print pat
-#    print t
+#    print "pattern", ''.join(pat)
+#    print
+#    print "template", t
+#    print
 #    print dna[0:10]
     for p in pat:
         pp = p[0]
@@ -222,7 +224,9 @@ def replace(dna, tpl, e, i):
     tmp = []
     le = len(e)
     dr = dnareflist.DNARef
+    dgri = dna.getreflistiter
     ra = r.append
+    re = r.extend
     for t in tpl:
         if isinstance(t, int):
             # |n|
@@ -239,9 +243,10 @@ def replace(dna, tpl, e, i):
             else:
                 a = e[n]
                 if l == 0:
-                    ra(dr(0, len(tmp), tmp))
+                    if tmp:
+                        ra(dr(0, len(tmp), tmp))
                     tmp = []
-                    ra(dr(a.start, a.stop))
+                    re(dgri(a.start, a.stop))
                 else:
                     tmp.extend(protect(l, dna[a.start:a.stop]))
         else:
@@ -251,10 +256,13 @@ def replace(dna, tpl, e, i):
     if tmp:
         ra(dr(0, len(tmp), tmp))
         
-    r.reverse()
 #    for rr in r:
 #        print "ref:", rr.start, rr.stop, len(rr)
-    dna.insertfrontreflistandpopold(r, i)    
+    dna.popfront(i)
+    dna.insertfront(r)    
+#    for rr in dna.list:
+#        print "after:", rr.start, rr.stop, len(rr)
+#    print dna[0:10], len(dna)
     
 def protect(l, d):
     for ix in range(l):
@@ -332,7 +340,7 @@ def main():
         dnafile = file(sys.argv[1], 'r')
         dnastr = prefix + dnafile.read()
         dna = dnareflist.DNAList()
-        dna.insertfront(dnareflist.DNARef(0, len(dnastr), list(dnastr)))
+        dna.insertfront([dnareflist.DNARef(0, len(dnastr), list(dnastr))])
         dnafile.close()
         rna = []
         try:

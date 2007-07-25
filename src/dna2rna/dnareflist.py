@@ -54,8 +54,8 @@ class DNAList(object):
         print "flatten"
         d = self.getall()
         r = DNARef(0, len(d), d)
-        self.list = []
-        self.insertfront(r)
+        self.list = [r]
+        self.lencache = None
     
     def popfront(self, num=1):
         n = 0
@@ -72,11 +72,10 @@ class DNAList(object):
             else:
                 n+= 1
                 num -= lr
-        if n != 0:
+        if n > 0:
             del self.list[len(self.list)-n:]
             self.lencache = None
         if num:
-
             self.list[-1].popfront(num)
             if self.lencache:
                 self.lencache -= num
@@ -98,7 +97,7 @@ class DNAList(object):
             else:
                 n+= 1
                 num -= lr
-        if n != 0:
+        if n > 0:
             for b in [a for a in reversed(self.list[len(self.list)-n:])]:
                 tmp.extend(b[0:])
             del self.list[len(self.list)-n:]
@@ -109,32 +108,6 @@ class DNAList(object):
             if self.lencache:
                 self.lencache -= num
         return tmp
-
-    def popfromitem(self, num, item):
-        if num == 0:
-            return
-        n = 0
-        start = len(self.list)-item-1
-        for i in xrange(start, -1, -1):
-            r =  self.list[i]
-            lr = len(r)
-            if num == lr:
-                # exact match, pop this too
-                del self.list[i:start+1]
-                self.lencache = None
-                break
-            elif num < lr:
-                # popfront on item is needed
-                if n:
-                    del self.list[i+1:start+1]
-                    self.lencache = None
-                r.popfront(num)
-                if self.lencache:
-                    self.lencache -= num
-                break
-            else:
-                n+= 1
-                num -= lr
 
     def __getitem__(self, ref):
         try:
@@ -179,52 +152,35 @@ class DNAList(object):
                     ix += lr
             raise IndexError
 
-    def insertfrontreflistandpopold(self, reflist, pop):
-        offs = 0
-        oldlen = len(self.list)
-        for r in reflist:   
-            if not r.data:
-                r.start+=offs				
-                r.stop+=offs
-            offs += len(r)	
-            self.insertfront(r)
-        ls = len(self.list)
-        self.popfromitem(pop, ls-oldlen)
-        self.lencache = None
-        if ls > 200:
-            self.flatten()
-
-    def insertfront(self, ref):
-        if ref.data:
-            self.list.append(ref)
-            self.lencache = None
-        else:
-            tmpreflist = []
-            ix = 0
-            for r in reversed(self.list):
-                lr = len(r)
-                # skip
-                if ix + lr <= ref.start:
-                    pass
+    def getreflistiter(self, refstart, refstop):
+        ix = 0
+        tmpreflist = []
+        for r in reversed(self.list):
+            lr = len(r)
+            # skip
+            if ix + lr <= refstart:
+                pass
+            else:
+                start = 0
+                stop = 0
+                if ix <= refstart:
+                    start = r.start+refstart-ix
                 else:
-                    start = 0
-                    stop = 0
-                    if ix <= ref.start:
-                        start = r.start+ref.start-ix
-                    else:
-                        start = r.start
-                    if ix + lr >= ref.stop:
-                        stop = r.start+ref.stop-ix
-                    else:
-                        stop = r.stop
-                    tmp = DNARef(start, stop, r.data)  
-                    tmpreflist.append(tmp)
-                if ix + lr >= ref.stop:
-                    self.list.extend(reversed(tmpreflist))
-                    self.lencache = None
-                    return
-                ix += lr
-            print "Noooo"
+                    start = r.start
+                if ix + lr >= refstop:
+                    stop = r.start+refstop-ix
+                else:
+                    stop = r.stop
+                tmpreflist.append(DNARef(start, stop, r.data))
+            if ix + lr >= refstop:
+                return tmpreflist
+            ix += lr
+
+    def insertfront(self, reflist):
+        self.list.extend(reversed(reflist))
+        self.lencache = None
+        if len(self.list) > 200:
+            self.flatten()
         
     def find(self, substr, startpos):
 #        print "find:", substr, startpos
