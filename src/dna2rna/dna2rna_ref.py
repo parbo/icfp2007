@@ -332,8 +332,8 @@ def execute(dna, rna, progress = False):
             p = pattern(dna, rna)
             t = template(dna, rna)
             matchreplace(dna, p, t)
-            if n == 5000:
-                break
+ #           if n == 5000:
+ #               break
             if progress and ((n % 1000) == 0 or n == 1):
                 print 'Iterations: ' + str(n) + '   DNA remaining: ' + str(len(dna)), '   RNA commands: ' + str(len(rna)), "List size:", len(dna.list)
 #            if (n % 50000) == 0:
@@ -349,8 +349,8 @@ def execute(dna, rna, progress = False):
     print "execute finished in:", time.time()-now, "seconds"
 
 def main():
- #   import psyco
-  #  psyco.full()
+    import psyco
+    psyco.full()
     
     prefix = ""
     if len(sys.argv) > 3:

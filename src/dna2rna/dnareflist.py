@@ -69,20 +69,19 @@ class DNAList(object):
             self.lencache -= num
         for r in self.list:
             lr = r.len
-            if num == lr:
+            if num < lr:
+                # popfront on item is needed
+                break
+            elif num == lr:
                 # exact match, pop this too
                 n += 1
                 num = 0
                 break
-            elif num < lr:
-                # popfront on item is needed
-                break
             else:
                 n+= 1
                 num -= lr
-        slpl = self.list.popleft
         while n:      
-            slpl()
+            self.list.popleft()
             n -= 1
         if num:
             self.list[0].popfront(num)
@@ -95,20 +94,19 @@ class DNAList(object):
             self.lencache -= num
         for r in self.list:
             lr = r.len
-            if num == lr:
+            if num < lr:
+                # popfront on item is needed
+                break
+            elif num == lr:
                 # exact match, pop this too
                 n += 1
                 num = 0
                 break
-            elif num < lr:
-                # popfront on item is needed
-                break
             else:
                 n+= 1
                 num -= lr
-        slpl = self.list.popleft
         while n:      
-            tmp.extend(slpl().getall())
+            tmp.extend(self.list.popleft().getall())
             n -= 1
         if num:
             tmp.extend(self.list[0][0:num])
