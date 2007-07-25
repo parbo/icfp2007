@@ -47,7 +47,10 @@ class DNAList(object):
         
     def __len__(self):
         if not self.lencache:
-            self.lencache = sum(map(lambda x: x.len, self.list))
+#            self.lencache = sum(map(lambda x: x.len, self.list))
+            self.lencache = 0
+            for r in self.list:
+                self.lencache += r.len
         return self.lencache
 
     def getall(self):
@@ -67,6 +70,13 @@ class DNAList(object):
         n = 0
         if self.lencache:
             self.lencache -= num
+        # optimize for common case
+        r = self.list[0]
+        if num < r.len:
+            # avoid function call
+            r.start += num
+            r.len = r.stop-r.start
+            return
         for r in self.list:
             lr = r.len
             if num < lr:
@@ -92,6 +102,14 @@ class DNAList(object):
         tmp = []
         if self.lencache:
             self.lencache -= num
+        # optimize for common case
+        r = self.list[0]
+        if num < r.len:
+            tmp = r[0:num]
+            # avoid function call
+            r.start += num
+            r.len = r.stop-r.start
+            return tmp
         for r in self.list:
             lr = r.len
             if num < lr:
