@@ -22,9 +22,10 @@ class DNARef(object):
         if isinstance(item, int):
             return self.data[self.start + item]
         elif isinstance(item, slice):    
-            if not item.stop :
-                item.stop = len(self)
-            return self.data[self.start+item.start:self.start+item.stop]
+            if item.stop :
+                return self.data[self.start+item.start:self.start+item.stop]
+            else:
+                return self.data[self.start+item.start:self.start+self.len]
         
 
 class DNAList(object):
@@ -40,7 +41,7 @@ class DNAList(object):
         
     def __len__(self):
         if not self.lencache:
-            self.lencache = sum(map(len, self.list))
+            self.lencache = sum(map(lambda x: x.len, self.list))
         return self.lencache
 
     def getall(self):
@@ -73,10 +74,42 @@ class DNAList(object):
                 num -= lr
         if n != 0:
             del self.list[len(self.list)-n:]
+            self.lencache = None
         if num:
+
             self.list[-1].popfront(num)
-        self.lencache = None
+            if self.lencache:
+                self.lencache -= num
+
                 
+    def popfrontret(self, num=1):
+        n = 0
+        tmp = []
+        for r in reversed(self.list):
+            lr = len(r)
+            if num == lr:
+                # exact match, pop this too
+                n += 1
+                num = 0
+                break
+            elif num < lr:
+                # popfront on item is needed
+                break
+            else:
+                n+= 1
+                num -= lr
+        if n != 0:
+            for b in [a for a in reversed(self.list[len(self.list)-n:])]:
+                tmp.extend(b[0:])
+            del self.list[len(self.list)-n:]
+            self.lencache = None
+        if num:
+            tmp.extend(self.list[-1][0:num])
+            self.list[-1].popfront(num)
+            if self.lencache:
+                self.lencache -= num
+        return tmp
+
     def popfromitem(self, num, item):
         if num == 0:
             return
@@ -88,29 +121,23 @@ class DNAList(object):
             if num == lr:
                 # exact match, pop this too
                 del self.list[i:start+1]
+                self.lencache = None
                 break
             elif num < lr:
                 # popfront on item is needed
                 if n:
                     del self.list[i+1:start+1]
+                    self.lencache = None
                 r.popfront(num)
+                if self.lencache:
+                    self.lencache -= num
                 break
             else:
                 n+= 1
                 num -= lr
-        self.lencache = None
 
     def __getitem__(self, ref):
-        if isinstance(ref, int):
-            ix = 0
-            for r in reversed(self.list):
-                lr = len(r)
-                if ix + lr > ref:
-                    return r[ref-ix]
-                else:
-                    ix += lr
-            raise IndexError
-        elif isinstance(ref, slice):     
+        try:
             tmp = []
             ix = 0
             rstrt = ref.start
@@ -142,6 +169,15 @@ class DNAList(object):
                     tmp.extend(r.data[start:stop])
                 ix += lr
             return tmp
+        except AttributeError: # not a slice
+            ix = 0
+            for r in reversed(self.list):
+                lr = len(r)
+                if ix + lr > ref:
+                    return r[ref-ix]
+                else:
+                    ix += lr
+            raise IndexError
 
     def insertfrontreflistandpopold(self, reflist, pop):
         offs = 0
@@ -191,6 +227,7 @@ class DNAList(object):
             print "Noooo"
         
     def find(self, substr, startpos):
+#        print "find:", substr, startpos
         ls = len(substr)
         if ls == 0:
             return
