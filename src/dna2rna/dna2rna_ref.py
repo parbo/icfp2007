@@ -60,7 +60,7 @@ def pattern(dna, rna):
                             pa(btmp)
                             btmp = []
                         pa('(')
-                    elif d == 'C' or d == 'F': # IIC, IIF
+                    elif d in ['C', 'F']: # IIC, IIF
                         dp(3)      
                         if btmp:
                             pa(btmp)
@@ -91,24 +91,25 @@ def template(dna, rna):
     dpr = dna.popfrontret
     ra = rna.append
     btmp = []
+    ba = btmp.append
     while True:
         dnastr = dna[0:3]
         try:
             d = dnastr[0]
             if d == 'C':
                 dp()
-                btmp.append('I')
+                ba('I')
             elif d == 'F':
                 dp()
-                btmp.append('C')
+                ba('C')
             elif d == 'P':
                 dp()
-                btmp.append('F')
+                ba('F')
             elif d == 'I':
                 d = dnastr[1]
                 if d == 'C':
                     dp(2)
-                    btmp.append('P')
+                    ba('P')
                 elif d == 'F' or d == 'P':
                     dp(2)
                     l = nat(dna)
@@ -116,6 +117,7 @@ def template(dna, rna):
                     if btmp:
                         ta(btmp)
                         btmp = []
+                        ba = btmp.append
                     ta((l, n))
                 elif d == 'I':
                     d = dnastr[2]
@@ -125,12 +127,14 @@ def template(dna, rna):
                         if btmp:
                             ta(btmp)
                             btmp = []
+                            ba = btmp.append
                         ta(n)
-                    elif d == 'C' or d == 'F':
+                    elif d in ['C', 'F']:
                         dp(3)      
                         if btmp:
                             ta(btmp)
                             btmp = []
+                            ba = btmp.append
                         return t
                     elif d == 'I':
                         # Add rna command.
@@ -149,12 +153,13 @@ def template(dna, rna):
 def nat(dna):
     ret = 0
     p = 0
+    dpr = dna.popfrontret
     while True:
         try:
-            d = dna.popfrontret(1)[0]
+            d = dpr(1)[0]
             if (d == 'P'):
                 return ret
-            elif d == 'I' or d == 'F':
+            elif d in ['I', 'F']:
                 p += 1
             elif d == 'C':
                 ret += 1 << p
@@ -327,8 +332,8 @@ def execute(dna, rna, progress = False):
             p = pattern(dna, rna)
             t = template(dna, rna)
             matchreplace(dna, p, t)
-#            if n == 5000:
-#                break
+            if n == 5000:
+                break
             if progress and ((n % 1000) == 0 or n == 1):
                 print 'Iterations: ' + str(n) + '   DNA remaining: ' + str(len(dna)), '   RNA commands: ' + str(len(rna)), "List size:", len(dna.list)
 #            if (n % 50000) == 0:
@@ -344,8 +349,8 @@ def execute(dna, rna, progress = False):
     print "execute finished in:", time.time()-now, "seconds"
 
 def main():
-    import psyco
-    psyco.full()
+ #   import psyco
+  #  psyco.full()
     
     prefix = ""
     if len(sys.argv) > 3:
@@ -359,11 +364,11 @@ def main():
         dna.insertfront([dnareflist.DNARef(0, len(dnastr), list(dnastr))])
         dnafile.close()
         rna = []
-        try:
-            execute(dna, rna, True)
-        except KeyboardInterrupt:
-            print "Interrupted!"
-            pass
+#        try:
+        execute(dna, rna, True)
+#        except KeyboardInterrupt:
+#            print "Interrupted!"
+#            pass
         print "Saving RNA file of length:", len(rna)
         rnafile = file(sys.argv[2], 'w')
         for r in rna:

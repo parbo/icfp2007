@@ -1,3 +1,6 @@
+import itertools
+from collections import deque
+
 class DNARef(object):
     def __init__(self, start, stop, data=None):
         self.data = data
@@ -17,24 +20,27 @@ class DNARef(object):
     def popfront(self, num):
         self.start += num
         self.len = self.stop-self.start
+
+    def getall(self):
+        return self.data[self.start:self.stop]
         
     def __getitem__(self, item):
-        if isinstance(item, int):
-            return self.data[self.start + item]
-        elif isinstance(item, slice):    
+        try:
             if item.stop :
                 return self.data[self.start+item.start:self.start+item.stop]
             else:
                 return self.data[self.start+item.start:self.start+self.len]
+        except AttributeError:
+            return self.data[self.start + item]
         
 
 class DNAList(object):
     def __init__(self):
-        self.list = []
+        self.list = deque()
 
     def __str__(self):
         s = []
-        for r in reversed(self.list):
+        for r in self.list:
             s.append(str(r))
         return "".join(s)
             
@@ -46,7 +52,7 @@ class DNAList(object):
 
     def getall(self):
         tmp = []
-        for r in reversed(self.list):
+        for r in self.list:
             tmp.extend(r.data[r.start:r.stop])
         return tmp        
     
@@ -54,13 +60,15 @@ class DNAList(object):
         print "flatten"
         d = self.getall()
         r = DNARef(0, len(d), d)
-        self.list = [r]
+        self.list = deque([r])
         self.lencache = None
     
     def popfront(self, num=1):
         n = 0
-        for r in reversed(self.list):
-            lr = len(r)
+        if self.lencache:
+            self.lencache -= num
+        for r in self.list:
+            lr = r.len
             if num == lr:
                 # exact match, pop this too
                 n += 1
@@ -72,20 +80,21 @@ class DNAList(object):
             else:
                 n+= 1
                 num -= lr
-        if n > 0:
-            del self.list[len(self.list)-n:]
-            self.lencache = None
+        slpl = self.list.popleft
+        while n:      
+            slpl()
+            n -= 1
         if num:
-            self.list[-1].popfront(num)
-            if self.lencache:
-                self.lencache -= num
+            self.list[0].popfront(num)
 
-                
+
     def popfrontret(self, num=1):
         n = 0
         tmp = []
-        for r in reversed(self.list):
-            lr = len(r)
+        if self.lencache:
+            self.lencache -= num
+        for r in self.list:
+            lr = r.len
             if num == lr:
                 # exact match, pop this too
                 n += 1
@@ -97,16 +106,13 @@ class DNAList(object):
             else:
                 n+= 1
                 num -= lr
-        if n > 0:
-            for b in [a for a in reversed(self.list[len(self.list)-n:])]:
-                tmp.extend(b[0:])
-            del self.list[len(self.list)-n:]
-            self.lencache = None
+        slpl = self.list.popleft
+        while n:      
+            tmp.extend(slpl().getall())
+            n -= 1
         if num:
-            tmp.extend(self.list[-1][0:num])
-            self.list[-1].popfront(num)
-            if self.lencache:
-                self.lencache -= num
+            tmp.extend(self.list[0][0:num])
+            self.list[0].popfront(num)
         return tmp
 
     def __getitem__(self, ref):
@@ -115,8 +121,9 @@ class DNAList(object):
             ix = 0
             rstrt = ref.start
             rstp = ref.stop
-            for r in reversed(self.list):
-                lr = len(r)
+            te = tmp.extend
+            for r in self.list:
+                lr = r.len
                 # skip
                 if ix + lr < rstrt:
                     if ix + lr >= rstp:
@@ -131,21 +138,20 @@ class DNAList(object):
                         start = r.start
                     if ix + lr >= rstp:
                         stop = r.start+rstp-ix
-                    else:
-                        stop = r.stop
-                    if ix + lr >= rstp:
                         if tmp:                            
-                            tmp.extend(r.data[start:stop])
+                            te(r.data[start:stop])
                             return tmp
                         else:
                             return r.data[start:stop]
-                    tmp.extend(r.data[start:stop])
+                    else:
+                        stop = r.stop
+                    te(r.data[start:stop])
                 ix += lr
             return tmp
         except AttributeError: # not a slice
             ix = 0
-            for r in reversed(self.list):
-                lr = len(r)
+            for r in self.list:
+                lr = r.len
                 if ix + lr > ref:
                     return r[ref-ix]
                 else:
@@ -155,8 +161,8 @@ class DNAList(object):
     def getreflistiter(self, refstart, refstop):
         ix = 0
         tmpreflist = []
-        for r in reversed(self.list):
-            lr = len(r)
+        for r in self.list:
+            lr = r.len
             # skip
             if ix + lr <= refstart:
                 pass
@@ -169,6 +175,8 @@ class DNAList(object):
                     start = r.start
                 if ix + lr >= refstop:
                     stop = r.start+refstop-ix
+                    tmpreflist.append(DNARef(start, stop, r.data))
+                    return tmpreflist
                 else:
                     stop = r.stop
                 tmpreflist.append(DNARef(start, stop, r.data))
@@ -177,7 +185,7 @@ class DNAList(object):
             ix += lr
 
     def insertfront(self, reflist):
-        self.list.extend(reversed(reflist))
+        self.list.extendleft(reversed(reflist))
         self.lencache = None
         if len(self.list) > 200:
             self.flatten()
@@ -192,8 +200,8 @@ class DNAList(object):
         findpos = 0
         i = startpos
         ix = 0
-        for r in reversed(self.list):
-            lr = len(r)
+        for r in self.list:
+            lr = r.len
             if ix + lr < i:                
                 pass
             else:
