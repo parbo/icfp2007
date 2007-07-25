@@ -456,5 +456,11 @@ if __name__=="__main__":
     print "hitWithTheClueStick", activatename("hitWithTheClueStick")#+activatename("terminate")
     print
     print activatename("crackKeyAndPrint")
+    print
+    print activatename("clouds") + activatename("compose_adaptation") + activatename("sun") + activatename("compose_adaptation")
+    print
+    print activatename("clouds") + activatename("compose_adaptation")
+    print
+    print activatename("clouds")
     
     
