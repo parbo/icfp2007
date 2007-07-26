@@ -11,16 +11,11 @@ ID_OPEN_FILE            = 102
 # Editor title
 TITLE_HEADER = 'RNA 2 Fuun - '
 
-def PILToImage(pilImage):
-     if (pilImage.mode != 'RGB'):
-         pilImage = pilImage.convert('RGB')
-     imageData = pilImage.tostring('raw', 'RGB')
-     img = wx.EmptyImage(pilImage.size[0], pilImage.size[1])
-     img.SetData(imageData)
-     return img
-
-def PILToBitmap(image):
-     return wx.BitmapFromImage(PILToImage(image))
+def GetBitmap(rgbbuf, abuf):
+     img = wx.EmptyImage(600, 600)
+     img.SetData(rgbbuf)
+     img.SetAlphaData(abuf)
+     wx.BitmapFromImage(img)
 
 class RNAListCtrl(wx.ListCtrl):
     def __init__(self, parent, main):
@@ -85,8 +80,9 @@ class RNA2FuunGui(wx.Frame):
         
         self.m_toolBar = self.CreateToolBar(0, -1)
         self.m_toolBar.SetToolSeparation(50)
-        stepitem = self.m_toolBar.AddLabelTool(-1, '', self.m_art.GetBitmap(wx.ART_GO_FORWARD, wx.ART_TOOLBAR), shortHelp = 'Single step', longHelp = 'Step')
+        stepitem = self.m_toolBar.AddLabelTool(-1, '', self.m_art.GetBitmap(wx.ART_GO_FORWARD, wx.ART_TOOLBAR), shortHelp = 'Single step', longHelp = 'Single step in RNA commands')
         downitem = self.m_toolBar.AddLabelTool(-1, '', self.m_art.GetBitmap(wx.ART_GO_DOWN, wx.ART_TOOLBAR), shortHelp = 'Next bitmap event', longHelp = 'Next bitmap event')
+        hereitem = self.m_toolBar.AddLabelTool(-1, '', self.m_art.GetBitmap(wx.ART_FIND, wx.ART_TOOLBAR), shortHelp = 'Run to selected item', longHelp = 'Run to selected item')
         self.m_toolBar.Realize()
         
         self.CreateStatusBar()
@@ -98,6 +94,7 @@ class RNA2FuunGui(wx.Frame):
         self.Bind(wx.EVT_MENU, self.OnSaveImage, saveitem)
         self.Bind(wx.EVT_TOOL, self.OnStep, stepitem)
         self.Bind(wx.EVT_TOOL, self.OnNextBitmap, downitem)
+        self.Bind(wx.EVT_TOOL, self.OnRunToHere, hereitem)
         self.Bind(wx.EVT_CONTEXT_MENU, self.OnRClick, self.m_rnalist)
              
         self.Show()
@@ -152,6 +149,7 @@ class RNA2FuunGui(wx.Frame):
             self.Update()
         
     def OnRClick(self, event):
+        print "Popup menu"
         # make a menu
         menu = wx.Menu()
         # Show how to put an icon in the menu
@@ -188,9 +186,9 @@ class RNA2FuunGui(wx.Frame):
         self.m_rnalist.EnsureVisible(self.m_row)
         self.m_rnalist.SetItemState(self.m_row, wx.LIST_STATE_FOCUSED, wx.LIST_STATE_FOCUSED)
         self.m_rnalist.SetItemState(self.m_row, wx.LIST_STATE_SELECTED, wx.LIST_STATE_SELECTED)
-        self.m_data.SetValue("position: %(position)s\ndir: %(dir)s\nbucket: %(bucket)s"%self.m_r2f.__dict__)
+        self.m_data.SetValue("position: %(position)s\ndir: %(dir)s\nr,g,b, a: %(avgr)d, %(avgg)d, %(avgb)d, %(avga)d"%self.m_r2f.__dict__)
         try:
-            self.m_image.SetBitmap(PILToBitmap(self.m_r2f.bitmaps[0][0]))
+            self.m_image.SetBitmap(GetBitmap(*self.m_r2f.GetImage()))
         except:
             pass
         

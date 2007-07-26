@@ -242,7 +242,7 @@ class rna2fuun(object):
     def clip(self):
         if self.debug: 
             print "Clip"
-        if len(self.bitmaps) > 2:
+        if len(self.bitmaps) >= 2:
             bm0 = self.bitmaps[0][1]
             bm1 = self.bitmaps[1][1]
             for y in xrange(600):
@@ -334,8 +334,8 @@ class rna2fuun(object):
             try:
                 d[r]()
             except KeyError:
-                if r == 'CFPICFP':
-                    self.save("%s_%04d.png"%(filename, ix))                    
+#                if r == 'CFPICFP':
+#                    self.save("%s_%04d.png"%(filename, ix))                    
                 pass
         self.save(filename+".png")
 
