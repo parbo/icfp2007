@@ -11,11 +11,16 @@ ID_OPEN_FILE            = 102
 # Editor title
 TITLE_HEADER = 'RNA 2 Fuun - '
 
-def GetBitmap(rgbbuf, abuf):
-     img = wx.EmptyImage(600, 600)
-     img.SetData(rgbbuf)
-     img.SetAlphaData(abuf)
-     wx.BitmapFromImage(img)
+def PILToImage(pilImage):
+     if (pilImage.mode != 'RGB'):
+         pilImage = pilImage.convert('RGB')
+     imageData = pilImage.tostring('raw', 'RGB')
+     img = wx.EmptyImage(pilImage.size[0], pilImage.size[1])
+     img.SetData(imageData)
+     return img
+
+def PILToBitmap(image):
+     return wx.BitmapFromImage(PILToImage(image))
 
 class RNAListCtrl(wx.ListCtrl):
     def __init__(self, parent, main):
@@ -186,9 +191,9 @@ class RNA2FuunGui(wx.Frame):
         self.m_rnalist.EnsureVisible(self.m_row)
         self.m_rnalist.SetItemState(self.m_row, wx.LIST_STATE_FOCUSED, wx.LIST_STATE_FOCUSED)
         self.m_rnalist.SetItemState(self.m_row, wx.LIST_STATE_SELECTED, wx.LIST_STATE_SELECTED)
-        self.m_data.SetValue("position: %(position)s\ndir: %(dir)s\nr,g,b, a: %(avgr)d, %(avgg)d, %(avgb)d, %(avga)d"%self.m_r2f.__dict__)
+        self.m_data.SetValue("position: %(position)s\ndir: %(dir)s\nbucket: %(bucket)s"%self.m_r2f.__dict__)
         try:
-            self.m_image.SetBitmap(GetBitmap(*self.m_r2f.GetImage()))
+            self.m_image.SetBitmap(PILToBitmap(self.m_r2f.bitmaps[0][0]))
         except:
             pass
         
