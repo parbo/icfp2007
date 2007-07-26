@@ -60,7 +60,7 @@ def pattern(dna, rna):
                             pa(btmp)
                             btmp = []
                         pa('(')
-                    elif d in ['C', 'F']: # IIC, IIF
+                    elif d == 'C' or d == 'F': # IIC, IIF
                         dp(3)      
                         if btmp:
                             pa(btmp)
@@ -129,7 +129,7 @@ def template(dna, rna):
                             btmp = []
                             ba = btmp.append
                         ta(n)
-                    elif d in ['C', 'F']:
+                    elif d == 'C' or d == 'F':
                         dp(3)      
                         if btmp:
                             ta(btmp)
@@ -152,18 +152,18 @@ def template(dna, rna):
 # consumed bases: (number, pos)
 def nat(dna):
     ret = 0
-    p = 0
+    p = 1
     dpr = dna.popfrontret
     while True:
         try:
             d = dpr(1)[0]
             if (d == 'P'):
                 return ret
-            elif d in ['I', 'F']:
-                p += 1
+            elif d == 'I' or d == 'F':
+                p += p
             elif d == 'C':
-                ret += 1 << p
-                p += 1
+                ret += p
+                p += p
         except IndexError:
             raise NoMoreData
     
@@ -334,7 +334,7 @@ def execute(dna, rna, progress = False):
             matchreplace(dna, p, t)
 #            if n == 20000:
 #                break
-            if progress and ((n % 1000) == 0 or n == 1):
+            if progress and ((n % 10000) == 0 or n == 1):
                 print 'Iterations: ' + str(n) + '   DNA remaining: ' + str(len(dna)), '   RNA commands: ' + str(len(rna)), "List size:", len(dna.list)
 #            if (n % 50000) == 0:
 #                print "Saving RNA..."
