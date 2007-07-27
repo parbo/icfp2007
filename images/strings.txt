@@ -1,1435 +1,1435 @@
 Quoted strings:
-    852625   1998_
-    853439   1999_
-    854253   2000_
-    855067   2001_
-    855881   2002_
-    856695   2003_
-    857509   2004_
-    858323   2005_
-    859137   2006_
-    859951   2007_
-    861184   law__
-    868954   friends_
-    885568   Robo_Cruiser___
-    889515   prize_
-    890478   choice_
-    891332   __
-    892136   __
-    892939   KiebererAndXiaoTou_
-    893913   Haskell_
-    994058   2007_
-   1684183   genes_
-   1687654   any___
-   1692061   zone__
-   1698968   size__
-   1701623   environments__
-   1707473   selector_
-   1709859   extra_
-   1712265   1_
-   1714740   1_
-   1717106   2_
-   1719542   2_
-   1721858   ____
-   1723291   zone__
-   1727419   ____
-   1729805   payload_
-   1732260   payload_
-   1734686   rest_
-   1737122   zone_
-   1743846   1998_
-   1744660   1999_
-   1745474   2000_
-   1746288   2001_
-   1747102   2002_
-   1747916   2003_
-   1748730   2004_
-   1749544   2005_
-   1750358   2006_
-   1751172   2007_
-   1752405   law__
-   1758697   MIT_
-   1764280   program__
-   1768167   prize_
-   1769130   choice_
-   1769984   __
-   1770788   __
-   1771791   Team_
-   1772625   Cilk_
-   2086317   ImpDoc_
-   2093749   int24_
-   2094593   addInts_
-   2096321   x_
-   2097999   y_
-   2098803   __
-   2099686   integers__
-   2100570   void_
-   2101403   beginRelativeMode_
-   2102367   ___
-   2103520   hack__
-   2104364   bool_
-   2105197   checkIntegrity_
-   2106995   ptr_
-   2107819   __
-   2108942   gene__
-   2109786   int24_
-   2110630   checksum_
-   2112368   offset_
-   2114096   size_
-   2114930   __
-   2115794   Zone__
-   2118380   void_
-   2119214   colorBlack_
-   2120108   ___
-   2121541   bucket___
-   2122415   void_
-   2123249   colorBlue_
-   2124133   ___
-   2125556   bucket___
-   2126430   void_
-   2127264   colorByIndex_
-   2128178   ___
-   2129321   then__
-   2130165   void_
-   2130999   colorCyan_
-   2131883   ___
-   2133306   bucket___
-   2134180   void_
-   2135014   colorGreen_
-   2135908   ___
-   2137341   bucket___
-   2138215   1_10_
-   2147692   1998_
-   2148506   1999_
-   2149320   2000_
-   2150134   2001_
-   2150948   2002_
-   2151762   2003_
-   2152576   2004_
-   2153390   2005_
-   2154204   2006_
-   2155018   2007_
-   2156251   law__
-   2161609   University_
-   2181343   hours__
-   2185210   prize_
-   2186173   choice_
-   2187027   __
-   2187831   __
-   2188635   you__
-   2189469   ____
-   2285863   Contents_
-   2286737   Index_
-   2288363   FuunDoc_
-   2290108   compose_adaptation_
-   2292520   c_
-   2293413   composition__
-   2295209   false_
-   2297202   Bool_
-   2298036   False__
-   2299771   goldenFish_adaptation_
-   2301924   PictureDescr_
-   2302957   description__
-   2304753   i_adaptation_
-   2306866   a_
-   2308552   intBox_
-   2310645   Int_
-   2311948   branch__
-   2313694   k_
-   2315747   a_
-   2316970   one__
-   2318685   mkBeforeAbove_adaptation_
-   2321187   PictureDescr_
-   2322740   image__
-   2324475   mkEmp_adaptation_
-   2326717   PictureDescr_
-   2328020   height__
-   2329765   mkGoldfishL_adaptation_
-   2331928   PictureDescr_
-   2333031   left__
-   2334756   mkGoldfishR_adaptation_
-   2336919   PictureDescr_
-   2338022   right__
-   2339757   mkSucc_adaptation_
-   2341940   Nat_
-   2342963   argument__
-   2345443   FuunDoc_
-   2346397   0_13_
-   2356957   code__
-   2370497   1998_
-   2371311   1999_
-   2372125   2000_
-   2372939   2001_
-   2373753   2002_
-   2374567   2003_
-   2375381   2004_
-   2376195   2005_
-   2377009   2006_
-   2377823   2007_
-   2379056   law__
-   2384334   Chalmers_
-   2394009   winners__
-   2397896   prize_
-   2398859   choice_
-   2399713   __
-   2400517   __
-   2401391   Hudson_
-   2402245   C___
-   2405630   1998_
-   2406444   1999_
-   2407258   2000_
-   2408072   2001_
-   2408886   2002_
-   2409700   2003_
-   2410514   2004_
-   2411328   2005_
-   2412142   2006_
-   2412956   2007_
-   2414189   law__
-   2419607   OGI_
-   2426071   contest__
-   2433972   later___
-   2437849   prize_
-   2438812   choice_
-   2439666   __
-   2440470   __
-   2441274   TAPLAS_
-   2442128   OCaml_
-   2454455   222_
-   2458004   _Hmm__
-   2461524   And__
-   2463480   informed___
-   2464374   __
-   2469417   them___
-   2473422   pours___
-   2475279   then__
-   2476202   replied__
-   2480815   easy__
-   2483321   terraces___
-   2539766   ImpDoc_
-   2547198   void_
-   2548032   resetOrigin_
-   2548936   ___
-   2550368   setOrigin__
-   2551262   void_
-   2552096   rotateColor_
-   2553000   ___
-   2553814   void_
-   2554647   setGlobalPolarRotation_
-   2556525   a_
-   2557329   __
-   2558522   operations__
-   2559426   void_
-   2560260   setOrigin_
-   2562008   x_
-   2563686   y_
-   2564490   __
-   2565593   origin__
-   2566457   void_
-   2567291   spirograph_
-   2568185   extra_
-   2569903   cycles_
-   2570757   __
-   2572425   magnify_
-   2574163   radiusSum_
-   2575921   radiusMoving_
-   2577709   radiusSumDiv_
-   2579956   figure__
-   2580820   void_
-   2581654   startup_
-   2582518   ___
-   2583431   point__
-   2584285   int24_
-   2585129   stringLength_
-   2586947   s_
-   2587751   __
-   2588784   string__
-   2589648   int24_
-   2590492   subInts_
-   2592220   x_
-   2593898   y_
-   2594702   __
-   2595645   integers__
-   2596529   void_
-   2597363   terminate_
-   2598247   ___
-   2599210   suffering__
-   2600104   9_10_
-   2607941   125_
-   2610386   up__
-   2618924   with__
-   2662485   AAA_geneTablePageNr_
-   2662741   M_class_planet_
-   2662949   __array_index_
-   2663147   __array_value_
-   2663345   __bool_
-   2663474   __bool_2_
-   2663623   __funptr_
-   2663772   __int1_
-   2663901   __int12_
-   2664041   __int12_2_
-   2664201   __int24_
-   2664341   __int24_2_
-   2664501   __int3_
-   2664631   __int48_
-   2664771   __int9_
-   2664901   acc1_
-   2665011   acc2_
-   2665122   acc3_
-   2665233   activateAdaptationTree_
-   2665524   activateGene_
-   2665715   adapter_
-   2665857   addFunctionsCBF_
-   2666079   addInts_
-   2666221   alien_lifeforms_
-   2666444   anticompressant_
-   2666666   apple_
-   2666788   appletree_
-   2666950   apply1_adaptation_
-   2667191   apply2_adaptation_
-   2667432   babel_survey_
-   2667625   balloon_
-   2667767   beginRelativeMode_
-   2668009   bioAdd_adaptation_
-   2668251   bioMorphPerturb_
-   2668473   bioMul_adaptation_
-   2668715   bioSucc_adaptation_
-   2668967   bioZero_adaptation_
-   2669219   biomorph_adaptation_
-   2669481   blueZoneStart_
-   2669683   bmu_
-   2669786   bresenhamArray_
-   2669998   bresenhamIndex_
-   2670210   bresenhamRadius_
-   2670432   bridge_
-   2670565   bridge_close_
-   2670758   bridge_far_
-   2670931   cachedFastCircle_
-   2671164   cachedFastCorner_
-   2671397   cachedFastEllipse_
-   2671640   caravan_
-   2671783   caravan_axis_
-   2671976   caravan_door_
-   2672169   caravan_frame_
-   2672372   caravan_wheel_
-   2672575   caravan_window1_
-   2672798   caravan_window2_
-   2673021   cargobox_
-   2673174   caseNat_adaptation_
-   2673426   casePair_adaptation_
-   2673688   casePictureDescr_adaptation_
-   2674030   caseVar1_adaptation_
-   2674292   caseVar2_adaptation_
-   2674554   cbfArray_
-   2674706   charColorCallback_
-   2674948   charColorCallbackFade_
-   2675231   charCounter_
-   2675414   charIndexArray_
-   2675627   charIndexOffset_
-   2676193   charInfo_Tempus_Bold_Huge_L_
-   2676536   charInfo_Tempus_Bold_Huge_M_
-   2676879   checkIntegrity_
-   2677093   checksum_
-   2677247   chick_
-   2677371   cloak_night_
-   2677555   cloak_rain_
-   2677729   closureArguments_
-   2677962   closureIndex_
-   2678155   cloud_
-   2678279   clouds_
-   2678413   cloudy_
-   2678547   colorBlack_
-   2678721   colorBlue_
-   2678885   colorByIndex_
-   2679079   colorCyan_
-   2679243   colorDuckBrown_
-   2679457   colorDuckOrange_
-   2679681   colorDuckYellow_
-   2679905   colorGermanyYellow_
-   2680159   colorGreen_
-   2680333   colorLila_
-   2680497   colorMagenta_
-   2680691   colorRed_
-   2680845   colorReset_
-   2681018   colorSoftYellow_
-   2681242   colorTable_
-   2681415   colorWhite_
-   2681589   compose_adaptation_
-   2681842   contest_1998_
-   2682036   contest_1999_
-   2682230   contest_2000_
-   2682424   contest_2001_
-   2682618   contest_2002_
-   2682812   contest_2003_
-   2683006   contest_2004_
-   2683200   contest_2005_
-   2683394   contest_2006_
-   2683588   contest_2007_
-   2683782   correctErrors_
-   2683986   cosineArray_
-   2684169   cow_body_
-   2684323   cow_head_
-   2684477   cow_holy_
-   2684631   cow_left_eye_
-   2684825   cow_left_foot_
-   2685029   cow_left_horn_
-   2685233   cow_middle_foot_
-   2685457   cow_mouth_
-   2685621   cow_right_ear_
-   2685825   cow_right_eye_
-   2686029   cow_right_foot_
-   2686243   cow_right_horn_
-   2686457   cow_spot_butt_
-   2686661   cow_spot_left_
-   2686865   cow_spot_middle_
-   2687089   cow_spot_middle_ecc_
-   2687352   cow_spot_right_
-   2687566   cow_tail_
-   2687720   crackChars_
-   2687894   crackKey_
-   2688049   crackKeyAndPrint_
-   2688284   crackTestValue_
-   2688498   crater_
-   2688633   crypt_
-   2688758   curX_
-   2688872   curY_
-   2688986   div2_
-   2689101   doSelfCheck_
-   2689285   drawChar_
-   2689440   drawCircleFast_
-   2689655   drawCornerFast_
-   2689870   drawEllipse_
-   2690055   drawEllipseFast_
-   2690280   drawFunctionBase_
-   2690515   drawGoldFishL_adaptation_
-   2690829   drawGoldFishR_adaptation_
-   2691143   drawGoldenFish_adaptation_
-   2691467   drawGradientCornerNW_
-   2691742   drawGradientCornerSE_
-   2692017   drawGradientH_
-   2692222   drawGradientV_
-   2692427   drawGrassPatch_
-   2692642   drawHexDigit_
-   2692837   drawIntHex_
-   2693012   drawPolyline_
-   2693207   drawPolylinePolar_
-   2693452   drawRect_
-   2693607   drawRoundedRect_
-   2693832   drawString_
-   2694007   drawStringHere_
-   2694222   ducksShown_
-   2694397   duolc_
-   2694521   ellipseAngleIncr_
-   2694755   emptyBox_adaptation_
-   2695019   enableBioMorph_
-   2695233   enableBioMorph_adaptation_
-   2695557   endRelativeMode_
-   2695782   endo_
-   2695897   endo_bottom_
-   2696082   endo_left_arm_
-   2696287   endo_left_eye_
-   2696492   endo_right_arm_
-   2696707   endo_right_eye_
-   2696922   endo_top_
-   2697077   endocow_
-   2697222   fadingColors_
-   2697417   false_
-   2697541   fastForward_
-   2697726   fastRandom_
-   2697901   fatalError_
-   2698076   flower_
-   2698211   flowerbed_
-   2698376   fontCombinator_
-   2698590   fontTable_Bird_Ring_
-   2698854   fontTable_Cyperus_
-   2699098   fontTable_Cyperus_Big_
-   2699382   fontTable_Cyperus_Italic_
-   2699696   fontTable_Dots_
-   2699910   fontTable_Messenger_
-   2700174   fontTable_Tempus_Bold_Huge_
-   2700508   fontTable_Tempus_Small_
-   2700802   fontTable_Tempus_Small_Italic_
-   2701166   fpForward_
-   2701331   fpForwardPenUp_
-   2701546   fpMoveAbsolute_
-   2701761   fpPop_
-   2701886   fpPush_
-   2702021   fpTurnLeft_
-   2702196   fpTurnRight_
-   2702381   fri_
-   2702485   frj_
-   2702589   fromNat_adaptation_
-   2702843   frs_
-   2702947   fstP_adaptation_
-   2703171   functionAdd_
-   2703356   functionParabola_
-   2703591   functionSine_
-   2703786   fuundoc1_
-   2703941   fuundoc2_
-   2704096   fuundoc3_
-   2704251   ge_
-   2704346   germanColors_
-   2704541   giveMeAPresent_
-   2704755   goldenFish_adaptation_
-   2705039   goldfishLeft_
-   2705234   goldfishRight_
-   2705439   goodVibrations_
-   2705653   grass_
-   2705778   grass1_
-   2705913   grass2_
-   2706048   grass3_
-   2706183   grass4_
-   2706318   greenZoneStart_
-   2706532   height_adaptation_
-   2706776   help_activating_genes_
-   2707061   help_adaptive_genes_
-   2707326   help_background_
-   2707551   help_background__
-   2707786   help_beautiful_numbers_
-   2708081   help_beautiful_numbers_purchase_code_
-   2708515   help_catalog_page_
-   2708760   help_compression_rna_
-   2709035   help_encodings_
-   2709250   help_error_correcting_codes_
-   2709595   help_error_correcting_codes_purchase_code_
-   2710079   help_fuun_security_
-   2710334   help_fuun_structure_
-   2710599   help_initial_cond_
-   2710844   help_integer_encoding_
-   2711119   _help_intro_
-   2711304   help_lsystems_
-   2711509   help_palindromes_
-   2711745   help_patching_dna_
-   2711990   help_steganography_
-   2712246   help_undocumented_rna_
-   2712531   help_virus_
-   2712706   help_vmu_
-   2712861   helpScreen_
-   2713035   hillsEnabled_
-   2713230   hitWithTheClueStick_
-   2713494   i_adaptation_
-   2713688   impdoc_background_
-   2713933   impdoc1_
-   2714078   impdoc10_
-   2714233   impdoc2_
-   2714378   impdoc3_
-   2714523   impdoc4_
-   2714669   impdoc5_
-   2714815   impdoc6_
-   2714961   impdoc7_
-   2715107   impdoc8_
-   2715253   impdoc9_
-   2715399   init_
-   2715515   initDone_
-   2715670   initFastRandom_
-   2715886   intBox_
-   2716021   k_
-   2716106   lambda_id_
-   2716272   lightningBolt_
-   2716478   lindenmayerAngle_
-   2716713   lindenmayerDistance_
-   2716978   lsystem_kochisland_
-   2717234   lsystem_kochisland_F_
-   2717510   lsystem_kochisland_f_
-   2717786   lsystem_sierpinski_
-   2718042   lsystem_sierpinski_l_
-   2718318   lsystem_sierpinski_r_
-   2718594   lsystem_weed_
-   2718790   lsystem_weed_F_
-   2719006   lt_
-   2719102   main_
-   2719218   majorimp_background_
-   2719485   majorimp_episode1_
-   2719732   majorimp_episode125_
-   2719999   majorimp_episode126_
-   2720266   majorimp_episode2_
-   2720513   majorimp_episode222_
-   2720780   majorimp_episode285_
-   2721047   majorimp_episode496_
-   2721314   makeDarkness_
-   2721510   max_
-   2721616   mkAbove_adaptation_
-   2721871   mkBeforeAbove_adaptation_
-   2722186   mkEmp_adaptation_
-   2722421   mkGoldfishL_adaptation_
-   2722716   mkGoldfishR_adaptation_
-   2723011   mkPair_adaptation_
-   2723256   mkSucc_adaptation_
-   2723501   mkZero_adaptation_
-   2723746   mlephant_
-   2723902   modInts_
-   2724048   moon_
-   2724164   most_wanted_
-   2724350   motherDuck_
-   2724526   motherDuckWithChicks_
-   2724802   moveTo_
-   2724938   moveToPolar_
-   2725124   mulInts_
-   2725270   mulModInts_
-   2725446   negateInt_
-   2725612   night_or_day_
-   2725807   ocaml_
-   2725933   ocamlrules_
-   2726108   originStackIndex_
-   2726343   originStackX_
-   2726538   originStackY_
-   2726733   parabolaCBF_
-   2726919   payloadBioMorph_
-   2727145   payloadBioMorph_adaptation_
-   2727480   pear_
-   2727596   peartree_
-   2727752   pictureDescrRenderer_adaptation_
-   2728137   polarAngleIncr_
-   2728352   printCharSet_
-   2728548   printGeneTable_
-   2728764   randomInt_
-   2728930   resetOrigin_
-   2729116   resetOrigin_adaptation_
-   2729411   river_
-   2729537   rotateColorVar_
-   2729752   s_adaptation_
-   2729947   scenario_
-   2730103   seed_
-   2730208   _selfCheck_
-   2730385   setFastCircleArray_
-   2730641   setGlobalPolarRotation_
-   2730937   setOrigin_
-   2731103   setOrigin_adaptation_
-   2731378   shoutOut_
-   2731534   sineArray_
-   2731699   sineCBF_
-   2731845   sky_
-   2731951   sky_day_
-   2732097   sky_day_bodies_
-   2732313   sky_night_
-   2732479   sky_night_bodies_
-   2732715   sky_waves_
-   2732881   smoke_
-   2733007   sndP_adaptation_
-   2733232   spirograph_
-   2733408   star_
-   2733524   sticky_
-   2733661   stringLength_
-   2733857   subInts_
-   2734003   sun_
-   2734109   sunflower_
-   2734274   superDuck_
-   2734440   surfaceTransform_
-   2734676   terminate_
-   2734842   threeFish_adaptation_
-   2735117   tmpCurX_
-   2735262   tmpCurY_
-   2735407   transmission_buffer_
-   2735674   true_
-   2735789   tulip_
-   2735915   tulips_
-   2736051   turtleFPX_
-   2736216   turtleFPY_
-   2736381   turtleHeading_
-   2736586   turtleStackFPX_
-   2736801   turtleStackFPY_
-   2737016   turtleStackHeading_
-   2737271   turtleStackIndex_
-   2737506   ufo_
-   2737612   ufo_bottom_
-   2737788   ufo_cup_
-   2737934   ufo_frame_
-   2738100   ufo_left_foot_
-   2738306   ufo_middle_foot_
-   2738532   ufo_right_foot_
-   2738748   ufo_with_smoke_
-   2738964   useColorTable_
-   2739170   var1_adaptation_
-   2739395   var2_adaptation_
-   2739620   vmu_
-   2739726   vmu_code_
-   2739882   vmu_code_purchase_code_
-   2740177   vmuMode_
-   2740322   vmuRegCode_
-   2740497   void_
-   2740612   water_
-   2740738   weather_
-   2740883   weeds_
-   2741009   whale_
-   2741135   width_adaptation_
-   2741370   windmill_
-   2741526   wrapAdd_adaptation_
-   2741781   wrapImp_
-   2741926   wrapMax_adaptation_
-   2742181   wrapSub_adaptation_
-   2744598   IFPICFPPCFFPP_
-   2746891   14_
-   2804135   ____
-   2808856   PASS_
-   2809772   FAIL_
-   2811896   encryption__
-   2813671   disabled_
-   2814373   __
-   2823453   1998_
-   2824267   1999_
-   2825081   2000_
-   2825895   2001_
-   2826709   2002_
-   2827523   2003_
-   2828337   2004_
-   2829151   2005_
-   2829965   2006_
-   2830779   2007_
-   2832012   law__
-   2837380   Penn_
-   2849520   purpose__
-   2853407   prize_
-   2854370   choice_
-   2855224   __
-   2856028   __
-   2856831   Dunkosmiloolump_
-   2857775   Haskell_
-   2860122   RNA_
-   2863742   ____
-   2866158   observed__
-   2868773   code_
-   2871279   morphing__
-   2873556   CFPICFP_
-   2874599   though__
-   2878567   done__
-   3413354   ImpDoc_
-   3420144   int24_
-   3420988   max_
-   3422676   x_
-   3424354   y_
-   3425158   __
-   3426211   integers__
-   3427095   int24_
-   3427939   modInts_
-   3429667   x_
-   3431345   y_
-   3432149   __
-   3433402   integers__
-   3434286   void_
-   3435120   moveTo_
-   3436838   x_
-   3438516   y_
-   3439320   __
-   3440613   origin__
-   3441477   void_
-   3442311   moveToPolar_
-   3444079   angle_
-   3445797   dist_
-   3446631   __
-   3448054   origin__
-   3448918   int24_
-   3449762   mulInts_
-   3451490   x_
-   3453168   y_
-   3453972   __
-   3454905   integers__
-   3455789   int24_
-   3456633   negateInt_
-   3458381   x_
-   3459185   __
-   3460248   integer__
-   3461122   void_
-   3461955   printGeneTable_
-   3463742   integrityCheck_
-   3464676   __
-   3467331   finish__
-   3469957   int24_
-   3470801   randomInt_
-   3472549   x_
-   3473353   __
-   3474226   generator__
-   3476802   8_10_
-   3480197   1998_
-   3481011   1999_
-   3481825   2000_
-   3482639   2001_
-   3483453   2002_
-   3484267   2003_
-   3485081   2004_
-   3485895   2005_
-   3486709   2006_
-   3487523   2007_
-   3488756   law__
-   3495118   Virginia_
-   3507400   with__
-   3522325   profits__
-   3526212   prize_
-   3527175   choice_
-   3528029   __
-   3528833   __
-   3529697   R_Us_
-   3530531   OCaml_
-   3996926   126_
-   4004574   know___
-   4006580   commute___
-   4050659   Contents_
-   4051533   Index_
-   4053159   FuunDoc_
-   4054904   activateAdaptationTree_
-   4055918   zone__
-   4059396   activateGene_
-   4061168   zone__
-   4062893   apply1_adaptation_
-   4065205   BioNat_
-   4066358   value__
-   4069805   apply2_adaptation_
-   4072217   BioNat_
-   4073779   value__
-   4077216   bioAdd_adaptation_
-   4079329   BioNat_
-   4080522   variable2__
-   4082297   bioMul_adaptation_
-   4084410   BioNat_
-   4085643   variable2__
-   4087418   bioSucc_adaptation_
-   4089541   BioNat_
-   4090924   incremented__
-   4092719   bioZero_adaptation_
-   4094842   BioNat_
-   4095895   zero__
-   4097620   caseVar1_adaptation_
-   4099952   BioNat_
-   4101265   alternative__
-   4106543   caseVar2_adaptation_
-   4108875   BioNat_
-   4110138   variable2__
-   4112628   FuunDoc_
-   4113582   0_13_
-   4121156   ____
-   4122329   ____
-   4123312   ____
-   4178238   10_
-   4179291   elements_
-   4180394   formulas_
-   4181597   ____
-   4217779   Genome_
-   4221419   ____
-   4222303   also__
-   4226412   size__
-   4229218   next__
-   4231934   parts__
-   4236083   engineering____
-   4239902   RED_
-   4242238   GREEN_
-   4244594   BLUE_
-   4281662   Contents_
-   4282536   Index_
-   4284162   FuunDoc_
-   4285907   mkZero_adaptation_
-   4288020   Nat_
-   4288844   Zero__
-   4290569   pictureDescrRenderer_adaptation_
-   4293121   RNAAction_
-   4294414   coordinate__
-   4296200   s_adaptation_
-   4298602   c_
-   4300288   true_
-   4302271   Bool_
-   4303105   True__
-   4304830   var1_adaptation_
-   4306923   BioNat_
-   4308156   variable1__
-   4309931   var2_adaptation_
-   4312024   BioNat_
-   4313257   variable2__
-   4315747   FuunDoc_
-   4316701   0_13_
-   4333018   ImpDoc_
-   4340450   bool_
-   4341284   ge_
-   4342962   x_
-   4344640   y_
-   4345444   __
-   4346707   y__
-   4347521   int24_
-   4348365   incInt_
-   4350083   x_
-   4350887   __
-   4351930   one__
-   4352764   void_
-   4353598   init_
-   4354432   ___
-   4355246   length__
-   4357842   void_
-   4358675   initFastRandom_
-   4360513   key_
-   4361337   __
-   4362550   generator__
-   4363444   void_
-   4364277   lsystem_kochisland_
-   4366115   depth_
-   4366959   __
-   4368292   lakes__
-   4369146   void_
-   4369979   lsystem_sierpinski_
-   4371817   depth_
-   4372661   __
-   4373854   gasket__
-   4374718   void_
-   4375552   lsystem_weed_
-   4377330   depth_
-   4378174   __
-   4379427   structures__
-   4380331   bool_
-   4381165   lt_
-   4382843   x_
-   4384521   y_
-   4385325   __
-   4386438   y__
-   4387252   void_
-   4388086   makeDarkness_
-   4389000   ___
-   4390063   darkness__
-   4390947   7_10_
-   4429943   1998_
-   4430757   1999_
-   4431571   2000_
-   4432385   2001_
-   4433199   2002_
-   4434013   2003_
-   4434827   2004_
-   4435641   2005_
-   4436455   2006_
-   4437269   2007_
-   4438502   law__
-   4443990   University_
-   4452545   BC__
-   4456735   computer__
-   4460632   prize_
-   4461595   choice_
-   4462449   __
-   4463253   __
-   4464107   Smartass_
-   4464981   2D_
-   4472595   navigation_
-   4473768   page__
-   4477827   integers_
-   4478781   b_n_
-   4480044   set_
-   4480947   otherwise_
-   4481960   index_
-   4482804   1337_
-   4483697   navigating__
-   4484600   _blink_WARNING__blink__
-   4485743   occur__
-   4489653   1_
-   4496327   volunteer_____
-   4497261   _call_cc__
-   4505079   wouldn_t__
-   4512778   _ENTER__
-   4553120   496_
-   4555925   monad__
-   4558671   circumstances__
-   4564767   bricks__
-   4565850   disguise___
-   4641825   Steganography_
-   4645495   pictures_
-   4650628   right__
-   4913258   conditions_
-   4917218   Inc__
-   4918331   License_
-   4919694   planets__
-   4921157   programmer_
-   4922270   Flatulent_
-   4923323   False_
-   4924396   Nat_
-   4925489   Nat_
-   4926852   variables__
-   4928959   Nat_
-   4929783   __
-   4931411   variable1_
-   4933139   variable2_
-   4934996   Nat_
-   4935820   __
-   4937746   adaptations_
-   4939534   BioNat_
-   4940398   where_
-   4941441   Zero_
-   4942584   fixed___
-   4943797   y__
-   4944810   y_
-   4946093   recitations__
-   4948480   ___
-   4949743   conditions_
-   4950896   ImpDoc_
-   4958328   void_
-   4959162   drawGradientH_
-   4960950   w_
-   4962628   h_
-   4964346   color_
-   4965190   __
-   4966433   lines__
-   4967287   void_
-   4968121   drawGradientV_
-   4969909   w_
-   4971587   h_
-   4973305   color_
-   4974149   __
-   4975372   lines__
-   4976226   void_
-   4977060   drawHexDigit_
-   4979037   fontTable_
-   4980795   d_
-   4981599   __
-   4982592   digit__
-   4983446   void_
-   4984280   drawInt_
-   4986207   fontTable_
-   4987965   x_
-   4988769   __
-   4989962   Earthdwellers__
-   4990896   void_
-   4991730   drawIntHex_
-   4993687   fontTable_
-   4995445   maxWidth_
-   4997193   x_
-   4998871   y_
-   5000549   n_
-   5001353   __
-   5002586   designers__
-   5003480   void_
-   5004314   drawPolyline_
-   5006082   close_
-   5007859   points_
-   5008713   __
-   5009966   automatically__
-   5010900   void_
-   5011733   drawPolylinePolar_
-   5013551   close_
-   5015328   points_
-   5016182   __
-   5017485   origin__
-   5020091   void_
-   5020925   drawRect_
-   5022663   x_
-   5024341   y_
-   5026019   sizeX_
-   5027737   sizeY_
-   5029445   fill_
-   5030279   __
-   5031332   rectangle__
-   5032226   void_
-   5033059   drawRoundedRect_
-   5034867   x_
-   5036545   y_
-   5038223   sizeX_
-   5039941   sizeY_
-   5041659   r_
-   5043327   fill_
-   5044161   __
-   5045444   corners__
-   5046318   4_10_
-   5050062   cerca__
-   5085273   gemorpht_
-   5086535   Endo__
-   5121213   ImpDoc_
-   5123509   void_
-   5124343   useColorTable_
-   5125267   ___
-   5126081   10_10_
-   5139409   ImpDoc_
-   5146199   void_
-   5147032   fpMoveAbsolute_
-   5148830   x_
-   5150508   y_
-   5151312   __
-   5152575   coordinates__
-   5153489   void_
-   5154323   fpPop_
-   5155167   ___
-   5156919   it__
-   5157743   void_
-   5158577   fpPush_
-   5159431   ___
-   5160864   stack__
-   5161718   void_
-   5162552   fpTurnLeft_
-   5164310   angle_
-   5165154   __
-   5166586   degrees__
-   5167460   void_
-   5168294   fpTurnRight_
-   5170062   angle_
-   5170906   __
-   5172338   degrees__
-   5173461   int24__
-   5174315   functionAdd_
-   5176172   g_
-   5176976   __
-   5178903   f_
-   5181358   results__
-   5182481   int24__
-   5183334   functionParabola_
-   5185152   a_
-   5186830   b_
-   5187634   __
-   5188607   a_x_b__
-   5191422   int24__
-   5192276   functionSine_
-   5194054   a_
-   5195732   b_
-   5197410   c_
-   5198214   __
-   5199187   sin_a_x_b__c__
-   5201823   6_10_
-   5202916   ImpDoc_
-   5210348   void_
-   5211182   colorMagenta_
-   5212096   ___
-   5213548   bucket___
-   5214422   void_
-   5215256   colorRed_
-   5216130   ___
-   5217543   bucket___
-   5218417   void_
-   5219251   colorWhite_
-   5220145   ___
-   5221578   bucket___
-   5222452   void_
-   5223286   colorYellow_
-   5224190   ___
-   5225632   bucket___
-   5226506   void_
-   5227340   correctErrors_
-   5229128   data_
-   5230836   ecc_
-   5232534   size_
-   5233368   __
-   5234860   region__
-   5235724   int9_128__
-   5236608   crackKey_
-   5238346   testValue_
-   5239230   __
-   5240223   key__
-   5242729   void_
-   5243563   crypt_
-   5245311   key_
-   5247009   offset_
-   5248737   size_
-   5249571   __
-   5250814   key__
-   5251648   int24_
-   5252492   decInt_
-   5254210   x_
-   5255014   __
-   5256057   one__
-   5256891   int24_
-   5257735   div2_
-   5259433   x_
-   5260237   __
-   5261250   2__
-   5262064   2_10_
-   5281171   Survey_
-   5284781   Earth_
-   5291706   _____
-   5298341   bandwidth____
-   5299374   voordeliger__
-   5304320   ImpDoc_
-   5311110   void_
-   5311944   drawString_
-   5313901   fontTable_
-   5315659   x_
-   5317337   y_
-   5319055   s_
-   5319859   __
-   5321192   Set__
-   5322026   void_
-   5322859   drawStringHere_
-   5324856   fontTable_
-   5326654   s_
-   5327458   __
-   5328551   position__
-   5329435   void_
-   5330268   endRelativeMode_
-   5331212   ___
-   5332485   hack__
-   5333329   void_
-   5334163   fadingColors_
-   5335077   ___
-   5335891   void_
-   5336725   fastForward_
-   5338493   x_
-   5339297   __
-   5340210   degrees__
-   5342816   int9_
-   5343650   fastRandom_
-   5344544   ___
-   5345767   generator__
-   5348353   void_
-   5349187   fpForward_
-   5350935   dist_
-   5351769   __
-   5352573   number__
-   5355189   void_
-   5356022   fpForwardPenUp_
-   5357820   dist_
-   5358654   __
-   5359577   number__
-   5362143   5_10_
-   5472573   elsewhere__
-   5475049   Catalog_
-   5476042   page_
-   5477095   Genome_
-   5478138   Genomics_
-   5479181   _encrypted__
-   5480135   list_
-   5481208   for_
-   5482271   Set_
-   5483304   Fuun_
-   5484387   _encrypted__
-   5485440   RNA_
-   5486473   structures_
-   5487506   features_
-   5488629   compression_
-   5489822   Answer_
-   5490745   an___taa____v______
-   5491719   1337_
-   5492553   1729_
-   5493387   8_
-   5494191   23_
-   5495005   42_
-   5495819   112_
-   5496643   10646_
-   5497487   85_
-   5498301   84_
-   5499115   2181889_
-   5499979   5_
-   5500783   4405829_
-   5501647   123456_
-   5502501   999999999_
-   5503385   999999999_
-   5504468   damaged_
-   5566150   Set_
-   5582189   1998_
-   5583003   1999_
-   5583817   2000_
-   5584631   2001_
-   5585445   2002_
-   5586259   2003_
-   5587073   2004_
-   5587887   2005_
-   5588701   2006_
-   5589515   2007_
-   5590748   law__
-   5596136   Rocquencourt_
-   5605642   boxes__
-   5608373   size__
-   5612230   prize_
-   5613193   choice_
-   5614047   __
-   5614851   __
-   5615734   Carrots_
-   5616598   Haskell_
-   5630273   2_
-   5641296   __
-   5644546   toilet__
-   5649288   them___
-   5650142   __
-   5650946   _Imp__
-   5657041   Operators___
-   5658799   Sir__
-   5674570   1998_
-   5675384   1999_
-   5676198   2000_
-   5677012   2001_
-   5677826   2002_
-   5678640   2003_
-   5679454   2004_
-   5680268   2005_
-   5681082   2006_
-   5681896   2007_
-   5683129   law__
-   5688567   Labs_
-   5703609   features__
-   5707506   prize_
-   5708469   choice_
-   5709323   __
-   5710127   __
-   5710931   PLClub_
-   5711785   OCaml_
-   5726483   Compression_
-   5733399   moment__
-   5744173   RNA_Comprez_
-   5749595   ones__
-   5757832   Fuuns_
-   5762436   IFPICFPPCFIPP_
-   5763360   __
-   5767727   IFPICFPPCCC_
-   5773766   DNA__
-   5781039   Adapter_
-   5783850   prefix_
-   5797961   Example_
-   5799274   Zone__
-   5803581   IIPIFFCPICCFPICICFPCICICIICIICIPPPCFCFCFCCCCCCCCCCCCCCCCCICIIC_
-   5805114   boolean__
-   5805987   IIPIFFCPICCFPICICFPCICICIICIICIPPPPIIC_
-   5807919   1234__
-   5808762   IIPIFFCPICCFPICICFFFIIPIFFCPICCFPICICFFFIICIICIICIPPPCFCCFCFFCCFI_
-   5810205   CCCFCFFFFFICIPPCPIIC_
-   5811888   __
-   5812692   IFPICFPPCFIPP_
-   5813616   ___
-   5866971   Unit_
-   5873527   IV__
-   5879059   risk__
-   5889119   natives__
-   5930808   OCaml_
-   5952404   Encodings_
-   5956074   ____
-   5962682   forgotten____
-   5965397   messages_
-   5967833   Set_
-   5970404   degrees_
-   5971328   circle__
-   5972192   quoted__
-   5974138   bits_
-   5980458   numbers__
-   5983054   Polygons_
-   5986633   Encoding_
-   5988430   numbers_
-   5989603   complement__
-   5990906   otherwise____
-   5992089   information__
-   6004142   MLephant_
-   6079233   FOUND_
-   6087641   L_indenmayer__Systems_
-   6091521   natural_
-   6098826   Graftals__
-   6116594   List_
-   6360873   E_T__
-   6361806   systems__
-   6364023   Vader_
-   6364946   Palpatine__
-   6367272   Heeren_
-   6368425   unsafePerformIO__
-   6386178   Alert_
-   6393561   Fuuns__
-   6406081   trip__
-   6418913   ImpDoc_
-   6426345   int24_
-   6427189   divInts_
-   6428917   x_
-   6430595   y_
-   6431399   __
-   6432412   another__
-   6433286   void_
-   6434120   drawChar_
-   6436057   fontTable_
-   6437805   c_
-   6438609   __
-   6440042   font__
-   6442578   void_
-   6443411   drawCircleFast_
-   6445209   x_
-   6446887   y_
-   6448565   r_
-   6450233   fill_
-   6451067   __
-   6451871   void_
-   6452705   drawEllipse_
-   6454473   centerX_
-   6456211   centerY_
-   6457949   rX_
-   6459637   rY_
-   6461315   fill_
-   6462149   __
-   6463092   ellipse__
-   6463966   void_
-   6464799   drawEllipseFast_
-   6466607   x_
-   6468285   y_
-   6469963   rx_
-   6471651   ry_
-   6473329   fill_
-   6474163   __
-   6474967   void_
-   6475801   drawFunction_
-   6477838   pair_
-   6479546   endx_
-   6480380   __
-   6481453   functionParabola__
-   6485841   void_
-   6486674   drawFunctionBase_
-   6488751   pair_
-   6490459   endx_
-   6492167   base_
-   6493001   __
-   6494214   _x_0___
-   6496810   void_
-   6497643   drawGradientCornerNW_
-   6499501   w_
-   6501179   h_
-   6502897   color_
-   6503741   __
-   6504545   corner__
-   6507121   void_
-   6507954   drawGradientCornerSE_
-   6509812   w_
-   6511490   h_
-   6513208   color_
-   6514052   __
-   6515773   corner__
-   6516637   3_10_
-   6557199   _2__
-   6562352   yourself__
-   6587913   Compressor_
-   6592617   loads_
-   6597430   acids__
-   6599257   searches_
-   6601284   restores_
-   6604684   Inc__
-   6607886   eval_
-   6609592   table_
-   6611588   backup_
-   6613314   data_
-   6614637   bitmaps__
-   6615710   compressor__
-   6621245   exist__
-   6655326   NCC_1701_J_
-   6657574   Palindromes_
-   6661324   ____
-   6669028   task__
-   6675153   soap__
-   6681478   place__
-   7130785   III__
-   7131808   wait____
-   7133332   __
-   7134453   __
-   7137210   285_
-   7144816   one__
-   7149070   in_
-   7150738   skirt___
-   7153464   look___
-   7157458   north___right___
-   7204647   Features_
-   7210668   shegure__
-   7218689   ubhef__
-   7228930   qrngu__
-   7237131   pbqrf__
-   7240226   ____
-   7241884   sbb_
-   7243582   one_
-   7244605   yvfg__
-   7247071   sbb_
-   7249663   one_
-   7251720   one_
-   7253657   one_
-   7254740   3___
-   7257795   npvqf__
-   7258649   ryrzragf__
-   7260496   sbb_
-   7262204   one_
-   7263872   sbb_
-   7265879   sbb_
-   7267577   one_
-   7269664   qrpelcg__
-   7271422   sbb_
-   7273090   one_
-   7273954   mreb__
-   7275781   sbb_
-   7276645   mreb__
-   7277808   255__
-   7307167   L_
+    852625 "1998_" : (     0x0,      0x0),
+    853439 "1999_" : (     0x0,      0x0),
+    854253 "2000_" : (     0x0,      0x0),
+    855067 "2001_" : (     0x0,      0x0),
+    855881 "2002_" : (     0x0,      0x0),
+    856695 "2003_" : (     0x0,      0x0),
+    857509 "2004_" : (     0x0,      0x0),
+    858323 "2005_" : (     0x0,      0x0),
+    859137 "2006_" : (     0x0,      0x0),
+    859951 "2007_" : (     0x0,      0x0),
+    861184 "law__" : (     0x0,      0x2),
+    868954 "friends_" : (     0x0,      0x2),
+    885568 "Robo_Cruiser___" : (    0x53,      0x2),
+    889515 "prize_" : (    0x49,      0x3),
+    890478 "choice_" : (    0x45,      0x2),
+    891332 "__" : (     0x0,      0x0),
+    892136 "__" : (     0x0,      0x0),
+    892939 "KiebererAndXiaoTou_" : (     0x0,      0x0),
+    893913 "Haskell_" : (     0x0,      0x0),
+    994058 "2007_" : (    0xa3,      0x2),
+   1684183 "genes_" : (    0x63,      0x3),
+   1687654 "any___" : (     0x0,      0x0),
+   1692061 "zone__" : (     0x0,      0x0),
+   1698968 "size__" : (     0x0,      0x3),
+   1701623 "environments__" : (    0x59,      0x2),
+   1707473 "selector_" : (    0x47,      0x2),
+   1709859 "extra_" : (     0x0,      0x0),
+   1712265 "1_" : (    0x62,      0x3),
+   1714740 "1_" : (    0x63,      0x2),
+   1717106 "2_" : (    0x62,      0x3),
+   1719542 "2_" : (    0x63,      0x2),
+   1721858 "____" : (     0x0,      0x0),
+   1723291 "zone__" : (    0x59,      0x2),
+   1727419 "____" : (     0x0,      0x0),
+   1729805 "payload_" : (    0x62,      0x3),
+   1732260 "payload_" : (    0x45,      0x2),
+   1734686 "rest_" : (    0x62,      0x3),
+   1737122 "zone_" : (     0x0,      0x2),
+   1743846 "1998_" : (     0x0,      0x0),
+   1744660 "1999_" : (     0x0,      0x0),
+   1745474 "2000_" : (     0x0,      0x0),
+   1746288 "2001_" : (     0x0,      0x0),
+   1747102 "2002_" : (     0x0,      0x0),
+   1747916 "2003_" : (     0x0,      0x0),
+   1748730 "2004_" : (     0x0,      0x0),
+   1749544 "2005_" : (     0x0,      0x0),
+   1750358 "2006_" : (     0x0,      0x0),
+   1751172 "2007_" : (     0x0,      0x0),
+   1752405 "law__" : (     0x0,      0x2),
+   1758697 "MIT_" : (     0x0,      0x2),
+   1764280 "program__" : (    0x53,      0x2),
+   1768167 "prize_" : (    0x49,      0x3),
+   1769130 "choice_" : (    0x45,      0x2),
+   1769984 "__" : (     0x0,      0x0),
+   1770788 "__" : (     0x0,      0x0),
+   1771791 "Team_" : (    0x64,      0x3),
+   1772625 "Cilk_" : (     0x0,      0x0),
+   2086317 "ImpDoc_" : (     0x0,      0x0),
+   2093749 "int24_" : (     0x0,      0x0),
+   2094593 "addInts_" : (     0x0,      0x0),
+   2096321 "x_" : (     0x0,      0x0),
+   2097999 "y_" : (     0x0,      0x0),
+   2098803 "__" : (     0x0,      0x0),
+   2099686 "integers__" : (     0x0,      0x3),
+   2100570 "void_" : (     0x0,      0x0),
+   2101403 "beginRelativeMode_" : (     0x0,      0x0),
+   2102367 "___" : (     0x0,      0x0),
+   2103520 "hack__" : (    0x66,      0x3),
+   2104364 "bool_" : (     0x0,      0x0),
+   2105197 "checkIntegrity_" : (     0x0,      0x0),
+   2106995 "ptr_" : (     0x0,      0x0),
+   2107819 "__" : (     0x0,      0x0),
+   2108942 "gene__" : (    0x55,      0x2),
+   2109786 "int24_" : (     0x0,      0x0),
+   2110630 "checksum_" : (     0x0,      0x0),
+   2112368 "offset_" : (     0x0,      0x0),
+   2114096 "size_" : (     0x0,      0x0),
+   2114930 "__" : (     0x0,      0x0),
+   2115794 "Zone__" : (    0x59,      0x2),
+   2118380 "void_" : (     0x0,      0x0),
+   2119214 "colorBlack_" : (     0x0,      0x0),
+   2120108 "___" : (     0x0,      0x0),
+   2121541 "bucket___" : (     0x0,      0x2),
+   2122415 "void_" : (     0x0,      0x0),
+   2123249 "colorBlue_" : (     0x0,      0x0),
+   2124133 "___" : (     0x0,      0x0),
+   2125556 "bucket___" : (     0x0,      0x2),
+   2126430 "void_" : (     0x0,      0x0),
+   2127264 "colorByIndex_" : (     0x0,      0x0),
+   2128178 "___" : (     0x0,      0x0),
+   2129321 "then__" : (     0x0,      0x2),
+   2130165 "void_" : (     0x0,      0x0),
+   2130999 "colorCyan_" : (     0x0,      0x0),
+   2131883 "___" : (     0x0,      0x0),
+   2133306 "bucket___" : (     0x0,      0x2),
+   2134180 "void_" : (     0x0,      0x0),
+   2135014 "colorGreen_" : (     0x0,      0x0),
+   2135908 "___" : (     0x0,      0x0),
+   2137341 "bucket___" : (     0x0,      0x2),
+   2138215 "1_10_" : (     0x0,      0x0),
+   2147692 "1998_" : (     0x0,      0x0),
+   2148506 "1999_" : (     0x0,      0x0),
+   2149320 "2000_" : (     0x0,      0x0),
+   2150134 "2001_" : (     0x0,      0x0),
+   2150948 "2002_" : (     0x0,      0x0),
+   2151762 "2003_" : (     0x0,      0x0),
+   2152576 "2004_" : (     0x0,      0x0),
+   2153390 "2005_" : (     0x0,      0x0),
+   2154204 "2006_" : (     0x0,      0x0),
+   2155018 "2007_" : (     0x0,      0x0),
+   2156251 "law__" : (     0x0,      0x2),
+   2161609 "University_" : (    0x45,      0x2),
+   2181343 "hours__" : (    0x55,      0x5),
+   2185210 "prize_" : (    0x49,      0x3),
+   2186173 "choice_" : (    0x45,      0x2),
+   2187027 "__" : (     0x0,      0x0),
+   2187831 "__" : (     0x0,      0x0),
+   2188635 "you__" : (     0x0,      0x0),
+   2189469 "____" : (     0x0,      0x0),
+   2285863 "Contents_" : (     0x0,      0x0),
+   2286737 "Index_" : (     0x0,      0x0),
+   2288363 "FuunDoc_" : (     0x0,      0x0),
+   2290108 "compose_adaptation_" : (     0x0,      0x0),
+   2292520 "c_" : (    0x41,      0x1),
+   2293413 "composition__" : (    0x63,      0x2),
+   2295209 "false_" : (     0x0,      0x0),
+   2297202 "Bool_" : (     0x0,      0x0),
+   2298036 "False__" : (     0x0,      0x0),
+   2299771 "goldenFish_adaptation_" : (     0x0,      0x0),
+   2301924 "PictureDescr_" : (     0x0,      0x0),
+   2302957 "description__" : (    0x46,      0x3),
+   2304753 "i_adaptation_" : (     0x0,      0x0),
+   2306866 "a_" : (    0x41,      0x1),
+   2308552 "intBox_" : (     0x0,      0x0),
+   2310645 "Int_" : (    0xb4,      0x1),
+   2311948 "branch__" : (    0x63,      0x2),
+   2313694 "k_" : (     0x0,      0x0),
+   2315747 "a_" : (    0x42,      0x1),
+   2316970 "one__" : (    0x49,      0x3),
+   2318685 "mkBeforeAbove_adaptation_" : (     0x0,      0x0),
+   2321187 "PictureDescr_" : (    0x59,      0x1),
+   2322740 "image__" : (    0x49,      0x3),
+   2324475 "mkEmp_adaptation_" : (     0x0,      0x0),
+   2326717 "PictureDescr_" : (    0x63,      0x1),
+   2328020 "height__" : (     0x0,      0x2),
+   2329765 "mkGoldfishL_adaptation_" : (     0x0,      0x0),
+   2331928 "PictureDescr_" : (     0x0,      0x0),
+   2333031 "left__" : (    0x43,      0x2),
+   2334756 "mkGoldfishR_adaptation_" : (     0x0,      0x0),
+   2336919 "PictureDescr_" : (     0x0,      0x0),
+   2338022 "right__" : (    0x43,      0x2),
+   2339757 "mkSucc_adaptation_" : (     0x0,      0x0),
+   2341940 "Nat_" : (    0x63,      0x1),
+   2342963 "argument__" : (     0x0,      0x2),
+   2345443 "FuunDoc_" : (     0x0,      0x0),
+   2346397 "0_13_" : (    0x62,      0x2),
+   2356957 "code__" : (    0x63,      0x2),
+   2370497 "1998_" : (     0x0,      0x0),
+   2371311 "1999_" : (     0x0,      0x0),
+   2372125 "2000_" : (     0x0,      0x0),
+   2372939 "2001_" : (     0x0,      0x0),
+   2373753 "2002_" : (     0x0,      0x0),
+   2374567 "2003_" : (     0x0,      0x0),
+   2375381 "2004_" : (     0x0,      0x0),
+   2376195 "2005_" : (     0x0,      0x0),
+   2377009 "2006_" : (     0x0,      0x0),
+   2377823 "2007_" : (     0x0,      0x0),
+   2379056 "law__" : (     0x0,      0x2),
+   2384334 "Chalmers_" : (    0x55,      0x0),
+   2394009 "winners__" : (     0x0,      0x0),
+   2397896 "prize_" : (    0x49,      0x3),
+   2398859 "choice_" : (    0x45,      0x2),
+   2399713 "__" : (     0x0,      0x0),
+   2400517 "__" : (     0x0,      0x0),
+   2401391 "Hudson_" : (    0x44,      0x2),
+   2402245 "C___" : (     0x0,      0x0),
+   2405630 "1998_" : (     0x0,      0x0),
+   2406444 "1999_" : (     0x0,      0x0),
+   2407258 "2000_" : (     0x0,      0x0),
+   2408072 "2001_" : (     0x0,      0x0),
+   2408886 "2002_" : (     0x0,      0x0),
+   2409700 "2003_" : (     0x0,      0x0),
+   2410514 "2004_" : (     0x0,      0x0),
+   2411328 "2005_" : (     0x0,      0x0),
+   2412142 "2006_" : (     0x0,      0x0),
+   2412956 "2007_" : (     0x0,      0x0),
+   2414189 "law__" : (     0x0,      0x2),
+   2419607 "OGI_" : (    0x63,      0x0),
+   2426071 "contest__" : (    0x54,      0x2),
+   2433972 "later___" : (    0x64,      0x2),
+   2437849 "prize_" : (    0x49,      0x3),
+   2438812 "choice_" : (    0x45,      0x2),
+   2439666 "__" : (     0x0,      0x0),
+   2440470 "__" : (     0x0,      0x0),
+   2441274 "TAPLAS_" : (     0x0,      0x0),
+   2442128 "OCaml_" : (     0x0,      0x0),
+   2454455 "222_" : (    0x62,      0x2),
+   2458004 "_Hmm__" : (     0x0,      0x0),
+   2461524 "And__" : (    0x49,      0x2),
+   2463480 "informed___" : (    0x57,      0x3),
+   2464374 "__" : (     0x0,      0x0),
+   2469417 "them___" : (    0x44,      0x3),
+   2473422 "pours___" : (     0x0,      0x2),
+   2475279 "then__" : (    0x46,      0x2),
+   2476202 "replied__" : (    0x56,      0x2),
+   2480815 "easy__" : (     0x0,      0x0),
+   2483321 "terraces___" : (     0x0,      0x2),
+   2539766 "ImpDoc_" : (     0x0,      0x0),
+   2547198 "void_" : (     0x0,      0x0),
+   2548032 "resetOrigin_" : (     0x0,      0x0),
+   2548936 "___" : (     0x0,      0x0),
+   2550368 "setOrigin__" : (    0x53,      0x3),
+   2551262 "void_" : (     0x0,      0x0),
+   2552096 "rotateColor_" : (     0x0,      0x0),
+   2553000 "___" : (     0x0,      0x0),
+   2553814 "void_" : (     0x0,      0x0),
+   2554647 "setGlobalPolarRotation_" : (     0x0,      0x0),
+   2556525 "a_" : (     0x0,      0x0),
+   2557329 "__" : (     0x0,      0x0),
+   2558522 "operations__" : (    0x56,      0x2),
+   2559426 "void_" : (     0x0,      0x0),
+   2560260 "setOrigin_" : (     0x0,      0x0),
+   2562008 "x_" : (     0x0,      0x0),
+   2563686 "y_" : (     0x0,      0x0),
+   2564490 "__" : (     0x0,      0x0),
+   2565593 "origin__" : (     0x0,      0x2),
+   2566457 "void_" : (     0x0,      0x0),
+   2567291 "spirograph_" : (     0x0,      0x0),
+   2568185 "extra_" : (     0x0,      0x0),
+   2569903 "cycles_" : (     0x0,      0x0),
+   2570757 "__" : (     0x0,      0x0),
+   2572425 "magnify_" : (     0x0,      0x0),
+   2574163 "radiusSum_" : (     0x0,      0x0),
+   2575921 "radiusMoving_" : (     0x0,      0x0),
+   2577709 "radiusSumDiv_" : (     0x0,      0x0),
+   2579956 "figure__" : (    0x63,      0x2),
+   2580820 "void_" : (     0x0,      0x0),
+   2581654 "startup_" : (     0x0,      0x0),
+   2582518 "___" : (     0x0,      0x0),
+   2583431 "point__" : (    0x55,      0x2),
+   2584285 "int24_" : (     0x0,      0x0),
+   2585129 "stringLength_" : (     0x0,      0x0),
+   2586947 "s_" : (     0x0,      0x0),
+   2587751 "__" : (     0x0,      0x0),
+   2588784 "string__" : (    0x56,      0x0),
+   2589648 "int24_" : (     0x0,      0x0),
+   2590492 "subInts_" : (     0x0,      0x0),
+   2592220 "x_" : (     0x0,      0x0),
+   2593898 "y_" : (     0x0,      0x0),
+   2594702 "__" : (     0x0,      0x0),
+   2595645 "integers__" : (     0x0,      0x3),
+   2596529 "void_" : (     0x0,      0x0),
+   2597363 "terminate_" : (     0x0,      0x0),
+   2598247 "___" : (     0x0,      0x0),
+   2599210 "suffering__" : (    0x64,      0x1),
+   2600104 "9_10_" : (     0x0,      0x0),
+   2607941 "125_" : (    0x62,      0x2),
+   2610386 "up__" : (    0x43,      0x2),
+   2618924 "with__" : (    0x44,      0x2),
+   2662485 "AAA_geneTablePageNr_" : (   0x510,     0x18),
+   2662741 "M_class_planet_" : (0x2ccd88,  0x3c7f0),
+   2662949 "__array_index_" : ( 0xc4589,     0x18),
+   2663147 "__array_value_" : ( 0xc45a1,     0x18),
+   2663345 "__bool_" : ( 0xc45e9,      0x1),
+   2663474 "__bool_2_" : ( 0xc45ea,      0x1),
+   2663623 "__funptr_" : ( 0xc45b9,     0x30),
+   2663772 "__int1_" : ( 0xc461b,      0x1),
+   2663901 "__int12_" : ( 0xc4628,      0xc),
+   2664041 "__int12_2_" : ( 0xc4634,      0xc),
+   2664201 "__int24_" : ( 0xc45eb,     0x18),
+   2664341 "__int24_2_" : ( 0xc4603,     0x18),
+   2664501 "__int3_" : ( 0xc4625,      0x3),
+   2664631 "__int48_" : ( 0xc4640,     0x30),
+   2664771 "__int9_" : ( 0xc461c,      0x9),
+   2664901 "acc1_" : ( 0xc4541,     0x18),
+   2665011 "acc2_" : ( 0xc4559,     0x18),
+   2665122 "acc3_" : ( 0xc4571,     0x18),
+   2665233 "activateAdaptationTree_" : (0x6fce9c,    0xb02),
+   2665524 "activateGene_" : (0x6fd99e,    0x273),
+   2665715 "adapter_" : (0x252fa1,    0x6db),
+   2665857 "addFunctionsCBF_" : (0x41b532,   0x16ce),
+   2666079 "addInts_" : (0x54b1ba,    0x325),
+   2666221 "alien_lifeforms_" : ( 0xee064,  0xa4e1d),
+   2666444 "anticompressant_" : (0x5580c4,   0x2b42),
+   2666666 "apple_" : (0x65f785,    0x3fb),
+   2666788 "appletree_" : (0x3c870e,   0x372b),
+   2666950 "apply1_adaptation_" : (0x711dc6,     0x48),
+   2667191 "apply2_adaptation_" : (0x719633,     0x48),
+   2667432 "babel_survey_" : (0x50599b,   0x501b),
+   2667625 "balloon_" : (0x6f31b6,   0x1a83),
+   2667767 "beginRelativeMode_" : (0x6f08a9,    0x2af),
+   2668009 "bioAdd_adaptation_" : (0x710436,    0x258),
+   2668251 "bioMorphPerturb_" : ( 0xc9229,    0x588),
+   2668473 "bioMul_adaptation_" : (0x719153,    0x498),
+   2668715 "bioSucc_adaptation_" : (0x71068e,     0xf0),
+   2668967 "bioZero_adaptation_" : (0x7103a6,     0x90),
+   2669219 "biomorph_adaptation_" : (0x717323,   0x1ce0),
+   2669481 "blueZoneStart_" : (0x7295a1,      0x0),
+   2669683 "bmu_" : ( 0xdaedb,   0x5806),
+   2669786 "bresenhamArray_" : ( 0xc886b,     0x78),
+   2669998 "bresenhamIndex_" : ( 0xc88e3,     0x18),
+   2670210 "bresenhamRadius_" : ( 0xc8853,     0x18),
+   2670432 "bridge_" : (0x6f0e03,    0xb28),
+   2670565 "bridge_close_" : (0x56426f,   0x1350),
+   2670758 "bridge_far_" : (0x44c262,   0x14f0),
+   2670931 "cachedFastCircle_" : (0x3fdd8a,   0x362e),
+   2671164 "cachedFastCorner_" : (0x544d6f,    0xeb0),
+   2671397 "cachedFastEllipse_" : (0x45e69e,   0xb1af),
+   2671640 "caravan_" : (0x5706a4,   0x1365),
+   2671783 "caravan_axis_" : (0x5a58e9,    0x67d),
+   2671976 "caravan_door_" : (0x56f483,    0x62f),
+   2672169 "caravan_frame_" : (0x6ee1ca,   0x26c7),
+   2672372 "caravan_wheel_" : (0x2abe9c,    0xd07),
+   2672575 "caravan_window1_" : (0x1ad921,    0xa62),
+   2672798 "caravan_window2_" : (0x23d82a,    0xb34),
+   2673021 "cargobox_" : (0x21edd5,   0x6022),
+   2673174 "caseNat_adaptation_" : (0x71ba1d,     0x48),
+   2673426 "casePair_adaptation_" : (0x7163ca,     0x48),
+   2673688 "casePictureDescr_adaptation_" : (0x72954c,     0x48),
+   2674030 "caseVar1_adaptation_" : (0x713860,     0x48),
+   2674292 "caseVar2_adaptation_" : (0x70d83c,     0x48),
+   2674554 "cbfArray_" : ( 0xca12a,    0x5a0),
+   2674706 "charColorCallback_" : ( 0xc86eb,     0x30),
+   2674948 "charColorCallbackFade_" : ( 0xc871b,     0x30),
+   2675231 "charCounter_" : ( 0xc8d00,     0x18),
+   2675414 "charIndexArray_" : ( 0xc8d30,    0x4b0),
+   2675627 "charIndexOffset_" : ( 0xc8d18,     0x18),
+   2676193 "charInfo_Tempus_Bold_Huge_L_" : ( 0x79ee5,    0xa96),
+   2676536 "charInfo_Tempus_Bold_Huge_M_" : ( 0x7a97b,    0xe51),
+   2676879 "checkIntegrity_" : (0x3e9f1a,    0x868),
+   2677093 "checksum_" : (0x21bcc7,    0xd15),
+   2677247 "chick_" : (0x541d0e,   0x3049),
+   2677371 "cloak_night_" : (0x652673,    0x6bf),
+   2677555 "cloak_rain_" : (0x309590,  0x3484d),
+   2677729 "closureArguments_" : ( 0xc97b2,    0x960),
+   2677962 "closureIndex_" : ( 0xca112,     0x18),
+   2678155 "cloud_" : (0x60fea4,   0x1962),
+   2678279 "clouds_" : (0x5c909f,    0xbc1),
+   2678413 "cloudy_" : ( 0xc97b1,      0x1),
+   2678547 "colorBlack_" : (0x23adf8,    0x172),
+   2678721 "colorBlue_" : (0x25f3c4,    0x172),
+   2678885 "colorByIndex_" : (0x1a4e72,    0x64a),
+   2679079 "colorCyan_" : (0x3c8584,    0x172),
+   2679243 "colorDuckBrown_" : ( 0xd92ad,    0x596),
+   2679457 "colorDuckOrange_" : (0x3c674c,    0x1f4),
+   2679681 "colorDuckYellow_" : (0x6d730d,    0x208),
+   2679905 "colorGermanyYellow_" : (0x65e3c5,    0x244),
+   2680159 "colorGreen_" : (0x35cd8d,    0x172),
+   2680333 "colorLila_" : (0x23d434,    0x3de),
+   2680497 "colorMagenta_" : (0x5c64e9,    0x172),
+   2680691 "colorRed_" : (0x3cbe51,    0x172),
+   2680845 "colorReset_" : ( 0xc86ea,      0x1),
+   2681018 "colorSoftYellow_" : (0x5c9c78,    0x2b2),
+   2681242 "colorTable_" : ( 0xc874b,     0xf0),
+   2681415 "colorWhite_" : (0x58dfcb,    0x172),
+   2681589 "compose_adaptation_" : (0x7113a4,     0x48),
+   2681842 "contest_1998_" : (0x1a5b73,   0x7d96),
+   2682036 "contest_1999_" : (0x34da12,   0xd1d3),
+   2682230 "contest_2000_" : (0x5655d7,   0x9e94),
+   2682424 "contest_2001_" : (0x54ecfa,   0x93b2),
+   2682618 "contest_2002_" : (0x24748b,   0x9bc7),
+   2682812 "contest_2003_" : (0x23eb4e,   0x8925),
+   2683006 "contest_2004_" : (0x2ad4aa,   0x935b),
+   2683200 "contest_2005_" : ( 0xcc21e,   0xae91),
+   2683394 "contest_2006_" : (0x435804,   0x95f5),
+   2683588 "contest_2007_" : (0x2084f9,   0xb052),
+   2683782 "correctErrors_" : (0x5b7bf3,   0xe8de),
+   2683986 "cosineArray_" : ( 0xc65a8,   0x1800),
+   2684169 "cow_body_" : (0x4e151b,   0x11d8),
+   2684323 "cow_head_" : (0x6d752d,   0x1234),
+   2684477 "cow_holy_" : (0x6d368f,    0x90e),
+   2684631 "cow_left_eye_" : (0x6395fd,    0xee8),
+   2684825 "cow_left_foot_" : (0x3e917e,    0xd84),
+   2685029 "cow_left_horn_" : (0x25f54e,    0x9c8),
+   2685233 "cow_middle_foot_" : (0x263b5e,    0xc80),
+   2685457 "cow_mouth_" : (0x207b0f,    0x9d2),
+   2685621 "cow_right_ear_" : (0x519eaf,    0xb38),
+   2685825 "cow_right_eye_" : (0x5a8550,    0xdb0),
+   2686029 "cow_right_foot_" : (0x239ff4,    0xdec),
+   2686243 "cow_right_horn_" : ( 0xcb990,    0x876),
+   2686457 "cow_spot_butt_" : (0x4013d0,    0xb34),
+   2686661 "cow_spot_left_" : (0x23e376,    0x7c0),
+   2686865 "cow_spot_middle_" : ( 0xd985b,    0xb34),
+   2687089 "cow_spot_middle_ecc_" : ( 0xda3a7,    0xb34),
+   2687352 "cow_spot_right_" : (0x44b85b,    0x6bc),
+   2687566 "cow_tail_" : (0x4aa77d,   0x145c),
+   2687720 "crackChars_" : ( 0xc0f1d,    0x6c0),
+   2687894 "crackKey_" : (0x5c6673,   0x2a14),
+   2688049 "crackKeyAndPrint_" : (0x6c9469,   0x1616),
+   2688284 "crackTestValue_" : ( 0xc0f05,     0x18),
+   2688498 "crater_" : (0x592c81,   0x1c97),
+   2688633 "crypt_" : (0x4d9d2e,   0x5002),
+   2688758 "curX_" : ( 0xc4670,     0x18),
+   2688872 "curY_" : ( 0xc4688,     0x18),
+   2688986 "div2_" : (0x4d9966,    0x3b0),
+   2689101 "doSelfCheck_" : (    0x58,      0x1),
+   2689285 "drawChar_" : (0x65c06a,    0x9f6),
+   2689440 "drawCircleFast_" : (0x268004,    0x965),
+   2689655 "drawCornerFast_" : (0x25e401,    0x3cf),
+   2689870 "drawEllipse_" : (0x6f1943,   0x185b),
+   2690055 "drawEllipseFast_" : (0x6d8a8c,   0x1fd1),
+   2690280 "drawFunctionBase_" : (0x45bfd1,   0x26b5),
+   2690515 "drawGoldFishL_adaptation_" : (0x7289d2,     0xf0),
+   2690829 "drawGoldFishR_adaptation_" : (0x7287f2,     0xf0),
+   2691143 "drawGoldenFish_adaptation_" : (0x71c537,    0x138),
+   2691467 "drawGradientCornerNW_" : (0x44d76a,    0xb78),
+   2691742 "drawGradientCornerSE_" : (0x591deb,    0xe7e),
+   2692017 "drawGradientH_" : (0x56faca,    0xbc2),
+   2692222 "drawGradientV_" : (0x21c9f4,    0xbd6),
+   2692427 "drawGrassPatch_" : (0x282970,   0x223b),
+   2692642 "drawHexDigit_" : (0x5324da,    0xa9a),
+   2692837 "drawIntHex_" : (0x452999,    0xf94),
+   2693012 "drawPolyline_" : (0x5a5f7e,   0x1b95),
+   2693207 "drawPolylinePolar_" : (0x65e621,   0x114c),
+   2693452 "drawRect_" : (0x21d5e2,   0x17db),
+   2693607 "drawRoundedRect_" : (0x35abfd,   0x2178),
+   2693832 "drawString_" : (0x239a6d,    0x56f),
+   2694007 "drawStringHere_" : (0x6ed9c0,    0x7f2),
+   2694222 "ducksShown_" : ( 0x33964,      0x1),
+   2694397 "duolc_" : (0x61181e,   0x1962),
+   2694521 "ellipseAngleIncr_" : ( 0xc7da8,     0x18),
+   2694755 "emptyBox_adaptation_" : (0x71cf3f,     0xf0),
+   2695019 "enableBioMorph_" : ( 0x33963,      0x1),
+   2695233 "enableBioMorph_adaptation_" : (0x71c4ef,     0x48),
+   2695557 "endRelativeMode_" : (0x2bbf0c,    0x3a7),
+   2695782 "endo_" : (0x58e155,   0x1985),
+   2695897 "endo_bottom_" : (0x3c6958,   0x1c14),
+   2696082 "endo_left_arm_" : ( 0xca6fa,   0x127e),
+   2696287 "endo_left_eye_" : ( 0xe06f9,   0x1124),
+   2696492 "endo_right_arm_" : (0x262ab6,   0x1090),
+   2696707 "endo_right_eye_" : (0x3f9b23,   0x1088),
+   2696922 "endo_top_" : (0x2cbf74,    0xdfc),
+   2697077 "endocow_" : (0x546d07,   0x449b),
+   2697222 "fadingColors_" : (0x58fc7c,    0xf14),
+   2697417 "false_" : (0x6ffa31,    0x700),
+   2697541 "fastForward_" : (0x409142,   0x515f),
+   2697726 "fastRandom_" : (0x2647f6,   0x108e),
+   2697901 "fatalError_" : (0x226492,   0x1548),
+   2698076 "flower_" : (0x224fb1,   0x14c9),
+   2698211 "flowerbed_" : (0x45acb4,   0x1305),
+   2698376 "fontCombinator_" : ( 0xc88fc,    0x404),
+   2698590 "fontTable_Bird_Ring_" : ( 0xaa059,   0x2400),
+   2698854 "fontTable_Cyperus_" : ( 0x33965,   0x2400),
+   2699098 "fontTable_Cyperus_Big_" : ( 0x566b5,   0x2400),
+   2699382 "fontTable_Cyperus_Italic_" : ( 0x44bdf,   0x2400),
+   2699696 "fontTable_Dots_" : ( 0xa1ac3,   0x2400),
+   2699910 "fontTable_Messenger_" : ( 0x94fdb,   0x2400),
+   2700174 "fontTable_Tempus_Bold_Huge_" : ( 0x77a9f,   0x2400),
+   2700508 "fontTable_Tempus_Small_" : ( 0x7b7cc,   0x2400),
+   2700802 "fontTable_Tempus_Small_Italic_" : ( 0x88b2d,   0x2400),
+   2701166 "fpForward_" : (0x1af076,   0x10cc),
+   2701331 "fpForwardPenUp_" : (0x545c37,   0x10b8),
+   2701546 "fpMoveAbsolute_" : (0x5a9318,    0x4a8),
+   2701761 "fpPop_" : (0x4a9798,    0xc74),
+   2701886 "fpPush_" : (0x6daa75,    0x853),
+   2702021 "fpTurnLeft_" : ( 0xedcfb,    0x351),
+   2702196 "fpTurnRight_" : (0x6f0b70,    0x27b),
+   2702381 "fri_" : ( 0xc7dd8,      0x9),
+   2702485 "frj_" : ( 0xc7de1,      0x9),
+   2702589 "fromNat_adaptation_" : (0x71aaf1,     0x48),
+   2702843 "frs_" : ( 0xc7dea,    0x900),
+   2702947 "fstP_adaptation_" : (0x7107de,     0x48),
+   2703171 "functionAdd_" : (0x434308,   0x14e4),
+   2703356 "functionParabola_" : (0x5a7b2b,    0xa0d),
+   2703591 "functionSine_" : (0x1ae39b,    0xcc3),
+   2703786 "fuundoc1_" : (0x3d67ae,  0x129b8),
+   2703941 "fuundoc2_" : (0x2279f2,  0x12063),
+   2704096 "fuundoc3_" : (0x40ee09,   0xbccc),
+   2704251 "ge_" : (0x35cf17,   0x47d2),
+   2704346 "germanColors_" : (0x2677de,    0x80e),
+   2704541 "giveMeAPresent_" : (    0x5d,    0x480),
+   2704755 "goldenFish_adaptation_" : (0x71c66f,    0x8d0),
+   2705039 "goldfishLeft_" : (0x2812c9,    0xc78),
+   2705234 "goldfishRight_" : (0x40e2b9,    0xb38),
+   2705439 "goodVibrations_" : (   0x501,      0x9),
+   2705653 "grass_" : (0x25da00,    0x9e9),
+   2705778 "grass1_" : (0x532f8c,    0xc72),
+   2705913 "grass2_" : (0x4a8b3f,    0xc41),
+   2706048 "grass3_" : (0x23af82,    0xd62),
+   2706183 "grass4_" : (0x3fd02f,    0xd43),
+   2706318 "greenZoneStart_" : (     0x0,      0x0),
+   2706532 "height_adaptation_" : (0x726636,     0x48),
+   2706776 "help_activating_genes_" : (0x2bc2cb,   0xc0eb),
+   2707061 "help_adaptive_genes_" : (0x197686,   0xd7d4),
+   2707326 "help_background_" : (0x590ba8,   0x122b),
+   2707551 "help_background__" : (0x44e2fa,   0x1e83),
+   2707786 "help_beautiful_numbers_" : ( 0xe5d10,   0x7e2d),
+   2708081 "help_beautiful_numbers_purchase_code_" : ( 0x33933,     0x18),
+   2708515 "help_catalog_page_" : (0x533c16,   0x8e94),
+   2708760 "help_compression_rna_" : (0x572530,   0x79e5),
+   2709035 "help_encodings_" : (0x5a97d8,   0xaa8d),
+   2709250 "help_error_correcting_codes_" : (0x42ccf3,   0x6ed8),
+   2709595 "help_error_correcting_codes_purchase_code_" : ( 0x33903,     0x18),
+   2710079 "help_fuun_security_" : (0x6db2e0,  0x126c8),
+   2710334 "help_fuun_structure_" : (0x401f1c,   0x720e),
+   2710599 "help_initial_cond_" : (0x4abbf1,   0x97f2),
+   2710844 "help_integer_encoding_" : (0x43f9ce,   0x4aac),
+   2711119 "_help_intro_" : (     0x0,     0x6c),
+   2711304 "help_lsystems_" : (0x5ca81e,   0x6ffd),
+   2711509 "help_palindromes_" : (0x655a6a,   0x65e8),
+   2711745 "help_patching_dna_" : (0x579f2d,   0xe2e7),
+   2711990 "help_steganography_" : (0x469865,  0x3f2c2),
+   2712246 "help_undocumented_rna_" : (0x2b681d,   0x56d7),
+   2712531 "help_virus_" : (0x613180,   0x78e9),
+   2712706 "help_vmu_" : (0x594930,   0x6b41),
+   2712861 "helpScreen_" : (   0x4e4,     0x18),
+   2713035 "hillsEnabled_" : ( 0x3346a,      0x1),
+   2713230 "hitWithTheClueStick_" : (   0x528,  0x32f3c),
+   2713494 "i_adaptation_" : (0x716e41,     0x48),
+   2713688 "impdoc_background_" : (0x6d690c,    0x9e9),
+   2713933 "impdoc1_" : (0x1f9e38,   0xcee7),
+   2714078 "impdoc10_" : (0x4ded48,   0x173b),
+   2714233 "impdoc2_" : (0x4f2c6f,   0xeb39),
+   2714378 "impdoc3_" : (0x61ba6c,  0x181e9),
+   2714523 "impdoc4_" : (0x4b53fb,  0x178eb),
+   2714669 "impdoc5_" : (0x50b88b,   0xe60c),
+   2714815 "impdoc6_" : (0x4e345c,   0xf7fb),
+   2714961 "impdoc7_" : (0x41e665,   0xe676),
+   2715107 "impdoc8_" : (0x33ddf5,   0xfc05),
+   2715253 "impdoc9_" : (0x268981,   0xefdf),
+   2715399 "init_" : (0x23ca0e,    0xa0e),
+   2715515 "initDone_" : ( 0xc88fb,      0x1),
+   2715670 "initFastRandom_" : (0x451146,   0x183b),
+   2715886 "intBox_" : (0x6fc928,    0x574),
+   2716021 "k_" : (0x6ff34f,    0x6e2),
+   2716106 "lambda_id_" : (0x4d730e,   0x2640),
+   2716272 "lightningBolt_" : (0x41af00,    0x61a),
+   2716478 "lindenmayerAngle_" : ( 0xca6ca,     0x18),
+   2716713 "lindenmayerDistance_" : ( 0xca6e2,     0x18),
+   2716978 "lsystem_kochisland_" : (0x50a9ce,    0xea5),
+   2717234 "lsystem_kochisland_F_" : (0x192e99,   0x47d5),
+   2717510 "lsystem_kochisland_f_" : (0x5b6aa6,   0x1135),
+   2717786 "lsystem_sierpinski_" : (0x4aa424,    0x341),
+   2718042 "lsystem_sierpinski_l_" : (0x54df69,    0xd79),
+   2718318 "lsystem_sierpinski_r_" : (0x277978,    0xd79),
+   2718594 "lsystem_weed_" : (0x65fb98,    0x341),
+   2718790 "lsystem_weed_F_" : (0x25ff2e,   0x2b70),
+   2719006 "lt_" : (0x53cac2,   0x47d1),
+   2719102 "main_" : (0x63a4fd,  0x1303b),
+   2719218 "majorimp_background_" : (0x6f8481,   0x1968),
+   2719485 "majorimp_episode1_" : (0x444492,   0x73b1),
+   2719732 "majorimp_episode125_" : (0x278e22,   0x61bc),
+   2719999 "majorimp_episode126_" : (0x3cbfdb,   0x7b8e),
+   2720266 "majorimp_episode2_" : (0x55ac1e,   0x9639),
+   2720513 "majorimp_episode222_" : (0x253694,   0x95f5),
+   2720780 "majorimp_episode285_" : (0x6caa97,   0x8be0),
+   2721047 "majorimp_episode496_" : (0x453c7d,   0x701f),
+   2721314 "makeDarkness_" : (0x6d8779,    0x2fb),
+   2721510 "max_" : (0x1a54d4,    0x687),
+   2721616 "mkAbove_adaptation_" : (0x71e2dc,     0x48),
+   2721871 "mkBeforeAbove_adaptation_" : (0x71e36c,     0x48),
+   2722186 "mkEmp_adaptation_" : (0x71e324,     0x48),
+   2722421 "mkGoldfishL_adaptation_" : (0x71e294,     0x48),
+   2722716 "mkGoldfishR_adaptation_" : (0x71e24c,     0x48),
+   2723011 "mkPair_adaptation_" : (0x71aaa9,     0x48),
+   2723256 "mkSucc_adaptation_" : (0x71910b,     0x48),
+   2723501 "mkZero_adaptation_" : (0x7195eb,     0x48),
+   2723746 "mlephant_" : (0x5b427d,   0x2811),
+   2723902 "modInts_" : (0x633c6d,   0x5978),
+   2724048 "moon_" : (0x3fabc3,    0x984),
+   2724164 "most_wanted_" : (0x5d1833,  0x3e659),
+   2724350 "motherDuck_" : (0x2c8aff,   0x345d),
+   2724526 "motherDuckWithChicks_" : (0x25cca1,    0xd47),
+   2724802 "moveTo_" : (0x5412ab,    0xa4b),
+   2724938 "moveToPolar_" : (0x251ba8,   0x13e1),
+   2725124 "mulInts_" : ( 0xe1835,   0x44c3),
+   2725270 "mulModInts_" : (0x5017c0,   0x41c3),
+   2725446 "negateInt_" : (0x44bf2f,    0x31b),
+   2725612 "night_or_day_" : (   0x50f,      0x1),
+   2725807 "ocaml_" : (0x59b489,   0xa448),
+   2725933 "ocamlrules_" : ( 0xc9228,      0x1),
+   2726108 "originStackIndex_" : ( 0xc46a0,     0x18),
+   2726343 "originStackX_" : ( 0xc46b8,    0x1e0),
+   2726538 "originStackY_" : ( 0xc4898,    0x1e0),
+   2726733 "parabolaCBF_" : (0x281f59,    0x9ff),
+   2726919 "payloadBioMorph_" : (0x43ee11,    0x30b),
+   2727145 "payloadBioMorph_adaptation_" : (0x71ba65,     0x48),
+   2727480 "pear_" : (0x278709,    0x701),
+   2727596 "peartree_" : (0x58822c,   0x372b),
+   2727752 "pictureDescrRenderer_adaptation_" : (0x71e3b4,     0x48),
+   2728137 "polarAngleIncr_" : ( 0xc91e0,     0x18),
+   2728352 "printCharSet_" : (0x54b4f7,   0x2a5a),
+   2728548 "printGeneTable_" : (0x284bc3,  0x272c1),
+   2728764 "randomInt_" : (0x2acbbb,    0x8d7),
+   2728930 "resetOrigin_" : (0x52df43,    0x834),
+   2729116 "resetOrigin_adaptation_" : (0x7288e2,     0xf0),
+   2729411 "river_" : (0x450195,    0xf99),
+   2729537 "rotateColorVar_" : ( 0xc883b,     0x18),
+   2729752 "s_adaptation_" : (0x716412,     0x48),
+   2729947 "scenario_" : (0x4cccfe,   0xa5f8),
+   2730103 "seed_" : ( 0xc7dc0,     0x18),
+   2730208 "_selfCheck_" : (     0x0,     0xcc),
+   2730385 "setFastCircleArray_" : (0x65ca78,   0x1935),
+   2730641 "setGlobalPolarRotation_" : ( 0xedb55,    0x18e),
+   2730937 "setOrigin_" : (0x571a21,    0xaf7),
+   2731103 "setOrigin_adaptation_" : (0x728ac2,     0x48),
+   2731378 "shoutOut_" : ( 0xc15dd,   0x2f64),
+   2731534 "sineArray_" : ( 0xc4da8,   0x1800),
+   2731699 "sineCBF_" : (0x4e049b,   0x1068),
+   2731845 "sky_" : (0x58b96f,   0x1325),
+   2731951 "sky_day_" : (0x2c83ce,    0x719),
+   2732097 "sky_day_bodies_" : (0x6f9e01,    0xba3),
+   2732313 "sky_night_" : (0x61aa81,    0xfd3),
+   2732479 "sky_night_bodies_" : (0x4e270b,    0xd39),
+   2732715 "sky_waves_" : (0x3fb55f,   0x1ab8),
+   2732881 "smoke_" : ( 0xd70c7,   0x21ce),
+   2733007 "sndP_adaptation_" : (0x712c9a,     0x48),
+   2733232 "spirograph_" : (0x6f4c51,   0x2a79),
+   2733408 "star_" : (0x6f76e2,    0xd87),
+   2733524 "sticky_" : (0x1b015a,  0x49cc6),
+   2733661 "stringLength_" : (0x21b66f,    0x640),
+   2733857 "subInts_" : (0x41aaed,    0x3fb),
+   2734003 "sun_" : (0x206d37,    0x6e0),
+   2734109 "sunflower_" : (0x20742f,    0x6e0),
+   2734274 "superDuck_" : (0x52e78f,   0x3d33),
+   2734440 "surfaceTransform_" : (0x6d3fb5,   0x293f),
+   2734676 "terminate_" : (0x224e0f,    0x18a),
+   2734842 "threeFish_adaptation_" : (0x71d02f,     0x48),
+   2735117 "tmpCurX_" : ( 0xc91f8,     0x18),
+   2735262 "tmpCurY_" : ( 0xc9210,     0x18),
+   2735407 "transmission_buffer_" : (0x3ea79a,   0xf371),
+   2735674 "true_" : (0x700131,    0x6e2),
+   2735789 "tulip_" : (0x27eff6,   0x22bb),
+   2735915 "tulips_" : (0x3d3b81,   0x2c15),
+   2736051 "turtleFPX_" : ( 0xc4a78,     0x18),
+   2736216 "turtleFPY_" : ( 0xc4a90,     0x18),
+   2736381 "turtleHeading_" : ( 0xc4aa8,     0x18),
+   2736586 "turtleStackFPX_" : ( 0xc4ad8,     0xf0),
+   2736801 "turtleStackFPY_" : ( 0xc4bc8,     0xf0),
+   2737016 "turtleStackHeading_" : ( 0xc4cb8,     0xf0),
+   2737271 "turtleStackIndex_" : ( 0xc4ac0,     0x18),
+   2737506 "ufo_" : (0x652d4a,   0x2d08),
+   2737612 "ufo_bottom_" : (0x43f134,    0x882),
+   2737788 "ufo_cup_" : (0x25106a,    0xb26),
+   2737934 "ufo_frame_" : (0x25e7e8,    0xbc4),
+   2738100 "ufo_left_foot_" : (0x65fef1,    0x8de),
+   2738306 "ufo_middle_foot_" : (0x3c6010,    0x724),
+   2738532 "ufo_right_foot_" : (0x5c9f42,    0x8c4),
+   2738748 "ufo_with_smoke_" : (0x433be3,    0x70d),
+   2738964 "useColorTable_" : (0x41cc18,   0x1a35),
+   2739170 "var1_adaptation_" : (0x71077e,     0x60),
+   2739395 "var2_adaptation_" : (0x712c3a,     0x60),
+   2739620 "vmu_" : (0x23bcfc,    0xcfa),
+   2739726 "vmu_code_" : (0x213563,   0x80f4),
+   2739882 "vmu_code_purchase_code_" : ( 0x3391b,     0x18),
+   2740177 "vmuMode_" : ( 0x3346b,     0x18),
+   2740322 "vmuRegCode_" : ( 0x33483,    0x480),
+   2740497 "void_" : (0x6fa9bc,    0x273),
+   2740612 "water_" : (0x52d361,    0xbca),
+   2740738 "weather_" : ( 0x3394b,     0x18),
+   2740883 "weeds_" : (0x64d550,   0x510b),
+   2741009 "whale_" : (0x26589c,   0x1f2a),
+   2741135 "width_adaptation_" : (0x723817,     0x48),
+   2741370 "windmill_" : (0x51a9ff,  0x1294a),
+   2741526 "wrapAdd_adaptation_" : (0x7286ea,    0x108),
+   2741781 "wrapImp_" : (0x6fea1f,    0x3fd),
+   2741926 "wrapMax_adaptation_" : (0x72652e,    0x108),
+   2742181 "wrapSub_adaptation_" : (0x719003,    0x108),
+   2744598 "IFPICFPPCFFPP_" : (    0x63,      0x2),
+   2746891 "14_" : (    0x63,      0x2),
+   2804135 "____" : (    0x95,      0x4),
+   2808856 "PASS_" : (     0x0,      0x0),
+   2809772 "FAIL_" : (     0x0,      0x0),
+   2811896 "encryption__" : (    0x55,      0x2),
+   2813671 "disabled_" : (     0x0,      0x0),
+   2814373 "__" : (     0x0,      0x0),
+   2823453 "1998_" : (     0x0,      0x0),
+   2824267 "1999_" : (     0x0,      0x0),
+   2825081 "2000_" : (     0x0,      0x0),
+   2825895 "2001_" : (     0x0,      0x0),
+   2826709 "2002_" : (     0x0,      0x0),
+   2827523 "2003_" : (     0x0,      0x0),
+   2828337 "2004_" : (     0x0,      0x0),
+   2829151 "2005_" : (     0x0,      0x0),
+   2829965 "2006_" : (     0x0,      0x0),
+   2830779 "2007_" : (     0x0,      0x0),
+   2832012 "law__" : (     0x0,      0x2),
+   2837380 "Penn_" : (    0x63,      0x0),
+   2849520 "purpose__" : (    0x63,      0x2),
+   2853407 "prize_" : (    0x49,      0x3),
+   2854370 "choice_" : (    0x45,      0x2),
+   2855224 "__" : (     0x0,      0x0),
+   2856028 "__" : (     0x0,      0x0),
+   2856831 "Dunkosmiloolump_" : (     0x0,      0x0),
+   2857775 "Haskell_" : (     0x0,      0x0),
+   2860122 "RNA_" : (    0x55,      0x2),
+   2863742 "____" : (     0x0,      0x4),
+   2866158 "observed__" : (    0x42,      0x2),
+   2868773 "code_" : (     0x0,      0x4),
+   2871279 "morphing__" : (     0x0,      0x2),
+   2873556 "CFPICFP_" : (     0x0,      0x0),
+   2874599 "though__" : (    0x56,      0x3),
+   2878567 "done__" : (    0x62,      0x2),
+   3413354 "ImpDoc_" : (     0x0,      0x0),
+   3420144 "int24_" : (     0x0,      0x0),
+   3420988 "max_" : (     0x0,      0x0),
+   3422676 "x_" : (     0x0,      0x0),
+   3424354 "y_" : (     0x0,      0x0),
+   3425158 "__" : (     0x0,      0x0),
+   3426211 "integers__" : (     0x0,      0x3),
+   3427095 "int24_" : (     0x0,      0x0),
+   3427939 "modInts_" : (     0x0,      0x0),
+   3429667 "x_" : (     0x0,      0x0),
+   3431345 "y_" : (     0x0,      0x0),
+   3432149 "__" : (     0x0,      0x0),
+   3433402 "integers__" : (     0x0,      0x3),
+   3434286 "void_" : (     0x0,      0x0),
+   3435120 "moveTo_" : (     0x0,      0x0),
+   3436838 "x_" : (     0x0,      0x0),
+   3438516 "y_" : (     0x0,      0x0),
+   3439320 "__" : (     0x0,      0x0),
+   3440613 "origin__" : (    0x59,      0x2),
+   3441477 "void_" : (     0x0,      0x0),
+   3442311 "moveToPolar_" : (     0x0,      0x0),
+   3444079 "angle_" : (     0x0,      0x0),
+   3445797 "dist_" : (     0x0,      0x0),
+   3446631 "__" : (     0x0,      0x0),
+   3448054 "origin__" : (     0x0,      0x2),
+   3448918 "int24_" : (     0x0,      0x0),
+   3449762 "mulInts_" : (     0x0,      0x0),
+   3451490 "x_" : (     0x0,      0x0),
+   3453168 "y_" : (     0x0,      0x0),
+   3453972 "__" : (     0x0,      0x0),
+   3454905 "integers__" : (     0x0,      0x3),
+   3455789 "int24_" : (     0x0,      0x0),
+   3456633 "negateInt_" : (     0x0,      0x0),
+   3458381 "x_" : (     0x0,      0x0),
+   3459185 "__" : (     0x0,      0x0),
+   3460248 "integer__" : (    0x46,      0x2),
+   3461122 "void_" : (     0x0,      0x0),
+   3461955 "printGeneTable_" : (     0x0,      0x0),
+   3463742 "integrityCheck_" : (     0x0,      0x0),
+   3464676 "__" : (     0x0,      0x0),
+   3467331 "finish__" : (    0x63,      0x3),
+   3469957 "int24_" : (     0x0,      0x0),
+   3470801 "randomInt_" : (     0x0,      0x0),
+   3472549 "x_" : (     0x0,      0x0),
+   3473353 "__" : (     0x0,      0x0),
+   3474226 "generator__" : (    0x54,      0x2),
+   3476802 "8_10_" : (     0x0,      0x0),
+   3480197 "1998_" : (     0x0,      0x0),
+   3481011 "1999_" : (     0x0,      0x0),
+   3481825 "2000_" : (     0x0,      0x0),
+   3482639 "2001_" : (     0x0,      0x0),
+   3483453 "2002_" : (     0x0,      0x0),
+   3484267 "2003_" : (     0x0,      0x0),
+   3485081 "2004_" : (     0x0,      0x0),
+   3485895 "2005_" : (     0x0,      0x0),
+   3486709 "2006_" : (     0x0,      0x0),
+   3487523 "2007_" : (     0x0,      0x0),
+   3488756 "law__" : (     0x0,      0x2),
+   3495118 "Virginia_" : (     0x0,      0x2),
+   3507400 "with__" : (    0x59,      0x2),
+   3522325 "profits__" : (    0x49,      0x3),
+   3526212 "prize_" : (    0x49,      0x3),
+   3527175 "choice_" : (    0x45,      0x2),
+   3528029 "__" : (     0x0,      0x0),
+   3528833 "__" : (     0x0,      0x0),
+   3529697 "R_Us_" : (    0x41,      0x2),
+   3530531 "OCaml_" : (     0x0,      0x0),
+   3996926 "126_" : (    0x62,      0x2),
+   4004574 "know___" : (     0x0,      0x2),
+   4006580 "commute___" : (     0x0,      0x2),
+   4050659 "Contents_" : (     0x0,      0x0),
+   4051533 "Index_" : (     0x0,      0x0),
+   4053159 "FuunDoc_" : (     0x0,      0x0),
+   4054904 "activateAdaptationTree_" : (     0x0,      0x0),
+   4055918 "zone__" : (     0x0,      0x0),
+   4059396 "activateGene_" : (     0x0,      0x0),
+   4061168 "zone__" : (    0x42,      0x3),
+   4062893 "apply1_adaptation_" : (     0x0,      0x0),
+   4065205 "BioNat_" : (    0x63,      0x1),
+   4066358 "value__" : (    0x63,      0x2),
+   4069805 "apply2_adaptation_" : (     0x0,      0x0),
+   4072217 "BioNat_" : (    0x63,      0x1),
+   4073779 "value__" : (    0x63,      0x2),
+   4077216 "bioAdd_adaptation_" : (     0x0,      0x0),
+   4079329 "BioNat_" : (     0x0,      0x0),
+   4080522 "variable2__" : (     0x0,      0x2),
+   4082297 "bioMul_adaptation_" : (     0x0,      0x0),
+   4084410 "BioNat_" : (     0x0,      0x0),
+   4085643 "variable2__" : (     0x0,      0x2),
+   4087418 "bioSucc_adaptation_" : (     0x0,      0x0),
+   4089541 "BioNat_" : (     0x0,      0x0),
+   4090924 "incremented__" : (    0x62,      0x2),
+   4092719 "bioZero_adaptation_" : (     0x0,      0x0),
+   4094842 "BioNat_" : (     0x0,      0x0),
+   4095895 "zero__" : (    0x64,      0x2),
+   4097620 "caseVar1_adaptation_" : (     0x0,      0x0),
+   4099952 "BioNat_" : (    0x63,      0x1),
+   4101265 "alternative__" : (    0x64,      0x2),
+   4106543 "caseVar2_adaptation_" : (     0x0,      0x0),
+   4108875 "BioNat_" : (    0x63,      0x1),
+   4110138 "variable2__" : (     0x0,      0x2),
+   4112628 "FuunDoc_" : (     0x0,      0x0),
+   4113582 "0_13_" : (    0x62,      0x2),
+   4121156 "____" : (    0xb9,      0x5),
+   4122329 "____" : (    0x43,      0x2),
+   4123312 "____" : (    0x47,      0x3),
+   4178238 "10_" : (    0xb1,      0x3),
+   4179291 "elements_" : (    0x62,      0x2),
+   4180394 "formulas_" : (     0x0,      0x4),
+   4181597 "____" : (    0x62,      0x2),
+   4217779 "Genome_" : (    0x86,      0x3),
+   4221419 "____" : (    0x95,      0x4),
+   4222303 "also__" : (    0x48,      0x2),
+   4226412 "size__" : (     0x0,      0x3),
+   4229218 "next__" : (    0x56,      0x2),
+   4231934 "parts__" : (    0x48,      0x2),
+   4236083 "engineering____" : (    0x45,      0x3),
+   4239902 "RED_" : (     0x0,      0x0),
+   4242238 "GREEN_" : (     0x0,      0x0),
+   4244594 "BLUE_" : (     0x0,      0x0),
+   4281662 "Contents_" : (     0x0,      0x0),
+   4282536 "Index_" : (     0x0,      0x0),
+   4284162 "FuunDoc_" : (     0x0,      0x0),
+   4285907 "mkZero_adaptation_" : (     0x0,      0x0),
+   4288020 "Nat_" : (     0x0,      0x0),
+   4288844 "Zero__" : (     0x0,      0x0),
+   4290569 "pictureDescrRenderer_adaptation_" : (     0x0,      0x0),
+   4293121 "RNAAction_" : (    0x63,      0x1),
+   4294414 "coordinate__" : (    0x49,      0x2),
+   4296200 "s_adaptation_" : (     0x0,      0x0),
+   4298602 "c_" : (    0x41,      0x1),
+   4300288 "true_" : (     0x0,      0x0),
+   4302271 "Bool_" : (     0x0,      0x0),
+   4303105 "True__" : (     0x0,      0x0),
+   4304830 "var1_adaptation_" : (     0x0,      0x0),
+   4306923 "BioNat_" : (     0x0,      0x0),
+   4308156 "variable1__" : (    0x62,      0x2),
+   4309931 "var2_adaptation_" : (     0x0,      0x0),
+   4312024 "BioNat_" : (     0x0,      0x0),
+   4313257 "variable2__" : (    0x62,      0x2),
+   4315747 "FuunDoc_" : (     0x0,      0x0),
+   4316701 "0_13_" : (    0x62,      0x2),
+   4333018 "ImpDoc_" : (     0x0,      0x0),
+   4340450 "bool_" : (     0x0,      0x0),
+   4341284 "ge_" : (     0x0,      0x0),
+   4342962 "x_" : (     0x0,      0x0),
+   4344640 "y_" : (     0x0,      0x0),
+   4345444 "__" : (     0x0,      0x0),
+   4346707 "y__" : (    0x53,      0x3),
+   4347521 "int24_" : (     0x0,      0x0),
+   4348365 "incInt_" : (     0x0,      0x0),
+   4350083 "x_" : (     0x0,      0x0),
+   4350887 "__" : (     0x0,      0x0),
+   4351930 "one__" : (    0x59,      0x2),
+   4352764 "void_" : (     0x0,      0x0),
+   4353598 "init_" : (     0x0,      0x0),
+   4354432 "___" : (     0x0,      0x0),
+   4355246 "length__" : (     0x0,      0x0),
+   4357842 "void_" : (     0x0,      0x0),
+   4358675 "initFastRandom_" : (     0x0,      0x0),
+   4360513 "key_" : (     0x0,      0x0),
+   4361337 "__" : (     0x0,      0x0),
+   4362550 "generator__" : (    0x54,      0x2),
+   4363444 "void_" : (     0x0,      0x0),
+   4364277 "lsystem_kochisland_" : (     0x0,      0x0),
+   4366115 "depth_" : (     0x0,      0x0),
+   4366959 "__" : (     0x0,      0x0),
+   4368292 "lakes__" : (     0x0,      0x2),
+   4369146 "void_" : (     0x0,      0x0),
+   4369979 "lsystem_sierpinski_" : (     0x0,      0x0),
+   4371817 "depth_" : (     0x0,      0x0),
+   4372661 "__" : (     0x0,      0x0),
+   4373854 "gasket__" : (    0x55,      0x2),
+   4374718 "void_" : (     0x0,      0x0),
+   4375552 "lsystem_weed_" : (     0x0,      0x0),
+   4377330 "depth_" : (     0x0,      0x0),
+   4378174 "__" : (     0x0,      0x0),
+   4379427 "structures__" : (    0x48,      0x2),
+   4380331 "bool_" : (     0x0,      0x0),
+   4381165 "lt_" : (     0x0,      0x0),
+   4382843 "x_" : (     0x0,      0x0),
+   4384521 "y_" : (     0x0,      0x0),
+   4385325 "__" : (     0x0,      0x0),
+   4386438 "y__" : (    0x63,      0x2),
+   4387252 "void_" : (     0x0,      0x0),
+   4388086 "makeDarkness_" : (     0x0,      0x0),
+   4389000 "___" : (     0x0,      0x0),
+   4390063 "darkness__" : (    0x44,      0x2),
+   4390947 "7_10_" : (     0x0,      0x0),
+   4429943 "1998_" : (     0x0,      0x0),
+   4430757 "1999_" : (     0x0,      0x0),
+   4431571 "2000_" : (     0x0,      0x0),
+   4432385 "2001_" : (     0x0,      0x0),
+   4433199 "2002_" : (     0x0,      0x0),
+   4434013 "2003_" : (     0x0,      0x0),
+   4434827 "2004_" : (     0x0,      0x0),
+   4435641 "2005_" : (     0x0,      0x0),
+   4436455 "2006_" : (     0x0,      0x0),
+   4437269 "2007_" : (     0x0,      0x0),
+   4438502 "law__" : (     0x0,      0x2),
+   4443990 "University_" : (    0x53,      0x2),
+   4452545 "BC__" : (     0x0,      0x5),
+   4456735 "computer__" : (    0x49,      0x2),
+   4460632 "prize_" : (    0x49,      0x3),
+   4461595 "choice_" : (    0x45,      0x2),
+   4462449 "__" : (     0x0,      0x0),
+   4463253 "__" : (     0x0,      0x0),
+   4464107 "Smartass_" : (    0xa3,      0x2),
+   4464981 "2D_" : (     0x0,      0x0),
+   4472595 "navigation_" : (    0x64,      0x2),
+   4473768 "page__" : (    0x64,      0x2),
+   4477827 "integers_" : (    0x20,      0x2),
+   4478781 "b_n_" : (     0x0,      0x0),
+   4480044 "set_" : (    0x63,      0x2),
+   4480947 "otherwise_" : (     0x0,      0x0),
+   4481960 "index_" : (    0x57,      0x2),
+   4482804 "1337_" : (     0x0,      0x0),
+   4483697 "navigating__" : (    0x41,      0x2),
+   4484600 "_blink_WARNING__blink__" : (     0x0,      0x0),
+   4485743 "occur__" : (     0x0,      0x2),
+   4489653 "1_" : (    0x62,      0x2),
+   4496327 "volunteer_____" : (    0x55,      0x3),
+   4497261 "_call_cc__" : (     0x0,      0x0),
+   4505079 "wouldn_t__" : (    0x44,      0x2),
+   4512778 "_ENTER__" : (     0x0,      0x0),
+   4553120 "496_" : (    0x62,      0x2),
+   4555925 "monad__" : (    0x49,      0x0),
+   4558671 "circumstances__" : (    0x59,      0x2),
+   4564767 "bricks__" : (    0x53,      0x2),
+   4565850 "disguise___" : (    0x2b,      0x2),
+   4641825 "Steganography_" : (     0x0,      0x0),
+   4645495 "pictures_" : (    0x62,      0x2),
+   4650628 "right__" : (     0x0,      0x0),
+   4913258 "conditions_" : (    0x63,      0x2),
+   4917218 "Inc__" : (    0xa3,      0x2),
+   4918331 "License_" : (    0x64,      0x2),
+   4919694 "planets__" : (    0x56,      0x2),
+   4921157 "programmer_" : (    0x49,      0x3),
+   4922270 "Flatulent_" : (     0x0,      0x2),
+   4923323 "False_" : (    0x57,      0x0),
+   4924396 "Nat_" : (    0xa2,      0x2),
+   4925489 "Nat_" : (    0x1d,      0x1),
+   4926852 "variables__" : (     0x0,      0x3),
+   4928959 "Nat_" : (     0x0,      0x0),
+   4929783 "__" : (     0x0,      0x0),
+   4931411 "variable1_" : (     0x0,      0x0),
+   4933139 "variable2_" : (     0x0,      0x0),
+   4934996 "Nat_" : (     0x0,      0x0),
+   4935820 "__" : (     0x0,      0x0),
+   4937746 "adaptations_" : (    0x47,      0x2),
+   4939534 "BioNat_" : (     0x0,      0x0),
+   4940398 "where_" : (     0x0,      0x0),
+   4941441 "Zero_" : (     0x0,      0x0),
+   4942584 "fixed___" : (    0x63,      0x2),
+   4943797 "y__" : (    0x44,      0x0),
+   4944810 "y_" : (     0x0,      0x0),
+   4946093 "recitations__" : (    0x57,      0x2),
+   4948480 "___" : (     0x0,      0x0),
+   4949743 "conditions_" : (    0x63,      0x2),
+   4950896 "ImpDoc_" : (     0x0,      0x0),
+   4958328 "void_" : (     0x0,      0x0),
+   4959162 "drawGradientH_" : (     0x0,      0x0),
+   4960950 "w_" : (     0x0,      0x0),
+   4962628 "h_" : (     0x0,      0x0),
+   4964346 "color_" : (     0x0,      0x0),
+   4965190 "__" : (     0x0,      0x0),
+   4966433 "lines__" : (    0x55,      0x2),
+   4967287 "void_" : (     0x0,      0x0),
+   4968121 "drawGradientV_" : (     0x0,      0x0),
+   4969909 "w_" : (     0x0,      0x0),
+   4971587 "h_" : (     0x0,      0x0),
+   4973305 "color_" : (     0x0,      0x0),
+   4974149 "__" : (     0x0,      0x0),
+   4975372 "lines__" : (    0x49,      0x2),
+   4976226 "void_" : (     0x0,      0x0),
+   4977060 "drawHexDigit_" : (     0x0,      0x0),
+   4979037 "fontTable_" : (     0x0,      0x0),
+   4980795 "d_" : (     0x0,      0x0),
+   4981599 "__" : (     0x0,      0x0),
+   4982592 "digit__" : (    0x49,      0x2),
+   4983446 "void_" : (     0x0,      0x0),
+   4984280 "drawInt_" : (     0x0,      0x0),
+   4986207 "fontTable_" : (     0x0,      0x0),
+   4987965 "x_" : (     0x0,      0x0),
+   4988769 "__" : (     0x0,      0x0),
+   4989962 "Earthdwellers__" : (    0x45,      0x3),
+   4990896 "void_" : (     0x0,      0x0),
+   4991730 "drawIntHex_" : (     0x0,      0x0),
+   4993687 "fontTable_" : (     0x0,      0x0),
+   4995445 "maxWidth_" : (     0x0,      0x0),
+   4997193 "x_" : (     0x0,      0x0),
+   4998871 "y_" : (     0x0,      0x0),
+   5000549 "n_" : (     0x0,      0x0),
+   5001353 "__" : (     0x0,      0x0),
+   5002586 "designers__" : (     0x0,      0x4),
+   5003480 "void_" : (     0x0,      0x0),
+   5004314 "drawPolyline_" : (     0x0,      0x0),
+   5006082 "close_" : (     0x0,      0x0),
+   5007859 "points_" : (     0x0,      0x0),
+   5008713 "__" : (     0x0,      0x0),
+   5009966 "automatically__" : (    0x68,      0x2),
+   5010900 "void_" : (     0x0,      0x0),
+   5011733 "drawPolylinePolar_" : (     0x0,      0x0),
+   5013551 "close_" : (     0x0,      0x0),
+   5015328 "points_" : (     0x0,      0x0),
+   5016182 "__" : (     0x0,      0x0),
+   5017485 "origin__" : (     0x0,      0x2),
+   5020091 "void_" : (     0x0,      0x0),
+   5020925 "drawRect_" : (     0x0,      0x0),
+   5022663 "x_" : (     0x0,      0x0),
+   5024341 "y_" : (     0x0,      0x0),
+   5026019 "sizeX_" : (     0x0,      0x0),
+   5027737 "sizeY_" : (     0x0,      0x0),
+   5029445 "fill_" : (     0x0,      0x0),
+   5030279 "__" : (     0x0,      0x0),
+   5031332 "rectangle__" : (    0x53,      0x2),
+   5032226 "void_" : (     0x0,      0x0),
+   5033059 "drawRoundedRect_" : (     0x0,      0x0),
+   5034867 "x_" : (     0x0,      0x0),
+   5036545 "y_" : (     0x0,      0x0),
+   5038223 "sizeX_" : (     0x0,      0x0),
+   5039941 "sizeY_" : (     0x0,      0x0),
+   5041659 "r_" : (     0x0,      0x0),
+   5043327 "fill_" : (     0x0,      0x0),
+   5044161 "__" : (     0x0,      0x0),
+   5045444 "corners__" : (    0x55,      0x2),
+   5046318 "4_10_" : (     0x0,      0x0),
+   5050062 "cerca__" : (    0x45,      0x2),
+   5085273 "gemorpht_" : (     0x0,      0x2),
+   5086535 "Endo__" : (    0x56,      0x2),
+   5121213 "ImpDoc_" : (     0x0,      0x0),
+   5123509 "void_" : (     0x0,      0x0),
+   5124343 "useColorTable_" : (     0x0,      0x0),
+   5125267 "___" : (     0x0,      0x0),
+   5126081 "10_10_" : (     0x0,      0x0),
+   5139409 "ImpDoc_" : (     0x0,      0x0),
+   5146199 "void_" : (     0x0,      0x0),
+   5147032 "fpMoveAbsolute_" : (     0x0,      0x0),
+   5148830 "x_" : (     0x0,      0x0),
+   5150508 "y_" : (     0x0,      0x0),
+   5151312 "__" : (     0x0,      0x0),
+   5152575 "coordinates__" : (    0x56,      0x2),
+   5153489 "void_" : (     0x0,      0x0),
+   5154323 "fpPop_" : (     0x0,      0x0),
+   5155167 "___" : (     0x0,      0x0),
+   5156919 "it__" : (    0x47,      0x3),
+   5157743 "void_" : (     0x0,      0x0),
+   5158577 "fpPush_" : (     0x0,      0x0),
+   5159431 "___" : (     0x0,      0x0),
+   5160864 "stack__" : (    0x56,      0x0),
+   5161718 "void_" : (     0x0,      0x0),
+   5162552 "fpTurnLeft_" : (     0x0,      0x0),
+   5164310 "angle_" : (     0x0,      0x0),
+   5165154 "__" : (     0x0,      0x0),
+   5166586 "degrees__" : (    0x59,      0x2),
+   5167460 "void_" : (     0x0,      0x0),
+   5168294 "fpTurnRight_" : (     0x0,      0x0),
+   5170062 "angle_" : (     0x0,      0x0),
+   5170906 "__" : (     0x0,      0x0),
+   5172338 "degrees__" : (    0x59,      0x2),
+   5173461 "int24__" : (    0xb4,      0x0),
+   5174315 "functionAdd_" : (     0x0,      0x0),
+   5176172 "g_" : (     0x0,      0x0),
+   5176976 "__" : (     0x0,      0x0),
+   5178903 "f_" : (     0x0,      0x0),
+   5181358 "results__" : (     0x0,      0x2),
+   5182481 "int24__" : (    0xb4,      0x0),
+   5183334 "functionParabola_" : (     0x0,      0x0),
+   5185152 "a_" : (     0x0,      0x0),
+   5186830 "b_" : (     0x0,      0x0),
+   5187634 "__" : (     0x0,      0x0),
+   5188607 "a_x_b__" : (    0x64,      0x2),
+   5191422 "int24__" : (    0xb4,      0x0),
+   5192276 "functionSine_" : (     0x0,      0x0),
+   5194054 "a_" : (     0x0,      0x0),
+   5195732 "b_" : (     0x0,      0x0),
+   5197410 "c_" : (     0x0,      0x0),
+   5198214 "__" : (     0x0,      0x0),
+   5199187 "sin_a_x_b__c__" : (    0x64,      0x2),
+   5201823 "6_10_" : (     0x0,      0x0),
+   5202916 "ImpDoc_" : (     0x0,      0x0),
+   5210348 "void_" : (     0x0,      0x0),
+   5211182 "colorMagenta_" : (     0x0,      0x0),
+   5212096 "___" : (     0x0,      0x0),
+   5213548 "bucket___" : (     0x0,      0x2),
+   5214422 "void_" : (     0x0,      0x0),
+   5215256 "colorRed_" : (     0x0,      0x0),
+   5216130 "___" : (     0x0,      0x0),
+   5217543 "bucket___" : (     0x0,      0x2),
+   5218417 "void_" : (     0x0,      0x0),
+   5219251 "colorWhite_" : (     0x0,      0x0),
+   5220145 "___" : (     0x0,      0x0),
+   5221578 "bucket___" : (     0x0,      0x2),
+   5222452 "void_" : (     0x0,      0x0),
+   5223286 "colorYellow_" : (     0x0,      0x0),
+   5224190 "___" : (     0x0,      0x0),
+   5225632 "bucket___" : (     0x0,      0x2),
+   5226506 "void_" : (     0x0,      0x0),
+   5227340 "correctErrors_" : (     0x0,      0x0),
+   5229128 "data_" : (     0x0,      0x0),
+   5230836 "ecc_" : (     0x0,      0x0),
+   5232534 "size_" : (     0x0,      0x0),
+   5233368 "__" : (     0x0,      0x0),
+   5234860 "region__" : (     0x0,      0x4),
+   5235724 "int9_128__" : (     0x0,      0x0),
+   5236608 "crackKey_" : (     0x0,      0x0),
+   5238346 "testValue_" : (     0x0,      0x0),
+   5239230 "__" : (     0x0,      0x0),
+   5240223 "key__" : (     0x0,      0x2),
+   5242729 "void_" : (     0x0,      0x0),
+   5243563 "crypt_" : (     0x0,      0x0),
+   5245311 "key_" : (     0x0,      0x0),
+   5247009 "offset_" : (     0x0,      0x0),
+   5248737 "size_" : (     0x0,      0x0),
+   5249571 "__" : (     0x0,      0x0),
+   5250814 "key__" : (    0x49,      0x2),
+   5251648 "int24_" : (     0x0,      0x0),
+   5252492 "decInt_" : (     0x0,      0x0),
+   5254210 "x_" : (     0x0,      0x0),
+   5255014 "__" : (     0x0,      0x0),
+   5256057 "one__" : (    0x59,      0x2),
+   5256891 "int24_" : (     0x0,      0x0),
+   5257735 "div2_" : (     0x0,      0x0),
+   5259433 "x_" : (     0x0,      0x0),
+   5260237 "__" : (     0x0,      0x0),
+   5261250 "2__" : (    0x59,      0x2),
+   5262064 "2_10_" : (     0x0,      0x0),
+   5281171 "Survey_" : (    0x41,      0x2),
+   5284781 "Earth_" : (    0x62,      0x2),
+   5291706 "_____" : (    0xa2,      0x2),
+   5298341 "bandwidth____" : (    0x45,      0x2),
+   5299374 "voordeliger__" : (    0x63,      0x2),
+   5304320 "ImpDoc_" : (     0x0,      0x0),
+   5311110 "void_" : (     0x0,      0x0),
+   5311944 "drawString_" : (     0x0,      0x0),
+   5313901 "fontTable_" : (     0x0,      0x0),
+   5315659 "x_" : (     0x0,      0x0),
+   5317337 "y_" : (     0x0,      0x0),
+   5319055 "s_" : (     0x0,      0x0),
+   5319859 "__" : (     0x0,      0x0),
+   5321192 "Set__" : (    0x43,      0x2),
+   5322026 "void_" : (     0x0,      0x0),
+   5322859 "drawStringHere_" : (     0x0,      0x0),
+   5324856 "fontTable_" : (     0x0,      0x0),
+   5326654 "s_" : (     0x0,      0x0),
+   5327458 "__" : (     0x0,      0x0),
+   5328551 "position__" : (    0x59,      0x2),
+   5329435 "void_" : (     0x0,      0x0),
+   5330268 "endRelativeMode_" : (     0x0,      0x0),
+   5331212 "___" : (     0x0,      0x0),
+   5332485 "hack__" : (    0x66,      0x3),
+   5333329 "void_" : (     0x0,      0x0),
+   5334163 "fadingColors_" : (     0x0,      0x0),
+   5335077 "___" : (     0x0,      0x0),
+   5335891 "void_" : (     0x0,      0x0),
+   5336725 "fastForward_" : (     0x0,      0x0),
+   5338493 "x_" : (     0x0,      0x0),
+   5339297 "__" : (     0x0,      0x0),
+   5340210 "degrees__" : (     0x0,      0x5),
+   5342816 "int9_" : (     0x0,      0x0),
+   5343650 "fastRandom_" : (     0x0,      0x0),
+   5344544 "___" : (     0x0,      0x0),
+   5345767 "generator__" : (     0x0,      0x2),
+   5348353 "void_" : (     0x0,      0x0),
+   5349187 "fpForward_" : (     0x0,      0x0),
+   5350935 "dist_" : (     0x0,      0x0),
+   5351769 "__" : (     0x0,      0x0),
+   5352573 "number__" : (     0x0,      0x0),
+   5355189 "void_" : (     0x0,      0x0),
+   5356022 "fpForwardPenUp_" : (     0x0,      0x0),
+   5357820 "dist_" : (     0x0,      0x0),
+   5358654 "__" : (     0x0,      0x0),
+   5359577 "number__" : (    0x56,      0x2),
+   5362143 "5_10_" : (     0x0,      0x0),
+   5472573 "elsewhere__" : (    0x49,      0x2),
+   5475049 "Catalog_" : (    0x64,      0x2),
+   5476042 "page_" : (    0x41,      0x2),
+   5477095 "Genome_" : (    0x86,      0x3),
+   5478138 "Genomics_" : (    0x86,      0x3),
+   5479181 "_encrypted__" : (    0x45,      0x2),
+   5480135 "list_" : (    0x87,      0x2),
+   5481208 "for_" : (     0x0,      0x3),
+   5482271 "Set_" : (    0x43,      0x2),
+   5483304 "Fuun_" : (    0x68,      0x3),
+   5484387 "_encrypted__" : (     0x0,      0x4),
+   5485440 "RNA_" : (    0x45,      0x2),
+   5486473 "structures_" : (    0x57,      0x2),
+   5487506 "features_" : (    0x59,      0x3),
+   5488629 "compression_" : (     0x0,      0x4),
+   5489822 "Answer_" : (    0x54,      0x3),
+   5490745 "an___taa____v______" : (     0x0,      0x2),
+   5491719 "1337_" : (     0x0,      0x0),
+   5492553 "1729_" : (     0x0,      0x0),
+   5493387 "8_" : (     0x0,      0x0),
+   5494191 "23_" : (     0x0,      0x0),
+   5495005 "42_" : (     0x0,      0x0),
+   5495819 "112_" : (     0x0,      0x0),
+   5496643 "10646_" : (     0x0,      0x0),
+   5497487 "85_" : (     0x0,      0x0),
+   5498301 "84_" : (     0x0,      0x0),
+   5499115 "2181889_" : (     0x0,      0x0),
+   5499979 "5_" : (     0x0,      0x0),
+   5500783 "4405829_" : (     0x0,      0x0),
+   5501647 "123456_" : (     0x0,      0x0),
+   5502501 "999999999_" : (     0x0,      0x0),
+   5503385 "999999999_" : (     0x0,      0x0),
+   5504468 "damaged_" : (    0x56,      0x2),
+   5566150 "Set_" : (    0x43,      0x2),
+   5582189 "1998_" : (     0x0,      0x0),
+   5583003 "1999_" : (     0x0,      0x0),
+   5583817 "2000_" : (     0x0,      0x0),
+   5584631 "2001_" : (     0x0,      0x0),
+   5585445 "2002_" : (     0x0,      0x0),
+   5586259 "2003_" : (     0x0,      0x0),
+   5587073 "2004_" : (     0x0,      0x0),
+   5587887 "2005_" : (     0x0,      0x0),
+   5588701 "2006_" : (     0x0,      0x0),
+   5589515 "2007_" : (     0x0,      0x0),
+   5590748 "law__" : (     0x0,      0x2),
+   5596136 "Rocquencourt_" : (    0x95,      0x4),
+   5605642 "boxes__" : (     0x0,      0x0),
+   5608373 "size__" : (    0x48,      0x2),
+   5612230 "prize_" : (    0x49,      0x3),
+   5613193 "choice_" : (    0x45,      0x2),
+   5614047 "__" : (     0x0,      0x0),
+   5614851 "__" : (     0x0,      0x0),
+   5615734 "Carrots_" : (    0x52,      0x2),
+   5616598 "Haskell_" : (     0x0,      0x0),
+   5630273 "2_" : (    0x62,      0x2),
+   5641296 "__" : (    0x2b,      0x4),
+   5644546 "toilet__" : (    0x59,      0x3),
+   5649288 "them___" : (    0x59,      0x2),
+   5650142 "__" : (     0x0,      0x0),
+   5650946 "_Imp__" : (     0x0,      0x0),
+   5657041 "Operators___" : (    0x86,      0x3),
+   5658799 "Sir__" : (    0x3f,      0x3),
+   5674570 "1998_" : (     0x0,      0x0),
+   5675384 "1999_" : (     0x0,      0x0),
+   5676198 "2000_" : (     0x0,      0x0),
+   5677012 "2001_" : (     0x0,      0x0),
+   5677826 "2002_" : (     0x0,      0x0),
+   5678640 "2003_" : (     0x0,      0x0),
+   5679454 "2004_" : (     0x0,      0x0),
+   5680268 "2005_" : (     0x0,      0x0),
+   5681082 "2006_" : (     0x0,      0x0),
+   5681896 "2007_" : (     0x0,      0x0),
+   5683129 "law__" : (     0x0,      0x2),
+   5688567 "Labs_" : (    0x82,      0x2),
+   5703609 "features__" : (     0x0,      0x4),
+   5707506 "prize_" : (    0x49,      0x3),
+   5708469 "choice_" : (    0x45,      0x2),
+   5709323 "__" : (     0x0,      0x0),
+   5710127 "__" : (     0x0,      0x0),
+   5710931 "PLClub_" : (     0x0,      0x0),
+   5711785 "OCaml_" : (     0x0,      0x0),
+   5726483 "Compression_" : (     0x0,      0x4),
+   5733399 "moment__" : (    0x65,      0x2),
+   5744173 "RNA_Comprez_" : (     0x0,      0x0),
+   5749595 "ones__" : (    0x53,      0x2),
+   5757832 "Fuuns_" : (    0x59,      0x2),
+   5762436 "IFPICFPPCFIPP_" : (     0x0,      0x0),
+   5763360 "__" : (     0x0,      0x0),
+   5767727 "IFPICFPPCCC_" : (     0x0,      0x0),
+   5773766 "DNA__" : (     0x0,      0x0),
+   5781039 "Adapter_" : (     0x0,      0x0),
+   5783850 "prefix_" : (     0x0,      0x0),
+   5797961 "Example_" : (     0x0,      0x0),
+   5799274 "Zone__" : (    0x82,      0x3),
+   5803581 "IIPIFFCPICCFPICICFPCICICIICIICIPPPCFCFCFCCCCCCCCCCCCCCCCCICIIC_" : (     0x0,      0x0),
+   5805114 "boolean__" : (     0x0,      0x2),
+   5805987 "IIPIFFCPICCFPICICFPCICICIICIICIPPPPIIC_" : (     0x0,      0x0),
+   5807919 "1234__" : (    0x46,      0x2),
+   5808762 "IIPIFFCPICCFPICICFFFIIPIFFCPICCFPICICFFFIICIICIICIPPPCFCCFCFFCCFI_" : (     0x0,      0x0),
+   5810205 "CCCFCFFFFFICIPPCPIIC_" : (     0x0,      0x0),
+   5811888 "__" : (    0x59,      0x2),
+   5812692 "IFPICFPPCFIPP_" : (     0x0,      0x0),
+   5813616 "___" : (     0x0,      0x0),
+   5866971 "Unit_" : (    0x49,      0x2),
+   5873527 "IV__" : (    0x49,      0x2),
+   5879059 "risk__" : (     0x0,      0x3),
+   5889119 "natives__" : (     0x0,      0x2),
+   5930808 "OCaml_" : (     0x0,      0x0),
+   5952404 "Encodings_" : (     0x0,      0x0),
+   5956074 "____" : (    0x95,      0x4),
+   5962682 "forgotten____" : (    0x89,      0x3),
+   5965397 "messages_" : (    0x63,      0x2),
+   5967833 "Set_" : (    0x43,      0x2),
+   5970404 "degrees_" : (     0x0,      0x0),
+   5971328 "circle__" : (    0x49,      0x0),
+   5972192 "quoted__" : (     0x0,      0x0),
+   5974138 "bits_" : (    0x63,      0x2),
+   5980458 "numbers__" : (     0x0,      0x2),
+   5983054 "Polygons_" : (     0x0,      0x0),
+   5986633 "Encoding_" : (    0xa3,      0x3),
+   5988430 "numbers_" : (    0x63,      0x3),
+   5989603 "complement__" : (    0x55,      0x1),
+   5990906 "otherwise____" : (    0x63,      0x2),
+   5992089 "information__" : (    0x62,      0x2),
+   6004142 "MLephant_" : (     0x0,      0x0),
+   6079233 "FOUND_" : (     0x0,      0x4),
+   6087641 "L_indenmayer__Systems_" : (     0x0,      0x0),
+   6091521 "natural_" : (    0x53,      0x2),
+   6098826 "Graftals__" : (    0x53,      0x2),
+   6116594 "List_" : (    0x55,      0x2),
+   6360873 "E_T__" : (     0x0,      0x0),
+   6361806 "systems__" : (    0x59,      0x2),
+   6364023 "Vader_" : (    0x41,      0x3),
+   6364946 "Palpatine__" : (    0x45,      0x2),
+   6367272 "Heeren_" : (    0x49,      0x2),
+   6368425 "unsafePerformIO__" : (    0x45,      0x2),
+   6386178 "Alert_" : (    0x49,      0x3),
+   6393561 "Fuuns__" : (    0x53,      0x2),
+   6406081 "trip__" : (    0x55,      0x2),
+   6418913 "ImpDoc_" : (     0x0,      0x0),
+   6426345 "int24_" : (     0x0,      0x0),
+   6427189 "divInts_" : (     0x0,      0x0),
+   6428917 "x_" : (     0x0,      0x0),
+   6430595 "y_" : (     0x0,      0x0),
+   6431399 "__" : (     0x0,      0x0),
+   6432412 "another__" : (    0x59,      0x2),
+   6433286 "void_" : (     0x0,      0x0),
+   6434120 "drawChar_" : (     0x0,      0x0),
+   6436057 "fontTable_" : (     0x0,      0x0),
+   6437805 "c_" : (     0x0,      0x0),
+   6438609 "__" : (     0x0,      0x0),
+   6440042 "font__" : (    0x49,      0x2),
+   6442578 "void_" : (     0x0,      0x0),
+   6443411 "drawCircleFast_" : (     0x0,      0x0),
+   6445209 "x_" : (     0x0,      0x0),
+   6446887 "y_" : (     0x0,      0x0),
+   6448565 "r_" : (     0x0,      0x0),
+   6450233 "fill_" : (     0x0,      0x0),
+   6451067 "__" : (     0x0,      0x0),
+   6451871 "void_" : (     0x0,      0x0),
+   6452705 "drawEllipse_" : (     0x0,      0x0),
+   6454473 "centerX_" : (     0x0,      0x0),
+   6456211 "centerY_" : (     0x0,      0x0),
+   6457949 "rX_" : (     0x0,      0x0),
+   6459637 "rY_" : (     0x0,      0x0),
+   6461315 "fill_" : (     0x0,      0x0),
+   6462149 "__" : (     0x0,      0x0),
+   6463092 "ellipse__" : (    0x53,      0x2),
+   6463966 "void_" : (     0x0,      0x0),
+   6464799 "drawEllipseFast_" : (     0x0,      0x0),
+   6466607 "x_" : (     0x0,      0x0),
+   6468285 "y_" : (     0x0,      0x0),
+   6469963 "rx_" : (     0x0,      0x0),
+   6471651 "ry_" : (     0x0,      0x0),
+   6473329 "fill_" : (     0x0,      0x0),
+   6474163 "__" : (     0x0,      0x0),
+   6474967 "void_" : (     0x0,      0x0),
+   6475801 "drawFunction_" : (     0x0,      0x0),
+   6477838 "pair_" : (     0x0,      0x0),
+   6479546 "endx_" : (     0x0,      0x0),
+   6480380 "__" : (     0x0,      0x0),
+   6481453 "functionParabola__" : (     0x0,      0x2),
+   6485841 "void_" : (     0x0,      0x0),
+   6486674 "drawFunctionBase_" : (     0x0,      0x0),
+   6488751 "pair_" : (     0x0,      0x0),
+   6490459 "endx_" : (     0x0,      0x0),
+   6492167 "base_" : (     0x0,      0x0),
+   6493001 "__" : (     0x0,      0x0),
+   6494214 "_x_0___" : (    0x56,      0x2),
+   6496810 "void_" : (     0x0,      0x0),
+   6497643 "drawGradientCornerNW_" : (     0x0,      0x0),
+   6499501 "w_" : (     0x0,      0x0),
+   6501179 "h_" : (     0x0,      0x0),
+   6502897 "color_" : (     0x0,      0x0),
+   6503741 "__" : (     0x0,      0x0),
+   6504545 "corner__" : (     0x0,      0x0),
+   6507121 "void_" : (     0x0,      0x0),
+   6507954 "drawGradientCornerSE_" : (     0x0,      0x0),
+   6509812 "w_" : (     0x0,      0x0),
+   6511490 "h_" : (     0x0,      0x0),
+   6513208 "color_" : (     0x0,      0x0),
+   6514052 "__" : (     0x0,      0x0),
+   6515773 "corner__" : (    0x45,      0x3),
+   6516637 "3_10_" : (     0x0,      0x0),
+   6557199 "_2__" : (    0x64,      0x2),
+   6562352 "yourself__" : (     0x0,      0x2),
+   6587913 "Compressor_" : (     0x0,      0x0),
+   6592617 "loads_" : (     0x0,      0x0),
+   6597430 "acids__" : (     0x0,      0x0),
+   6599257 "searches_" : (     0x0,      0x0),
+   6601284 "restores_" : (     0x0,      0x0),
+   6604684 "Inc__" : (    0xa3,      0x2),
+   6607886 "eval_" : (     0x0,      0x0),
+   6609592 "table_" : (     0x0,      0x0),
+   6611588 "backup_" : (     0x0,      0x0),
+   6613314 "data_" : (     0x0,      0x0),
+   6614637 "bitmaps__" : (     0x0,      0x2),
+   6615710 "compressor__" : (     0x0,      0x2),
+   6621245 "exist__" : (     0x0,      0x2),
+   6655326 "NCC_1701_J_" : (     0x0,      0x0),
+   6657574 "Palindromes_" : (     0x0,      0x0),
+   6661324 "____" : (    0x96,      0x4),
+   6669028 "task__" : (    0x45,      0x3),
+   6675153 "soap__" : (     0x0,      0x2),
+   6681478 "place__" : (    0x41,      0x2),
+   7130785 "III__" : (    0x64,      0x3),
+   7131808 "wait____" : (    0x45,      0x3),
+   7133332 "__" : (    0x59,      0x2),
+   7134453 "__" : (     0x0,      0x0),
+   7137210 "285_" : (    0x62,      0x2),
+   7144816 "one__" : (    0x62,      0x3),
+   7149070 "in_" : (    0x49,      0x3),
+   7150738 "skirt___" : (     0x0,      0x0),
+   7153464 "look___" : (    0x57,      0x2),
+   7157458 "north___right___" : (     0x0,      0x0),
+   7204647 "Features_" : (    0x59,      0x3),
+   7210668 "shegure__" : (    0x46,      0x3),
+   7218689 "ubhef__" : (    0x47,      0x3),
+   7228930 "qrngu__" : (    0x68,      0x2),
+   7237131 "pbqrf__" : (    0x57,      0x2),
+   7240226 "____" : (    0x81,      0x4),
+   7241884 "sbb_" : (     0x0,      0x0),
+   7243582 "one_" : (     0x0,      0x0),
+   7244605 "yvfg__" : (     0x0,      0x3),
+   7247071 "sbb_" : (     0x0,      0x0),
+   7249663 "one_" : (     0x0,      0x0),
+   7251720 "one_" : (     0x0,      0x0),
+   7253657 "one_" : (     0x0,      0x0),
+   7254740 "3___" : (     0x0,      0x0),
+   7257795 "npvqf__" : (    0x57,      0x2),
+   7258649 "ryrzragf__" : (     0x0,      0x0),
+   7260496 "sbb_" : (     0x0,      0x0),
+   7262204 "one_" : (     0x0,      0x0),
+   7263872 "sbb_" : (     0x0,      0x0),
+   7265879 "sbb_" : (     0x0,      0x0),
+   7267577 "one_" : (     0x0,      0x0),
+   7269664 "qrpelcg__" : (    0x47,      0x2),
+   7271422 "sbb_" : (     0x0,      0x0),
+   7273090 "one_" : (     0x0,      0x0),
+   7273954 "mreb__" : (     0x0,      0x2),
+   7275781 "sbb_" : (     0x0,      0x0),
+   7276645 "mreb__" : (     0x0,      0x2),
+   7277808 "255__" : (    0xb0,      0x2),
+   7307167 "L_" : (     0x0,      0x0),
 
 Unquoted strings:
     817677   Holdermans_
