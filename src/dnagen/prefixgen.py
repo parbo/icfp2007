@@ -1,8 +1,16 @@
+import patterngen
+
 ACTBEGIN = "IIPIFFCPICCFPICICFFFIIPIFFCPICCFPICICFFFIICIICIICIPPP"
 ACTEND   = "IPPCPIIC"
 
 PUSHBEGIN = "IIPIFFCPICCFPICICFPCICICIICIICIIPPP"
 PUSHEND   = "IIC"
+
+POPPAT = patterngen.pattern("(?IFPICFPPCFIPP(?IC))") # find stack, match number
+POPTPL = patterngen.template("(0,0)") # pop number
+
+ENDPAT = patterngen.pattern("(!7523060)") 
+ENDTPL = patterngen.template("")
 
 genes = {
 "AAA_geneTablePageNr" : (   0x510,     0x18),
@@ -413,9 +421,11 @@ def integer(i, fill=0):
     ibin = [bd[b] for b in bstr_pos(i)]
     ibin.reverse()
     if fill:
-        ibin.extend((fill-len(ibin))*['C'])
+        ibin.extend((fill-1-len(ibin))*['C'])
     ibin.extend(['I', 'C'])
-    return ''.join(ibin)    
+    ret = ''.join(ibin)
+    print "integer", i, ret, len(ret)
+    return ret
 
 def boolean(b):
     if b:
@@ -429,9 +439,11 @@ def push(d):
     elif isinstance(d, bool):
         return PUSHBEGIN + boolean(d) + PUSHEND
         
+def pop():
+    return POPPAT + POPTPL
         
-def activate(offset, len):
-    return ACTBEGIN + integer(offset) + integer(len) + ACTEND
+def activate(offset, length):
+    return ACTBEGIN + integer(offset) + integer(length) + ACTEND
     
 
 def activatename(name):
@@ -443,17 +455,27 @@ if __name__=="__main__":
     print
     print push(42)
     print
-    print push(True)
-    print
     print push(False)
+    print
+    print activate(1234, 500)
+    print
+    print "Example:", push(42) + push(False) + activate(1234, 500)
     print
     print activatename("M_class_planet")
     print
-    print activatename("AAA_geneTablePageNr")
+    print "terminate", activatename("terminate")
+    print
+    print "printCharSet", activatename("printCharSet")
+    print
+    print "contest_2006", activatename("contest_2006") + activatename("terminate")
+    print
+    print "Gene page 2", push(2) + activatename("AAA_geneTablePageNr")
+    print
+    print "Beautiful numbers", activatename("help_beautiful_numbers") #+activatename("terminate")
     print
     print "help_error_correcting_codes_purchase_code", activatename("help_error_correcting_codes_purchase_code")+activatename("terminate")
     print
-    print "hitWithTheClueStick", activatename("hitWithTheClueStick")#+activatename("terminate")
+    print "hitWithTheClueStick", activatename("hitWithTheClueStick")+pop()+activatename("terminate")
     print
     print activatename("crackKeyAndPrint")
     print

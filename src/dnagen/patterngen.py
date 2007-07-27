@@ -77,6 +77,9 @@ def template(t):
             ix, n = getnumber(t, ix)
             ts.append('IIP')
             ts.append(numberseq(n))
+        elif tc == 'n': # encode number as bases
+            ix, n = getnumber(t, ix)
+            ts.append(numberseq(n))
         elif (tc == '('):
             ix, n1, n2 = getnumberpair(t, ix + 1)
             ts.append('IP')
