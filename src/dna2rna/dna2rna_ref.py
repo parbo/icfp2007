@@ -326,6 +326,8 @@ def execute(dna, rna, progress = False):
     
     now = time.time() 
    
+    p = []
+    t = []
     while True:
         n += 1
         try:
@@ -346,31 +348,31 @@ def execute(dna, rna, progress = False):
         except NoMoreData:
             print 'DNA remaining: ' + str(len(dna))
             break
+    print p
+    print t
+    print "Iterations:",str(n),"RNA commands:", str(len(dna)), "List size:", len(dna.list)
     print "execute finished in:", time.time()-now, "seconds"
 
-def main():
-    import psyco
-    psyco.full()
-    
+def main(args, progress=True):
     prefix = ""
-    if len(sys.argv) > 3:
-        prefixfile = file(sys.argv[3], 'r')
+    if len(args) > 3:
+        prefixfile = file(args[3], 'r')
         prefix = prefixfile.read()
         prefixfile.close()
-    if len(sys.argv) > 2:
-        dnafile = file(sys.argv[1], 'r')
+    if len(args) > 2:
+        dnafile = file(args[1], 'r')
         dnastr = prefix + dnafile.read()
         dna = dnareflist.DNAList()
         dna.insertfront([dnareflist.DNARef(0, len(dnastr), list(dnastr))])
         dnafile.close()
         rna = []
-#        try:
-        execute(dna, rna, True)
-#        except KeyboardInterrupt:
-#            print "Interrupted!"
-#            pass
+        try:
+            execute(dna, rna, progress)
+        except KeyboardInterrupt:
+            print "Interrupted!"
+            pass
         print "Saving RNA file of length:", len(rna)
-        rnafile = file(sys.argv[2], 'w')
+        rnafile = file(args[2], 'w')
         for r in rna:
             rnafile.write(''.join(r))
         rnafile.close()
@@ -403,4 +405,6 @@ def main():
             print dnastr + ' -> ' + ''.join(dna)
 
 if __name__ == '__main__':
-    main()
+    import psyco
+    psyco.full()
+    main(sys.argv)

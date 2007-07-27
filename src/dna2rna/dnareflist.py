@@ -229,7 +229,7 @@ class DNAList(object):
                             findpos = i 
                         subpos += 1
                         if (subpos == ls):
-##                            print "Found", substr, "at:", findpos
+                            #print "Found", substr, "at:", findpos
                             return findpos
                         else:
                             c = substr[subpos]

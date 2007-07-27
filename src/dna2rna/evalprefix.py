@@ -7,7 +7,7 @@ if __name__ == '__main__':
         dnafile = file(sys.argv[1], 'r')
         dnastr = dnafile.read()
         dna = dnareflist.DNAList()
-        dna.insertfront(dnareflist.DNARef(0, len(dnastr), dnastr))
+        dna.insertfront([dnareflist.DNARef(0, len(dnastr), list(dnastr))])
         dnafile.close()
         rna = []
         p = pattern(dna, rna)
