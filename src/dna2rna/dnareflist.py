@@ -253,7 +253,7 @@ class DNAList(object):
                     i += 1
             ix += lr
             li += 1
-        print "NOT FOUND!!!!!!!!"
+        print "NOT FOUND!!!!!!!!", substr, startpos
         return -1
     
 
