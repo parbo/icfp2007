@@ -216,9 +216,14 @@ class DNAList(object):
         subpos = 0
         c = substr[subpos]
         findpos = 0
+        findix = 0
+        findli = 0
         i = startpos
         ix = 0
-        for r in self.list:
+        li = 0
+        ll = len(self.list)
+        while li < ll:
+            r = self.list[li]
             lr = r.len
             if ix + lr < i:                
                 pass
@@ -227,6 +232,8 @@ class DNAList(object):
                     if (r.data[r.start+i-ix] == c):
                         if (subpos == 0):
                             findpos = i 
+                            findli = li
+                            findix = ix
                         subpos += 1
                         if (subpos == ls):
                             #print "Found", substr, "at:", findpos
@@ -234,11 +241,18 @@ class DNAList(object):
                         else:
                             c = substr[subpos]
                     elif (subpos > 0):
+                        # Go back in loop
                         i = findpos
+                        if li != findli:
+                            li = findli
+                            ix = findix
+                            r = self.list[li]
+                            lr = r.len
                         subpos = 0
                         c = substr[subpos]
                     i += 1
             ix += lr
+            li += 1
         print "NOT FOUND!!!!!!!!"
         return -1
     
