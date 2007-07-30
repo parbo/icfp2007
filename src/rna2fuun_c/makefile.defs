@@ -1,0 +1,1 @@
+OBJS := $(OBJS:./rna2fuun_c_wrap.o=)

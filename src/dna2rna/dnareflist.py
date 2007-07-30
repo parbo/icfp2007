@@ -7,6 +7,7 @@ class DNARef(object):
         self.start = start
         self.stop = stop
         self.len = self.stop-self.start
+        self.totlen = 0
         
     def __len__(self):
         return self.len
@@ -20,6 +21,7 @@ class DNARef(object):
     def popfront(self, num):
         self.start += num
         self.len = self.stop-self.start
+        self.totlen -= num
 
     def getall(self):
         return self.data[self.start:self.stop]
@@ -46,12 +48,23 @@ class DNAList(object):
             
         
     def __len__(self):
-        if not self.lencache:
-#            self.lencache = sum(map(lambda x: x.len, self.list))
-            self.lencache = 0
-            for r in self.list:
-                self.lencache += r.len
-        return self.lencache
+        try:
+            return self.list[0].totlen
+        except IndexError:
+            return 0
+ 
+    def getix(self, pos):
+        low = 0
+        sl = self.list
+        high = len(sl) - 1
+        ls = len(self)
+        while low < high:
+           mid = (low + high)/2
+           if ls - sl[mid].totlen + sl[mid].len < pos: 
+               low = mid + 1
+           else:
+                high = mid
+        return low
 
     def getall(self):
         tmp = []
@@ -64,20 +77,19 @@ class DNAList(object):
         d = self.getall()
         ld = len(d)
         r = DNARef(0, ld, d)
+        r.totlen = ld
         self.list.clear()
         self.list.append(r)
-        self.lencache = ld
     
     def popfront(self, num=1):
         n = 0
-        if self.lencache:
-            self.lencache -= num
         # optimize for common case
         r = self.list[0]
         if num < r.len:
             # avoid function call
             r.start += num
             r.len = r.stop-r.start
+            r.totlen -= num
             return
         for r in self.list:
             lr = r.len
@@ -102,8 +114,6 @@ class DNAList(object):
     def popfrontret(self, num=1):
         n = 0
         tmp = []
-        if self.lencache:
-            self.lencache -= num
         # optimize for common case
         r = self.list[0]
         if num < r.len:
@@ -111,6 +121,7 @@ class DNAList(object):
             # avoid function call
             r.start += num
             r.len = r.stop-r.start
+            r.totlen -= num
             return tmp
         for r in self.list:
             lr = r.len
@@ -136,10 +147,10 @@ class DNAList(object):
     def __getitem__(self, ref):
         try:
             tmp = []
-            ix = 0
             rstrt = ref.start
             rstp = ref.stop
             te = tmp.extend
+            ix = 0
             for r in self.list:
                 lr = r.len
                 # skip
@@ -167,14 +178,8 @@ class DNAList(object):
                 ix += lr
             return tmp
         except AttributeError: # not a slice
-            ix = 0
-            for r in self.list:
-                lr = r.len
-                if ix + lr > ref:
-                    return r[ref-ix]
-                else:
-                    ix += lr
-            raise IndexError
+            r = self.list[self.getix(ref)]
+            return r[ref-ix]
 
     def getreflistiter(self, refstart, refstop):
         ix = 0
@@ -201,10 +206,14 @@ class DNAList(object):
             if ix + lr >= refstop:
                 return tmpreflist
             ix += lr
+        raise
 
     def insertfront(self, reflist):
-        self.list.extendleft(reversed(reflist))
-        self.lencache = None
+        totlen = len(self)
+        for r in reversed(reflist):
+            totlen += len(r)
+            r.totlen = totlen
+            self.list.appendleft(r)
         if len(self.list) > 200:
             self.flatten()
         
@@ -219,8 +228,8 @@ class DNAList(object):
         findix = 0
         findli = 0
         i = startpos
-        ix = 0
-        li = 0
+        li = self.getix(startpos)
+        ix = len(self)-self.list[li].totlen
         ll = len(self.list)
         while li < ll:
             r = self.list[li]
