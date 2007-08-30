@@ -283,34 +283,34 @@ void protect(int l, dnaseq& d)
         
 void replacefcn(DNAList& dna, const tvec& tpl, evec& e, size_t i)
 {
-    dnainsertlist r;
+    dnareflist r;
     for (tvec::const_iterator it = tpl.begin(); it != tpl.end(); ++it)
     {
     	const tmpl& t =*it; 
     	if (!t.s.empty())
     	{
             // Base
-          	dnaseqptr d(new dnaseq);
+          	dnaseq* d = dna.allocate();
         	for (size_t ix = 0; ix < t.s.size(); ++ix)
         	{
         		d->push_back(t.s[ix]);
         	}
-            r.push_back(new DNARef(0, d->size(), d));
+            r.push_back(DNARef(0, d->size(), d));
     	}
     	else if (t.l == -1)
         {
             // |n|
             if (t.n >= e.size())
             {
-            	dnaseqptr d(new dnaseq);
+            	dnaseq* d = dna.allocate();
             	*d = asnat(0);
-                r.push_back(new DNARef(0, d->size(), d));
+                r.push_back(DNARef(0, d->size(), d));
             }
             else
             {
-            	dnaseqptr d(new dnaseq);
+            	dnaseq* d = dna.allocate();
             	*d = asnat(0);
-                r.push_back(new DNARef(0, d->size(), d));
+                r.push_back(DNARef(0, d->size(), d));
             }
         }
         else
@@ -325,33 +325,31 @@ void replacefcn(DNAList& dna, const tvec& tpl, evec& e, size_t i)
                 if (t.l == 0)
                 {
                 	std::pair<size_t, size_t>& a = e[t.n];
-                	r.push_back(new DNARefEmpty(a.first, a.second));
+					dnareflist rl;
+					dna.getreflist(rl, a.first, a.second);
+					std::copy(rl.begin(), rl.end(), std::back_inserter(r));
                 }
                 else
                 {
-                	dnaseq tmp;
+					dnaseq* d = dna.allocate();
                 	std::pair<size_t, size_t>& a = e[t.n];
 	            	for (size_t ix = a.first; ix < a.second; ++ix)
 	            	{
-	            		tmp.push_back(dna[ix]);
+	            		d->push_back(dna[ix]);
 	            	}
-	            	protect(t.l, tmp);
-	            	dnaseqptr d(new dnaseq(tmp));	            	
-	                r.push_back(new DNARef(0, d->size(), d));
+
+	            	protect(t.l, *d);
+	                r.push_back(DNARef(0, d->size(), d));
                 }
             }
 		}
     }
         
-    size_t rsz = 0;
-    for (dnainsertlist::iterator it = r.begin(); it != r.end(); ++it)
-    {
-    	size_t sz = (*it)->size();
-    	rsz += sz;
-    	//std::cout << sz << std::endl; 
-    }
-    //std::cout << "length before " << dna.size() << " pop " << i << " adding " << rsz << std::endl; 
-    dna.insertfrontreflistandpopold(r, i);
+	dna.size();
+	dna.popfront(i);
+	dna.size();
+    dna.insertfront(r);
+	dna.size();
 }
 
     
@@ -362,20 +360,27 @@ void matchreplace(DNAList& dna, const svec& pat, tvec& t)
     evec e;
     ivec c;
     size_t i = 0;
-//    std::cout << "Pattern: ";
-//    for (svec::const_iterator it = pat.begin(); it != pat.end(); ++it)
-//	{
-//		std::string p = *it;
-//		std::cout << p;
-//	}
-//	std::cout << std::endl;
-//    std::cout << "Template: ";
-//    for (tvec::const_iterator it = t.begin(); it != t.end(); ++it)
-//	{
-//		tmpl tt = *it;
-//		std::cout << tt.s << " " << tt.l << " " << tt.n;
-//	}	
-//	std::cout << std::endl;
+    std::cout << "Pattern: ";
+    for (svec::const_iterator it = pat.begin(); it != pat.end(); ++it)
+	{
+		std::string p = *it;
+		std::cout << p;
+	}
+	std::cout << std::endl;
+    std::cout << "Template: ";
+    for (tvec::const_iterator it = t.begin(); it != t.end(); ++it)
+	{
+		tmpl tt = *it;
+		if (tt.n == -1 && tt.l == -1)
+		{
+			std::cout << tt.s;
+		}
+		else
+		{
+			std::cout << "(" << tt.l << "," << tt.n << ")";
+		}
+	}	
+	std::cout << std::endl;
     for (svec::const_iterator it = pat.begin(); it != pat.end(); ++it)
 	{
 		std::string p = *it;

@@ -5,44 +5,30 @@
 #include <string>
 #include <fstream>
 #include <ios>
+#include <iterator>
 #include <time.h>
+
 
 int main(int argc, char* argv[])
 {
-	dnaseqptr d(new dnaseq());
+	DNAList dna;
+	dnaseq* d = dna.allocate();
     if (argc > 3)
     {
     	std::cout << "Loading prefix" << std::endl;
 		std::ifstream f(argv[3], std::ios::in|std::ios::binary);
-		while (1)
-		{
-			char v;
-			f.read(&v, 1);
-			if (f.eof())
-			{
-				break;
-			}
-			d->push_back(v);
-		}
+		std::copy(std::istream_iterator<char>(f), std::istream_iterator<char>(), std::back_inserter(*d));
     }
     if (argc > 2)
     {
     	std::cout << "Loading dna" << std::endl;
 		std::ifstream f(argv[1], std::ios::in|std::ios::binary);
-		while (1)
-		{
-			char v;
-			f.read(&v, 1);
-			if (f.eof())
-			{
-				break;
-			}			
-			d->push_back(v);
-		}
+		std::copy(std::istream_iterator<char>(f), std::istream_iterator<char>(), std::back_inserter(*d));
         svec rna;
-        DNAList dna;
     	std::cout << "Total size: " << d->size() << std::endl;        
-        dna.insertfront(new DNARef(0, d->size(), d));
+		dnareflist rl;
+		rl.push_back(DNARef(0, d->size(), d));
+        dna.insertfront(rl);
 		time_t before = time(0);
     	std::cout << "Executing..." << std::endl;
         execute(dna, rna, true);
@@ -59,10 +45,12 @@ int main(int argc, char* argv[])
 			for (size_t i = 0; i < sv.size(); ++i)
 			{
 	            svec rna;
-				dnaseqptr d(new dnaseq());
+				dna.clear();
+				dnaseq* d = dna.allocate();
 				str2dnaseq(sv[i], *d);
-	            DNAList dna;
-	            dna.insertfront(new DNARef(0, d->size(), d));
+				dnareflist rl;
+				rl.push_back(DNARef(0, d->size(), d));
+	            dna.insertfront(rl);
 				svec p;
 				try
 				{
@@ -83,7 +71,7 @@ int main(int argc, char* argv[])
 			}
 		}
 	
-		{
+/*		{
 	
 			std::cout << "Test dna execution function:" << std::endl;
 			svec sv;
@@ -105,7 +93,7 @@ int main(int argc, char* argv[])
 				//}
 				std::cout << std::endl;
 			}
-		}
+			} */
 	}
 	return 0;
 }
