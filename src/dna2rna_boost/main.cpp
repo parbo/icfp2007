@@ -31,6 +31,8 @@ int main(int argc, char* argv[])
         dna.insertfront(rl);
 		time_t before = time(0);
     	std::cout << "Executing..." << std::endl;
+		dna_debug = false;
+		dna_skip = 1000;
         execute(dna, rna, true);
 		time_t after = time(0);
 		std::cout << "Finished in: " << after-before << " seconds" << std::endl;

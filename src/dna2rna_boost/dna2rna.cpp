@@ -4,6 +4,9 @@
 #include <sstream>
 #include <iostream>
 
+bool dna_debug = false;
+unsigned int dna_skip = 1;
+
 class tmpl
 {
 public:
@@ -81,7 +84,6 @@ std::string consts(DNAList& dna)
 void patternfcn(DNAList& dna, svec& rna, svec& p)
 {
 	unsigned int lvl = 0;
-		//std::cout << "Pattern " << dna.size() << std::endl;
     for (;;)
 	{
 		char d = dna[0];
@@ -148,14 +150,14 @@ void patternfcn(DNAList& dna, svec& rna, svec& p)
 				}
 		        else if (d == 'I')
 				{
-					std::string rnacmd = dna.getstr(3, 10);
+					std::string rnacmd;
+					dna.get<std::string>(rnacmd, 3, 10);
 		            dna.popfront(10);
 					rna.push_back(rnacmd);
 				}
 	        }
         }
 	}
-	//std::cout << "Pattern " << dna.size() << std::endl;
 }
 
 
@@ -210,19 +212,18 @@ void templatefcn(DNAList& dna, svec& rna, tvec& t)
 				}
 		        else if (d == 'I')
 				{
-					std::string rnacmd = dna.getstr(3, 10);
+					std::string rnacmd;
+					dna.get<std::string>(rnacmd, 3, 10);
 		            dna.popfront(10);
 					rna.push_back(rnacmd);
 				}
 	        }
         }
 	}
-	//std::cout << "Template" << dna.size() << std::endl;
 }
 
-dnaseq asnat(int n)
+void asnat(dnaseq& d, int n)
 {
-    dnaseq d;
     while (n > 0)
 	{
         if ((n % 2) == 0)
@@ -236,11 +237,10 @@ dnaseq asnat(int n)
         n /= 2;
 	}
     d.push_back('P');
-    return d;
 }
 
 
-dnaseq quote(dnaseq& d)
+void quote(dnaseq& d)
 {
 	dnaseq nd;
 	dnaseq::iterator it = d.begin();
@@ -264,8 +264,10 @@ dnaseq quote(dnaseq& d)
             nd.push_back('I');
             nd.push_back('C');
 		}
+		++it;
 	}
-	return nd;
+	d.clear();
+	std::copy(nd.begin(), nd.end(), std::back_inserter(d));
 }
 
 
@@ -275,7 +277,7 @@ void protect(int l, dnaseq& d)
 	{
 		while (l > 0)
 		{
-			d = quote(d);
+			quote(d);
 			l -= 1;
 		}
 	}
@@ -303,13 +305,14 @@ void replacefcn(DNAList& dna, const tvec& tpl, evec& e, size_t i)
             if (t.n >= e.size())
             {
             	dnaseq* d = dna.allocate();
-            	*d = asnat(0);
+            	asnat(*d, 0);
                 r.push_back(DNARef(0, d->size(), d));
             }
             else
             {
             	dnaseq* d = dna.allocate();
-            	*d = asnat(0);
+				std::pair<size_t, size_t>& a = e[t.n];
+                asnat(*d, a.second-a.first);
                 r.push_back(DNARef(0, d->size(), d));
             }
         }
@@ -331,13 +334,9 @@ void replacefcn(DNAList& dna, const tvec& tpl, evec& e, size_t i)
                 }
                 else
                 {
-					dnaseq* d = dna.allocate();
                 	std::pair<size_t, size_t>& a = e[t.n];
-	            	for (size_t ix = a.first; ix < a.second; ++ix)
-	            	{
-	            		d->push_back(dna[ix]);
-	            	}
-
+					dnaseq* d = dna.allocate();
+					dna.get<dnaseq>(*d, a.first, a.second);
 	            	protect(t.l, *d);
 	                r.push_back(DNARef(0, d->size(), d));
                 }
@@ -345,11 +344,8 @@ void replacefcn(DNAList& dna, const tvec& tpl, evec& e, size_t i)
 		}
     }
         
-	dna.size();
 	dna.popfront(i);
-	dna.size();
     dna.insertfront(r);
-	dna.size();
 }
 
     
@@ -360,27 +356,30 @@ void matchreplace(DNAList& dna, const svec& pat, tvec& t)
     evec e;
     ivec c;
     size_t i = 0;
-    std::cout << "Pattern: ";
-    for (svec::const_iterator it = pat.begin(); it != pat.end(); ++it)
+	if (dna_debug)
 	{
-		std::string p = *it;
-		std::cout << p;
+		std::cout << "pattern ";
+		for (svec::const_iterator it = pat.begin(); it != pat.end(); ++it)
+		{
+			std::string p = *it;
+			std::cout << p;
+		}
+		std::cout << std::endl;
+		std::cout << "template ";
+		for (tvec::const_iterator it = t.begin(); it != t.end() && it != t.begin()+10; ++it)
+		{
+			tmpl tt = *it;
+			if (tt.n == -1 && tt.l == -1)
+			{
+				std::cout << tt.s;
+			}
+			else
+			{
+				std::cout << "(" << tt.l << "," << tt.n << ")";
+			}
+		}	
+		std::cout << "..." << std::endl;
 	}
-	std::cout << std::endl;
-    std::cout << "Template: ";
-    for (tvec::const_iterator it = t.begin(); it != t.end(); ++it)
-	{
-		tmpl tt = *it;
-		if (tt.n == -1 && tt.l == -1)
-		{
-			std::cout << tt.s;
-		}
-		else
-		{
-			std::cout << "(" << tt.l << "," << tt.n << ")";
-		}
-	}	
-	std::cout << std::endl;
     for (svec::const_iterator it = pat.begin(); it != pat.end(); ++it)
 	{
 		std::string p = *it;
@@ -414,12 +413,15 @@ void matchreplace(DNAList& dna, const svec& pat, tvec& t)
 		}
         else if (p[0] == ')')
 		{
-//			std::cout << "e[" << e.size() << "] ";
-//			for (size_t ix = c.back(); ix < std::min(c.back()+10, i) ; ++ix)
-//			{
-//				std::cout << dna[ix];
-//			}
-//			 std::cout << std::endl;
+			if (dna_debug)
+			{
+				std::cout << "e[" << e.size() << "] ";
+				for (size_t ix = c.back(); ix < std::min(c.back()+10, i) ; ++ix)
+				{
+					std::cout << dna[ix];
+				}
+				std::cout << "... (" << i - c.back() << " bases)" << std::endl;
+			}
             e.push_back(std::make_pair(c.back(), i));
 			c.pop_back();
 		}
@@ -441,11 +443,29 @@ void matchreplace(DNAList& dna, const svec& pat, tvec& t)
 }
     
   
-
+void progress(DNAList& dna, svec& rna, unsigned int n)
+{
+	if (n % dna_skip == 0)
+	{
+		std::cout << "iteration " << n << std::endl;
+		size_t sz = dna.size();
+		std::cout << "dna = ";
+		for (size_t i = 0; i < std::min(10u, sz); ++i)
+		{
+			std::cout << dna[i];
+		}
+		std::cout << "... (" << sz << " bases)" << std::endl;
+		std::cout << "len(rna) == " << rna.size() << std::endl;
+	}
+}
     
-void execute(DNAList& dna, svec& rna, bool progress = false)
+void execute(DNAList& dna, svec& rna, bool prog = false)
 {
     unsigned int n = 0;
+	if (prog)
+	{
+		progress(dna, rna, n);
+	}
     for (;;)
 	{
         ++n;
@@ -456,18 +476,17 @@ void execute(DNAList& dna, svec& rna, bool progress = false)
 			patternfcn(dna, rna, p);
 			templatefcn(dna, rna, t);
 			matchreplace(dna, p, t);
-			if (progress)
+			if (prog)
 			{
-				std::cout << "Iterations: " << n << " DNA remaining: " << dna.size() << " RNA commands: " << rna.size() << std::endl;
-				for (size_t i = 0; i < 10; ++i)
-				{
-					std::cout << dna[i];
-				}
-				std::cout << std::endl;
+				progress(dna, rna, n);
 			}
 		}
 		catch(...)
 		{
+			if (prog)
+			{
+				progress(dna, rna, n);
+			}
 			std::cout << "Finished!" << std::endl;
 			break;
 		}

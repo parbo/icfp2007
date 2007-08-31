@@ -81,7 +81,55 @@ public:
 	char operator[](size_t ref) const;
     void insertfront(const dnareflist& reflist);
     int find(std::string substr, size_t startpos) const;
-    std::string getstr(size_t start, size_t stop) const;
+	template <class T> 
+	void get(T& tmp, size_t rstrt, size_t rstp) const
+	{
+		size_t ix = 0;
+		for (dnareflist::const_iterator it = m_list.begin(); it != m_list.end(); ++it)
+		{
+			const DNARef& r = *it;
+			size_t lr = r.size();
+			if (ix + lr < rstrt)
+			{
+				if (ix + lr >= rstp)
+				{
+					return;
+				}
+			}
+			else
+			{
+				size_t start = 0;
+				size_t stop = 0;
+				if (ix <= rstrt)
+				{
+					start = r.getstart()+rstrt-ix;
+				}
+				else
+				{
+					start = r.getstart();
+				}
+				
+				if (ix + lr >= rstp)
+				{
+					stop = r.getstart()+rstp-ix;
+				}
+				else
+				{
+					stop = r.getstop();
+				}
+				
+				if (ix + lr >= rstp)
+				{
+					dnaseqrange rng = r.getrange(start, stop);
+					std::copy(rng.first, rng.second, std::back_inserter(tmp));
+					return;
+				}
+				dnaseqrange rng = r.getrange(start, stop);
+				std::copy(rng.first, rng.second, std::back_inserter(tmp));
+			}        	
+			ix += lr;
+		}
+	}
 
 	dnaseq* allocate();
 protected:
