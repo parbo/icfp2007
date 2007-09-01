@@ -179,7 +179,7 @@ class DNAList(object):
             return tmp
         except AttributeError: # not a slice
             r = self.list[self.getix(ref)]
-            return r[ref-ix]
+            return r[ref]
 
     def getreflistiter(self, refstart, refstop):
         ix = 0
@@ -198,11 +198,13 @@ class DNAList(object):
                     start = r.start
                 if ix + lr >= refstop:
                     stop = r.start+refstop-ix
-                    tmpreflist.append(DNARef(start, stop, r.data))
+                    if start != stop:
+                        tmpreflist.append(DNARef(start, stop, r.data))
                     return tmpreflist
                 else:
                     stop = r.stop
-                tmpreflist.append(DNARef(start, stop, r.data))
+                if start != stop:
+                    tmpreflist.append(DNARef(start, stop, r.data))
             if ix + lr >= refstop:
                 return tmpreflist
             ix += lr
@@ -245,7 +247,7 @@ class DNAList(object):
                             findix = ix
                         subpos += 1
                         if (subpos == ls):
-                            #print "Found", substr, "at:", findpos
+#                            print "Found", substr, "at:", findpos, startpos
                             return findpos
                         else:
                             c = substr[subpos]
