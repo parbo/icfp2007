@@ -102,6 +102,6 @@ typedef std::vector<tmpl> tvec;
 typedef std::vector<ptn*> pvec;
 
 void patternfcn(DNAList& dna, svec& rna, pvec& p);
-void execute(DNAList& dna, svec& rna, bool progress = false, int iterations = -1);
+unsigned int execute(DNAList& dna, svec& rna, bool progress = false, int iterations = -1);
 
 #endif /*DNA2RNA_HPP_*/

@@ -32,31 +32,36 @@ void DNAList::clear()
 
 void DNAList::release()
 {
-	for (dnareflist::iterator it = m_list.begin(); it != m_list.end(); ++it)
 	{
-		delete *it;
+		dnareflist::const_iterator it = m_list.begin();
+		dnareflist::const_iterator end = m_list.end();
+		for (; it != end; ++it)
+		{
+			delete *it;
+		}
+		m_list.clear();
 	}
-    m_list.clear();
-	for (std::vector<dnaseq*>::iterator it = m_allocated.begin(); it != m_allocated.end(); ++it)
 	{
-		delete *it;
+		std::vector<dnaseq*>::iterator it = m_allocated.begin();
+		std::vector<dnaseq*>::iterator end = m_allocated.end();
+		for (; it != end; ++it)
+		{
+			delete *it;
+		}
+		m_allocated.clear();
 	}
-	m_allocated.clear();
 }
 
 size_t DNAList::size() const
 {
     size_t len = 0;
-//	std::cout << "Size: (" << std::endl;
 	dnareflist::const_iterator it = m_list.begin();
 	dnareflist::const_iterator end = m_list.end();
     for (; it != end; ++it)
     {
 		size_t sz = (*it)->size();
-		//	std::cout << "  " << sz << std::endl;
         len += sz;
     }
-//	std::cout << ")" << std::endl;
     return len;
 }
 
@@ -70,12 +75,7 @@ void DNAList::flatten()
     for (; it != end; ++it)
     {
         dnaseqrange r = (*it)->get();
-//		data->insert(data->end(), r.first, r.second);
         std::copy(r.first, r.second, std::back_inserter(*data));
-//		for (dnaseq::const_iterator it = r.first; it != r.second; ++it)
-//		{
-//			data->push_back(*it);
-//		}
     }
 	release();
 	m_allocated.push_back(data);

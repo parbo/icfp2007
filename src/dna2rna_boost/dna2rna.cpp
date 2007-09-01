@@ -273,7 +273,9 @@ void replacefcn(DNAList& dna, const tvec& tpl, evec& e, size_t i)
 {
     dnareflist r;
 	dnaseq* d = 0;
-    for (tvec::const_iterator it = tpl.begin(); it != tpl.end(); ++it)
+	tvec::const_iterator it = tpl.begin();
+	tvec::const_iterator end = tpl.end();
+    for (; it != end; ++it)
     {
     	const tmpl& t =*it; 
     	if (t.c != 0)
@@ -362,29 +364,39 @@ void matchreplace(DNAList& dna, const pvec& pat, tvec& t)
     size_t i = 0;
 	if (dna_debug)
 	{
-		std::cout << "pattern ";
-		for (pvec::const_iterator it = pat.begin(); it != pat.end(); ++it)
 		{
-			ptn* p = *it;
-			std::cout << *p;
-		}
-		std::cout << std::endl;
-		std::cout << "template ";
-		for (tvec::const_iterator it = t.begin(); it != t.end() && it != t.begin()+10; ++it)
-		{
-			tmpl tt = *it;
-			if (tt.n == -1 && tt.l == -1)
+			std::cout << "pattern ";
+			pvec::const_iterator it = pat.begin();
+			pvec::const_iterator end = pat.end();
+			for (; it != end; ++it)
 			{
-				std::cout << tt.c;
+				ptn* p = *it;
+				std::cout << *p;
 			}
-			else
+			std::cout << std::endl;
+		}
+		{
+			std::cout << "template ";
+			tvec::const_iterator it = t.begin();
+			tvec::const_iterator end = t.end();
+			for (; it != end; ++it)
 			{
-				std::cout << "(" << tt.l << "," << tt.n << ")";
+				tmpl tt = *it;
+				if (tt.n == -1 && tt.l == -1)
+				{
+					std::cout << tt.c;
+				}
+				else
+				{
+					std::cout << "(" << tt.l << "," << tt.n << ")";
+				}
 			}
 		}	
 		std::cout << "..." << std::endl;
 	}
-    for (pvec::const_iterator it = pat.begin(); it != pat.end(); ++it)
+	pvec::const_iterator it = pat.begin();
+	pvec::const_iterator end = pat.end();
+	for (; it != end; ++it)
 	{
 		ptn* p = *it;
         if (p->t == ptn::SKIP)
@@ -462,7 +474,7 @@ void progress(DNAList& dna, svec& rna, unsigned int n)
 	}
 }
     
-void execute(DNAList& dna, svec& rna, bool prog, int iterations)
+unsigned int execute(DNAList& dna, svec& rna, bool prog, int iterations)
 {
     unsigned int n = 0;
 	if (prog)
@@ -508,5 +520,6 @@ void execute(DNAList& dna, svec& rna, bool prog, int iterations)
 			break;
 		}
 	}
+	return n;
 }
 

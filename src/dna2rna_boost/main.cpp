@@ -16,26 +16,33 @@ int main(int argc, char* argv[])
     if (argc > 3)
     {
     	std::cout << "Loading prefix" << std::endl;
+		time_t before = time(0);
 		std::ifstream f(argv[3], std::ios::in|std::ios::binary);
 		std::copy(std::istream_iterator<char>(f), std::istream_iterator<char>(), std::back_inserter(*d));
+		time_t after = time(0);
+		std::cout << "Finished in: " << after-before << " seconds" << std::endl;
     }
     if (argc > 2)
     {
     	std::cout << "Loading dna" << std::endl;
+		time_t before = time(0);
 		std::ifstream f(argv[1], std::ios::in|std::ios::binary);
 		std::copy(std::istream_iterator<char>(f), std::istream_iterator<char>(), std::back_inserter(*d));
-        svec rna;
+		time_t after = time(0);
+		std::cout << "Finished in: " << after-before << " seconds" << std::endl;
     	std::cout << "Total size: " << d->size() << std::endl;        
 		dnareflist rl;
 		rl.push_back(new DNARef(0, d->size(), d));
         dna.insertfront(rl);
-		time_t before = time(0);
     	std::cout << "Executing..." << std::endl;
 		dna_debug = false;
-		dna_skip = 10000;
-        execute(dna, rna, true);
-		time_t after = time(0);
-		std::cout << "Finished in: " << after-before << " seconds" << std::endl;
+		dna_skip = 100000;
+        svec rna;
+		before = time(0);
+        unsigned int tot = execute(dna, rna, true);
+		after = time(0);
+		time_t diff = after-before;
+		std::cout << "Finished in: " << diff << " seconds" << " (" << tot << " iterations @ " << (double)tot/(double)diff << " iterations/s)" << std::endl;
 	}        
     else
 	{
