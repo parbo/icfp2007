@@ -53,7 +53,7 @@ int main(int argc, char* argv[])
 				dnareflist rl;
 				rl.push_back(new DNARef(0, d->size(), d));
 	            dna.insertfront(rl);
-				svec p;
+				pvec p;
 				try
 				{
 	            	patternfcn(dna, rna, p);

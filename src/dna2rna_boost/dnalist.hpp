@@ -4,6 +4,7 @@
 #include <vector>
 #include <deque>
 #include <string>
+#include <ostream>
 
 typedef std::vector<char> dnaseq;
 typedef std::pair<dnaseq::const_iterator, dnaseq::const_iterator> dnaseqrange; 
@@ -80,7 +81,7 @@ public:
     void getreflist(dnareflist& rl, size_t start, size_t stop) const;
 	char operator[](size_t ref) const throw(int);
     void insertfront(const dnareflist& reflist);
-    int find(std::string substr, size_t startpos) const;
+    int find(const std::string& substr, size_t startpos) const;
 	template <class T> 
 	void get(T& tmp, size_t rstrt, size_t rstp) const
 	{
@@ -120,12 +121,18 @@ public:
 				
 				if (ix + lr >= rstp)
 				{
-					dnaseqrange rng = r.getrange(start, stop);
-					std::copy(rng.first, rng.second, std::back_inserter(tmp));
+					if (start != stop)
+					{
+						dnaseqrange rng = r.getrange(start, stop);
+						std::copy(rng.first, rng.second, std::back_inserter(tmp));
+					}
 					return;
 				}
-				dnaseqrange rng = r.getrange(start, stop);
-				std::copy(rng.first, rng.second, std::back_inserter(tmp));
+				if (start != stop)
+				{
+					dnaseqrange rng = r.getrange(start, stop);
+					std::copy(rng.first, rng.second, std::back_inserter(tmp));
+				}
 			}        	
 			ix += lr;
 		}

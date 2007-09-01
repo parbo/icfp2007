@@ -48,7 +48,9 @@ size_t DNAList::size() const
 {
     size_t len = 0;
 //	std::cout << "Size: (" << std::endl;
-    for (dnareflist::const_iterator it = m_list.begin(); it != m_list.end(); ++it)
+	dnareflist::const_iterator it = m_list.begin();
+	dnareflist::const_iterator end = m_list.end();
+    for (; it != end; ++it)
     {
 		size_t sz = (*it)->size();
 		//	std::cout << "  " << sz << std::endl;
@@ -63,14 +65,17 @@ void DNAList::flatten()
     size_t tsz = size();
     dnaseq* data = new dnaseq;
 	data->reserve(tsz);
-    for (dnareflist::iterator it = m_list.begin(); it != m_list.end(); ++it)
+	dnareflist::iterator it = m_list.begin();
+	dnareflist::iterator end = m_list.end();
+    for (; it != end; ++it)
     {
         dnaseqrange r = (*it)->get();
-//        std::copy(r.first, r.second, std::back_inserter(*data));
-		for (dnaseq::const_iterator it = r.first; it != r.second; ++it)
-		{
-			data->push_back(*it);
-		}
+//		data->insert(data->end(), r.first, r.second);
+        std::copy(r.first, r.second, std::back_inserter(*data));
+//		for (dnaseq::const_iterator it = r.first; it != r.second; ++it)
+//		{
+//			data->push_back(*it);
+//		}
     }
 	release();
 	m_allocated.push_back(data);
@@ -89,7 +94,9 @@ dnaseq* DNAList::allocate()
 void DNAList::popfront(size_t num)
 {
     size_t n = 0;
-    for (dnareflist::const_iterator it = m_list.begin(); it != m_list.end(); ++it)
+	dnareflist::iterator it = m_list.begin();
+	dnareflist::iterator end = m_list.end();
+    for (; it != end; ++it)
     {
         size_t sz = (*it)->size();
         if (num == sz)
@@ -125,7 +132,9 @@ void DNAList::popfront(size_t num)
 char DNAList::operator[](size_t ref) const throw(int)
 {
     size_t ix = 0;
-    for (dnareflist::const_iterator it = m_list.begin(); it != m_list.end(); ++it)
+	dnareflist::const_iterator it = m_list.begin();
+	dnareflist::const_iterator end = m_list.end();
+    for (; it != end; ++it)
     {
         size_t lr = (*it)->size();
         if (ix + lr > ref)
@@ -143,7 +152,9 @@ char DNAList::operator[](size_t ref) const throw(int)
 void DNAList::getreflist(dnareflist& rl, size_t rstrt, size_t rstp) const
 {
     size_t ix = 0;
-    for (dnareflist::const_iterator it = m_list.begin(); it != m_list.end(); ++it)
+	dnareflist::const_iterator it = m_list.begin();
+	dnareflist::const_iterator end = m_list.end();
+    for (; it != end; ++it)
     {
         const DNARef& r = **it;
         size_t lr = r.size();
@@ -167,7 +178,14 @@ void DNAList::getreflist(dnareflist& rl, size_t rstrt, size_t rstp) const
             if (ix + lr >= rstp)
             {
                 stop = r.getstart()+rstp-ix;
-				rl.push_back(new DNARef(start, stop, r.getdata()));
+				if (start != stop)
+				{
+					rl.push_back(new DNARef(start, stop, r.getdata()));
+				}
+				else
+				{
+					//std::cout << "WTF!!!!" << std::endl;
+				}
 				return;
             }
             else
@@ -175,7 +193,14 @@ void DNAList::getreflist(dnareflist& rl, size_t rstrt, size_t rstp) const
                 stop = r.getstop();
             }
 			
-			rl.push_back(new DNARef(start, stop, r.getdata()));
+			if (start != stop)
+			{
+				rl.push_back(new DNARef(start, stop, r.getdata()));
+			}
+			else
+			{
+				//std::cout << "WTF!!!!" << std::endl;
+			}
         }        	
 		if (ix + lr >= rstp)
 		{
@@ -189,13 +214,13 @@ void DNAList::insertfront(const dnareflist& reflist)
 {
 	std::copy(reflist.rbegin(), reflist.rend(), std::front_inserter(m_list));
     size_t ls = m_list.size();
-    if (ls > 1000)
+    if (ls > 350)
     {
         flatten();
     }
 }        
 
-int DNAList::find(std::string substr, size_t startpos) const
+int DNAList::find(const std::string& substr, size_t startpos) const
 {
     size_t ls = substr.size();
     if (ls == 0)
