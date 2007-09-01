@@ -65,7 +65,7 @@ protected:
 	const dnaseq* m_data;
 };
 
-typedef std::deque<DNARef> dnareflist;
+typedef std::deque<DNARef*> dnareflist;
 
 class DNAList
 {
@@ -78,7 +78,7 @@ public:
     void flatten();
     void popfront(size_t num);
     void getreflist(dnareflist& rl, size_t start, size_t stop) const;
-	char operator[](size_t ref) const;
+	char operator[](size_t ref) const throw(int);
     void insertfront(const dnareflist& reflist);
     int find(std::string substr, size_t startpos) const;
 	template <class T> 
@@ -87,7 +87,7 @@ public:
 		size_t ix = 0;
 		for (dnareflist::const_iterator it = m_list.begin(); it != m_list.end(); ++it)
 		{
-			const DNARef& r = *it;
+			const DNARef& r = **it;
 			size_t lr = r.size();
 			if (ix + lr < rstrt)
 			{

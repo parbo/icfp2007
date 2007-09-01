@@ -286,34 +286,41 @@ void protect(int l, dnaseq& d)
 void replacefcn(DNAList& dna, const tvec& tpl, evec& e, size_t i)
 {
     dnareflist r;
+	dnaseq* d = 0;
     for (tvec::const_iterator it = tpl.begin(); it != tpl.end(); ++it)
     {
     	const tmpl& t =*it; 
     	if (!t.s.empty())
     	{
             // Base
-          	dnaseq* d = dna.allocate();
+			if (d == 0)
+			{
+				d = dna.allocate();
+			}
         	for (size_t ix = 0; ix < t.s.size(); ++ix)
         	{
         		d->push_back(t.s[ix]);
         	}
-            r.push_back(DNARef(0, d->size(), d));
     	}
     	else if (t.l == -1)
         {
             // |n|
             if (t.n >= e.size())
             {
-            	dnaseq* d = dna.allocate();
+				if (d == 0)
+				{
+					d = dna.allocate();
+				}
             	asnat(*d, 0);
-                r.push_back(DNARef(0, d->size(), d));
-            }
-            else
-            {
-            	dnaseq* d = dna.allocate();
+			}
+			else
+			{
+				if (d == 0)
+				{
+					d = dna.allocate();
+				}
 				std::pair<size_t, size_t>& a = e[t.n];
                 asnat(*d, a.second-a.first);
-                r.push_back(DNARef(0, d->size(), d));
             }
         }
         else
@@ -327,6 +334,11 @@ void replacefcn(DNAList& dna, const tvec& tpl, evec& e, size_t i)
             {
                 if (t.l == 0)
                 {
+					if (d)
+					{
+						r.push_back(new DNARef(0, d->size(), d));
+						d = 0;
+					}
                 	std::pair<size_t, size_t>& a = e[t.n];
 					dnareflist rl;
 					dna.getreflist(rl, a.first, a.second);
@@ -335,15 +347,22 @@ void replacefcn(DNAList& dna, const tvec& tpl, evec& e, size_t i)
                 else
                 {
                 	std::pair<size_t, size_t>& a = e[t.n];
-					dnaseq* d = dna.allocate();
+					if (d)
+					{
+						r.push_back(new DNARef(0, d->size(), d));
+					}
+					d = dna.allocate();
 					dna.get<dnaseq>(*d, a.first, a.second);
 	            	protect(t.l, *d);
-	                r.push_back(DNARef(0, d->size(), d));
                 }
             }
 		}
     }
-        
+	if (d)
+	{
+		r.push_back(new DNARef(0, d->size(), d));
+	}
+    
 	dna.popfront(i);
     dna.insertfront(r);
 }
@@ -459,7 +478,7 @@ void progress(DNAList& dna, svec& rna, unsigned int n)
 	}
 }
     
-void execute(DNAList& dna, svec& rna, bool prog = false)
+void execute(DNAList& dna, svec& rna, bool prog, int iterations)
 {
     unsigned int n = 0;
 	if (prog)
@@ -480,8 +499,12 @@ void execute(DNAList& dna, svec& rna, bool prog = false)
 			{
 				progress(dna, rna, n);
 			}
+			if (iterations == n)
+			{
+				break;
+			}
 		}
-		catch(...)
+		catch(int)
 		{
 			if (prog)
 			{

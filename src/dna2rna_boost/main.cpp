@@ -27,12 +27,12 @@ int main(int argc, char* argv[])
         svec rna;
     	std::cout << "Total size: " << d->size() << std::endl;        
 		dnareflist rl;
-		rl.push_back(DNARef(0, d->size(), d));
+		rl.push_back(new DNARef(0, d->size(), d));
         dna.insertfront(rl);
 		time_t before = time(0);
     	std::cout << "Executing..." << std::endl;
 		dna_debug = false;
-		dna_skip = 1000;
+		dna_skip = 10000;
         execute(dna, rna, true);
 		time_t after = time(0);
 		std::cout << "Finished in: " << after-before << " seconds" << std::endl;
@@ -51,14 +51,14 @@ int main(int argc, char* argv[])
 				dnaseq* d = dna.allocate();
 				str2dnaseq(sv[i], *d);
 				dnareflist rl;
-				rl.push_back(DNARef(0, d->size(), d));
+				rl.push_back(new DNARef(0, d->size(), d));
 	            dna.insertfront(rl);
 				svec p;
 				try
 				{
 	            	patternfcn(dna, rna, p);
 				}
-				catch (...)
+				catch (int e)
 				{
 					std::cout << "Finished" << std::endl;
 				}
