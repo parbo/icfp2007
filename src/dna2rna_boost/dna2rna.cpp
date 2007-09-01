@@ -227,10 +227,10 @@ void asnat(dnaseq& d, int n)
 }
 
 
-void quote(dnaseq& d)
+dnaseq quote(const dnaseq& d)
 {
 	dnaseq nd;
-	dnaseq::iterator it = d.begin();
+	dnaseq::const_iterator it = d.begin();
     while (it != d.end())
 	{
         if (*it == 'I')
@@ -253,8 +253,7 @@ void quote(dnaseq& d)
 		}
 		++it;
 	}
-	d.clear();
-	std::copy(nd.begin(), nd.end(), std::back_inserter(d));
+	return nd;
 }
 
 
@@ -264,7 +263,7 @@ void protect(int l, dnaseq& d)
 	{
 		while (l > 0)
 		{
-			quote(d);
+			d = quote(d);
 			l -= 1;
 		}
 	}
@@ -335,9 +334,11 @@ void replacefcn(DNAList& dna, const tvec& tpl, evec& e, size_t i)
 					{
 						r.push_back(new DNARef(0, d->size(), d));
 					}
+					dnaseq tmp;
+					dna.get<dnaseq>(tmp, a.first, a.second);
+	            	protect(t.l, tmp);
 					d = dna.allocate();
-					dna.get<dnaseq>(*d, a.first, a.second);
-	            	protect(t.l, *d);
+					std::copy(tmp.begin(), tmp.end(), std::back_inserter(*d));
                 }
             }
 		}
