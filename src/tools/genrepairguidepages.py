@@ -18,7 +18,7 @@ if __name__=="__main__":
     if not os.path.exists(pdir):
         os.mkdir(pdir)
 
-    for i in range(int(sys.argv[1])):
+    for i in range(int(sys.argv[1]), int(sys.argv[2])):
         f = open(pdir + os.path.sep + "repairguide_%04d.dna"%i, "w")
         f.write(pre)
         num = integer(i)

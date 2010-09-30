@@ -2,6 +2,8 @@
 #include <algorithm>
 #include <iostream>
 
+// Some comment
+
 void str2dnaseq(std::string s, dnaseq& v)
 {
     for (size_t i = 0; i < s.size(); ++i)

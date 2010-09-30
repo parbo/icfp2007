@@ -9,7 +9,7 @@ PUSHEND   = "IIC"
 POPPAT = patterngen.pattern("(?IFPICFPPCFIPP(?IC))") # find stack, match number
 POPTPL = patterngen.template("(0,0)") # pop number
 
-ENDPAT = patterngen.pattern("(!7523060)") 
+ENDPAT = patterngen.pattern("(?IFPICFPPCIFP)") 
 ENDTPL = patterngen.template("")
 
 genes = {
@@ -219,7 +219,7 @@ genes = {
 "functionAdd" : (0x434308,   0x14e4),
 "functionParabola" : (0x5a7b2b,    0xa0d),
 "functionSine" : (0x1ae39b,    0xcc3),
-"fuundoc1" : (0x3d67ae,  0x129b8),
+"Fuundoc1" : (0x3d67ae,  0x129b8),
 "fuundoc2" : (0x2279f2,  0x12063),
 "fuundoc3" : (0x40ee09,   0xbccc),
 "ge" : (0x35cf17,   0x47d2),
@@ -424,7 +424,7 @@ def integer(i, fill=0):
         ibin.extend((fill-1-len(ibin))*['C'])
     ibin.extend(['I', 'C'])
     ret = ''.join(ibin)
-    print "integer", i, ret, len(ret)
+   # print "integer", i, ret, len(ret)
     return ret
 
 def boolean(b):
@@ -451,38 +451,52 @@ def activatename(name):
     return activate(offset, len)    
 
 if __name__=="__main__":
-    print activate(1234, 500)
-    print
-    print push(42)
-    print
-    print push(False)
-    print
-    print activate(1234, 500)
-    print
-    print "Example:", push(42) + push(False) + activate(1234, 500)
-    print
-    print activatename("M_class_planet")
-    print
-    print "terminate", activatename("terminate")
-    print
-    print "printCharSet", activatename("printCharSet")
-    print
-    print "contest_2006", activatename("contest_2006") + activatename("terminate")
-    print
-    print "Gene page 2", push(2) + activatename("AAA_geneTablePageNr")
-    print
-    print "Beautiful numbers", activatename("help_beautiful_numbers") #+activatename("terminate")
-    print
-    print "help_error_correcting_codes_purchase_code", activatename("help_error_correcting_codes_purchase_code")+activatename("terminate")
-    print
-    print "hitWithTheClueStick", activatename("hitWithTheClueStick")+pop()+activatename("terminate")
-    print
-    print activatename("crackKeyAndPrint")
-    print
-    print activatename("clouds") + activatename("compose_adaptation") + activatename("sun") + activatename("compose_adaptation")
-    print
-    print activatename("clouds") + activatename("compose_adaptation")
-    print
-    print activatename("clouds")
-    
-    
+    import sys
+    if len(sys.argv) > 1:
+        fname = sys.argv[1]
+        f = open(fname+".dna", "w")
+        f.write(activatename(fname)+ENDPAT+ENDTPL)
+        f.close()
+        pass
+    else:
+        print activate(1234, 500)
+        print
+        print push(42)
+        print
+        print push(False)
+        print
+        print activate(1234, 500)
+        print
+        print "Example:", push(42) + push(False) + activate(1234, 500)
+        print
+        print activatename("M_class_planet")
+        print
+        print "terminate", activatename("terminate")
+        print
+        print "printCharSet", activatename("printCharSet")
+        print
+        print "contest_2006", activatename("contest_2006") + activatename("terminate")
+        print "contest_1998", activatename("contest_1998")
+        print
+        print "impdoc1", activatename("impdoc1")
+        print
+        print "impdoc2", activatename("impdoc2") + ENDPAT + ENDTPL
+        print
+        print "impdoc3", activatename("impdoc3") + ENDPAT + ENDTPL
+        print
+        print "impdoc4", activatename("impdoc4") + ENDPAT + ENDTPL
+        print
+        print "impdoc5", activatename("impdoc5") + ENDPAT + ENDTPL
+        print
+        print "impdoc6", activatename("impdoc6") + ENDPAT + ENDTPL
+        print
+        print "impdoc7", activatename("impdoc7") + ENDPAT + ENDTPL
+        print
+        print "impdoc8", activatename("impdoc8") + ENDPAT + ENDTPL
+        print
+        print "impdoc9", activatename("impdoc9") + ENDPAT + ENDTPL
+        print
+        print "impdoc10", activatename("impdoc10") + ENDPAT + ENDTPL
+        print
+        print "printGeneTable False", activatename("init")+push(False)+activatename("printGeneTable")+activatename("terminate")
+        print "printGeneTable True", push(True), activatename("printGeneTable")
